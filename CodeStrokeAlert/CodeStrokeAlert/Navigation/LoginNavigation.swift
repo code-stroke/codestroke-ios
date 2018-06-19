@@ -17,7 +17,11 @@ class LoginNavigation: UINavigationController {
         
         // Do any additional setup after loading the view.
         
-        self.navigationBar.prefersLargeTitles = true
+        if #available(iOS 11.0, *) {
+            self.navigationBar.prefersLargeTitles = true
+        } else {
+            // Fallback on earlier versions
+        }
         
         let navFrames = self.navigationBar.frame
         

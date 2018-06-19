@@ -44,6 +44,13 @@
 		44C348EF20D8AE8C0078F6F3 /* DesignableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348E720D8AE8C0078F6F3 /* DesignableLabel.swift */; };
 		44C348F020D8AE8C0078F6F3 /* LabelDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348E820D8AE8C0078F6F3 /* LabelDesign.swift */; };
 		44C348F220D8BB1E0078F6F3 /* PatientDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348F120D8BB1E0078F6F3 /* PatientDetailVC.swift */; };
+		44C348F620D8CFCE0078F6F3 /* DestinationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348F520D8CFCE0078F6F3 /* DestinationVC.swift */; };
+		44C348F820D8E2620078F6F3 /* ClinicalHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348F720D8E2620078F6F3 /* ClinicalHistoryVC.swift */; };
+		44C348FA20D8F0330078F6F3 /* ClinicalAssessmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348F920D8F0330078F6F3 /* ClinicalAssessmentVC.swift */; };
+		44C348FD20D8FFCA0078F6F3 /* ClinicalAssessmentThreeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348FB20D8FFCA0078F6F3 /* ClinicalAssessmentThreeVC.swift */; };
+		44C348FE20D8FFCA0078F6F3 /* ClinicalAssessmentTwoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348FC20D8FFCA0078F6F3 /* ClinicalAssessmentTwoVC.swift */; };
+		44C3490020D92F980078F6F3 /* ClinicalAssessmentFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348FF20D92F980078F6F3 /* ClinicalAssessmentFour.swift */; };
+		44C3490220D932620078F6F3 /* ProfileSummeryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3490120D932620078F6F3 /* ProfileSummeryVC.swift */; };
 		D10B435348B1691DEE328D8E /* Pods_CodeStrokeAlert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E5E9FC369859667F512BBA /* Pods_CodeStrokeAlert.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +95,13 @@
 		44C348E720D8AE8C0078F6F3 /* DesignableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableLabel.swift; sourceTree = "<group>"; };
 		44C348E820D8AE8C0078F6F3 /* LabelDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelDesign.swift; sourceTree = "<group>"; };
 		44C348F120D8BB1E0078F6F3 /* PatientDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDetailVC.swift; sourceTree = "<group>"; };
+		44C348F520D8CFCE0078F6F3 /* DestinationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationVC.swift; sourceTree = "<group>"; };
+		44C348F720D8E2620078F6F3 /* ClinicalHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalHistoryVC.swift; sourceTree = "<group>"; };
+		44C348F920D8F0330078F6F3 /* ClinicalAssessmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalAssessmentVC.swift; sourceTree = "<group>"; };
+		44C348FB20D8FFCA0078F6F3 /* ClinicalAssessmentThreeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClinicalAssessmentThreeVC.swift; sourceTree = "<group>"; };
+		44C348FC20D8FFCA0078F6F3 /* ClinicalAssessmentTwoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClinicalAssessmentTwoVC.swift; sourceTree = "<group>"; };
+		44C348FF20D92F980078F6F3 /* ClinicalAssessmentFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClinicalAssessmentFour.swift; sourceTree = "<group>"; };
+		44C3490120D932620078F6F3 /* ProfileSummeryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummeryVC.swift; sourceTree = "<group>"; };
 		7548FE44F8A80D91F9401B97 /* Pods-CodeStrokeAlert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStrokeAlert.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodeStrokeAlert/Pods-CodeStrokeAlert.release.xcconfig"; sourceTree = "<group>"; };
 		DA8B0F4C4B93A4EFC415889F /* Pods-CodeStrokeAlert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStrokeAlert.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeStrokeAlert/Pods-CodeStrokeAlert.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,6 +192,13 @@
 			children = (
 				44C348BD20D7B5400078F6F3 /* LoginWithQR.swift */,
 				44C348F120D8BB1E0078F6F3 /* PatientDetailVC.swift */,
+				44C348F520D8CFCE0078F6F3 /* DestinationVC.swift */,
+				44C348F720D8E2620078F6F3 /* ClinicalHistoryVC.swift */,
+				44C348F920D8F0330078F6F3 /* ClinicalAssessmentVC.swift */,
+				44C348FC20D8FFCA0078F6F3 /* ClinicalAssessmentTwoVC.swift */,
+				44C348FB20D8FFCA0078F6F3 /* ClinicalAssessmentThreeVC.swift */,
+				44C348FF20D92F980078F6F3 /* ClinicalAssessmentFour.swift */,
+				44C3490120D932620078F6F3 /* ProfileSummeryVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -396,17 +417,24 @@
 			files = (
 				44C348BE20D7B5400078F6F3 /* LoginWithQR.swift in Sources */,
 				44C348D520D8ADAC0078F6F3 /* DesignableTextField.swift in Sources */,
+				44C348FA20D8F0330078F6F3 /* ClinicalAssessmentVC.swift in Sources */,
 				44C348DA20D8ADAC0078F6F3 /* LetsReach.swift in Sources */,
+				44C348F620D8CFCE0078F6F3 /* DestinationVC.swift in Sources */,
+				44C348F820D8E2620078F6F3 /* ClinicalHistoryVC.swift in Sources */,
 				44C348EB20D8AE8C0078F6F3 /* DesignableTextView.swift in Sources */,
+				44C3490220D932620078F6F3 /* ProfileSummeryVC.swift in Sources */,
 				44C348D920D8ADAC0078F6F3 /* Constans.swift in Sources */,
 				44C348DB20D8ADAC0078F6F3 /* String+Extension.swift in Sources */,
 				44430EC420D62D890094B2CB /* CodeStrokeAlert.xcdatamodeld in Sources */,
 				44C348DD20D8ADAC0078F6F3 /* NSDate+Extension.swift in Sources */,
+				44C348FE20D8FFCA0078F6F3 /* ClinicalAssessmentTwoVC.swift in Sources */,
+				44C3490020D92F980078F6F3 /* ClinicalAssessmentFour.swift in Sources */,
 				44C348EC20D8AE8C0078F6F3 /* ViewDesign.swift in Sources */,
 				44C348F220D8BB1E0078F6F3 /* PatientDetailVC.swift in Sources */,
 				44C348D720D8ADAC0078F6F3 /* DesignableButton.swift in Sources */,
 				44C348EF20D8AE8C0078F6F3 /* DesignableLabel.swift in Sources */,
 				44C348E920D8AE8C0078F6F3 /* ImageViewDesign.swift in Sources */,
+				44C348FD20D8FFCA0078F6F3 /* ClinicalAssessmentThreeVC.swift in Sources */,
 				44C348D620D8ADAC0078F6F3 /* ButtonDesign.swift in Sources */,
 				44C348C420D8A92D0078F6F3 /* DashboardNavigation.swift in Sources */,
 				44C348F020D8AE8C0078F6F3 /* LabelDesign.swift in Sources */,
@@ -562,14 +590,18 @@
 			baseConfigurationReference = DA8B0F4C4B93A4EFC415889F /* Pods-CodeStrokeAlert.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 5ZBB4A842J;
 				INFOPLIST_FILE = CodeStrokeAlert/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tehran.CodeStrokeAlert;
+				PRODUCT_BUNDLE_IDENTIFIER = com.activefundinggroup.afgapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "be57e37b-835a-43ec-ae60-df4c549f54cf";
+				PROVISIONING_PROFILE_SPECIFIER = AFG_Development;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -580,14 +612,18 @@
 			baseConfigurationReference = 7548FE44F8A80D91F9401B97 /* Pods-CodeStrokeAlert.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 5ZBB4A842J;
 				INFOPLIST_FILE = CodeStrokeAlert/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tehran.CodeStrokeAlert;
+				PRODUCT_BUNDLE_IDENTIFIER = com.activefundinggroup.afgapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "be57e37b-835a-43ec-ae60-df4c549f54cf";
+				PROVISIONING_PROFILE_SPECIFIER = AFG_Development;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
