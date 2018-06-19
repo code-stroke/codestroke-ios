@@ -8,22 +8,88 @@
 
 /* Begin PBXBuildFile section */
 		44430EBC20D62D890094B2CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44430EBB20D62D890094B2CB /* AppDelegate.swift */; };
-		44430EBE20D62D890094B2CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44430EBD20D62D890094B2CB /* ViewController.swift */; };
 		44430EC120D62D890094B2CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44430EBF20D62D890094B2CB /* Main.storyboard */; };
 		44430EC420D62D890094B2CB /* CodeStrokeAlert.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44430EC220D62D890094B2CB /* CodeStrokeAlert.xcdatamodeld */; };
 		44430EC620D62D8A0094B2CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44430EC520D62D8A0094B2CB /* Assets.xcassets */; };
 		44430EC920D62D8A0094B2CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44430EC720D62D8A0094B2CB /* LaunchScreen.storyboard */; };
+		44C348B320D7ADDA0078F6F3 /* SFUIDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 44C348AA20D7ADDA0078F6F3 /* SFUIDisplay-Regular.otf */; };
+		44C348B420D7ADDA0078F6F3 /* sf-ui-display-heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 44C348AB20D7ADDA0078F6F3 /* sf-ui-display-heavy.otf */; };
+		44C348B520D7ADDA0078F6F3 /* sf-ui-display-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 44C348AC20D7ADDA0078F6F3 /* sf-ui-display-black.otf */; };
+		44C348B620D7ADDA0078F6F3 /* sf-ui-display-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 44C348AD20D7ADDA0078F6F3 /* sf-ui-display-bold.otf */; };
+		44C348B720D7ADDA0078F6F3 /* sf-ui-display-ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 44C348AE20D7ADDA0078F6F3 /* sf-ui-display-ultralight.otf */; };
+		44C348B820D7ADDA0078F6F3 /* sf-ui-display-medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 44C348AF20D7ADDA0078F6F3 /* sf-ui-display-medium.otf */; };
+		44C348B920D7ADDA0078F6F3 /* sf-ui-display-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 44C348B020D7ADDA0078F6F3 /* sf-ui-display-light.otf */; };
+		44C348BA20D7ADDA0078F6F3 /* sf-ui-display-semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 44C348B120D7ADDA0078F6F3 /* sf-ui-display-semibold.otf */; };
+		44C348BB20D7ADDA0078F6F3 /* sf-ui-display-thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 44C348B220D7ADDA0078F6F3 /* sf-ui-display-thin.otf */; };
+		44C348BE20D7B5400078F6F3 /* LoginWithQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348BD20D7B5400078F6F3 /* LoginWithQR.swift */; };
+		44C348C020D7B5D30078F6F3 /* LoginNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348BF20D7B5D30078F6F3 /* LoginNavigation.swift */; };
+		44C348C220D8A8EA0078F6F3 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44C348C120D8A8EA0078F6F3 /* Dashboard.storyboard */; };
+		44C348C420D8A92D0078F6F3 /* DashboardNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348C320D8A92D0078F6F3 /* DashboardNavigation.swift */; };
+		44C348D520D8ADAC0078F6F3 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348CA20D8ADAC0078F6F3 /* DesignableTextField.swift */; };
+		44C348D620D8ADAC0078F6F3 /* ButtonDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348CB20D8ADAC0078F6F3 /* ButtonDesign.swift */; };
+		44C348D720D8ADAC0078F6F3 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348CC20D8ADAC0078F6F3 /* DesignableButton.swift */; };
+		44C348D820D8ADAC0078F6F3 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348CD20D8ADAC0078F6F3 /* DesignableView.swift */; };
+		44C348D920D8ADAC0078F6F3 /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348CF20D8ADAC0078F6F3 /* Constans.swift */; };
+		44C348DA20D8ADAC0078F6F3 /* LetsReach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348D120D8ADAC0078F6F3 /* LetsReach.swift */; };
+		44C348DB20D8ADAC0078F6F3 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348D220D8ADAC0078F6F3 /* String+Extension.swift */; };
+		44C348DC20D8ADAC0078F6F3 /* ValidationFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348D320D8ADAC0078F6F3 /* ValidationFile.swift */; };
+		44C348DD20D8ADAC0078F6F3 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348D420D8ADAC0078F6F3 /* NSDate+Extension.swift */; };
+		44C348E020D8ADD90078F6F3 /* HRToast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348DF20D8ADD90078F6F3 /* HRToast+UIView.swift */; };
+		44C348E920D8AE8C0078F6F3 /* ImageViewDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348E120D8AE8B0078F6F3 /* ImageViewDesign.swift */; };
+		44C348EA20D8AE8C0078F6F3 /* TextViewDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348E220D8AE8B0078F6F3 /* TextViewDesign.swift */; };
+		44C348EB20D8AE8C0078F6F3 /* DesignableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348E320D8AE8B0078F6F3 /* DesignableTextView.swift */; };
+		44C348EC20D8AE8C0078F6F3 /* ViewDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348E420D8AE8B0078F6F3 /* ViewDesign.swift */; };
+		44C348ED20D8AE8C0078F6F3 /* TextFieldDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348E520D8AE8B0078F6F3 /* TextFieldDesign.swift */; };
+		44C348EE20D8AE8C0078F6F3 /* DesignableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348E620D8AE8C0078F6F3 /* DesignableImageView.swift */; };
+		44C348EF20D8AE8C0078F6F3 /* DesignableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348E720D8AE8C0078F6F3 /* DesignableLabel.swift */; };
+		44C348F020D8AE8C0078F6F3 /* LabelDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348E820D8AE8C0078F6F3 /* LabelDesign.swift */; };
+		44C348F220D8BB1E0078F6F3 /* PatientDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348F120D8BB1E0078F6F3 /* PatientDetailVC.swift */; };
+		D10B435348B1691DEE328D8E /* Pods_CodeStrokeAlert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E5E9FC369859667F512BBA /* Pods_CodeStrokeAlert.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17E5E9FC369859667F512BBA /* Pods_CodeStrokeAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeStrokeAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44430EB820D62D890094B2CB /* CodeStrokeAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeStrokeAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44430EBB20D62D890094B2CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		44430EBD20D62D890094B2CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		44430EC020D62D890094B2CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44430EC320D62D890094B2CB /* CodeStrokeAlert.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CodeStrokeAlert.xcdatamodel; sourceTree = "<group>"; };
 		44430EC520D62D8A0094B2CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44430EC820D62D8A0094B2CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44430ECA20D62D8A0094B2CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44C348AA20D7ADDA0078F6F3 /* SFUIDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Regular.otf"; sourceTree = "<group>"; };
+		44C348AB20D7ADDA0078F6F3 /* sf-ui-display-heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-display-heavy.otf"; sourceTree = "<group>"; };
+		44C348AC20D7ADDA0078F6F3 /* sf-ui-display-black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-display-black.otf"; sourceTree = "<group>"; };
+		44C348AD20D7ADDA0078F6F3 /* sf-ui-display-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-display-bold.otf"; sourceTree = "<group>"; };
+		44C348AE20D7ADDA0078F6F3 /* sf-ui-display-ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-display-ultralight.otf"; sourceTree = "<group>"; };
+		44C348AF20D7ADDA0078F6F3 /* sf-ui-display-medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-display-medium.otf"; sourceTree = "<group>"; };
+		44C348B020D7ADDA0078F6F3 /* sf-ui-display-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-display-light.otf"; sourceTree = "<group>"; };
+		44C348B120D7ADDA0078F6F3 /* sf-ui-display-semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-display-semibold.otf"; sourceTree = "<group>"; };
+		44C348B220D7ADDA0078F6F3 /* sf-ui-display-thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-display-thin.otf"; sourceTree = "<group>"; };
+		44C348BD20D7B5400078F6F3 /* LoginWithQR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithQR.swift; sourceTree = "<group>"; };
+		44C348BF20D7B5D30078F6F3 /* LoginNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigation.swift; sourceTree = "<group>"; };
+		44C348C120D8A8EA0078F6F3 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		44C348C320D8A92D0078F6F3 /* DashboardNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardNavigation.swift; sourceTree = "<group>"; };
+		44C348CA20D8ADAC0078F6F3 /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
+		44C348CB20D8ADAC0078F6F3 /* ButtonDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonDesign.swift; sourceTree = "<group>"; };
+		44C348CC20D8ADAC0078F6F3 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
+		44C348CD20D8ADAC0078F6F3 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		44C348CF20D8ADAC0078F6F3 /* Constans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
+		44C348D120D8ADAC0078F6F3 /* LetsReach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetsReach.swift; sourceTree = "<group>"; };
+		44C348D220D8ADAC0078F6F3 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		44C348D320D8ADAC0078F6F3 /* ValidationFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationFile.swift; sourceTree = "<group>"; };
+		44C348D420D8ADAC0078F6F3 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
+		44C348DF20D8ADD90078F6F3 /* HRToast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HRToast+UIView.swift"; sourceTree = "<group>"; };
+		44C348E120D8AE8B0078F6F3 /* ImageViewDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewDesign.swift; sourceTree = "<group>"; };
+		44C348E220D8AE8B0078F6F3 /* TextViewDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewDesign.swift; sourceTree = "<group>"; };
+		44C348E320D8AE8B0078F6F3 /* DesignableTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextView.swift; sourceTree = "<group>"; };
+		44C348E420D8AE8B0078F6F3 /* ViewDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDesign.swift; sourceTree = "<group>"; };
+		44C348E520D8AE8B0078F6F3 /* TextFieldDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDesign.swift; sourceTree = "<group>"; };
+		44C348E620D8AE8C0078F6F3 /* DesignableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImageView.swift; sourceTree = "<group>"; };
+		44C348E720D8AE8C0078F6F3 /* DesignableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableLabel.swift; sourceTree = "<group>"; };
+		44C348E820D8AE8C0078F6F3 /* LabelDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelDesign.swift; sourceTree = "<group>"; };
+		44C348F120D8BB1E0078F6F3 /* PatientDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDetailVC.swift; sourceTree = "<group>"; };
+		7548FE44F8A80D91F9401B97 /* Pods-CodeStrokeAlert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStrokeAlert.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodeStrokeAlert/Pods-CodeStrokeAlert.release.xcconfig"; sourceTree = "<group>"; };
+		DA8B0F4C4B93A4EFC415889F /* Pods-CodeStrokeAlert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStrokeAlert.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeStrokeAlert/Pods-CodeStrokeAlert.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D10B435348B1691DEE328D8E /* Pods_CodeStrokeAlert.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +109,8 @@
 			children = (
 				44430EBA20D62D890094B2CB /* CodeStrokeAlert */,
 				44430EB920D62D890094B2CB /* Products */,
+				7F6774DAF1DE3FC262F871D1 /* Pods */,
+				A9AF61A5CC6A8E675498D271 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,8 +125,12 @@
 		44430EBA20D62D890094B2CB /* CodeStrokeAlert */ = {
 			isa = PBXGroup;
 			children = (
-				44430EBB20D62D890094B2CB /* AppDelegate.swift */,
-				44430EBD20D62D890094B2CB /* ViewController.swift */,
+				44C348C820D8ADAC0078F6F3 /* Helper Classes */,
+				44C348BC20D7ADE70078F6F3 /* Fonts */,
+				44C348C520D8AC250078F6F3 /* Navigation */,
+				44C348C620D8AC380078F6F3 /* AppDelegate */,
+				44C348C720D8AC470078F6F3 /* Controllers */,
+				44C348C120D8A8EA0078F6F3 /* Dashboard.storyboard */,
 				44430EBF20D62D890094B2CB /* Main.storyboard */,
 				44430EC520D62D8A0094B2CB /* Assets.xcassets */,
 				44430EC720D62D8A0094B2CB /* LaunchScreen.storyboard */,
@@ -67,6 +140,122 @@
 			path = CodeStrokeAlert;
 			sourceTree = "<group>";
 		};
+		44C348BC20D7ADE70078F6F3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				44C348AC20D7ADDA0078F6F3 /* sf-ui-display-black.otf */,
+				44C348AD20D7ADDA0078F6F3 /* sf-ui-display-bold.otf */,
+				44C348AB20D7ADDA0078F6F3 /* sf-ui-display-heavy.otf */,
+				44C348B020D7ADDA0078F6F3 /* sf-ui-display-light.otf */,
+				44C348AF20D7ADDA0078F6F3 /* sf-ui-display-medium.otf */,
+				44C348B120D7ADDA0078F6F3 /* sf-ui-display-semibold.otf */,
+				44C348B220D7ADDA0078F6F3 /* sf-ui-display-thin.otf */,
+				44C348AE20D7ADDA0078F6F3 /* sf-ui-display-ultralight.otf */,
+				44C348AA20D7ADDA0078F6F3 /* SFUIDisplay-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		44C348C520D8AC250078F6F3 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				44C348BF20D7B5D30078F6F3 /* LoginNavigation.swift */,
+				44C348C320D8A92D0078F6F3 /* DashboardNavigation.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		44C348C620D8AC380078F6F3 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				44430EBB20D62D890094B2CB /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		44C348C720D8AC470078F6F3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				44C348BD20D7B5400078F6F3 /* LoginWithQR.swift */,
+				44C348F120D8BB1E0078F6F3 /* PatientDetailVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		44C348C820D8ADAC0078F6F3 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				44C348DE20D8ADD90078F6F3 /* Toast */,
+				44C348C920D8ADAC0078F6F3 /* IBInpectable */,
+				44C348CE20D8ADAC0078F6F3 /* Contatants */,
+				44C348D020D8ADAC0078F6F3 /* Extensions */,
+			);
+			path = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		44C348C920D8ADAC0078F6F3 /* IBInpectable */ = {
+			isa = PBXGroup;
+			children = (
+				44C348CA20D8ADAC0078F6F3 /* DesignableTextField.swift */,
+				44C348CB20D8ADAC0078F6F3 /* ButtonDesign.swift */,
+				44C348CC20D8ADAC0078F6F3 /* DesignableButton.swift */,
+				44C348CD20D8ADAC0078F6F3 /* DesignableView.swift */,
+				44C348E620D8AE8C0078F6F3 /* DesignableImageView.swift */,
+				44C348E720D8AE8C0078F6F3 /* DesignableLabel.swift */,
+				44C348E320D8AE8B0078F6F3 /* DesignableTextView.swift */,
+				44C348E120D8AE8B0078F6F3 /* ImageViewDesign.swift */,
+				44C348E820D8AE8C0078F6F3 /* LabelDesign.swift */,
+				44C348E520D8AE8B0078F6F3 /* TextFieldDesign.swift */,
+				44C348E220D8AE8B0078F6F3 /* TextViewDesign.swift */,
+				44C348E420D8AE8B0078F6F3 /* ViewDesign.swift */,
+			);
+			path = IBInpectable;
+			sourceTree = "<group>";
+		};
+		44C348CE20D8ADAC0078F6F3 /* Contatants */ = {
+			isa = PBXGroup;
+			children = (
+				44C348CF20D8ADAC0078F6F3 /* Constans.swift */,
+			);
+			path = Contatants;
+			sourceTree = "<group>";
+		};
+		44C348D020D8ADAC0078F6F3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				44C348D120D8ADAC0078F6F3 /* LetsReach.swift */,
+				44C348D220D8ADAC0078F6F3 /* String+Extension.swift */,
+				44C348D320D8ADAC0078F6F3 /* ValidationFile.swift */,
+				44C348D420D8ADAC0078F6F3 /* NSDate+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		44C348DE20D8ADD90078F6F3 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				44C348DF20D8ADD90078F6F3 /* HRToast+UIView.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		7F6774DAF1DE3FC262F871D1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DA8B0F4C4B93A4EFC415889F /* Pods-CodeStrokeAlert.debug.xcconfig */,
+				7548FE44F8A80D91F9401B97 /* Pods-CodeStrokeAlert.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A9AF61A5CC6A8E675498D271 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17E5E9FC369859667F512BBA /* Pods_CodeStrokeAlert.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +263,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 44430ECD20D62D8A0094B2CB /* Build configuration list for PBXNativeTarget "CodeStrokeAlert" */;
 			buildPhases = (
+				7ED9B6C0D658587CE9C42B78 /* [CP] Check Pods Manifest.lock */,
 				44430EB420D62D890094B2CB /* Sources */,
 				44430EB520D62D890094B2CB /* Frameworks */,
 				44430EB620D62D890094B2CB /* Resources */,
+				CF6E29C45BBCD133E2CBAC46 /* [CP] Embed Pods Frameworks */,
+				9292F220768598D9C3B94495 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,22 +317,107 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44C348BB20D7ADDA0078F6F3 /* sf-ui-display-thin.otf in Resources */,
 				44430EC920D62D8A0094B2CB /* LaunchScreen.storyboard in Resources */,
 				44430EC620D62D8A0094B2CB /* Assets.xcassets in Resources */,
+				44C348B320D7ADDA0078F6F3 /* SFUIDisplay-Regular.otf in Resources */,
+				44C348C220D8A8EA0078F6F3 /* Dashboard.storyboard in Resources */,
+				44C348B520D7ADDA0078F6F3 /* sf-ui-display-black.otf in Resources */,
 				44430EC120D62D890094B2CB /* Main.storyboard in Resources */,
+				44C348B620D7ADDA0078F6F3 /* sf-ui-display-bold.otf in Resources */,
+				44C348B420D7ADDA0078F6F3 /* sf-ui-display-heavy.otf in Resources */,
+				44C348B720D7ADDA0078F6F3 /* sf-ui-display-ultralight.otf in Resources */,
+				44C348B920D7ADDA0078F6F3 /* sf-ui-display-light.otf in Resources */,
+				44C348B820D7ADDA0078F6F3 /* sf-ui-display-medium.otf in Resources */,
+				44C348BA20D7ADDA0078F6F3 /* sf-ui-display-semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7ED9B6C0D658587CE9C42B78 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CodeStrokeAlert-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9292F220768598D9C3B94495 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CodeStrokeAlert/Pods-CodeStrokeAlert-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF6E29C45BBCD133E2CBAC46 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CodeStrokeAlert/Pods-CodeStrokeAlert-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CodeStrokeAlert/Pods-CodeStrokeAlert-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		44430EB420D62D890094B2CB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44C348BE20D7B5400078F6F3 /* LoginWithQR.swift in Sources */,
+				44C348D520D8ADAC0078F6F3 /* DesignableTextField.swift in Sources */,
+				44C348DA20D8ADAC0078F6F3 /* LetsReach.swift in Sources */,
+				44C348EB20D8AE8C0078F6F3 /* DesignableTextView.swift in Sources */,
+				44C348D920D8ADAC0078F6F3 /* Constans.swift in Sources */,
+				44C348DB20D8ADAC0078F6F3 /* String+Extension.swift in Sources */,
 				44430EC420D62D890094B2CB /* CodeStrokeAlert.xcdatamodeld in Sources */,
-				44430EBE20D62D890094B2CB /* ViewController.swift in Sources */,
+				44C348DD20D8ADAC0078F6F3 /* NSDate+Extension.swift in Sources */,
+				44C348EC20D8AE8C0078F6F3 /* ViewDesign.swift in Sources */,
+				44C348F220D8BB1E0078F6F3 /* PatientDetailVC.swift in Sources */,
+				44C348D720D8ADAC0078F6F3 /* DesignableButton.swift in Sources */,
+				44C348EF20D8AE8C0078F6F3 /* DesignableLabel.swift in Sources */,
+				44C348E920D8AE8C0078F6F3 /* ImageViewDesign.swift in Sources */,
+				44C348D620D8ADAC0078F6F3 /* ButtonDesign.swift in Sources */,
+				44C348C420D8A92D0078F6F3 /* DashboardNavigation.swift in Sources */,
+				44C348F020D8AE8C0078F6F3 /* LabelDesign.swift in Sources */,
+				44C348EE20D8AE8C0078F6F3 /* DesignableImageView.swift in Sources */,
+				44C348C020D7B5D30078F6F3 /* LoginNavigation.swift in Sources */,
+				44C348E020D8ADD90078F6F3 /* HRToast+UIView.swift in Sources */,
+				44C348ED20D8AE8C0078F6F3 /* TextFieldDesign.swift in Sources */,
 				44430EBC20D62D890094B2CB /* AppDelegate.swift in Sources */,
+				44C348D820D8ADAC0078F6F3 /* DesignableView.swift in Sources */,
+				44C348DC20D8ADAC0078F6F3 /* ValidationFile.swift in Sources */,
+				44C348EA20D8AE8C0078F6F3 /* TextViewDesign.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +559,7 @@
 		};
 		44430ECE20D62D8A0094B2CB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA8B0F4C4B93A4EFC415889F /* Pods-CodeStrokeAlert.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +577,7 @@
 		};
 		44430ECF20D62D8A0094B2CB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7548FE44F8A80D91F9401B97 /* Pods-CodeStrokeAlert.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

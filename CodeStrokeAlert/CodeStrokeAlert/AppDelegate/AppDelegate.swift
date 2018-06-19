@@ -8,15 +8,22 @@
 
 import UIKit
 import CoreData
+import IQKeyboardManagerSwift
+
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+let loginStoryboard = UIStoryboard(name: "Main", bundle: nil)
+let dashBoardStoryboard = UIStoryboard(name: "Dashboard", bundle: nil)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        IQKeyboardManager.shared.enable = true
+        
         return true
     }
 
@@ -44,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
 
-    // MARK: - Core Data stack
+    // MARK: - Core Data stack -
 
     lazy var persistentContainer: NSPersistentContainer = {
         /*
@@ -73,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
 
-    // MARK: - Core Data Saving support
+    // MARK: - Core Data Saving support -
 
     func saveContext () {
         let context = persistentContainer.viewContext
@@ -88,6 +95,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
 }
 
+// MARK:- AppDelegate Extension -
+
+extension AppDelegate {
+    
+    func isKeyPresentInUserDefaults(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
+    }
+    
+    func gotToSigninView() {
+        
+        for obj in self.window!.subviews {
+            obj.removeFromSuperview()
+        }
+        
+        let nav  = loginStoryboard.instantiateViewController(withIdentifier: "LoginNavigation") as! LoginNavigation
+        self.window?.rootViewController = nav
+        self.window?.makeKeyAndVisible()
+    }
+    
+    func goToDeshBordView() {
+        
+        for obj in self.window!.subviews {
+            obj.removeFromSuperview()
+        }
+        
+        let nav  = dashBoardStoryboard.instantiateViewController(withIdentifier: "DashboardNavigation") as! DashboardNavigation
+        self.window?.rootViewController = nav
+        self.window?.makeKeyAndVisible()
+    }
+}
