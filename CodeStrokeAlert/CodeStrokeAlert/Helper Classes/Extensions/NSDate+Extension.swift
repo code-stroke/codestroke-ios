@@ -29,6 +29,24 @@ public enum WeekDay : String {
 
 // MARK: - Date Extension -
 
+public extension UIDatePicker {
+    
+    func set18YearValidation() {
+        
+        let currentDate: Date = Date()
+        var calendar: Calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+        calendar.timeZone = TimeZone(identifier: "UTC")!
+        var components: DateComponents = DateComponents()
+        components.calendar = calendar
+        components.year = -18
+        let maxDate: Date = calendar.date(byAdding: components, to: currentDate)!
+        components.year = -150
+        let minDate: Date = calendar.date(byAdding: components, to: currentDate)!
+        self.minimumDate = minDate
+        self.maximumDate = maxDate
+    }
+}
+
 public extension Date {
     
     public var daysUntilNow: NSNumber {
@@ -86,7 +104,7 @@ public extension Date {
         var arr = [String]()
         
         if modIndex > 0 {
-        
+            
             var count = 0;
             var i = strIndex
             
@@ -106,7 +124,7 @@ public extension Date {
     }
     
     public func daysBetweenDay (_ endDate : Date) -> Int{
-      return 0
+        return 0
     }
     
     public var timeAgoSince : String {

@@ -15,6 +15,11 @@ class ClinicalAssessmentFourVC: UIViewController {
     
     @IBOutlet weak var btnNext: DesignableButton!
     
+    @IBOutlet weak var btn18GIVYes: UIButton!
+    @IBOutlet weak var btn18GIVNo: UIButton!
+    
+    @IBOutlet weak var btn18GIVUnknown: DesignableButton!
+    
     // MARK: - View Controller LifeCycle -
     
     override func viewDidLoad() {
@@ -33,6 +38,14 @@ class ClinicalAssessmentFourVC: UIViewController {
     @IBAction func btnNextClicked(_ sender: DesignableButton) {
         
         self.performSegue(withIdentifier: "ProfileSummery", sender: self)
+    }
+    
+    @IBAction func btn18GIVClicked(_ sender: UIButton) {
+    
+    }
+    
+    @IBAction func btnUnknownClicked(_ sender: DesignableButton) {
+        
     }
     
     // MARK: - Memory Warning -

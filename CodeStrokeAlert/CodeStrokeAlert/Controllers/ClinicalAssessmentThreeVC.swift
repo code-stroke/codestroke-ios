@@ -14,6 +14,21 @@ class ClinicalAssessmentThreeVC: UIViewController {
     
     @IBOutlet weak var btnNext: DesignableButton!
     
+    @IBOutlet weak var btnFacialPalsyOption1: UIButton!
+    @IBOutlet weak var btnFacialPalsyOption2: UIButton!
+    @IBOutlet weak var btnFacialPalsyOption3: UIButton!
+    
+    @IBOutlet weak var btnArmMoterOption1: UIButton!
+    @IBOutlet weak var btnArmMoterOption2: UIButton!
+    @IBOutlet weak var btnArmMoterOption3: UIButton!
+    
+    @IBOutlet weak var btnLegMoterOption1: UIButton!
+    @IBOutlet weak var btnLegMoterOption2: UIButton!
+    @IBOutlet weak var btnLegMoterOption3: UIButton!
+    
+    @IBOutlet weak var btnHeadGazeOption1: UIButton!
+    @IBOutlet weak var btnHeadGazeOption2: UIButton!
+    
     // MARK: - View Controller LifeCycle -
     
     override func viewDidLoad() {
@@ -32,6 +47,22 @@ class ClinicalAssessmentThreeVC: UIViewController {
     @IBAction func btnNextClicked(_ sender: DesignableButton) {
         
         self.performSegue(withIdentifier: "ClinicalAssessmentFour", sender: self)
+    }
+    
+    @IBAction func btnFacialPalsyOptionClicked(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func btnArmMoterOptionClicked(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func btnLegMoterOptionClicked(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func btnHeadGazeOptionClicked(_ sender: UIButton) {
+        
     }
     
     // MARK: - Memory Warning -

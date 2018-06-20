@@ -20,6 +20,34 @@ class ClinicalAssessmentTwoVC: UIViewController {
     @IBOutlet weak var btnVerbal: UIButton!
     @IBOutlet weak var btnMotor: UIButton!
     
+    @IBOutlet weak var txtBloodPressure: UITextField!
+    @IBOutlet weak var txtHeartRate: UITextField!
+    @IBOutlet weak var txtRespiratoryRate: UITextField!
+    @IBOutlet weak var txtOxygenSaturation: UITextField!
+    @IBOutlet weak var txtTemperature: UITextField!
+    @IBOutlet weak var txtBloodGlucose: UITextField!
+    
+    @IBOutlet weak var btnRegular: UIButton!
+    @IBOutlet weak var btnIrregular: UIButton!
+    
+    @IBOutlet weak var btnEyeOption1: UIButton!
+    @IBOutlet weak var btnEyeOption2: UIButton!
+    @IBOutlet weak var btnEyeOption3: UIButton!
+    @IBOutlet weak var btnEyeOption4: UIButton!
+    
+    @IBOutlet weak var btnVerbalOption1: UIButton!
+    @IBOutlet weak var btnVerbalOption2: UIButton!
+    @IBOutlet weak var btnVerbalOption3: UIButton!
+    @IBOutlet weak var btnVerbalOption4: UIButton!
+    @IBOutlet weak var btnVerbalOption5: UIButton!
+    
+    @IBOutlet weak var btnMoterOption1: UIButton!
+    @IBOutlet weak var btnMoterOption2: UIButton!
+    @IBOutlet weak var btnMoterOption3: UIButton!
+    @IBOutlet weak var btnMoterOption4: UIButton!
+    @IBOutlet weak var btnMoterOption5: UIButton!
+    @IBOutlet weak var btnMoterOption6: UIButton!
+    
     // MARK: - View Controller LifeCycle -
     
     override func viewDidLoad() {
@@ -54,6 +82,22 @@ class ClinicalAssessmentTwoVC: UIViewController {
             self.scrollView.setContentOffset(CGPoint(x:CGFloat(xAxis) * (self.scrollView.frame.size.width) , y: 0), animated: true)
             self.view.layoutIfNeeded()
         }
+    }
+    
+    @IBAction func btnRegularIrregularClicked(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func btnEyeOptionClicked(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func btnVerbalOptionClicked(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func btnMoterOptionClicked(_ sender: UIButton) {
+        
     }
     
     // MARK: - Memory Warning -

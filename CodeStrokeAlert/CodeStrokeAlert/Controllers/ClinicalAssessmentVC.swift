@@ -14,6 +14,18 @@ class ClinicalAssessmentVC: UIViewController {
     
     @IBOutlet weak var btnNext: DesignableButton!
     
+    @IBOutlet weak var btnFacialDropYes: UIButton!
+    @IBOutlet weak var btnFacialDropNo: UIButton!
+    
+    @IBOutlet weak var btnArmDriftYes: UIButton!
+    @IBOutlet weak var btnArmDriftNo: UIButton!
+    
+    @IBOutlet weak var btnWeakGripYes: UIButton!
+    @IBOutlet weak var btnWeakGripNo: UIButton!
+    
+    @IBOutlet weak var btnSpeechDifficultyYes: UIButton!
+    @IBOutlet weak var btnSpeechDifficultyNo: UIButton!
+
     // MARK: - View Controller LifeCycle -
     
     override func viewDidLoad() {
@@ -32,6 +44,10 @@ class ClinicalAssessmentVC: UIViewController {
     @IBAction func btnNextClicked(_ sender: DesignableButton) {
         
         self.performSegue(withIdentifier: "ClinicalAssessmentTwo", sender: self)
+    }
+    
+    @IBAction func btnUnknownClicked(_ sender: DesignableButton) {
+        
     }
     
     // MARK: - Memory Warning -

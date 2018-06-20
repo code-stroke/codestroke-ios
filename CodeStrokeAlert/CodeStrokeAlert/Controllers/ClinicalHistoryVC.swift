@@ -11,6 +11,28 @@ import UIKit
 class ClinicalHistoryVC: UIViewController {
 
     @IBOutlet weak var btnNext: DesignableButton!
+    @IBOutlet weak var txtPostMedicalHistory: UITextField!
+    @IBOutlet weak var txtMedications: UITextField!
+    
+    @IBOutlet weak var btnIHD: UIButton!
+    @IBOutlet weak var btnDM: UIButton!
+    @IBOutlet weak var btnStroke: UIButton!
+    @IBOutlet weak var btnEpilepsy: UIButton!
+    @IBOutlet weak var btnAF: UIButton!
+    @IBOutlet weak var btnOther: UIButton!
+
+    @IBOutlet weak var btnAnticoagulantsYes: UIButton!
+    @IBOutlet weak var btnAnticoagulantsNo: UIButton!
+    
+    @IBOutlet weak var btnApixaban: UIButton!
+    @IBOutlet weak var btnRivaroxaban: UIButton!
+    @IBOutlet weak var btnWarfarin: UIButton!
+    @IBOutlet weak var btnDabigatran: UIButton!
+    @IBOutlet weak var btnHeparin: UIButton!
+    
+    @IBOutlet weak var txtLastDate: DesignableTextField!
+    @IBOutlet weak var txtSituation: UITextField!
+    @IBOutlet weak var txtWeight: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +49,18 @@ class ClinicalHistoryVC: UIViewController {
     @IBAction func btnNextClicked(_ sender: DesignableButton) {
         
         self.performSegue(withIdentifier: "ClinicalAssessment", sender: self)
+    }
+    
+    @IBAction func btnPostMedicalHistoryClicked(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func btnAnnticoagulantsClicked(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func btnMedicationClicked(_ sender: UIButton) {
+        
     }
     
     // MARK: - Memory Warning -

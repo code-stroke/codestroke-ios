@@ -78,13 +78,13 @@
                                                                         </constraints>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1do-6Y-WiU">
                                                                         <rect key="frame" x="0.0" y="48" width="184" height="40"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DOB" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pfw-P3-aLP" customClass="DesignableTextField" customModule="CodeStrokeAlert" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="96" width="184" height="40"/>
@@ -100,12 +100,15 @@
                                                                                 <real key="value" value="8"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <outlet property="delegate" destination="v3S-3n-AVq" id="6RK-jY-twc"/>
+                                                                        </connections>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gXW-sd-oOg">
                                                                         <rect key="frame" x="0.0" y="144" width="184" height="40"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                     </textField>
                                                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tzd-46-xxK">
                                                                         <rect key="frame" x="0.0" y="192" width="184" height="41"/>
@@ -113,19 +116,21 @@
                                                                             <segment title="Male"/>
                                                                             <segment title="Female"/>
                                                                         </segments>
+                                                                        <connections>
+                                                                            <action selector="segmentChanged:" destination="v3S-3n-AVq" eventType="valueChanged" id="Uav-eY-h3Z"/>
+                                                                        </connections>
                                                                     </segmentedControl>
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Tkc-oH-rMO">
                                                                 <rect key="frame" x="196" y="0.0" width="100" height="232"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOH-13-5W2" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
+                                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOH-13-5W2" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
                                                                         <color key="backgroundColor" red="0.77254901960784317" green="0.82352941176470584" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="VrG-oq-hbW"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                                         <state key="normal" title="Unknown">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -134,11 +139,13 @@
                                                                                 <real key="value" value="5"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="btnUnknownClicked:" destination="v3S-3n-AVq" eventType="touchUpInside" id="RtO-P5-Hah"/>
+                                                                        </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6f-su-CcN" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
+                                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6f-su-CcN" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="48" width="100" height="40"/>
                                                                         <color key="backgroundColor" red="0.77254901960784317" green="0.82352941176470584" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                                         <state key="normal" title="Unknown">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -147,11 +154,13 @@
                                                                                 <real key="value" value="5"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="btnUnknownClicked:" destination="v3S-3n-AVq" eventType="touchUpInside" id="ShB-Om-y2j"/>
+                                                                        </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CpX-Sq-GAo" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
+                                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CpX-Sq-GAo" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="96" width="100" height="40"/>
                                                                         <color key="backgroundColor" red="0.77254901960784317" green="0.82352941176470584" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                                         <state key="normal" title="Unknown">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -160,11 +169,13 @@
                                                                                 <real key="value" value="5"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="btnUnknownClicked:" destination="v3S-3n-AVq" eventType="touchUpInside" id="3zX-S3-gWy"/>
+                                                                        </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPg-m7-9EV" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
+                                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPg-m7-9EV" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="144" width="100" height="40"/>
                                                                         <color key="backgroundColor" red="0.77254901960784317" green="0.82352941176470584" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                                         <state key="normal" title="Unknown">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -173,11 +184,13 @@
                                                                                 <real key="value" value="5"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="btnUnknownClicked:" destination="v3S-3n-AVq" eventType="touchUpInside" id="bjc-QH-PBp"/>
+                                                                        </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3s-TF-yYQ" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
+                                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3s-TF-yYQ" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="192" width="100" height="40"/>
                                                                         <color key="backgroundColor" red="0.77254901960784317" green="0.82352941176470584" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                                         <state key="normal" title="Unspecified">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -186,6 +199,9 @@
                                                                                 <real key="value" value="5"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="btnUnknownClicked:" destination="v3S-3n-AVq" eventType="touchUpInside" id="4GX-nl-ZQg"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <constraints>
@@ -329,14 +345,19 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyV-6r-2rq" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGp-MO-XzE">
+                                                        <rect key="frame" x="15" y="347" width="181" height="50"/>
+                                                        <connections>
+                                                            <action selector="btnDateClicked:" destination="v3S-3n-AVq" eventType="touchUpInside" id="XJj-Lx-NHP"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyV-6r-2rq" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
                                                         <rect key="frame" x="208" y="352" width="100" height="40"/>
                                                         <color key="backgroundColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="Tjg-OJ-9yw"/>
                                                             <constraint firstAttribute="width" constant="100" id="j5X-3M-jjO"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                         <state key="normal" title="Unknown">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -345,6 +366,9 @@
                                                                 <real key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="btnUnknownClicked:" destination="v3S-3n-AVq" eventType="touchUpInside" id="xno-vS-g9n"/>
+                                                        </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="vtS-EP-mjR">
                                                         <rect key="frame" x="12" y="407" width="296" height="88"/>
@@ -359,26 +383,25 @@
                                                                         </constraints>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="NOK Telephone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2oA-fs-MZL">
                                                                         <rect key="frame" x="0.0" y="48" width="184" height="40"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Roh-b5-a4H">
                                                                 <rect key="frame" x="196" y="0.0" width="100" height="88"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZu-kT-VOJ" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
+                                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZu-kT-VOJ" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
                                                                         <color key="backgroundColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="bLe-c3-xgU"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                                         <state key="normal" title="Unknown">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -387,11 +410,13 @@
                                                                                 <real key="value" value="5"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="btnUnknownClicked:" destination="v3S-3n-AVq" eventType="touchUpInside" id="Klf-cg-Xcm"/>
+                                                                        </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7OF-DH-H4T" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
+                                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7OF-DH-H4T" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="48" width="100" height="40"/>
                                                                         <color key="backgroundColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                                         <state key="normal" title="Unknown">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -400,6 +425,9 @@
                                                                                 <real key="value" value="5"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="btnUnknownClicked:" destination="v3S-3n-AVq" eventType="touchUpInside" id="VZI-a4-j7U"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <constraints>
@@ -433,8 +461,11 @@
                                                     <constraint firstItem="zZe-dU-dI7" firstAttribute="top" secondItem="TIF-EH-OLz" secondAttribute="bottom" constant="10" id="9C8-g7-3wM"/>
                                                     <constraint firstItem="vtS-EP-mjR" firstAttribute="leading" secondItem="mTz-oD-pPu" secondAttribute="leading" constant="12" id="CNi-2G-Yfw"/>
                                                     <constraint firstItem="TIF-EH-OLz" firstAttribute="leading" secondItem="mTz-oD-pPu" secondAttribute="leading" constant="15" id="EPW-3W-iEz"/>
+                                                    <constraint firstItem="yGp-MO-XzE" firstAttribute="centerY" secondItem="Sj3-FW-aFa" secondAttribute="centerY" id="JzJ-1d-WI8"/>
                                                     <constraint firstItem="eyV-6r-2rq" firstAttribute="leading" secondItem="Sj3-FW-aFa" secondAttribute="trailing" constant="12" id="K1i-BN-EGc"/>
                                                     <constraint firstItem="3Pg-eI-0yN" firstAttribute="leading" secondItem="mTz-oD-pPu" secondAttribute="leading" constant="15" id="KTn-h9-8rz"/>
+                                                    <constraint firstItem="yGp-MO-XzE" firstAttribute="width" secondItem="Sj3-FW-aFa" secondAttribute="width" id="LsQ-nK-0dQ"/>
+                                                    <constraint firstItem="yGp-MO-XzE" firstAttribute="height" secondItem="Sj3-FW-aFa" secondAttribute="height" id="OoN-ie-ID9"/>
                                                     <constraint firstItem="dgm-Dl-ugb" firstAttribute="top" secondItem="vtS-EP-mjR" secondAttribute="bottom" constant="40" id="OtL-jf-C1A"/>
                                                     <constraint firstItem="zZe-dU-dI7" firstAttribute="leading" secondItem="mTz-oD-pPu" secondAttribute="leading" constant="12" id="RpZ-ne-OK6"/>
                                                     <constraint firstAttribute="trailing" secondItem="eyV-6r-2rq" secondAttribute="trailing" constant="12" id="Rzy-eP-JhJ"/>
@@ -449,6 +480,7 @@
                                                     <constraint firstItem="TIF-EH-OLz" firstAttribute="top" secondItem="mTz-oD-pPu" secondAttribute="top" constant="5" id="jts-rK-rAf"/>
                                                     <constraint firstItem="vtS-EP-mjR" firstAttribute="top" secondItem="Sj3-FW-aFa" secondAttribute="bottom" constant="10" id="lDp-2e-7XD"/>
                                                     <constraint firstAttribute="trailing" secondItem="vtS-EP-mjR" secondAttribute="trailing" constant="12" id="oZj-Id-OaB"/>
+                                                    <constraint firstItem="yGp-MO-XzE" firstAttribute="centerX" secondItem="Sj3-FW-aFa" secondAttribute="centerX" id="wiw-s2-l4l"/>
                                                     <constraint firstItem="3Pg-eI-0yN" firstAttribute="top" secondItem="zZe-dU-dI7" secondAttribute="bottom" constant="10" id="zEc-GE-p90"/>
                                                 </constraints>
                                             </view>
@@ -482,7 +514,28 @@
                     </view>
                     <navigationItem key="navigationItem" title="Patient Details" id="m0w-Kb-yhV"/>
                     <connections>
+                        <outlet property="btnAddressUnknown" destination="CPg-m7-9EV" id="MiG-In-nDa"/>
+                        <outlet property="btnDOBUnknown" destination="CpX-Sq-GAo" id="7U6-rR-Qrc"/>
+                        <outlet property="btnDateUnknown" destination="eyV-6r-2rq" id="PI4-yr-xeH"/>
+                        <outlet property="btnFirstNameUnknown" destination="VOH-13-5W2" id="Iev-mU-Yyh"/>
+                        <outlet property="btnGenderUnspecified" destination="u3s-TF-yYQ" id="RHY-Lf-oJD"/>
+                        <outlet property="btnLastSeen" destination="yGp-MO-XzE" id="P09-Bn-kaK"/>
+                        <outlet property="btnNOKTelephoneUnknown" destination="7OF-DH-H4T" id="vMX-ba-VRe"/>
                         <outlet property="btnNext" destination="dgm-Dl-ugb" id="Vxg-8r-IN0"/>
+                        <outlet property="btnNextToKINUnknown" destination="iZu-kT-VOJ" id="oSr-F9-qg5"/>
+                        <outlet property="btnSurnameUnknown" destination="r6f-su-CcN" id="JVk-Fo-rHy"/>
+                        <outlet property="lblAMPM" destination="gal-pm-ZYj" id="sq9-qY-RH1"/>
+                        <outlet property="lblDate" destination="sgW-lA-YUd" id="jBd-s0-Mpk"/>
+                        <outlet property="lblDay" destination="bsi-gd-ysq" id="f6p-R9-c3v"/>
+                        <outlet property="lblHours" destination="GF8-nZ-dsA" id="Ndq-Ei-YUs"/>
+                        <outlet property="lblMins" destination="hhV-h0-aJp" id="xvn-CK-r2m"/>
+                        <outlet property="segmentGender" destination="Tzd-46-xxK" id="c2g-hj-1B4"/>
+                        <outlet property="txtAddress" destination="gXW-sd-oOg" id="rKN-go-qxd"/>
+                        <outlet property="txtDOB" destination="Pfw-P3-aLP" id="IgK-dx-btV"/>
+                        <outlet property="txtFirstName" destination="2Ht-fo-EIN" id="cPz-jA-8dh"/>
+                        <outlet property="txtNOKTelephone" destination="2oA-fs-MZL" id="1uH-Xd-u6f"/>
+                        <outlet property="txtNextToKIN" destination="eaL-th-x7D" id="9Nw-hq-VBr"/>
+                        <outlet property="txtSurname" destination="1do-6Y-WiU" id="8mV-kQ-sFt"/>
                         <segue destination="Doo-JB-cvd" kind="show" identifier="Destination" id="IXP-3q-Nc0"/>
                     </connections>
                 </viewController>
@@ -592,7 +645,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTp-9j-xUc">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="560"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="576"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Past Medical History" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I7K-nZ-MTb">
                                                         <rect key="frame" x="10" y="10" width="300" height="40"/>
@@ -603,57 +656,73 @@
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iEw-bw-gQR">
-                                                        <rect key="frame" x="10" y="60" width="300" height="57"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iEw-bw-gQR">
+                                                        <rect key="frame" x="10" y="60" width="300" height="70"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K7u-pS-B19">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K7u-pS-B19">
                                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1y6-fu-Iqh">
-                                                                        <rect key="frame" x="0.0" y="6.5" width="48" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="52" height="30"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdk-Lv-TCK">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="48" height="17"/>
+                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdk-Lv-TCK">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="52" height="30"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                                                                <state key="normal" title="  IHD" image="ic_rect">
+                                                                                <state key="normal" title="  IHD" image="ic_unchecked">
                                                                                     <color key="titleColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
+                                                                                <state key="selected" image="ic_checked"/>
+                                                                                <connections>
+                                                                                    <action selector="btnPostMedicalHistoryClicked:" destination="NCK-RT-6JO" eventType="touchUpInside" id="URG-H8-OSS"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="WRT-Rk-jl3">
-                                                                        <rect key="frame" x="69.5" y="6.5" width="46" height="17"/>
+                                                                        <rect key="frame" x="68" y="0.0" width="50" height="30"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoW-m0-kJs">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="46" height="17"/>
+                                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoW-m0-kJs">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                                                                <state key="normal" title="  DM" image="ic_rect">
+                                                                                <state key="normal" title="  DM" image="ic_unchecked">
                                                                                     <color key="titleColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
+                                                                                <state key="selected" image="ic_checked"/>
+                                                                                <connections>
+                                                                                    <action selector="btnPostMedicalHistoryClicked:" destination="NCK-RT-6JO" eventType="touchUpInside" id="Pb8-5a-NTQ"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pxa-QH-83z">
-                                                                        <rect key="frame" x="136.5" y="6.5" width="65" height="17"/>
+                                                                        <rect key="frame" x="134" y="0.0" width="69" height="30"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJY-I0-iIp">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="65" height="17"/>
+                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJY-I0-iIp">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="69" height="30"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                                                                <state key="normal" title="  Stroke" image="ic_rect">
+                                                                                <state key="normal" title="  Stroke" image="ic_unchecked">
                                                                                     <color key="titleColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
+                                                                                <state key="selected" image="ic_checked"/>
+                                                                                <connections>
+                                                                                    <action selector="btnPostMedicalHistoryClicked:" destination="NCK-RT-6JO" eventType="touchUpInside" id="Lx2-fG-YVm"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ncr-Am-Hu3">
-                                                                        <rect key="frame" x="223" y="6.5" width="77" height="17"/>
+                                                                        <rect key="frame" x="219" y="0.0" width="81" height="30"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTs-T4-PJP">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="77" height="17"/>
+                                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTs-T4-PJP" userLabel="Epilepsy">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="81" height="30"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                                                                <state key="normal" title="  Epilepsy" image="ic_rect">
+                                                                                <state key="normal" title="  Epilepsy" image="ic_unchecked">
                                                                                     <color key="titleColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
+                                                                                <state key="selected" image="ic_checked"/>
+                                                                                <connections>
+                                                                                    <action selector="btnPostMedicalHistoryClicked:" destination="NCK-RT-6JO" eventType="touchUpInside" id="HLm-Tf-ati"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
@@ -663,29 +732,37 @@
                                                                 </constraints>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IgG-f4-OGq">
-                                                                <rect key="frame" x="0.0" y="40" width="300" height="17"/>
+                                                                <rect key="frame" x="0.0" y="40" width="300" height="30"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="g3t-f9-FsI">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="41" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="5" width="45" height="20"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fo1-nJ-fdc">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="41" height="17"/>
+                                                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fo1-nJ-fdc">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="45" height="20"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                                                                <state key="normal" title="  AF" image="ic_rect">
+                                                                                <state key="normal" title="  AF" image="ic_unchecked">
                                                                                     <color key="titleColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
+                                                                                <state key="selected" image="ic_checked"/>
+                                                                                <connections>
+                                                                                    <action selector="btnPostMedicalHistoryClicked:" destination="NCK-RT-6JO" eventType="touchUpInside" id="pHm-Gb-fXo"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="m9s-Rt-iAK">
-                                                                        <rect key="frame" x="94" y="0.0" width="206" height="17"/>
+                                                                        <rect key="frame" x="90" y="5" width="210" height="20"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLS-za-U1R">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="206" height="17"/>
+                                                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLS-za-U1R">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="210" height="20"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                                                                <state key="normal" title="  Other neurological conditions" image="ic_rect">
+                                                                                <state key="normal" title="  Other neurological conditions" image="ic_unchecked">
                                                                                     <color key="titleColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
+                                                                                <state key="selected" image="ic_checked"/>
+                                                                                <connections>
+                                                                                    <action selector="btnPostMedicalHistoryClicked:" destination="NCK-RT-6JO" eventType="touchUpInside" id="Uuh-fo-muW"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
@@ -694,7 +771,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Medications" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="prC-vF-bNc">
-                                                        <rect key="frame" x="10" y="137" width="300" height="40"/>
+                                                        <rect key="frame" x="10" y="150" width="300" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="Lfx-kI-0F4"/>
                                                         </constraints>
@@ -703,7 +780,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anticoagulants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywu-Uo-gTG" customClass="DesignableLabel" customModule="CodeStrokeAlert" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="182" width="105" height="40"/>
+                                                        <rect key="frame" x="15" y="195" width="105" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="2Fw-SJ-cs6"/>
                                                         </constraints>
@@ -712,7 +789,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gji-rd-nac">
-                                                        <rect key="frame" x="135" y="182" width="170" height="40"/>
+                                                        <rect key="frame" x="135" y="195" width="170" height="40"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrA-Rp-QMF">
                                                                 <rect key="frame" x="0.0" y="0.0" width="81" height="40"/>
@@ -722,6 +799,9 @@
                                                                 <state key="selected" image="ic_ovel_selected">
                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="btnAnnticoagulantsClicked:" destination="NCK-RT-6JO" eventType="touchUpInside" id="mzL-qW-OU6"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reb-lc-6gs">
                                                                 <rect key="frame" x="89" y="0.0" width="81" height="40"/>
@@ -731,48 +811,63 @@
                                                                 <state key="selected" image="ic_ovel_selected">
                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="btnAnnticoagulantsClicked:" destination="NCK-RT-6JO" eventType="touchUpInside" id="aee-hM-Px4"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="shN-9q-1aX">
-                                                        <rect key="frame" x="10" y="227" width="300" height="57"/>
+                                                        <rect key="frame" x="10" y="240" width="300" height="60"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9Vh-oR-kGr">
                                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zIf-uE-hs6">
-                                                                        <rect key="frame" x="0.0" y="6.5" width="82" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="5" width="86" height="20"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtA-VY-kIh">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="82" height="17"/>
+                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtA-VY-kIh" userLabel="Apixaban">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="86" height="20"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                                                                <state key="normal" title="  Apixaban" image="ic_rect">
+                                                                                <state key="normal" title="  Apixaban" image="ic_unchecked">
                                                                                     <color key="titleColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
+                                                                                <state key="selected" image="ic_checked"/>
+                                                                                <connections>
+                                                                                    <action selector="btnMedicationClicked:" destination="NCK-RT-6JO" eventType="touchUpInside" id="E87-cz-ZTh"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5MC-Dh-mqR">
-                                                                        <rect key="frame" x="101" y="6.5" width="103" height="17"/>
+                                                                        <rect key="frame" x="99" y="5" width="107" height="20"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ei-Ry-JJk">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="103" height="17"/>
+                                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ei-Ry-JJk" userLabel="Rivaroxaban">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="107" height="20"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                                                                <state key="normal" title="  Rivaroxaban" image="ic_rect">
+                                                                                <state key="normal" title="  Rivaroxaban" image="ic_unchecked">
                                                                                     <color key="titleColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
+                                                                                <state key="selected" image="ic_checked"/>
+                                                                                <connections>
+                                                                                    <action selector="btnMedicationClicked:" destination="NCK-RT-6JO" eventType="touchUpInside" id="I8q-Qi-Jca"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lhl-PW-ahV">
-                                                                        <rect key="frame" x="223" y="6.5" width="77" height="17"/>
+                                                                        <rect key="frame" x="219" y="5" width="81" height="20"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eI1-xc-lf0">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="77" height="17"/>
+                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eI1-xc-lf0" userLabel="Warfarin">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="81" height="20"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                                                                <state key="normal" title="  Warfarin" image="ic_rect">
+                                                                                <state key="normal" title="  Warfarin" image="ic_unchecked">
                                                                                     <color key="titleColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
+                                                                                <state key="selected" image="ic_checked"/>
+                                                                                <connections>
+                                                                                    <action selector="btnMedicationClicked:" destination="NCK-RT-6JO" eventType="touchUpInside" id="LST-0D-jTH"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
@@ -782,29 +877,37 @@
                                                                 </constraints>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LfX-Dn-yAr">
-                                                                <rect key="frame" x="0.0" y="40" width="300" height="17"/>
+                                                                <rect key="frame" x="0.0" y="40" width="300" height="20"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Efv-l4-lst">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="146" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="146" height="20"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZK-px-ylF">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="146" height="17"/>
+                                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZK-px-ylF" userLabel="Dabigatran">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="146" height="20"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                                                                <state key="normal" title="  Dabigatran" image="ic_rect">
+                                                                                <state key="normal" title="  Dabigatran" image="ic_unchecked">
                                                                                     <color key="titleColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
+                                                                                <state key="selected" image="ic_checked"/>
+                                                                                <connections>
+                                                                                    <action selector="btnMedicationClicked:" destination="NCK-RT-6JO" eventType="touchUpInside" id="I7v-BI-od3"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IQi-Nn-70o">
-                                                                        <rect key="frame" x="154" y="0.0" width="146" height="17"/>
+                                                                        <rect key="frame" x="154" y="0.0" width="146" height="20"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Zg-wQ-WH2">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="146" height="17"/>
+                                                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Zg-wQ-WH2" userLabel="Heparin">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="146" height="20"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                                                                <state key="normal" title="  Heparin" image="ic_rect">
+                                                                                <state key="normal" title="  Heparin" image="ic_unchecked">
                                                                                     <color key="titleColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
+                                                                                <state key="selected" image="ic_checked"/>
+                                                                                <connections>
+                                                                                    <action selector="btnMedicationClicked:" destination="NCK-RT-6JO" eventType="touchUpInside" id="KPU-Kh-NP0"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
@@ -813,7 +916,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Seen Well" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVs-hu-Y0x" customClass="DesignableLabel" customModule="CodeStrokeAlert" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="299" width="290" height="40"/>
+                                                        <rect key="frame" x="15" y="315" width="290" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="Ie4-6Y-Qik"/>
                                                         </constraints>
@@ -822,9 +925,9 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UMA-Y3-tsX">
-                                                        <rect key="frame" x="10" y="339" width="300" height="136"/>
+                                                        <rect key="frame" x="10" y="355" width="300" height="136"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="13 June 1995" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZd-E5-PHt" customClass="DesignableTextField" customModule="CodeStrokeAlert" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZd-E5-PHt" customClass="DesignableTextField" customModule="CodeStrokeAlert" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
@@ -857,7 +960,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6D-42-sIx" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
-                                                        <rect key="frame" x="53" y="495" width="213" height="45"/>
+                                                        <rect key="frame" x="53" y="511" width="213" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="UEl-aD-wII"/>
                                                         </constraints>
@@ -937,7 +1040,25 @@
                         <viewLayoutGuide key="safeArea" id="lU1-zZ-6fy"/>
                     </view>
                     <connections>
+                        <outlet property="btnAF" destination="Fo1-nJ-fdc" id="DMd-kd-sYG"/>
+                        <outlet property="btnAnticoagulantsNo" destination="reb-lc-6gs" id="QTt-xC-n7F"/>
+                        <outlet property="btnAnticoagulantsYes" destination="wrA-Rp-QMF" id="8Sz-TL-21w"/>
+                        <outlet property="btnApixaban" destination="ZtA-VY-kIh" id="Tjn-af-Gp6"/>
+                        <outlet property="btnDM" destination="SoW-m0-kJs" id="BNE-2b-ltK"/>
+                        <outlet property="btnDabigatran" destination="qZK-px-ylF" id="wZQ-h9-QZu"/>
+                        <outlet property="btnEpilepsy" destination="TTs-T4-PJP" id="gUZ-0B-Yyy"/>
+                        <outlet property="btnHeparin" destination="8Zg-wQ-WH2" id="bFm-x8-4lO"/>
+                        <outlet property="btnIHD" destination="Mdk-Lv-TCK" id="xhX-qk-nFM"/>
                         <outlet property="btnNext" destination="O6D-42-sIx" id="Wq2-rC-q3F"/>
+                        <outlet property="btnOther" destination="vLS-za-U1R" id="6RG-yo-oCr"/>
+                        <outlet property="btnRivaroxaban" destination="9Ei-Ry-JJk" id="dae-Bz-hG6"/>
+                        <outlet property="btnStroke" destination="bJY-I0-iIp" id="nKO-nI-5wZ"/>
+                        <outlet property="btnWarfarin" destination="eI1-xc-lf0" id="TQo-2N-2AR"/>
+                        <outlet property="txtLastDate" destination="GZd-E5-PHt" id="68j-PL-UfG"/>
+                        <outlet property="txtMedications" destination="prC-vF-bNc" id="rCa-1I-LfY"/>
+                        <outlet property="txtPostMedicalHistory" destination="I7K-nZ-MTb" id="chK-Ab-atA"/>
+                        <outlet property="txtSituation" destination="9sl-FQ-Rbg" id="fPw-hd-apq"/>
+                        <outlet property="txtWeight" destination="IdV-j9-zAr" id="cdK-Rg-WCy"/>
                         <segue destination="BRU-iT-HNA" kind="show" identifier="ClinicalAssessment" id="VNG-Do-cx3"/>
                     </connections>
                 </viewController>
@@ -988,7 +1109,7 @@
                                     <constraint firstAttribute="height" constant="30" id="tjm-Gq-RGW"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uD0-CE-8rw" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uD0-CE-8rw" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
                                 <rect key="frame" x="205" y="109" width="90" height="30"/>
                                 <color key="backgroundColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1004,6 +1125,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnUnknownClicked:" destination="BRU-iT-HNA" eventType="touchUpInside" id="LRb-cH-3tw"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJz-Hr-9ZN">
                                 <rect key="frame" x="15" y="154" width="305" height="1"/>
@@ -1050,7 +1174,7 @@
                                     <constraint firstAttribute="height" constant="30" id="14j-TT-mTu"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZG-OA-CAS" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZG-OA-CAS" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
                                 <rect key="frame" x="205" y="200" width="90" height="30"/>
                                 <color key="backgroundColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1066,6 +1190,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnUnknownClicked:" destination="BRU-iT-HNA" eventType="touchUpInside" id="oyP-xe-hfB"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjS-as-60o">
                                 <rect key="frame" x="15" y="245" width="305" height="1"/>
@@ -1112,7 +1239,7 @@
                                     <constraint firstAttribute="height" constant="30" id="s5B-L8-Emc"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d51-3N-bwc" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d51-3N-bwc" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
                                 <rect key="frame" x="205" y="291" width="90" height="30"/>
                                 <color key="backgroundColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1128,6 +1255,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnUnknownClicked:" destination="BRU-iT-HNA" eventType="touchUpInside" id="6qZ-ft-Iqb"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cP-uJ-ZwD">
                                 <rect key="frame" x="15" y="336" width="305" height="1"/>
@@ -1174,7 +1304,7 @@
                                     <constraint firstAttribute="height" constant="30" id="K2x-Oh-HIT"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cD4-6m-ITq" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cD4-6m-ITq" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
                                 <rect key="frame" x="205" y="382" width="90" height="30"/>
                                 <color key="backgroundColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1190,6 +1320,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnUnknownClicked:" destination="BRU-iT-HNA" eventType="touchUpInside" id="cTH-0D-hOu"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U28-RX-aMH">
                                 <rect key="frame" x="15" y="427" width="305" height="1"/>
@@ -1266,7 +1399,15 @@
                         <viewLayoutGuide key="safeArea" id="n7e-VU-4z8"/>
                     </view>
                     <connections>
+                        <outlet property="btnArmDriftNo" destination="6dB-Gb-zXQ" id="yRh-D9-jGb"/>
+                        <outlet property="btnArmDriftYes" destination="R2N-N3-x6R" id="pyf-jf-iXu"/>
+                        <outlet property="btnFacialDropNo" destination="btw-9K-Mxi" id="PHg-oi-hth"/>
+                        <outlet property="btnFacialDropYes" destination="Svk-Cs-ceZ" id="auy-7J-YDJ"/>
                         <outlet property="btnNext" destination="pSc-eM-aQL" id="QLU-pQ-S9a"/>
+                        <outlet property="btnSpeechDifficultyNo" destination="l40-bN-73E" id="NsR-Hc-RR7"/>
+                        <outlet property="btnSpeechDifficultyYes" destination="gFw-tr-1cZ" id="tJD-xW-qq4"/>
+                        <outlet property="btnWeakGripNo" destination="Odb-LI-rw9" id="dif-4A-ehW"/>
+                        <outlet property="btnWeakGripYes" destination="73n-t8-sTa" id="0Ea-Tz-mlo"/>
                         <segue destination="24j-QB-93k" kind="show" identifier="ClinicalAssessmentTwo" id="PoB-wD-bkQ"/>
                     </connections>
                 </viewController>
@@ -1289,7 +1430,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Vj-Rb-Ogg">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="733"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="723"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LC6-9r-7NV">
                                                         <rect key="frame" x="10" y="20" width="300" height="328"/>
@@ -1326,6 +1467,9 @@
                                                                                 <state key="selected" image="ic_ovel_selected">
                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="btnRegularIrregularClicked:" destination="24j-QB-93k" eventType="touchUpInside" id="RPH-8v-OjT"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZS-fb-3yz">
                                                                                 <rect key="frame" x="110" y="0.0" width="190" height="40"/>
@@ -1335,6 +1479,9 @@
                                                                                 <state key="selected" image="ic_ovel_selected">
                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="btnRegularIrregularClicked:" destination="24j-QB-93k" eventType="touchUpInside" id="88W-2G-X0e"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
@@ -1376,7 +1523,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhw-ab-tm7">
-                                                        <rect key="frame" x="0.0" y="398" width="320" height="250"/>
+                                                        <rect key="frame" x="0.0" y="388" width="320" height="250"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cc4-Vo-0MG" customClass="DesignableView" customModule="CodeStrokeAlert" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
@@ -1462,7 +1609,7 @@
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="49N-I9-uYl">
                                                                                         <rect key="frame" x="10" y="15" width="300" height="144"/>
                                                                                         <subviews>
-                                                                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOH-et-9dd">
+                                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOH-et-9dd">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="height" constant="30" id="eQJ-J1-W8h"/>
@@ -1473,8 +1620,11 @@
                                                                                                 <state key="selected" image="ic_ovel_selected">
                                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 </state>
+                                                                                                <connections>
+                                                                                                    <action selector="btnEyeOptionClicked:" destination="24j-QB-93k" eventType="touchUpInside" id="45U-ks-NDx"/>
+                                                                                                </connections>
                                                                                             </button>
-                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLp-VX-xk7">
+                                                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLp-VX-xk7">
                                                                                                 <rect key="frame" x="0.0" y="38" width="300" height="30"/>
                                                                                                 <state key="normal" title="  Eye open to pain 2" image="ic_ovel_deselect">
                                                                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1482,8 +1632,11 @@
                                                                                                 <state key="selected" image="ic_ovel_selected">
                                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 </state>
+                                                                                                <connections>
+                                                                                                    <action selector="btnEyeOptionClicked:" destination="24j-QB-93k" eventType="touchUpInside" id="Lxj-2S-myV"/>
+                                                                                                </connections>
                                                                                             </button>
-                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHW-gm-LWa">
+                                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHW-gm-LWa">
                                                                                                 <rect key="frame" x="0.0" y="76" width="300" height="30"/>
                                                                                                 <state key="normal" title="  Eye open to speech 3" image="ic_ovel_deselect">
                                                                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1491,8 +1644,11 @@
                                                                                                 <state key="selected" image="ic_ovel_selected">
                                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 </state>
+                                                                                                <connections>
+                                                                                                    <action selector="btnEyeOptionClicked:" destination="24j-QB-93k" eventType="touchUpInside" id="1E2-Ny-52L"/>
+                                                                                                </connections>
                                                                                             </button>
-                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvJ-h6-FLi">
+                                                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvJ-h6-FLi">
                                                                                                 <rect key="frame" x="0.0" y="114" width="300" height="30"/>
                                                                                                 <state key="normal" title="  Eye open spontaneously 4" image="ic_ovel_deselect">
                                                                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1500,6 +1656,9 @@
                                                                                                 <state key="selected" image="ic_ovel_selected">
                                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 </state>
+                                                                                                <connections>
+                                                                                                    <action selector="btnEyeOptionClicked:" destination="24j-QB-93k" eventType="touchUpInside" id="nvP-bY-J3K"/>
+                                                                                                </connections>
                                                                                             </button>
                                                                                         </subviews>
                                                                                     </stackView>
@@ -1517,7 +1676,7 @@
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UXy-un-FP5">
                                                                                         <rect key="frame" x="10" y="15" width="300" height="182"/>
                                                                                         <subviews>
-                                                                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nK-Rs-bkD">
+                                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nK-Rs-bkD">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="height" constant="30" id="rEj-sa-eQl"/>
@@ -1528,8 +1687,11 @@
                                                                                                 <state key="selected" image="ic_ovel_selected">
                                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 </state>
+                                                                                                <connections>
+                                                                                                    <action selector="btnVerbalOptionClicked:" destination="24j-QB-93k" eventType="touchUpInside" id="j6G-5f-Dqg"/>
+                                                                                                </connections>
                                                                                             </button>
-                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3n-i8-jPn">
+                                                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3n-i8-jPn">
                                                                                                 <rect key="frame" x="0.0" y="38" width="300" height="30"/>
                                                                                                 <state key="normal" title="  Incomprehensible sounds 2" image="ic_ovel_deselect">
                                                                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1537,8 +1699,11 @@
                                                                                                 <state key="selected" image="ic_ovel_selected">
                                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 </state>
+                                                                                                <connections>
+                                                                                                    <action selector="btnVerbalOptionClicked:" destination="24j-QB-93k" eventType="touchUpInside" id="LV1-Zb-Tg5"/>
+                                                                                                </connections>
                                                                                             </button>
-                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5y-Ej-GgF">
+                                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5y-Ej-GgF">
                                                                                                 <rect key="frame" x="0.0" y="76" width="300" height="30"/>
                                                                                                 <state key="normal" title="  Inappropriate words 3" image="ic_ovel_deselect">
                                                                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1546,8 +1711,11 @@
                                                                                                 <state key="selected" image="ic_ovel_selected">
                                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 </state>
+                                                                                                <connections>
+                                                                                                    <action selector="btnVerbalOptionClicked:" destination="24j-QB-93k" eventType="touchUpInside" id="nxy-lS-eaD"/>
+                                                                                                </connections>
                                                                                             </button>
-                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59w-jD-bwo">
+                                                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59w-jD-bwo">
                                                                                                 <rect key="frame" x="0.0" y="114" width="300" height="30"/>
                                                                                                 <state key="normal" title="  Confused 4" image="ic_ovel_deselect">
                                                                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1555,8 +1723,11 @@
                                                                                                 <state key="selected" image="ic_ovel_selected">
                                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 </state>
+                                                                                                <connections>
+                                                                                                    <action selector="btnVerbalOptionClicked:" destination="24j-QB-93k" eventType="touchUpInside" id="OZb-Yu-z2m"/>
+                                                                                                </connections>
                                                                                             </button>
-                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDe-Cg-2tX">
+                                                                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDe-Cg-2tX">
                                                                                                 <rect key="frame" x="0.0" y="152" width="300" height="30"/>
                                                                                                 <state key="normal" title="  Oriented 5" image="ic_ovel_deselect">
                                                                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1564,6 +1735,9 @@
                                                                                                 <state key="selected" image="ic_ovel_selected">
                                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 </state>
+                                                                                                <connections>
+                                                                                                    <action selector="btnVerbalOptionClicked:" destination="24j-QB-93k" eventType="touchUpInside" id="HXb-CJ-Yqw"/>
+                                                                                                </connections>
                                                                                             </button>
                                                                                         </subviews>
                                                                                     </stackView>
@@ -1581,7 +1755,7 @@
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EDA-TB-gtC">
                                                                                         <rect key="frame" x="10" y="15" width="300" height="220"/>
                                                                                         <subviews>
-                                                                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Uu-pK-Dvu">
+                                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Uu-pK-Dvu">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="height" constant="30" id="b6G-Hr-5KV"/>
@@ -1592,8 +1766,11 @@
                                                                                                 <state key="selected" image="ic_ovel_selected">
                                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 </state>
+                                                                                                <connections>
+                                                                                                    <action selector="btnMoterOptionClicked:" destination="24j-QB-93k" eventType="touchUpInside" id="HIW-ge-Ota"/>
+                                                                                                </connections>
                                                                                             </button>
-                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oi-ns-uzR">
+                                                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oi-ns-uzR">
                                                                                                 <rect key="frame" x="0.0" y="38" width="300" height="30"/>
                                                                                                 <state key="normal" title="  Extension to pain 2" image="ic_ovel_deselect">
                                                                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1601,8 +1778,11 @@
                                                                                                 <state key="selected" image="ic_ovel_selected">
                                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 </state>
+                                                                                                <connections>
+                                                                                                    <action selector="btnMoterOptionClicked:" destination="24j-QB-93k" eventType="touchUpInside" id="b3q-bV-aFq"/>
+                                                                                                </connections>
                                                                                             </button>
-                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VK1-TA-cn4">
+                                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VK1-TA-cn4">
                                                                                                 <rect key="frame" x="0.0" y="76" width="300" height="30"/>
                                                                                                 <state key="normal" title="  Abnormal flexion to pain 3" image="ic_ovel_deselect">
                                                                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1610,8 +1790,11 @@
                                                                                                 <state key="selected" image="ic_ovel_selected">
                                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 </state>
+                                                                                                <connections>
+                                                                                                    <action selector="btnMoterOptionClicked:" destination="24j-QB-93k" eventType="touchUpInside" id="1bF-Ud-g0X"/>
+                                                                                                </connections>
                                                                                             </button>
-                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Qj-rq-rly">
+                                                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Qj-rq-rly">
                                                                                                 <rect key="frame" x="0.0" y="114" width="300" height="30"/>
                                                                                                 <state key="normal" title="  Flexion/withdrawal to pain 4" image="ic_ovel_deselect">
                                                                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1619,8 +1802,11 @@
                                                                                                 <state key="selected" image="ic_ovel_selected">
                                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 </state>
+                                                                                                <connections>
+                                                                                                    <action selector="btnMoterOptionClicked:" destination="24j-QB-93k" eventType="touchUpInside" id="pOS-D5-1Pm"/>
+                                                                                                </connections>
                                                                                             </button>
-                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zd-Td-xs4">
+                                                                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zd-Td-xs4">
                                                                                                 <rect key="frame" x="0.0" y="152" width="300" height="30"/>
                                                                                                 <state key="normal" title="  Localises to pain 5" image="ic_ovel_deselect">
                                                                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1628,8 +1814,11 @@
                                                                                                 <state key="selected" image="ic_ovel_selected">
                                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 </state>
+                                                                                                <connections>
+                                                                                                    <action selector="btnMoterOptionClicked:" destination="24j-QB-93k" eventType="touchUpInside" id="uzu-fF-id0"/>
+                                                                                                </connections>
                                                                                             </button>
-                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gct-Mg-Pkl">
+                                                                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gct-Mg-Pkl">
                                                                                                 <rect key="frame" x="0.0" y="190" width="300" height="30"/>
                                                                                                 <state key="normal" title="  Obeys commands 6" image="ic_ovel_deselect">
                                                                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1637,6 +1826,9 @@
                                                                                                 <state key="selected" image="ic_ovel_selected">
                                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 </state>
+                                                                                                <connections>
+                                                                                                    <action selector="btnMoterOptionClicked:" destination="24j-QB-93k" eventType="touchUpInside" id="wqc-th-iU4"/>
+                                                                                                </connections>
                                                                                             </button>
                                                                                         </subviews>
                                                                                     </stackView>
@@ -1691,7 +1883,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBT-Jb-veC" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
-                                                        <rect key="frame" x="53" y="668" width="213" height="45"/>
+                                                        <rect key="frame" x="53" y="658" width="213" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="UiY-DR-z1w"/>
                                                         </constraints>
@@ -1720,7 +1912,7 @@
                                                     <constraint firstItem="NDX-T7-GP3" firstAttribute="top" secondItem="LC6-9r-7NV" secondAttribute="bottom" constant="10" id="eZl-Pf-iiP"/>
                                                     <constraint firstItem="LC6-9r-7NV" firstAttribute="leading" secondItem="3Vj-Rb-Ogg" secondAttribute="leading" constant="10" id="hKa-ri-rjm"/>
                                                     <constraint firstAttribute="trailing" secondItem="LC6-9r-7NV" secondAttribute="trailing" constant="10" id="nGJ-ym-aU5"/>
-                                                    <constraint firstItem="rhw-ab-tm7" firstAttribute="top" secondItem="NDX-T7-GP3" secondAttribute="bottom" constant="10" id="qVl-Ej-4Po"/>
+                                                    <constraint firstItem="rhw-ab-tm7" firstAttribute="top" secondItem="NDX-T7-GP3" secondAttribute="bottom" id="qVl-Ej-4Po"/>
                                                     <constraint firstItem="NDX-T7-GP3" firstAttribute="centerX" secondItem="3Vj-Rb-Ogg" secondAttribute="centerX" id="uPK-XS-KGy"/>
                                                     <constraint firstAttribute="bottom" secondItem="UBT-Jb-veC" secondAttribute="bottom" constant="20" id="wBL-0J-EEH"/>
                                                 </constraints>
@@ -1755,11 +1947,34 @@
                     </view>
                     <connections>
                         <outlet property="btnEye" destination="OgX-wQ-v1C" id="3l7-Vd-8lf"/>
+                        <outlet property="btnEyeOption1" destination="bOH-et-9dd" id="pZZ-fO-6po"/>
+                        <outlet property="btnEyeOption2" destination="uLp-VX-xk7" id="74A-gI-RIC"/>
+                        <outlet property="btnEyeOption3" destination="SHW-gm-LWa" id="Tvn-96-l9R"/>
+                        <outlet property="btnEyeOption4" destination="pvJ-h6-FLi" id="t3d-1c-XIv"/>
+                        <outlet property="btnIrregular" destination="cZS-fb-3yz" id="vZC-HS-tn4"/>
+                        <outlet property="btnMoterOption1" destination="3Uu-pK-Dvu" id="ilT-Dl-sBN"/>
+                        <outlet property="btnMoterOption2" destination="0oi-ns-uzR" id="OEM-Qn-PMn"/>
+                        <outlet property="btnMoterOption3" destination="VK1-TA-cn4" id="egN-wf-FyM"/>
+                        <outlet property="btnMoterOption4" destination="0Qj-rq-rly" id="aSG-Ki-uDV"/>
+                        <outlet property="btnMoterOption5" destination="0Zd-Td-xs4" id="a1C-4s-NJf"/>
+                        <outlet property="btnMoterOption6" destination="gct-Mg-Pkl" id="JuT-vu-EMI"/>
                         <outlet property="btnMotor" destination="x5L-Cr-b3d" id="SD7-cF-O3l"/>
                         <outlet property="btnNext" destination="UBT-Jb-veC" id="9D9-NT-o9s"/>
+                        <outlet property="btnRegular" destination="a8b-6W-yF8" id="CYt-aZ-a0n"/>
                         <outlet property="btnVerbal" destination="68j-VU-aVm" id="DhU-UF-VDN"/>
+                        <outlet property="btnVerbalOption1" destination="0nK-Rs-bkD" id="vlV-9p-GqR"/>
+                        <outlet property="btnVerbalOption2" destination="f3n-i8-jPn" id="93n-xQ-QD4"/>
+                        <outlet property="btnVerbalOption3" destination="T5y-Ej-GgF" id="i4C-RJ-q1c"/>
+                        <outlet property="btnVerbalOption4" destination="59w-jD-bwo" id="rjj-yR-FON"/>
+                        <outlet property="btnVerbalOption5" destination="mDe-Cg-2tX" id="5w1-Cp-wkO"/>
                         <outlet property="leadingGCS" destination="lM2-Z7-nm5" id="ylC-Fx-ppq"/>
                         <outlet property="scrollView" destination="UHM-L9-M2c" id="E3o-kt-8tX"/>
+                        <outlet property="txtBloodGlucose" destination="A1O-sH-akW" id="Epp-CC-WjP"/>
+                        <outlet property="txtBloodPressure" destination="lvg-L3-z2V" id="sni-hl-Ptb"/>
+                        <outlet property="txtHeartRate" destination="B5K-Xa-aDg" id="8bH-Kt-oQn"/>
+                        <outlet property="txtOxygenSaturation" destination="MVe-td-tB3" id="TZB-Km-NFd"/>
+                        <outlet property="txtRespiratoryRate" destination="GdX-eZ-lMx" id="ekL-2x-8VX"/>
+                        <outlet property="txtTemperature" destination="Zcs-VU-nTW" id="3aM-8m-047"/>
                         <segue destination="x6I-MU-ijQ" kind="show" identifier="ClinicalAssessmentThree" id="Bmh-a8-u54"/>
                     </connections>
                 </viewController>
@@ -1807,6 +2022,9 @@
                                                                 <state key="selected" image="ic_ovel_selected">
                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="btnFacialPalsyOptionClicked:" destination="x6I-MU-ijQ" eventType="touchUpInside" id="AIA-2o-76y"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJU-dt-cZj">
                                                                 <rect key="frame" x="0.0" y="43" width="300" height="35"/>
@@ -1816,6 +2034,9 @@
                                                                 <state key="selected" image="ic_ovel_selected">
                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="btnFacialPalsyOptionClicked:" destination="x6I-MU-ijQ" eventType="touchUpInside" id="QvP-OP-6xZ"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Duk-NT-MjA">
                                                                 <rect key="frame" x="0.0" y="86" width="300" height="35"/>
@@ -1825,6 +2046,9 @@
                                                                 <state key="selected" image="ic_ovel_selected">
                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="btnFacialPalsyOptionClicked:" destination="x6I-MU-ijQ" eventType="touchUpInside" id="pCn-o9-z03"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -1858,6 +2082,9 @@
                                                                 <state key="selected" image="ic_ovel_selected">
                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="btnArmMoterOptionClicked:" destination="x6I-MU-ijQ" eventType="touchUpInside" id="iKb-Hs-UST"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYj-bd-1ed">
                                                                 <rect key="frame" x="0.0" y="43" width="300" height="35"/>
@@ -1867,6 +2094,9 @@
                                                                 <state key="selected" image="ic_ovel_selected">
                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="btnArmMoterOptionClicked:" destination="x6I-MU-ijQ" eventType="touchUpInside" id="gW0-YA-hey"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2D-B7-LCa">
                                                                 <rect key="frame" x="0.0" y="86" width="300" height="35"/>
@@ -1876,6 +2106,9 @@
                                                                 <state key="selected" image="ic_ovel_selected">
                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="btnArmMoterOptionClicked:" destination="x6I-MU-ijQ" eventType="touchUpInside" id="8jX-ur-wdn"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -1909,6 +2142,9 @@
                                                                 <state key="selected" image="ic_ovel_selected">
                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="btnLegMoterOptionClicked:" destination="x6I-MU-ijQ" eventType="touchUpInside" id="AeY-iH-5r6"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PoS-UF-KiF">
                                                                 <rect key="frame" x="0.0" y="43" width="300" height="35"/>
@@ -1918,6 +2154,9 @@
                                                                 <state key="selected" image="ic_ovel_selected">
                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="btnLegMoterOptionClicked:" destination="x6I-MU-ijQ" eventType="touchUpInside" id="XdX-N3-79P"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mf0-ya-BZO">
                                                                 <rect key="frame" x="0.0" y="86" width="300" height="35"/>
@@ -1927,6 +2166,9 @@
                                                                 <state key="selected" image="ic_ovel_selected">
                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="btnLegMoterOptionClicked:" destination="x6I-MU-ijQ" eventType="touchUpInside" id="uWZ-y7-FFV"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -1960,6 +2202,9 @@
                                                                 <state key="selected" image="ic_ovel_selected">
                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="btnHeadGazeOptionClicked:" destination="x6I-MU-ijQ" eventType="touchUpInside" id="R0C-jp-VnM"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKg-4X-XAO">
                                                                 <rect key="frame" x="0.0" y="43" width="300" height="35"/>
@@ -1969,6 +2214,9 @@
                                                                 <state key="selected" image="ic_ovel_selected">
                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="btnHeadGazeOptionClicked:" destination="x6I-MU-ijQ" eventType="touchUpInside" id="Bp5-Xt-L7j"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -2067,6 +2315,17 @@
                         <viewLayoutGuide key="safeArea" id="AMY-tU-dBF"/>
                     </view>
                     <connections>
+                        <outlet property="btnArmMoterOption1" destination="lB1-Hu-yer" id="4xi-vb-DC8"/>
+                        <outlet property="btnArmMoterOption2" destination="WYj-bd-1ed" id="d0C-l3-uMN"/>
+                        <outlet property="btnArmMoterOption3" destination="H2D-B7-LCa" id="msC-8b-0kY"/>
+                        <outlet property="btnFacialPalsyOption1" destination="37f-cp-TB8" id="pXA-pK-IR6"/>
+                        <outlet property="btnFacialPalsyOption2" destination="DJU-dt-cZj" id="qKg-jr-oQf"/>
+                        <outlet property="btnFacialPalsyOption3" destination="Duk-NT-MjA" id="nY0-Wn-f4I"/>
+                        <outlet property="btnHeadGazeOption1" destination="iDL-oR-Gog" id="ia3-PH-YdA"/>
+                        <outlet property="btnHeadGazeOption2" destination="IKg-4X-XAO" id="hmY-M1-ung"/>
+                        <outlet property="btnLegMoterOption1" destination="kTl-g9-PBZ" id="LVE-Hz-zMT"/>
+                        <outlet property="btnLegMoterOption2" destination="PoS-UF-KiF" id="4TL-bX-ZAz"/>
+                        <outlet property="btnLegMoterOption3" destination="mf0-ya-BZO" id="UwE-Lj-M9q"/>
                         <outlet property="btnNext" destination="mRk-ck-Ya8" id="rO3-5p-JEq"/>
                         <segue destination="GnR-ix-E5K" kind="show" identifier="ClinicalAssessmentFour" id="14v-Ll-H51"/>
                     </connections>
@@ -2103,6 +2362,9 @@
                                         <state key="selected" image="ic_ovel_selected">
                                             <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btn18GIVClicked:" destination="GnR-ix-E5K" eventType="touchUpInside" id="hPl-bJ-PIv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXX-xs-OAF">
                                         <rect key="frame" x="66" y="0.0" width="58" height="30"/>
@@ -2112,6 +2374,9 @@
                                         <state key="selected" image="ic_ovel_selected">
                                             <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btn18GIVClicked:" destination="GnR-ix-E5K" eventType="touchUpInside" id="aZC-9i-6mC"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -2134,6 +2399,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnUnknownClicked:" destination="GnR-ix-E5K" eventType="touchUpInside" id="EXS-mT-tAi"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVt-jS-6P9" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
                                 <rect key="frame" x="60" y="503" width="200" height="45"/>
@@ -2170,6 +2438,9 @@
                         <viewLayoutGuide key="safeArea" id="xVp-E4-BIF"/>
                     </view>
                     <connections>
+                        <outlet property="btn18GIVNo" destination="qXX-xs-OAF" id="GiC-qw-1tG"/>
+                        <outlet property="btn18GIVUnknown" destination="F99-iP-UoB" id="pvP-xM-pL1"/>
+                        <outlet property="btn18GIVYes" destination="Nue-lU-3K2" id="5vN-H2-Whh"/>
                         <outlet property="btnNext" destination="EVt-jS-6P9" id="OA2-ZS-riV"/>
                         <segue destination="eHv-M5-4YJ" kind="show" identifier="ProfileSummery" id="cuC-Ep-3Cf"/>
                     </connections>
@@ -3449,10 +3720,11 @@
     </scenes>
     <resources>
         <image name="ic_calendar" width="17" height="17"/>
+        <image name="ic_checked" width="20" height="20"/>
         <image name="ic_down_arrow" width="17" height="11"/>
         <image name="ic_ovel_deselect" width="19" height="19"/>
         <image name="ic_ovel_selected" width="19" height="19"/>
-        <image name="ic_rect" width="16" height="17"/>
         <image name="ic_top_arrow" width="17" height="11"/>
+        <image name="ic_unchecked" width="20" height="20"/>
     </resources>
 </document>
