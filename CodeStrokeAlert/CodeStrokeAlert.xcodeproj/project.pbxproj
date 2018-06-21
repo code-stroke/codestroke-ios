@@ -12,6 +12,18 @@
 		44430EC420D62D890094B2CB /* CodeStrokeAlert.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44430EC220D62D890094B2CB /* CodeStrokeAlert.xcdatamodeld */; };
 		44430EC620D62D8A0094B2CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44430EC520D62D8A0094B2CB /* Assets.xcassets */; };
 		44430EC920D62D8A0094B2CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44430EC720D62D8A0094B2CB /* LaunchScreen.storyboard */; };
+		4464EEFA20DA8ECE00BCF58D /* CountryList.json in Resources */ = {isa = PBXBuildFile; fileRef = 4464EEDA20DA8ECE00BCF58D /* CountryList.json */; };
+		4464EEFB20DA8ECE00BCF58D /* CountrySelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4464EEDB20DA8ECE00BCF58D /* CountrySelection.swift */; };
+		4464EEFC20DA8ECE00BCF58D /* RMActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4464EEDE20DA8ECE00BCF58D /* RMActionController.m */; };
+		4464EEFD20DA8ECE00BCF58D /* RMGroupedAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4464EEE320DA8ECE00BCF58D /* RMGroupedAction.m */; };
+		4464EEFE20DA8ECE00BCF58D /* RMScrollableGroupedAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4464EEE420DA8ECE00BCF58D /* RMScrollableGroupedAction.m */; };
+		4464EEFF20DA8ECE00BCF58D /* RMAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4464EEE820DA8ECE00BCF58D /* RMAction.m */; };
+		4464EF0020DA8ECE00BCF58D /* RMImageAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4464EEEB20DA8ECE00BCF58D /* RMImageAction.m */; };
+		4464EF0120DA8ECE00BCF58D /* UIView+RMActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4464EEED20DA8ECE00BCF58D /* UIView+RMActionController.m */; };
+		4464EF0220DA8ECE00BCF58D /* NSProcessInfo+RMActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4464EEEF20DA8ECE00BCF58D /* NSProcessInfo+RMActionController.m */; };
+		4464EF0320DA8ECE00BCF58D /* RMActionControllerTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4464EEF220DA8ECE00BCF58D /* RMActionControllerTransition.m */; };
+		4464EF0420DA8ECE00BCF58D /* RMDateSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4464EEF620DA8ECE00BCF58D /* RMDateSelectionViewController.m */; };
+		4464EF0520DA8ECE00BCF58D /* RMPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4464EEF820DA8ECE00BCF58D /* RMPickerViewController.m */; };
 		44C348B320D7ADDA0078F6F3 /* SFUIDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 44C348AA20D7ADDA0078F6F3 /* SFUIDisplay-Regular.otf */; };
 		44C348B420D7ADDA0078F6F3 /* sf-ui-display-heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 44C348AB20D7ADDA0078F6F3 /* sf-ui-display-heavy.otf */; };
 		44C348B520D7ADDA0078F6F3 /* sf-ui-display-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 44C348AC20D7ADDA0078F6F3 /* sf-ui-display-black.otf */; };
@@ -63,6 +75,31 @@
 		44430EC520D62D8A0094B2CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44430EC820D62D8A0094B2CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44430ECA20D62D8A0094B2CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4464EED920DA8E2F00BCF58D /* CodeStrokeAlert-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CodeStrokeAlert-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		4464EEDA20DA8ECE00BCF58D /* CountryList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountryList.json; sourceTree = "<group>"; };
+		4464EEDB20DA8ECE00BCF58D /* CountrySelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountrySelection.swift; sourceTree = "<group>"; };
+		4464EEDD20DA8ECE00BCF58D /* RMActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMActionController.h; sourceTree = "<group>"; };
+		4464EEDE20DA8ECE00BCF58D /* RMActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMActionController.m; sourceTree = "<group>"; };
+		4464EEE020DA8ECE00BCF58D /* RMAction+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RMAction+Private.h"; sourceTree = "<group>"; };
+		4464EEE120DA8ECE00BCF58D /* RMActionController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RMActionController+Private.h"; sourceTree = "<group>"; };
+		4464EEE320DA8ECE00BCF58D /* RMGroupedAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMGroupedAction.m; sourceTree = "<group>"; };
+		4464EEE420DA8ECE00BCF58D /* RMScrollableGroupedAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMScrollableGroupedAction.m; sourceTree = "<group>"; };
+		4464EEE520DA8ECE00BCF58D /* RMGroupedAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMGroupedAction.h; sourceTree = "<group>"; };
+		4464EEE620DA8ECE00BCF58D /* RMScrollableGroupedAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMScrollableGroupedAction.h; sourceTree = "<group>"; };
+		4464EEE820DA8ECE00BCF58D /* RMAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAction.m; sourceTree = "<group>"; };
+		4464EEE920DA8ECE00BCF58D /* RMImageAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMImageAction.h; sourceTree = "<group>"; };
+		4464EEEA20DA8ECE00BCF58D /* RMAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAction.h; sourceTree = "<group>"; };
+		4464EEEB20DA8ECE00BCF58D /* RMImageAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMImageAction.m; sourceTree = "<group>"; };
+		4464EEED20DA8ECE00BCF58D /* UIView+RMActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RMActionController.m"; sourceTree = "<group>"; };
+		4464EEEE20DA8ECE00BCF58D /* NSProcessInfo+RMActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSProcessInfo+RMActionController.h"; sourceTree = "<group>"; };
+		4464EEEF20DA8ECE00BCF58D /* NSProcessInfo+RMActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSProcessInfo+RMActionController.m"; sourceTree = "<group>"; };
+		4464EEF020DA8ECE00BCF58D /* UIView+RMActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RMActionController.h"; sourceTree = "<group>"; };
+		4464EEF220DA8ECE00BCF58D /* RMActionControllerTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMActionControllerTransition.m; sourceTree = "<group>"; };
+		4464EEF320DA8ECE00BCF58D /* RMActionControllerTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMActionControllerTransition.h; sourceTree = "<group>"; };
+		4464EEF520DA8ECE00BCF58D /* RMDateSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMDateSelectionViewController.h; sourceTree = "<group>"; };
+		4464EEF620DA8ECE00BCF58D /* RMDateSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDateSelectionViewController.m; sourceTree = "<group>"; };
+		4464EEF820DA8ECE00BCF58D /* RMPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPickerViewController.m; sourceTree = "<group>"; };
+		4464EEF920DA8ECE00BCF58D /* RMPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPickerViewController.h; sourceTree = "<group>"; };
 		44C348AA20D7ADDA0078F6F3 /* SFUIDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Regular.otf"; sourceTree = "<group>"; };
 		44C348AB20D7ADDA0078F6F3 /* sf-ui-display-heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-display-heavy.otf"; sourceTree = "<group>"; };
 		44C348AC20D7ADDA0078F6F3 /* sf-ui-display-black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-display-black.otf"; sourceTree = "<group>"; };
@@ -121,6 +158,7 @@
 		44430EAF20D62D890094B2CB = {
 			isa = PBXGroup;
 			children = (
+				4464EED920DA8E2F00BCF58D /* CodeStrokeAlert-Bridging-Header.h */,
 				44430EBA20D62D890094B2CB /* CodeStrokeAlert */,
 				44430EB920D62D890094B2CB /* Products */,
 				7F6774DAF1DE3FC262F871D1 /* Pods */,
@@ -152,6 +190,89 @@
 				44430EC220D62D890094B2CB /* CodeStrokeAlert.xcdatamodeld */,
 			);
 			path = CodeStrokeAlert;
+			sourceTree = "<group>";
+		};
+		4464EEDC20DA8ECE00BCF58D /* RMActionController */ = {
+			isa = PBXGroup;
+			children = (
+				4464EEDD20DA8ECE00BCF58D /* RMActionController.h */,
+				4464EEDE20DA8ECE00BCF58D /* RMActionController.m */,
+				4464EEDF20DA8ECE00BCF58D /* Private */,
+				4464EEE220DA8ECE00BCF58D /* Grouping Actions */,
+				4464EEE720DA8ECE00BCF58D /* Actions */,
+				4464EEEC20DA8ECE00BCF58D /* Categories */,
+				4464EEF120DA8ECE00BCF58D /* Animations */,
+			);
+			path = RMActionController;
+			sourceTree = "<group>";
+		};
+		4464EEDF20DA8ECE00BCF58D /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				4464EEE020DA8ECE00BCF58D /* RMAction+Private.h */,
+				4464EEE120DA8ECE00BCF58D /* RMActionController+Private.h */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		4464EEE220DA8ECE00BCF58D /* Grouping Actions */ = {
+			isa = PBXGroup;
+			children = (
+				4464EEE320DA8ECE00BCF58D /* RMGroupedAction.m */,
+				4464EEE420DA8ECE00BCF58D /* RMScrollableGroupedAction.m */,
+				4464EEE520DA8ECE00BCF58D /* RMGroupedAction.h */,
+				4464EEE620DA8ECE00BCF58D /* RMScrollableGroupedAction.h */,
+			);
+			path = "Grouping Actions";
+			sourceTree = "<group>";
+		};
+		4464EEE720DA8ECE00BCF58D /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				4464EEE820DA8ECE00BCF58D /* RMAction.m */,
+				4464EEE920DA8ECE00BCF58D /* RMImageAction.h */,
+				4464EEEA20DA8ECE00BCF58D /* RMAction.h */,
+				4464EEEB20DA8ECE00BCF58D /* RMImageAction.m */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		4464EEEC20DA8ECE00BCF58D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4464EEED20DA8ECE00BCF58D /* UIView+RMActionController.m */,
+				4464EEEE20DA8ECE00BCF58D /* NSProcessInfo+RMActionController.h */,
+				4464EEEF20DA8ECE00BCF58D /* NSProcessInfo+RMActionController.m */,
+				4464EEF020DA8ECE00BCF58D /* UIView+RMActionController.h */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		4464EEF120DA8ECE00BCF58D /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				4464EEF220DA8ECE00BCF58D /* RMActionControllerTransition.m */,
+				4464EEF320DA8ECE00BCF58D /* RMActionControllerTransition.h */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		4464EEF420DA8ECE00BCF58D /* RMDateSelectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4464EEF520DA8ECE00BCF58D /* RMDateSelectionViewController.h */,
+				4464EEF620DA8ECE00BCF58D /* RMDateSelectionViewController.m */,
+			);
+			path = RMDateSelectionViewController;
+			sourceTree = "<group>";
+		};
+		4464EEF720DA8ECE00BCF58D /* RMPickerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4464EEF820DA8ECE00BCF58D /* RMPickerViewController.m */,
+				4464EEF920DA8ECE00BCF58D /* RMPickerViewController.h */,
+			);
+			path = RMPickerViewController;
 			sourceTree = "<group>";
 		};
 		44C348BC20D7ADE70078F6F3 /* Fonts */ = {
@@ -206,6 +327,11 @@
 		44C348C820D8ADAC0078F6F3 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4464EEDA20DA8ECE00BCF58D /* CountryList.json */,
+				4464EEDB20DA8ECE00BCF58D /* CountrySelection.swift */,
+				4464EEDC20DA8ECE00BCF58D /* RMActionController */,
+				4464EEF420DA8ECE00BCF58D /* RMDateSelectionViewController */,
+				4464EEF720DA8ECE00BCF58D /* RMPickerViewController */,
 				44C348DE20D8ADD90078F6F3 /* Toast */,
 				44C348C920D8ADAC0078F6F3 /* IBInpectable */,
 				44C348CE20D8ADAC0078F6F3 /* Contatants */,
@@ -348,6 +474,7 @@
 				44C348B620D7ADDA0078F6F3 /* sf-ui-display-bold.otf in Resources */,
 				44C348B420D7ADDA0078F6F3 /* sf-ui-display-heavy.otf in Resources */,
 				44C348B720D7ADDA0078F6F3 /* sf-ui-display-ultralight.otf in Resources */,
+				4464EEFA20DA8ECE00BCF58D /* CountryList.json in Resources */,
 				44C348B920D7ADDA0078F6F3 /* sf-ui-display-light.otf in Resources */,
 				44C348B820D7ADDA0078F6F3 /* sf-ui-display-medium.otf in Resources */,
 				44C348BA20D7ADDA0078F6F3 /* sf-ui-display-semibold.otf in Resources */,
@@ -415,20 +542,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4464EEFE20DA8ECE00BCF58D /* RMScrollableGroupedAction.m in Sources */,
 				44C348BE20D7B5400078F6F3 /* LoginWithQR.swift in Sources */,
+				4464EF0020DA8ECE00BCF58D /* RMImageAction.m in Sources */,
+				4464EF0420DA8ECE00BCF58D /* RMDateSelectionViewController.m in Sources */,
 				44C348D520D8ADAC0078F6F3 /* DesignableTextField.swift in Sources */,
 				44C348FA20D8F0330078F6F3 /* ClinicalAssessmentVC.swift in Sources */,
 				44C348DA20D8ADAC0078F6F3 /* LetsReach.swift in Sources */,
 				44C348F620D8CFCE0078F6F3 /* DestinationVC.swift in Sources */,
+				4464EF0220DA8ECE00BCF58D /* NSProcessInfo+RMActionController.m in Sources */,
+				4464EF0520DA8ECE00BCF58D /* RMPickerViewController.m in Sources */,
 				44C348F820D8E2620078F6F3 /* ClinicalHistoryVC.swift in Sources */,
 				44C348EB20D8AE8C0078F6F3 /* DesignableTextView.swift in Sources */,
 				44C3490220D932620078F6F3 /* ProfileSummeryVC.swift in Sources */,
 				44C348D920D8ADAC0078F6F3 /* Constans.swift in Sources */,
 				44C348DB20D8ADAC0078F6F3 /* String+Extension.swift in Sources */,
+				4464EF0320DA8ECE00BCF58D /* RMActionControllerTransition.m in Sources */,
 				44430EC420D62D890094B2CB /* CodeStrokeAlert.xcdatamodeld in Sources */,
+				4464EEFB20DA8ECE00BCF58D /* CountrySelection.swift in Sources */,
 				44C348DD20D8ADAC0078F6F3 /* NSDate+Extension.swift in Sources */,
 				44C348FE20D8FFCA0078F6F3 /* ClinicalAssessmentTwoVC.swift in Sources */,
 				44C3490020D92F980078F6F3 /* ClinicalAssessmentFour.swift in Sources */,
+				4464EEFD20DA8ECE00BCF58D /* RMGroupedAction.m in Sources */,
 				44C348EC20D8AE8C0078F6F3 /* ViewDesign.swift in Sources */,
 				44C348F220D8BB1E0078F6F3 /* PatientDetailVC.swift in Sources */,
 				44C348D720D8ADAC0078F6F3 /* DesignableButton.swift in Sources */,
@@ -440,11 +575,14 @@
 				44C348F020D8AE8C0078F6F3 /* LabelDesign.swift in Sources */,
 				44C348EE20D8AE8C0078F6F3 /* DesignableImageView.swift in Sources */,
 				44C348C020D7B5D30078F6F3 /* LoginNavigation.swift in Sources */,
+				4464EF0120DA8ECE00BCF58D /* UIView+RMActionController.m in Sources */,
 				44C348E020D8ADD90078F6F3 /* HRToast+UIView.swift in Sources */,
 				44C348ED20D8AE8C0078F6F3 /* TextFieldDesign.swift in Sources */,
+				4464EEFF20DA8ECE00BCF58D /* RMAction.m in Sources */,
 				44430EBC20D62D890094B2CB /* AppDelegate.swift in Sources */,
 				44C348D820D8ADAC0078F6F3 /* DesignableView.swift in Sources */,
 				44C348DC20D8ADAC0078F6F3 /* ValidationFile.swift in Sources */,
+				4464EEFC20DA8ECE00BCF58D /* RMActionController.m in Sources */,
 				44C348EA20D8AE8C0078F6F3 /* TextViewDesign.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,6 +740,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "be57e37b-835a-43ec-ae60-df4c549f54cf";
 				PROVISIONING_PROFILE_SPECIFIER = AFG_Development;
+				SWIFT_OBJC_BRIDGING_HEADER = "CodeStrokeAlert-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -624,6 +763,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "be57e37b-835a-43ec-ae60-df4c549f54cf";
 				PROVISIONING_PROFILE_SPECIFIER = AFG_Development;
+				SWIFT_OBJC_BRIDGING_HEADER = "CodeStrokeAlert-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

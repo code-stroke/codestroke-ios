@@ -65,7 +65,21 @@ class ClinicalAssessmentTwoVC: UIViewController {
     
     @IBAction func btnNextClicked(_ sender: DesignableButton) {
         
-        self.performSegue(withIdentifier: "ClinicalAssessmentThree", sender: self)
+        if isEmptyString(self.txtBloodPressure.text!) {
+            showAlert("Please enter blood pressure (mmHg)")
+        } else if isEmptyString(self.txtHeartRate.text!) {
+            showAlert("Please enter heart rate (bpm)")
+        } else if isEmptyString(self.txtRespiratoryRate.text!) {
+            showAlert("Please enter respiratory rate (bpm)")
+        } else if isEmptyString(self.txtOxygenSaturation.text!) {
+            showAlert("Please enter oxygen saturation %")
+        } else if isEmptyString(self.txtTemperature.text!) {
+            showAlert("Please enter temperature (C)")
+        } else if isEmptyString(self.txtBloodGlucose.text!) {
+            showAlert("Please enter blood glucose (mmol/L)")
+        } else {
+            self.performSegue(withIdentifier: "ClinicalAssessmentThree", sender: self)
+        }
     }
     
     @IBAction func btnGCSClicked(_ sender: UIButton) {
@@ -86,18 +100,43 @@ class ClinicalAssessmentTwoVC: UIViewController {
     
     @IBAction func btnRegularIrregularClicked(_ sender: UIButton) {
         
+        self.btnIrregular.isSelected = false
+        self.btnRegular.isSelected = false
+        
+        sender.isSelected = true
     }
     
     @IBAction func btnEyeOptionClicked(_ sender: UIButton) {
         
+        self.btnEyeOption1.isSelected = false
+        self.btnEyeOption2.isSelected = false
+        self.btnEyeOption3.isSelected = false
+        self.btnEyeOption4.isSelected = false
+        
+        sender.isSelected = true
     }
     
     @IBAction func btnVerbalOptionClicked(_ sender: UIButton) {
+     
+        self.btnVerbalOption1.isSelected = false
+        self.btnVerbalOption2.isSelected = false
+        self.btnVerbalOption3.isSelected = false
+        self.btnVerbalOption4.isSelected = false
+        self.btnVerbalOption5.isSelected = false
         
+        sender.isSelected = true
     }
     
     @IBAction func btnMoterOptionClicked(_ sender: UIButton) {
         
+        self.btnMoterOption1.isSelected = false
+        self.btnMoterOption2.isSelected = false
+        self.btnMoterOption3.isSelected = false
+        self.btnMoterOption4.isSelected = false
+        self.btnMoterOption5.isSelected = false
+        self.btnMoterOption6.isSelected = false
+        
+        sender.isSelected = true
     }
     
     // MARK: - Memory Warning -

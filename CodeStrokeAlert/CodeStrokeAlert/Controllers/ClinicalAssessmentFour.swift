@@ -42,10 +42,16 @@ class ClinicalAssessmentFourVC: UIViewController {
     
     @IBAction func btn18GIVClicked(_ sender: UIButton) {
     
+        self.btn18GIVYes.isSelected = false
+        self.btn18GIVNo.isSelected = false
+        
+        sender.isSelected = true
     }
     
     @IBAction func btnUnknownClicked(_ sender: DesignableButton) {
         
+        self.btn18GIVYes.isSelected = false
+        self.btn18GIVNo.isSelected = false
     }
     
     // MARK: - Memory Warning -

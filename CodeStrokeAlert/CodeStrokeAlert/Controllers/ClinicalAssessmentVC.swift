@@ -48,6 +48,51 @@ class ClinicalAssessmentVC: UIViewController {
     
     @IBAction func btnUnknownClicked(_ sender: DesignableButton) {
         
+        if sender.tag == 1 {
+            self.btnFacialDropYes.isSelected = false
+            self.btnFacialDropNo.isSelected = false
+        } else if sender.tag == 2 {
+            self.btnArmDriftYes.isSelected = false
+            self.btnArmDriftNo.isSelected = false
+        } else if sender.tag == 3 {
+            self.btnWeakGripYes.isSelected = false
+            self.btnWeakGripNo.isSelected = false
+        } else if sender.tag == 4 {
+            self.btnSpeechDifficultyYes.isSelected = false
+            self.btnSpeechDifficultyNo.isSelected = false
+        }
+    }
+    
+    @IBAction func btnArmDriftOptClicked(_ sender: UIButton) {
+        
+        self.btnArmDriftYes.isSelected = false
+        self.btnArmDriftNo.isSelected = false
+        
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnFacialDroopOptClicked(_ sender: UIButton) {
+        
+        self.btnFacialDropYes.isSelected = false
+        self.btnFacialDropNo.isSelected = false
+        
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnWeakGripOptClicked(_ sender: UIButton) {
+        
+        self.btnWeakGripYes.isSelected = false
+        self.btnWeakGripNo.isSelected = false
+        
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnSpeechDifficultyOptClicked(_ sender: UIButton) {
+        
+        self.btnSpeechDifficultyYes.isSelected = false
+        self.btnSpeechDifficultyNo.isSelected = false
+        
+        sender.isSelected = true
     }
     
     // MARK: - Memory Warning -

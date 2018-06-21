@@ -51,18 +51,37 @@ class ClinicalAssessmentThreeVC: UIViewController {
     
     @IBAction func btnFacialPalsyOptionClicked(_ sender: UIButton) {
         
+        self.btnFacialPalsyOption1.isSelected = false
+        self.btnFacialPalsyOption2.isSelected = false
+        self.btnFacialPalsyOption3.isSelected = false
+        
+        sender.isSelected = true
     }
     
     @IBAction func btnArmMoterOptionClicked(_ sender: UIButton) {
         
+        self.btnArmMoterOption1.isSelected = false
+        self.btnArmMoterOption2.isSelected = false
+        self.btnArmMoterOption3.isSelected = false
+        
+        sender.isSelected = true
     }
     
     @IBAction func btnLegMoterOptionClicked(_ sender: UIButton) {
         
+        self.btnLegMoterOption1.isSelected = false
+        self.btnLegMoterOption2.isSelected = false
+        self.btnLegMoterOption3.isSelected = false
+        
+        sender.isSelected = true
     }
     
     @IBAction func btnHeadGazeOptionClicked(_ sender: UIButton) {
         
+        self.btnHeadGazeOption1.isSelected = false
+        self.btnHeadGazeOption2.isSelected = false
+        
+        sender.isSelected = true
     }
     
     // MARK: - Memory Warning -

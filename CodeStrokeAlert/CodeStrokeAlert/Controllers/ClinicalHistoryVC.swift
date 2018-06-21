@@ -48,19 +48,44 @@ class ClinicalHistoryVC: UIViewController {
     
     @IBAction func btnNextClicked(_ sender: DesignableButton) {
         
-        self.performSegue(withIdentifier: "ClinicalAssessment", sender: self)
+        if isEmptyString(self.txtPostMedicalHistory.text!) && self.btnIHD.isSelected == false && self.btnDM.isSelected == false && self.btnStroke.isSelected == false && self.btnEpilepsy.isSelected == false && self.btnAF.isSelected == false && self.btnOther.isSelected == false {
+            showAlert("Please enter post medical history or select any one option")
+        } else if isEmptyString(self.txtMedications.text!) {
+            showAlert("Please enter medications")
+        } else if isEmptyString(self.txtLastDate.text!) {
+            showAlert("Please select last date")
+        } else if isEmptyString(self.txtSituation.text!) {
+            showAlert("Please enter situation (HOPC)")
+        } else if isEmptyString(self.txtWeight.text!) {
+            showAlert("Please enter weight")
+        } else {
+            self.performSegue(withIdentifier: "ClinicalAssessment", sender: self)
+        }
     }
     
     @IBAction func btnPostMedicalHistoryClicked(_ sender: UIButton) {
         
+        if sender.isSelected {
+            sender.isSelected = false
+        } else {
+            sender.isSelected = true
+        }
     }
     
     @IBAction func btnAnnticoagulantsClicked(_ sender: UIButton) {
         
+        self.btnAnticoagulantsYes.isSelected = false
+        self.btnAnticoagulantsNo.isSelected = false
+        sender.isSelected = true
     }
     
     @IBAction func btnMedicationClicked(_ sender: UIButton) {
         
+        if sender.isSelected {
+            sender.isSelected = false
+        } else {
+            sender.isSelected = true
+        }
     }
     
     // MARK: - Memory Warning -
@@ -79,5 +104,48 @@ class ClinicalHistoryVC: UIViewController {
             let destination = segue.destination as! ClinicalAssessmentVC
             print(destination)
         }
+    }
+}
+
+// MARK: - UITextField Delegate -
+
+extension ClinicalHistoryVC: UITextFieldDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        
+        self.openDatePicker()
+        return false
+    }
+}
+
+// MARK: - Extension for DatePicker -
+
+extension ClinicalHistoryVC {
+    
+    func openDatePicker() {
+        
+        self.view.endEditing(true)
+        let style = RMActionControllerStyle.white
+        
+        let cancelAction = RMAction<UIDatePicker>(title: "Cancel", style: RMActionStyle.cancel) { _ in
+            
+            print("Date selection was canceled")
+        }
+        
+        let selectAction = RMAction<UIDatePicker>(title: "Select", style: RMActionStyle.done) { controller in
+            
+            if let pickerController = controller as? RMDateSelectionViewController {
+                
+                let f = DateFormatter()
+                f.dateFormat = "dd MMMM yyyy"
+                let formattedDate: String = f.string(from: pickerController.datePicker.date)
+                self.txtLastDate.text = formattedDate
+            }
+        }
+        
+        let actionController = RMDateSelectionViewController(style: style, title: "Please select date", message: nil, select: selectAction, andCancel: cancelAction)!
+        actionController.datePicker.datePickerMode = .date
+        
+        appDelegate.window?.rootViewController!.present(actionController, animated: true, completion: nil)
     }
 }
