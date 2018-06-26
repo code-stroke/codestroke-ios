@@ -7,9 +7,56 @@
 //
 
 import UIKit
+import EVReflection
+
+let kClinicalAssessmentTwoData = "ClinicalAssessmentTwoData"
+
+class ClinicalAssessmentTwoData: EVObject {
+    
+    var strBlood_Pressure: String               = ""
+    var strHeart_Rate: String                   = ""
+    var strHeart_Rhythm: String                 = ""
+    var strRespiratory_Rate: String             = ""
+    var strOxygen_Saturation: String            = ""
+    var strTemperature: String                  = ""
+    var strBlood_Glucose: String                = ""
+    var strGCS: String                          = ""
+    
+    func save() {
+        
+        let defaults: UserDefaults = UserDefaults.standard
+        let data: NSData = NSKeyedArchiver.archivedData(withRootObject: self) as NSData
+        defaults.set(data, forKey: kClinicalAssessmentTwoData)
+        defaults.synchronize()
+    }
+    
+    class func savedUser() -> ClinicalAssessmentTwoData? {
+        
+        let defaults: UserDefaults = UserDefaults.standard
+        let data = defaults.object(forKey: kClinicalAssessmentTwoData) as? NSData
+        
+        if data != nil {
+            
+            if let userinfo = NSKeyedUnarchiver.unarchiveObject(with: data! as Data) as? ClinicalAssessmentTwoData {
+                return userinfo
+            }
+            else {
+                return nil
+            }
+        }
+        return nil
+    }
+    
+    class func clearUser() {
+        
+        let defaults: UserDefaults = UserDefaults.standard
+        defaults.removeObject(forKey: kClinicalAssessmentTwoData)
+        defaults.synchronize()
+    }
+}
 
 class ClinicalAssessmentTwoVC: UIViewController {
-
+    
     // MARK:- Declarations -
     
     @IBOutlet weak var leadingGCS: NSLayoutConstraint!
@@ -47,12 +94,14 @@ class ClinicalAssessmentTwoVC: UIViewController {
     @IBOutlet weak var btnMoterOption4: UIButton!
     @IBOutlet weak var btnMoterOption5: UIButton!
     @IBOutlet weak var btnMoterOption6: UIButton!
+
+    var clinicalAssessmentTwoData = ClinicalAssessmentTwoData()
     
     // MARK: - View Controller LifeCycle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         self.title = "Clinical Assessment"
@@ -60,26 +109,63 @@ class ClinicalAssessmentTwoVC: UIViewController {
         let image1 = self.gradientWithFrametoImage(frame: btnNext.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
         self.btnNext.backgroundColor = UIColor(patternImage: image1)
     }
-
+    
     // MARK: - Action Methods -
     
     @IBAction func btnNextClicked(_ sender: DesignableButton) {
         
-        if isEmptyString(self.txtBloodPressure.text!) {
-            showAlert("Please enter blood pressure (mmHg)")
-        } else if isEmptyString(self.txtHeartRate.text!) {
-            showAlert("Please enter heart rate (bpm)")
-        } else if isEmptyString(self.txtRespiratoryRate.text!) {
-            showAlert("Please enter respiratory rate (bpm)")
-        } else if isEmptyString(self.txtOxygenSaturation.text!) {
-            showAlert("Please enter oxygen saturation %")
-        } else if isEmptyString(self.txtTemperature.text!) {
-            showAlert("Please enter temperature (C)")
-        } else if isEmptyString(self.txtBloodGlucose.text!) {
-            showAlert("Please enter blood glucose (mmol/L)")
-        } else {
-            self.performSegue(withIdentifier: "ClinicalAssessmentThree", sender: self)
+        clinicalAssessmentTwoData.strBlood_Pressure = isEmptyString(self.txtBloodPressure.text!) ? "NULL" : self.txtBloodPressure.text!
+        clinicalAssessmentTwoData.strHeart_Rate = isEmptyString(self.txtHeartRate.text!) ? "NULL" : self.txtHeartRate.text!
+        clinicalAssessmentTwoData.strHeart_Rhythm = self.btnRegular.isSelected ? "regular" : "irregular"
+        clinicalAssessmentTwoData.strRespiratory_Rate = isEmptyString(self.txtRespiratoryRate.text!) ? "NULL" : self.txtRespiratoryRate.text!
+        clinicalAssessmentTwoData.strOxygen_Saturation = isEmptyString(self.txtOxygenSaturation.text!) ? "NULL" : self.txtOxygenSaturation.text!
+        clinicalAssessmentTwoData.strTemperature = isEmptyString(self.txtTemperature.text!) ? "NULL" : self.txtTemperature.text!
+        clinicalAssessmentTwoData.strBlood_Glucose = isEmptyString(self.txtBloodGlucose.text!) ? "NULL" : self.txtBloodGlucose.text!
+        
+        var gscSelected = 0
+        
+        if self.btnEyeOption1.isSelected {
+            gscSelected += 1
+        } else if self.btnEyeOption1.isSelected {
+            gscSelected += 2
+        } else if self.btnEyeOption3.isSelected {
+            gscSelected += 3
+        } else if self.btnEyeOption4.isSelected {
+            gscSelected += 4
         }
+        
+        if self.btnVerbalOption1.isSelected {
+            gscSelected += 1
+        } else if self.btnVerbalOption2.isSelected {
+            gscSelected += 2
+        } else if self.btnVerbalOption3.isSelected {
+            gscSelected += 3
+        } else if self.btnVerbalOption4.isSelected {
+            gscSelected += 4
+        } else if self.btnVerbalOption5.isSelected {
+            gscSelected += 5
+        }
+        
+        if self.btnMoterOption1.isSelected {
+            gscSelected += 1
+        } else if self.btnMoterOption2.isSelected {
+            gscSelected += 2
+        } else if self.btnMoterOption3.isSelected {
+            gscSelected += 3
+        } else if self.btnMoterOption4.isSelected {
+            gscSelected += 4
+        } else if self.btnMoterOption5.isSelected {
+            gscSelected += 5
+        } else if self.btnMoterOption6.isSelected {
+            gscSelected += 6
+        }
+        
+        clinicalAssessmentTwoData.strGCS = String(gscSelected)
+        
+        clinicalAssessmentTwoData.save()
+        print(ClinicalAssessmentTwoData.savedUser()!)
+        
+        self.performSegue(withIdentifier: "ClinicalAssessmentThree", sender: self)
     }
     
     @IBAction func btnGCSClicked(_ sender: UIButton) {
@@ -117,7 +203,7 @@ class ClinicalAssessmentTwoVC: UIViewController {
     }
     
     @IBAction func btnVerbalOptionClicked(_ sender: UIButton) {
-     
+        
         self.btnVerbalOption1.isSelected = false
         self.btnVerbalOption2.isSelected = false
         self.btnVerbalOption3.isSelected = false
@@ -147,7 +233,7 @@ class ClinicalAssessmentTwoVC: UIViewController {
     }
     
     // MARK: - Navigation -
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "ClinicalAssessmentThree" {

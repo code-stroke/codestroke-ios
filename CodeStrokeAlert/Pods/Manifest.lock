@@ -1,12 +1,26 @@
 PODS:
+  - Alamofire (4.7.2)
+  - EVReflection/Alamofire (5.6.1):
+    - Alamofire
+    - EVReflection/Core
+  - EVReflection/Core (5.6.1)
   - IQKeyboardManagerSwift (6.0.2)
+  - KRActivityIndicatorView (2.1.2)
+  - KRProgressHUD (3.2.2):
+    - KRActivityIndicatorView (= 2.1.2)
 
 DEPENDENCIES:
+  - EVReflection/Alamofire
   - IQKeyboardManagerSwift
+  - KRProgressHUD
 
 SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  EVReflection: d05ebbafc851b7a4cd3d625182662463a5819ab8
   IQKeyboardManagerSwift: 59d4b0e140bc546c3c76ae5bb35b3dafd10b8172
+  KRActivityIndicatorView: 27e7a7e3da7fbc8e5405fbc4088b51cc2095a410
+  KRProgressHUD: 8872da74b1c462e15c82a8fff250a2d34ee82ea2
 
-PODFILE CHECKSUM: 763e49b2e151168e62a8e8c1fad42d25c88c9ad0
+PODFILE CHECKSUM: 17155bb19dd523f45654c4d6db7ce0e2c22fd737
 
 COCOAPODS: 1.4.0

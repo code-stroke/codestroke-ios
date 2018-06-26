@@ -7,6 +7,52 @@
 //
 
 import UIKit
+import EVReflection
+
+let kPatientDetailData = "PatientDetailData"
+
+class PatientDetailData: EVObject {
+    
+    var strName: String                 = ""
+    var strAge: String                  = ""
+    var strGender: String               = ""
+    var strAddress: String              = ""
+    var strLastSeen: String             = ""
+    var strNok: String                  = ""
+    var strNOKContact: String           = ""
+    
+    func save() {
+        
+        let defaults: UserDefaults = UserDefaults.standard
+        let data: NSData = NSKeyedArchiver.archivedData(withRootObject: self) as NSData
+        defaults.set(data, forKey: kPatientDetailData)
+        defaults.synchronize()
+    }
+    
+    class func savedUser() -> PatientDetailData? {
+        
+        let defaults: UserDefaults = UserDefaults.standard
+        let data = defaults.object(forKey: kPatientDetailData) as? NSData
+        
+        if data != nil {
+            
+            if let userinfo = NSKeyedUnarchiver.unarchiveObject(with: data! as Data) as? PatientDetailData {
+                return userinfo
+            }
+            else {
+                return nil
+            }
+        }
+        return nil
+    }
+    
+    class func clearUser() {
+        
+        let defaults: UserDefaults = UserDefaults.standard
+        defaults.removeObject(forKey: kPatientDetailData)
+        defaults.synchronize()
+    }
+}
 
 class PatientDetailVC: UIViewController {
 
@@ -37,8 +83,11 @@ class PatientDetailVC: UIViewController {
     @IBOutlet weak var txtNOKTelephone: UITextField!
     @IBOutlet weak var btnNOKTelephoneUnknown: DesignableButton!
     
-    
     @IBOutlet weak var btnNext: DesignableButton!
+    
+    var strDOB: String = ""
+    var strLastSeen: String = ""
+    var patientDetailData = PatientDetailData()
     
     // MARK:- ViewController LifeCycle -
     
@@ -60,6 +109,9 @@ class PatientDetailVC: UIViewController {
         self.lblHours.text = arrayTime[0]
         self.lblMins.text = arrayTime[1]
         self.lblAMPM.text = arrayDate[4]
+        
+        f.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        self.strLastSeen = f.string(from: Date())
     }
 
     // MARK:- Action Methods -
@@ -79,7 +131,66 @@ class PatientDetailVC: UIViewController {
         } else if isEmptyString(self.txtNOKTelephone.text!) && self.btnNOKTelephoneUnknown.isSelected == false {
             showAlert("Please enter NOK Telephone")
         } else {
-            self.performSegue(withIdentifier: "Destination", sender: self)
+            
+            if self.btnFirstNameUnknown.isSelected == true && self.btnSurnameUnknown.isSelected == true {
+                patientDetailData.strName = "unknown"
+            } else if !isEmptyString(self.txtFirstName.text!) && self.btnSurnameUnknown.isSelected == true {
+                patientDetailData.strName = self.txtFirstName.text!
+            } else if !isEmptyString(self.txtSurname.text!) && self.btnFirstNameUnknown.isSelected == true {
+                patientDetailData.strName = self.txtSurname.text!
+            } else {
+                patientDetailData.strName = "\(self.txtFirstName.text!) \(self.txtSurname.text!)"
+            }
+            
+            if self.btnDOBUnknown.isSelected {
+                patientDetailData.strAge = "unknown"
+            } else {
+                patientDetailData.strAge = self.txtDOB.text!
+            }
+            
+            if self.btnAddressUnknown.isSelected {
+                patientDetailData.strAddress = "unknown"
+            } else {
+                patientDetailData.strAddress = self.txtAddress.text!
+            }
+            
+            if self.btnNextToKINUnknown.isSelected {
+                patientDetailData.strNok = "unknown"
+            } else {
+                patientDetailData.strNok = self.txtNextToKIN.text!
+            }
+            
+            if self.btnNOKTelephoneUnknown.isSelected {
+                patientDetailData.strNOKContact = "unknown"
+            } else {
+                patientDetailData.strNOKContact = self.txtNOKTelephone.text!
+            }
+            
+            patientDetailData.strGender = self.btnGenderUnspecified.isSelected ? "unspecified" : (segmentGender.selectedSegmentIndex == 0 ? "male" : "female")
+            patientDetailData.strLastSeen = self.btnDateUnknown.isSelected ? "unknown" : self.strLastSeen
+            
+            patientDetailData.save()
+            print(PatientDetailData.savedUser()!)
+            
+            let param = ["first_name": self.btnFirstNameUnknown.isSelected ? "unknown" : self.txtFirstName.text!,
+                         "last_name": self.btnSurnameUnknown.isSelected ? "unknown" : self.txtSurname.text!,
+                         "dob": self.btnDOBUnknown.isSelected ? "unknown" : self.strDOB,
+                         "address": self.btnAddressUnknown.isSelected ? "unknown" : self.txtAddress.text!,
+                         "gender": self.btnGenderUnspecified.isSelected ? "u" : (segmentGender.selectedSegmentIndex == 0 ? "m" : "f"),
+                         "last_well": self.btnDateUnknown.isSelected ? "unknown" : self.strLastSeen,
+                         "nok": self.btnNextToKINUnknown.isSelected ? "unknown" : self.txtNextToKIN.text!,
+                         "nok_phone": self.btnNOKTelephoneUnknown.isSelected ? "unknown" : self.txtNOKTelephone.text!,
+                         "hospital_id": "1"]
+            
+            if Reachability.isConnectedToNetwork() {
+                DispatchQueue.global(qos: .background).async {
+                    DispatchQueue.main.async {
+                        self.WS_PatientInfo(url: AppURL.baseURL + AppURL.AddNewCase, parameter: param)
+                    }
+                }
+            } else {
+                showAlert("No internet connection")
+            }
         }
     }
     
@@ -142,14 +253,19 @@ class PatientDetailVC: UIViewController {
 // MARK: - UITextField Delegate -
 
 extension PatientDetailVC: UITextFieldDelegate {
-    
+
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
-        self.btnLastSeen.isSelected = false
-        self.txtDOB.isSelected = true
-        self.openDatePicker()
-        
-        return false
+        if textField == txtDOB {
+            
+            self.btnLastSeen.isSelected = false
+            self.txtDOB.isSelected = true
+            self.openDatePicker()
+            return false
+        } else {
+            
+        }
+        return true
     }
 }
 
@@ -184,10 +300,16 @@ extension PatientDetailVC {
                     self.lblHours.text = arrayTime[0]
                     self.lblMins.text = arrayTime[1]
                     self.lblAMPM.text = arrayDate[4]
+                    
+                    f.dateFormat = "yyyy-MM-dd hh:mm:ss"
+                    self.strLastSeen = f.string(from: pickerController.datePicker.date)
                 } else {
                     f.dateFormat = "MMM dd, yyyy"
                     let formattedDate: String = f.string(from: pickerController.datePicker.date)
                     self.txtDOB.text = formattedDate
+                    
+                    f.dateFormat = "yyyy-MM-dd"
+                    self.strDOB = f.string(from: pickerController.datePicker.date)
                 }
             }
         }
@@ -201,6 +323,8 @@ extension PatientDetailVC {
             actionController.datePicker.datePickerMode = .date
         }
         
-        appDelegate.window?.rootViewController!.present(actionController, animated: true, completion: nil)
+        appDelegate.window?.rootViewController!.present(actionController, animated: true, completion: {
+            self.view.endEditing(true)
+        })
     }
 }

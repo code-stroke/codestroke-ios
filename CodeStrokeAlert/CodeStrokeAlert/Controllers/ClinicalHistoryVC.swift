@@ -7,6 +7,51 @@
 //
 
 import UIKit
+import EVReflection
+
+let kClinicalHistoryData = "ClinicalHistoryData"
+
+class ClinicalHistoryData: EVObject {
+    
+    var strPostMedicalHistory: String           = ""
+    var strMedications: String                  = ""
+    var strAnticoagulants: Bool                 = false
+    var strLastDostDate: String                 = ""
+    var strSituation: String                    = ""
+    var strWeight: Float                        = 0.0
+    
+    func save() {
+        
+        let defaults: UserDefaults = UserDefaults.standard
+        let data: NSData = NSKeyedArchiver.archivedData(withRootObject: self) as NSData
+        defaults.set(data, forKey: kClinicalHistoryData)
+        defaults.synchronize()
+    }
+    
+    class func savedUser() -> ClinicalHistoryData? {
+        
+        let defaults: UserDefaults = UserDefaults.standard
+        let data = defaults.object(forKey: kClinicalHistoryData) as? NSData
+        
+        if data != nil {
+            
+            if let userinfo = NSKeyedUnarchiver.unarchiveObject(with: data! as Data) as? ClinicalHistoryData {
+                return userinfo
+            }
+            else {
+                return nil
+            }
+        }
+        return nil
+    }
+    
+    class func clearUser() {
+        
+        let defaults: UserDefaults = UserDefaults.standard
+        defaults.removeObject(forKey: kClinicalHistoryData)
+        defaults.synchronize()
+    }
+}
 
 class ClinicalHistoryVC: UIViewController {
 
@@ -34,6 +79,9 @@ class ClinicalHistoryVC: UIViewController {
     @IBOutlet weak var txtSituation: UITextField!
     @IBOutlet weak var txtWeight: UITextField!
     
+    var strLastMealDate: String = ""
+    var clinicalHistoryData = ClinicalHistoryData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,18 +96,80 @@ class ClinicalHistoryVC: UIViewController {
     
     @IBAction func btnNextClicked(_ sender: DesignableButton) {
         
-        if isEmptyString(self.txtPostMedicalHistory.text!) && self.btnIHD.isSelected == false && self.btnDM.isSelected == false && self.btnStroke.isSelected == false && self.btnEpilepsy.isSelected == false && self.btnAF.isSelected == false && self.btnOther.isSelected == false {
-            showAlert("Please enter post medical history or select any one option")
-        } else if isEmptyString(self.txtMedications.text!) {
-            showAlert("Please enter medications")
-        } else if isEmptyString(self.txtLastDate.text!) {
-            showAlert("Please select last date")
-        } else if isEmptyString(self.txtSituation.text!) {
-            showAlert("Please enter situation (HOPC)")
-        } else if isEmptyString(self.txtWeight.text!) {
-            showAlert("Please enter weight")
+        var strPostMdHistory = ""
+        
+        if !isEmptyString(self.txtPostMedicalHistory.text!) {
+            strPostMdHistory = self.txtPostMedicalHistory.text!.trim
+            strPostMdHistory.append(",")
+        }
+        
+        if btnIHD.isSelected {
+            strPostMdHistory.append("IHD,")
+        } else if btnDM.isSelected {
+            strPostMdHistory.append("DM,")
+        } else if btnStroke.isSelected {
+            strPostMdHistory.append("Stroke,")
+        } else if btnEpilepsy.isSelected {
+            strPostMdHistory.append("Epilepsy,")
+        } else if btnAF.isSelected {
+            strPostMdHistory.append("AF,")
+        } else if btnOther.isSelected {
+            strPostMdHistory.append("Other neurological conditions")
+        }
+        
+        if strPostMdHistory.last == "," {
+            strPostMdHistory = String(strPostMdHistory.dropLast())
+        }
+        
+        var strMedication = ""
+        
+        if isEmptyString(self.txtMedications.text!) {
+            strMedication = ""
         } else {
-            self.performSegue(withIdentifier: "ClinicalAssessment", sender: self)
+            strMedication = self.txtMedications.text!.trim
+        }
+        
+        var strSituation = ""
+        
+        if isEmptyString(self.txtSituation.text!) {
+            strSituation = ""
+        } else {
+            strSituation = self.txtSituation.text!.trim
+        }
+        
+        var strWeight = "0"
+        
+        if isEmptyString(self.txtWeight.text!) {
+            strWeight = "0"
+        } else {
+            strWeight = self.txtWeight.text!.trim
+        }
+        
+        clinicalHistoryData.strPostMedicalHistory = strPostMdHistory
+        clinicalHistoryData.strMedications = strMedication
+        clinicalHistoryData.strAnticoagulants = self.btnAnticoagulantsYes.isSelected ? true : false
+        clinicalHistoryData.strLastDostDate = strLastMealDate
+        clinicalHistoryData.strSituation = strSituation
+        clinicalHistoryData.strWeight = Float(strWeight)!
+        
+        clinicalHistoryData.save()
+        print(ClinicalHistoryData.savedUser()!)
+        
+        let param = ["pmhx": strPostMdHistory,
+                     "meds": strMedication,
+                     "anticoags": self.btnAnticoagulantsYes.isSelected ? true : false,
+                     "hopc": strSituation,
+                     "weight": Float(strWeight)!,
+                     "last_meal": self.strLastMealDate] as [String : Any]
+        
+        if Reachability.isConnectedToNetwork() {
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.async {
+                    self.WS_ClinicalHistory(url: AppURL.baseURL + AppURL.CaseHistory + "\(UserDefaults.standard.integer(forKey: "case_id"))/", parameter: param)
+                }
+            }
+        } else {
+            showAlert("No internet connection")
         }
     }
     
@@ -140,12 +250,17 @@ extension ClinicalHistoryVC {
                 f.dateFormat = "dd MMMM yyyy"
                 let formattedDate: String = f.string(from: pickerController.datePicker.date)
                 self.txtLastDate.text = formattedDate
+                
+                f.dateFormat = "yyyy-MM-dd hh:mm:ss"
+                self.strLastMealDate = f.string(from: pickerController.datePicker.date)
             }
         }
         
         let actionController = RMDateSelectionViewController(style: style, title: "Please select date", message: nil, select: selectAction, andCancel: cancelAction)!
-        actionController.datePicker.datePickerMode = .date
+        actionController.datePicker.datePickerMode = .dateAndTime
         
-        appDelegate.window?.rootViewController!.present(actionController, animated: true, completion: nil)
+        appDelegate.window?.rootViewController!.present(actionController, animated: true, completion: {
+            self.view.endEditing(true)
+        })
     }
 }

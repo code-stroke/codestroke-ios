@@ -7,6 +7,49 @@
 //
 
 import UIKit
+import EVReflection
+
+let kClinicalAssessmentThreeData = "ClinicalAssessmentThreeData"
+
+class ClinicalAssessmentThreeData: EVObject {
+    
+    var strFacial_Palsy_Race: String            = ""
+    var strArm_Motor_Impair: String             = ""
+    var strLeg_Motor_Impair: String             = ""
+    var strHead_Gaze_Deviate: String            = ""
+    
+    func save() {
+        
+        let defaults: UserDefaults = UserDefaults.standard
+        let data: NSData = NSKeyedArchiver.archivedData(withRootObject: self) as NSData
+        defaults.set(data, forKey: kClinicalAssessmentThreeData)
+        defaults.synchronize()
+    }
+    
+    class func savedUser() -> ClinicalAssessmentThreeData? {
+        
+        let defaults: UserDefaults = UserDefaults.standard
+        let data = defaults.object(forKey: kClinicalAssessmentThreeData) as? NSData
+        
+        if data != nil {
+            
+            if let userinfo = NSKeyedUnarchiver.unarchiveObject(with: data! as Data) as? ClinicalAssessmentThreeData {
+                return userinfo
+            }
+            else {
+                return nil
+            }
+        }
+        return nil
+    }
+    
+    class func clearUser() {
+        
+        let defaults: UserDefaults = UserDefaults.standard
+        defaults.removeObject(forKey: kClinicalAssessmentThreeData)
+        defaults.synchronize()
+    }
+}
 
 class ClinicalAssessmentThreeVC: UIViewController {
 
@@ -29,6 +72,8 @@ class ClinicalAssessmentThreeVC: UIViewController {
     @IBOutlet weak var btnHeadGazeOption1: UIButton!
     @IBOutlet weak var btnHeadGazeOption2: UIButton!
     
+    var clinicalAssessmentThreeData = ClinicalAssessmentThreeData()
+    
     // MARK: - View Controller LifeCycle -
     
     override func viewDidLoad() {
@@ -45,6 +90,52 @@ class ClinicalAssessmentThreeVC: UIViewController {
     // MARK: - Action Methods -
     
     @IBAction func btnNextClicked(_ sender: DesignableButton) {
+        
+        var facial_palsy_race = 0
+        
+        if self.btnFacialPalsyOption1.isSelected {
+            facial_palsy_race += 0
+        } else if self.btnFacialPalsyOption2.isSelected {
+            facial_palsy_race += 1
+        } else if self.btnFacialPalsyOption3.isSelected {
+            facial_palsy_race += 2
+        }
+        
+        var arm_motor_impair = 0
+        
+        if self.btnArmMoterOption1.isSelected {
+            arm_motor_impair += 0
+        } else if self.btnArmMoterOption2.isSelected {
+            arm_motor_impair += 1
+        } else if self.btnArmMoterOption3.isSelected {
+            arm_motor_impair += 2
+        }
+        
+        var leg_motor_impair = 0
+        
+        if self.btnLegMoterOption1.isSelected {
+            leg_motor_impair += 0
+        } else if self.btnLegMoterOption2.isSelected {
+            leg_motor_impair += 1
+        } else if self.btnLegMoterOption3.isSelected {
+            leg_motor_impair += 2
+        }
+        
+        var head_gaze_deviate = 0
+        
+        if self.btnHeadGazeOption1.isSelected {
+            head_gaze_deviate += 0
+        } else if self.btnHeadGazeOption2.isSelected {
+            head_gaze_deviate += 1
+        }
+        
+        clinicalAssessmentThreeData.strFacial_Palsy_Race = String(facial_palsy_race)
+        clinicalAssessmentThreeData.strArm_Motor_Impair = String(arm_motor_impair)
+        clinicalAssessmentThreeData.strLeg_Motor_Impair = String(leg_motor_impair)
+        clinicalAssessmentThreeData.strHead_Gaze_Deviate = String(head_gaze_deviate)
+        
+        clinicalAssessmentThreeData.save()
+        print(ClinicalAssessmentThreeData.savedUser()!)
         
         self.performSegue(withIdentifier: "ClinicalAssessmentFour", sender: self)
     }

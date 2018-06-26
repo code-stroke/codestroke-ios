@@ -62,7 +62,12 @@
 		44C348FD20D8FFCA0078F6F3 /* ClinicalAssessmentThreeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348FB20D8FFCA0078F6F3 /* ClinicalAssessmentThreeVC.swift */; };
 		44C348FE20D8FFCA0078F6F3 /* ClinicalAssessmentTwoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348FC20D8FFCA0078F6F3 /* ClinicalAssessmentTwoVC.swift */; };
 		44C3490020D92F980078F6F3 /* ClinicalAssessmentFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C348FF20D92F980078F6F3 /* ClinicalAssessmentFour.swift */; };
-		44C3490220D932620078F6F3 /* ProfileSummeryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3490120D932620078F6F3 /* ProfileSummeryVC.swift */; };
+		44C3490220D932620078F6F3 /* ProfileSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3490120D932620078F6F3 /* ProfileSummaryVC.swift */; };
+		44D7FA5B20DF99A600D66EF1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D7FA5920DF99A600D66EF1 /* Model.swift */; };
+		44D7FA5C20DF99A600D66EF1 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D7FA5A20DF99A600D66EF1 /* WebServices.swift */; };
+		44D7FA5E20DF99BE00D66EF1 /* AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D7FA5D20DF99BE00D66EF1 /* AppURLs.swift */; };
+		44D7FA6020DF9DDE00D66EF1 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D7FA5F20DF9DDE00D66EF1 /* Extension.swift */; };
+		44D7FA6320DF9F0100D66EF1 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D7FA6220DF9F0100D66EF1 /* Reachability.swift */; };
 		D10B435348B1691DEE328D8E /* Pods_CodeStrokeAlert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E5E9FC369859667F512BBA /* Pods_CodeStrokeAlert.framework */; };
 /* End PBXBuildFile section */
 
@@ -138,7 +143,12 @@
 		44C348FB20D8FFCA0078F6F3 /* ClinicalAssessmentThreeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClinicalAssessmentThreeVC.swift; sourceTree = "<group>"; };
 		44C348FC20D8FFCA0078F6F3 /* ClinicalAssessmentTwoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClinicalAssessmentTwoVC.swift; sourceTree = "<group>"; };
 		44C348FF20D92F980078F6F3 /* ClinicalAssessmentFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClinicalAssessmentFour.swift; sourceTree = "<group>"; };
-		44C3490120D932620078F6F3 /* ProfileSummeryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummeryVC.swift; sourceTree = "<group>"; };
+		44C3490120D932620078F6F3 /* ProfileSummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummaryVC.swift; sourceTree = "<group>"; };
+		44D7FA5920DF99A600D66EF1 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		44D7FA5A20DF99A600D66EF1 /* WebServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
+		44D7FA5D20DF99BE00D66EF1 /* AppURLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppURLs.swift; sourceTree = "<group>"; };
+		44D7FA5F20DF9DDE00D66EF1 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		44D7FA6220DF9F0100D66EF1 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		7548FE44F8A80D91F9401B97 /* Pods-CodeStrokeAlert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStrokeAlert.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodeStrokeAlert/Pods-CodeStrokeAlert.release.xcconfig"; sourceTree = "<group>"; };
 		DA8B0F4C4B93A4EFC415889F /* Pods-CodeStrokeAlert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStrokeAlert.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeStrokeAlert/Pods-CodeStrokeAlert.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,6 +190,7 @@
 				44C348C820D8ADAC0078F6F3 /* Helper Classes */,
 				44C348BC20D7ADE70078F6F3 /* Fonts */,
 				44C348C520D8AC250078F6F3 /* Navigation */,
+				44D7FA5820DF99A600D66EF1 /* Model */,
 				44C348C620D8AC380078F6F3 /* AppDelegate */,
 				44C348C720D8AC470078F6F3 /* Controllers */,
 				44C348C120D8A8EA0078F6F3 /* Dashboard.storyboard */,
@@ -319,7 +330,7 @@
 				44C348FC20D8FFCA0078F6F3 /* ClinicalAssessmentTwoVC.swift */,
 				44C348FB20D8FFCA0078F6F3 /* ClinicalAssessmentThreeVC.swift */,
 				44C348FF20D92F980078F6F3 /* ClinicalAssessmentFour.swift */,
-				44C3490120D932620078F6F3 /* ProfileSummeryVC.swift */,
+				44C3490120D932620078F6F3 /* ProfileSummaryVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -329,6 +340,7 @@
 			children = (
 				4464EEDA20DA8ECE00BCF58D /* CountryList.json */,
 				4464EEDB20DA8ECE00BCF58D /* CountrySelection.swift */,
+				44D7FA6120DF9F0100D66EF1 /* Reachability */,
 				4464EEDC20DA8ECE00BCF58D /* RMActionController */,
 				4464EEF420DA8ECE00BCF58D /* RMDateSelectionViewController */,
 				4464EEF720DA8ECE00BCF58D /* RMPickerViewController */,
@@ -384,6 +396,25 @@
 				44C348DF20D8ADD90078F6F3 /* HRToast+UIView.swift */,
 			);
 			path = Toast;
+			sourceTree = "<group>";
+		};
+		44D7FA5820DF99A600D66EF1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				44D7FA5D20DF99BE00D66EF1 /* AppURLs.swift */,
+				44D7FA5920DF99A600D66EF1 /* Model.swift */,
+				44D7FA5A20DF99A600D66EF1 /* WebServices.swift */,
+				44D7FA5F20DF9DDE00D66EF1 /* Extension.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		44D7FA6120DF9F0100D66EF1 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				44D7FA6220DF9F0100D66EF1 /* Reachability.swift */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 		7F6774DAF1DE3FC262F871D1 /* Pods */ = {
@@ -524,11 +555,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CodeStrokeAlert/Pods-CodeStrokeAlert-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/EVReflection/EVReflection.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EVReflection.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -552,10 +591,12 @@
 				44C348F620D8CFCE0078F6F3 /* DestinationVC.swift in Sources */,
 				4464EF0220DA8ECE00BCF58D /* NSProcessInfo+RMActionController.m in Sources */,
 				4464EF0520DA8ECE00BCF58D /* RMPickerViewController.m in Sources */,
+				44D7FA5E20DF99BE00D66EF1 /* AppURLs.swift in Sources */,
 				44C348F820D8E2620078F6F3 /* ClinicalHistoryVC.swift in Sources */,
 				44C348EB20D8AE8C0078F6F3 /* DesignableTextView.swift in Sources */,
-				44C3490220D932620078F6F3 /* ProfileSummeryVC.swift in Sources */,
+				44C3490220D932620078F6F3 /* ProfileSummaryVC.swift in Sources */,
 				44C348D920D8ADAC0078F6F3 /* Constans.swift in Sources */,
+				44D7FA5C20DF99A600D66EF1 /* WebServices.swift in Sources */,
 				44C348DB20D8ADAC0078F6F3 /* String+Extension.swift in Sources */,
 				4464EF0320DA8ECE00BCF58D /* RMActionControllerTransition.m in Sources */,
 				44430EC420D62D890094B2CB /* CodeStrokeAlert.xcdatamodeld in Sources */,
@@ -563,6 +604,7 @@
 				44C348DD20D8ADAC0078F6F3 /* NSDate+Extension.swift in Sources */,
 				44C348FE20D8FFCA0078F6F3 /* ClinicalAssessmentTwoVC.swift in Sources */,
 				44C3490020D92F980078F6F3 /* ClinicalAssessmentFour.swift in Sources */,
+				44D7FA6020DF9DDE00D66EF1 /* Extension.swift in Sources */,
 				4464EEFD20DA8ECE00BCF58D /* RMGroupedAction.m in Sources */,
 				44C348EC20D8AE8C0078F6F3 /* ViewDesign.swift in Sources */,
 				44C348F220D8BB1E0078F6F3 /* PatientDetailVC.swift in Sources */,
@@ -577,10 +619,12 @@
 				44C348C020D7B5D30078F6F3 /* LoginNavigation.swift in Sources */,
 				4464EF0120DA8ECE00BCF58D /* UIView+RMActionController.m in Sources */,
 				44C348E020D8ADD90078F6F3 /* HRToast+UIView.swift in Sources */,
+				44D7FA6320DF9F0100D66EF1 /* Reachability.swift in Sources */,
 				44C348ED20D8AE8C0078F6F3 /* TextFieldDesign.swift in Sources */,
 				4464EEFF20DA8ECE00BCF58D /* RMAction.m in Sources */,
 				44430EBC20D62D890094B2CB /* AppDelegate.swift in Sources */,
 				44C348D820D8ADAC0078F6F3 /* DesignableView.swift in Sources */,
+				44D7FA5B20DF99A600D66EF1 /* Model.swift in Sources */,
 				44C348DC20D8ADAC0078F6F3 /* ValidationFile.swift in Sources */,
 				4464EEFC20DA8ECE00BCF58D /* RMActionController.m in Sources */,
 				44C348EA20D8AE8C0078F6F3 /* TextViewDesign.swift in Sources */,
@@ -736,10 +780,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.activefundinggroup.afgapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.afg.afgapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "be57e37b-835a-43ec-ae60-df4c549f54cf";
-				PROVISIONING_PROFILE_SPECIFIER = AFG_Development;
+				PROVISIONING_PROFILE = "d1d8ea39-70c9-44d1-ad6a-776c5377a880";
+				PROVISIONING_PROFILE_SPECIFIER = iOS_AFG_WildCard;
 				SWIFT_OBJC_BRIDGING_HEADER = "CodeStrokeAlert-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -759,10 +803,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.activefundinggroup.afgapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.afg.afgapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "be57e37b-835a-43ec-ae60-df4c549f54cf";
-				PROVISIONING_PROFILE_SPECIFIER = AFG_Development;
+				PROVISIONING_PROFILE = "d1d8ea39-70c9-44d1-ad6a-776c5377a880";
+				PROVISIONING_PROFILE_SPECIFIER = iOS_AFG_WildCard;
 				SWIFT_OBJC_BRIDGING_HEADER = "CodeStrokeAlert-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
