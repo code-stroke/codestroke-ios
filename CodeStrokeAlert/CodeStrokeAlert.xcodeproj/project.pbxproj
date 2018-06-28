@@ -24,6 +24,12 @@
 		4464EF0320DA8ECE00BCF58D /* RMActionControllerTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4464EEF220DA8ECE00BCF58D /* RMActionControllerTransition.m */; };
 		4464EF0420DA8ECE00BCF58D /* RMDateSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4464EEF620DA8ECE00BCF58D /* RMDateSelectionViewController.m */; };
 		4464EF0520DA8ECE00BCF58D /* RMPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4464EEF820DA8ECE00BCF58D /* RMPickerViewController.m */; };
+		4480D57120E39B1800049641 /* ClinicianPatientDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4480D57020E39B1800049641 /* ClinicianPatientDetailVC.swift */; };
+		4480D57320E3BD7F00049641 /* ClinicianPatientDetailTwoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4480D57220E3BD7F00049641 /* ClinicianPatientDetailTwoVC.swift */; };
+		4480D57520E3BD8C00049641 /* ClinicianPatientDetailThreeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4480D57420E3BD8C00049641 /* ClinicianPatientDetailThreeVC.swift */; };
+		4480D57720E3BDA700049641 /* ClinicianPatientDetailFourVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4480D57620E3BDA700049641 /* ClinicianPatientDetailFourVC.swift */; };
+		4480D57920E3BDB700049641 /* ClinicianPatientDetailFiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4480D57820E3BDB700049641 /* ClinicianPatientDetailFiveVC.swift */; };
+		4480D57B20E3BDCC00049641 /* ClinicianPatientDetailSixVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4480D57A20E3BDCC00049641 /* ClinicianPatientDetailSixVC.swift */; };
 		44C348B320D7ADDA0078F6F3 /* SFUIDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 44C348AA20D7ADDA0078F6F3 /* SFUIDisplay-Regular.otf */; };
 		44C348B420D7ADDA0078F6F3 /* sf-ui-display-heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 44C348AB20D7ADDA0078F6F3 /* sf-ui-display-heavy.otf */; };
 		44C348B520D7ADDA0078F6F3 /* sf-ui-display-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 44C348AC20D7ADDA0078F6F3 /* sf-ui-display-black.otf */; };
@@ -68,6 +74,7 @@
 		44D7FA5E20DF99BE00D66EF1 /* AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D7FA5D20DF99BE00D66EF1 /* AppURLs.swift */; };
 		44D7FA6020DF9DDE00D66EF1 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D7FA5F20DF9DDE00D66EF1 /* Extension.swift */; };
 		44D7FA6320DF9F0100D66EF1 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D7FA6220DF9F0100D66EF1 /* Reachability.swift */; };
+		44FBE91720E373BA00E9E819 /* PatientListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBE91620E373BA00E9E819 /* PatientListVC.swift */; };
 		D10B435348B1691DEE328D8E /* Pods_CodeStrokeAlert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E5E9FC369859667F512BBA /* Pods_CodeStrokeAlert.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +112,12 @@
 		4464EEF620DA8ECE00BCF58D /* RMDateSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDateSelectionViewController.m; sourceTree = "<group>"; };
 		4464EEF820DA8ECE00BCF58D /* RMPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPickerViewController.m; sourceTree = "<group>"; };
 		4464EEF920DA8ECE00BCF58D /* RMPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPickerViewController.h; sourceTree = "<group>"; };
+		4480D57020E39B1800049641 /* ClinicianPatientDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicianPatientDetailVC.swift; sourceTree = "<group>"; };
+		4480D57220E3BD7F00049641 /* ClinicianPatientDetailTwoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicianPatientDetailTwoVC.swift; sourceTree = "<group>"; };
+		4480D57420E3BD8C00049641 /* ClinicianPatientDetailThreeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicianPatientDetailThreeVC.swift; sourceTree = "<group>"; };
+		4480D57620E3BDA700049641 /* ClinicianPatientDetailFourVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicianPatientDetailFourVC.swift; sourceTree = "<group>"; };
+		4480D57820E3BDB700049641 /* ClinicianPatientDetailFiveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicianPatientDetailFiveVC.swift; sourceTree = "<group>"; };
+		4480D57A20E3BDCC00049641 /* ClinicianPatientDetailSixVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicianPatientDetailSixVC.swift; sourceTree = "<group>"; };
 		44C348AA20D7ADDA0078F6F3 /* SFUIDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Regular.otf"; sourceTree = "<group>"; };
 		44C348AB20D7ADDA0078F6F3 /* sf-ui-display-heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-display-heavy.otf"; sourceTree = "<group>"; };
 		44C348AC20D7ADDA0078F6F3 /* sf-ui-display-black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-display-black.otf"; sourceTree = "<group>"; };
@@ -149,6 +162,7 @@
 		44D7FA5D20DF99BE00D66EF1 /* AppURLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppURLs.swift; sourceTree = "<group>"; };
 		44D7FA5F20DF9DDE00D66EF1 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		44D7FA6220DF9F0100D66EF1 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		44FBE91620E373BA00E9E819 /* PatientListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListVC.swift; sourceTree = "<group>"; };
 		7548FE44F8A80D91F9401B97 /* Pods-CodeStrokeAlert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStrokeAlert.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodeStrokeAlert/Pods-CodeStrokeAlert.release.xcconfig"; sourceTree = "<group>"; };
 		DA8B0F4C4B93A4EFC415889F /* Pods-CodeStrokeAlert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStrokeAlert.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeStrokeAlert/Pods-CodeStrokeAlert.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -322,15 +336,15 @@
 		44C348C720D8AC470078F6F3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				44C348BD20D7B5400078F6F3 /* LoginWithQR.swift */,
-				44C348F120D8BB1E0078F6F3 /* PatientDetailVC.swift */,
-				44C348F520D8CFCE0078F6F3 /* DestinationVC.swift */,
-				44C348F720D8E2620078F6F3 /* ClinicalHistoryVC.swift */,
-				44C348F920D8F0330078F6F3 /* ClinicalAssessmentVC.swift */,
-				44C348FC20D8FFCA0078F6F3 /* ClinicalAssessmentTwoVC.swift */,
-				44C348FB20D8FFCA0078F6F3 /* ClinicalAssessmentThreeVC.swift */,
-				44C348FF20D92F980078F6F3 /* ClinicalAssessmentFour.swift */,
-				44C3490120D932620078F6F3 /* ProfileSummaryVC.swift */,
+				44FBE91420E3738D00E9E819 /* Login */,
+				44FBE91520E373A700E9E819 /* Paramedics */,
+				44FBE91620E373BA00E9E819 /* PatientListVC.swift */,
+				4480D57020E39B1800049641 /* ClinicianPatientDetailVC.swift */,
+				4480D57220E3BD7F00049641 /* ClinicianPatientDetailTwoVC.swift */,
+				4480D57420E3BD8C00049641 /* ClinicianPatientDetailThreeVC.swift */,
+				4480D57620E3BDA700049641 /* ClinicianPatientDetailFourVC.swift */,
+				4480D57820E3BDB700049641 /* ClinicianPatientDetailFiveVC.swift */,
+				4480D57A20E3BDCC00049641 /* ClinicianPatientDetailSixVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -415,6 +429,29 @@
 				44D7FA6220DF9F0100D66EF1 /* Reachability.swift */,
 			);
 			path = Reachability;
+			sourceTree = "<group>";
+		};
+		44FBE91420E3738D00E9E819 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				44C348BD20D7B5400078F6F3 /* LoginWithQR.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		44FBE91520E373A700E9E819 /* Paramedics */ = {
+			isa = PBXGroup;
+			children = (
+				44C348F120D8BB1E0078F6F3 /* PatientDetailVC.swift */,
+				44C348F520D8CFCE0078F6F3 /* DestinationVC.swift */,
+				44C348F720D8E2620078F6F3 /* ClinicalHistoryVC.swift */,
+				44C348F920D8F0330078F6F3 /* ClinicalAssessmentVC.swift */,
+				44C348FC20D8FFCA0078F6F3 /* ClinicalAssessmentTwoVC.swift */,
+				44C348FB20D8FFCA0078F6F3 /* ClinicalAssessmentThreeVC.swift */,
+				44C348FF20D92F980078F6F3 /* ClinicalAssessmentFour.swift */,
+				44C3490120D932620078F6F3 /* ProfileSummaryVC.swift */,
+			);
+			path = Paramedics;
 			sourceTree = "<group>";
 		};
 		7F6774DAF1DE3FC262F871D1 /* Pods */ = {
@@ -585,6 +622,8 @@
 				44C348BE20D7B5400078F6F3 /* LoginWithQR.swift in Sources */,
 				4464EF0020DA8ECE00BCF58D /* RMImageAction.m in Sources */,
 				4464EF0420DA8ECE00BCF58D /* RMDateSelectionViewController.m in Sources */,
+				4480D57120E39B1800049641 /* ClinicianPatientDetailVC.swift in Sources */,
+				4480D57320E3BD7F00049641 /* ClinicianPatientDetailTwoVC.swift in Sources */,
 				44C348D520D8ADAC0078F6F3 /* DesignableTextField.swift in Sources */,
 				44C348FA20D8F0330078F6F3 /* ClinicalAssessmentVC.swift in Sources */,
 				44C348DA20D8ADAC0078F6F3 /* LetsReach.swift in Sources */,
@@ -593,12 +632,14 @@
 				4464EF0520DA8ECE00BCF58D /* RMPickerViewController.m in Sources */,
 				44D7FA5E20DF99BE00D66EF1 /* AppURLs.swift in Sources */,
 				44C348F820D8E2620078F6F3 /* ClinicalHistoryVC.swift in Sources */,
+				4480D57920E3BDB700049641 /* ClinicianPatientDetailFiveVC.swift in Sources */,
 				44C348EB20D8AE8C0078F6F3 /* DesignableTextView.swift in Sources */,
 				44C3490220D932620078F6F3 /* ProfileSummaryVC.swift in Sources */,
 				44C348D920D8ADAC0078F6F3 /* Constans.swift in Sources */,
 				44D7FA5C20DF99A600D66EF1 /* WebServices.swift in Sources */,
 				44C348DB20D8ADAC0078F6F3 /* String+Extension.swift in Sources */,
 				4464EF0320DA8ECE00BCF58D /* RMActionControllerTransition.m in Sources */,
+				4480D57520E3BD8C00049641 /* ClinicianPatientDetailThreeVC.swift in Sources */,
 				44430EC420D62D890094B2CB /* CodeStrokeAlert.xcdatamodeld in Sources */,
 				4464EEFB20DA8ECE00BCF58D /* CountrySelection.swift in Sources */,
 				44C348DD20D8ADAC0078F6F3 /* NSDate+Extension.swift in Sources */,
@@ -610,17 +651,20 @@
 				44C348F220D8BB1E0078F6F3 /* PatientDetailVC.swift in Sources */,
 				44C348D720D8ADAC0078F6F3 /* DesignableButton.swift in Sources */,
 				44C348EF20D8AE8C0078F6F3 /* DesignableLabel.swift in Sources */,
+				4480D57720E3BDA700049641 /* ClinicianPatientDetailFourVC.swift in Sources */,
 				44C348E920D8AE8C0078F6F3 /* ImageViewDesign.swift in Sources */,
 				44C348FD20D8FFCA0078F6F3 /* ClinicalAssessmentThreeVC.swift in Sources */,
 				44C348D620D8ADAC0078F6F3 /* ButtonDesign.swift in Sources */,
 				44C348C420D8A92D0078F6F3 /* DashboardNavigation.swift in Sources */,
 				44C348F020D8AE8C0078F6F3 /* LabelDesign.swift in Sources */,
+				4480D57B20E3BDCC00049641 /* ClinicianPatientDetailSixVC.swift in Sources */,
 				44C348EE20D8AE8C0078F6F3 /* DesignableImageView.swift in Sources */,
 				44C348C020D7B5D30078F6F3 /* LoginNavigation.swift in Sources */,
 				4464EF0120DA8ECE00BCF58D /* UIView+RMActionController.m in Sources */,
 				44C348E020D8ADD90078F6F3 /* HRToast+UIView.swift in Sources */,
 				44D7FA6320DF9F0100D66EF1 /* Reachability.swift in Sources */,
 				44C348ED20D8AE8C0078F6F3 /* TextFieldDesign.swift in Sources */,
+				44FBE91720E373BA00E9E819 /* PatientListVC.swift in Sources */,
 				4464EEFF20DA8ECE00BCF58D /* RMAction.m in Sources */,
 				44430EBC20D62D890094B2CB /* AppDelegate.swift in Sources */,
 				44C348D820D8ADAC0078F6F3 /* DesignableView.swift in Sources */,

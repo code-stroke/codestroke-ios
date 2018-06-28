@@ -214,6 +214,15 @@ extension UIViewController {
         
         return faNumber
     }
+    
+    func buttonCenter(scrollView: UIScrollView, button: UIButton) {
+        
+        let scrollWidth = scrollView.frame.width
+        let scrollHeight = scrollView.frame.height
+        let desiredXCoor = button.frame.origin.x - ((scrollWidth / 2) - (button.frame.width / 2) )
+        let rect = CGRect(x: desiredXCoor, y: 0, width: scrollWidth, height: scrollHeight)
+        scrollView.scrollRectToVisible(rect, animated: true)
+    }
 }
 
 extension DateFormatter {

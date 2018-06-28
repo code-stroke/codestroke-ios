@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        UIApplication.shared.statusBarStyle = .lightContent
         IQKeyboardManager.shared.enable = true
         
         return true
@@ -122,7 +123,8 @@ extension AppDelegate {
             obj.removeFromSuperview()
         }
         
-        let nav  = dashBoardStoryboard.instantiateViewController(withIdentifier: "DashboardNavigation") as! DashboardNavigation
+        let nav  = dashBoardStoryboard.instantiateViewController(withIdentifier: "ClinicianNavigation") as! DashboardNavigation
+//        let nav  = dashBoardStoryboard.instantiateViewController(withIdentifier: "DashboardNavigation") as! DashboardNavigation
         self.window?.rootViewController = nav
         self.window?.makeKeyAndVisible()
     }
