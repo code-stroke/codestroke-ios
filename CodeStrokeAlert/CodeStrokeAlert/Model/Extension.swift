@@ -92,7 +92,8 @@ extension UIView {
         viewShadow.layer.shadowColor = color.cgColor
         viewShadow.layer.shadowOpacity = 1
         viewShadow.layer.shadowOffset = CGSize.zero
-        viewShadow.layer.shadowRadius = 5
+        viewShadow.layer.shadowRadius = 2
+        viewShadow.layer.cornerRadius = 5.0
     }
     
     func rotate(_ toValue: CGFloat, duration: CFTimeInterval = 0.2) {
@@ -150,6 +151,18 @@ extension UIViewController {
     
     func alignmentOfTextField(islanguage:Bool = true) -> NSTextAlignment {
         return islanguage == true ? NSTextAlignment.right : NSTextAlignment.left
+    }
+    
+    func calcAge(birthday: String) -> Int {
+        
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "yyyy/MM/dd"
+        let birthdayDate = dateFormater.date(from: birthday)
+        let calendar: NSCalendar! = NSCalendar(calendarIdentifier: .gregorian)
+        let now = Date()
+        let calcAge = calendar.components(.year, from: birthdayDate!, to: now, options: [])
+        let age = calcAge.year
+        return age!
     }
     
     func localToUTC(date:String) -> String {

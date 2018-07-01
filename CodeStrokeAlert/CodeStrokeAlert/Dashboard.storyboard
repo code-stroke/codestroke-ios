@@ -659,90 +659,110 @@
                                                             <constraint firstItem="cyN-Ap-MNC" firstAttribute="height" secondItem="hbD-vU-6MW" secondAttribute="height" id="zsf-Kk-UxV"/>
                                                         </constraints>
                                                     </view>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="eIS-3B-0xs">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="eIS-3B-0xs">
                                                         <rect key="frame" x="0.0" y="60" width="320" height="444"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <searchBar key="tableHeaderView" contentMode="redraw" id="C1Y-sA-GRw">
+                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="k0y-hO-fuD" id="h08-8g-wdY"/>
+                                                            </connections>
+                                                        </searchBar>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PatientListCell" rowHeight="70" id="6cb-4J-yiJ" customClass="PatientListCell" customModule="CodeStrokeAlert" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="1" width="320" height="70"/>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PatientListCell" id="6cb-4J-yiJ" customClass="PatientListCell" customModule="CodeStrokeAlert" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="45" width="320" height="90"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6cb-4J-yiJ" id="3fI-yk-bbF">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mok-gy-lAf">
-                                                                            <rect key="frame" x="15" y="5" width="295" height="59.5"/>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LCm-Ox-FAC">
+                                                                            <rect key="frame" x="10" y="10" width="300" height="75"/>
                                                                             <subviews>
-                                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aRg-Xs-UZ5">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="59.5"/>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mok-gy-lAf">
+                                                                                    <rect key="frame" x="10" y="5" width="280" height="65"/>
                                                                                     <subviews>
-                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRJ-fT-RSI">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
-                                                                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                                                                            <nil key="textColor"/>
-                                                                                            <nil key="highlightedColor"/>
-                                                                                        </label>
-                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7h-5K-fUn">
-                                                                                            <rect key="frame" x="0.0" y="30" width="150" height="29.5"/>
-                                                                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                                                                            <nil key="textColor"/>
-                                                                                            <nil key="highlightedColor"/>
-                                                                                        </label>
-                                                                                    </subviews>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="width" constant="150" id="VAg-wG-7zf"/>
-                                                                                    </constraints>
-                                                                                </stackView>
-                                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvy-b0-tBl">
-                                                                                    <rect key="frame" x="150" y="0.0" width="145" height="59.5"/>
-                                                                                    <subviews>
-                                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KGd-Cg-tGv">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="59.5"/>
+                                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aRg-Xs-UZ5">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="65"/>
                                                                                             <subviews>
-                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEf-29-EWw">
-                                                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRJ-fT-RSI">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="32.5"/>
                                                                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                                                                                    <color key="textColor" red="0.37254901960784315" green="0.37254901960784315" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                                    <nil key="textColor"/>
                                                                                                     <nil key="highlightedColor"/>
                                                                                                 </label>
-                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETA :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nuk-xl-LPz">
-                                                                                                    <rect key="frame" x="0.0" y="30" width="50" height="29.5"/>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7h-5K-fUn">
+                                                                                                    <rect key="frame" x="0.0" y="32.5" width="150" height="32.5"/>
                                                                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                                                                                    <color key="textColor" red="0.37254901960784315" green="0.37254901960784315" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                                    <nil key="textColor"/>
                                                                                                     <nil key="highlightedColor"/>
                                                                                                 </label>
                                                                                             </subviews>
                                                                                             <constraints>
-                                                                                                <constraint firstAttribute="width" constant="50" id="zb9-V9-yWM"/>
+                                                                                                <constraint firstAttribute="width" constant="150" id="VAg-wG-7zf"/>
                                                                                             </constraints>
                                                                                         </stackView>
-                                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="b0L-pk-TgT">
-                                                                                            <rect key="frame" x="50" y="0.0" width="95" height="59.5"/>
+                                                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvy-b0-tBl">
+                                                                                            <rect key="frame" x="150" y="0.0" width="130" height="65"/>
                                                                                             <subviews>
-                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2V1-WW-5sK">
-                                                                                                    <rect key="frame" x="0.0" y="0.0" width="95" height="30"/>
-                                                                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                                                                                    <color key="textColor" red="0.37254901959999998" green="0.37254901959999998" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                                    <nil key="highlightedColor"/>
-                                                                                                </label>
-                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyq-aA-0Az">
-                                                                                                    <rect key="frame" x="0.0" y="30" width="95" height="29.5"/>
-                                                                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                                                                                    <color key="textColor" red="0.37254901959999998" green="0.37254901959999998" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                                    <nil key="highlightedColor"/>
-                                                                                                </label>
+                                                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KGd-Cg-tGv">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="65"/>
+                                                                                                    <subviews>
+                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEf-29-EWw">
+                                                                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="32.5"/>
+                                                                                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                                                                                            <color key="textColor" red="0.37254901960784315" green="0.37254901960784315" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                                            <nil key="highlightedColor"/>
+                                                                                                        </label>
+                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETA :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nuk-xl-LPz">
+                                                                                                            <rect key="frame" x="0.0" y="32.5" width="50" height="32.5"/>
+                                                                                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                                                                                            <color key="textColor" red="0.37254901960784315" green="0.37254901960784315" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                                            <nil key="highlightedColor"/>
+                                                                                                        </label>
+                                                                                                    </subviews>
+                                                                                                    <constraints>
+                                                                                                        <constraint firstAttribute="width" constant="50" id="zb9-V9-yWM"/>
+                                                                                                    </constraints>
+                                                                                                </stackView>
+                                                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="b0L-pk-TgT">
+                                                                                                    <rect key="frame" x="50" y="0.0" width="80" height="65"/>
+                                                                                                    <subviews>
+                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2V1-WW-5sK">
+                                                                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="32.5"/>
+                                                                                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                                                                                            <color key="textColor" red="0.37254901959999998" green="0.37254901959999998" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                                            <nil key="highlightedColor"/>
+                                                                                                        </label>
+                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyq-aA-0Az">
+                                                                                                            <rect key="frame" x="0.0" y="32.5" width="80" height="32.5"/>
+                                                                                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                                                                                            <color key="textColor" red="0.37254901959999998" green="0.37254901959999998" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                                            <nil key="highlightedColor"/>
+                                                                                                        </label>
+                                                                                                    </subviews>
+                                                                                                </stackView>
                                                                                             </subviews>
                                                                                         </stackView>
                                                                                     </subviews>
                                                                                 </stackView>
                                                                             </subviews>
-                                                                        </stackView>
+                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <constraints>
+                                                                                <constraint firstItem="mok-gy-lAf" firstAttribute="leading" secondItem="LCm-Ox-FAC" secondAttribute="leading" constant="10" id="1qw-ZY-Xo1"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="mok-gy-lAf" secondAttribute="bottom" constant="5" id="6kk-ET-Rza"/>
+                                                                                <constraint firstItem="mok-gy-lAf" firstAttribute="top" secondItem="LCm-Ox-FAC" secondAttribute="top" constant="5" id="b5n-md-u1r"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="mok-gy-lAf" secondAttribute="trailing" constant="10" id="y6G-Z0-WZp"/>
+                                                                            </constraints>
+                                                                        </view>
                                                                     </subviews>
                                                                     <constraints>
-                                                                        <constraint firstItem="mok-gy-lAf" firstAttribute="top" secondItem="3fI-yk-bbF" secondAttribute="top" constant="5" id="Cr8-Bs-9b3"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="mok-gy-lAf" secondAttribute="trailing" constant="10" id="HxA-Fh-eMg"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="mok-gy-lAf" secondAttribute="bottom" constant="5" id="SgP-gD-8zY"/>
-                                                                        <constraint firstItem="mok-gy-lAf" firstAttribute="leading" secondItem="3fI-yk-bbF" secondAttribute="leading" constant="15" id="Vyn-SG-TUm"/>
+                                                                        <constraint firstItem="LCm-Ox-FAC" firstAttribute="top" secondItem="3fI-yk-bbF" secondAttribute="top" constant="10" id="7sL-KE-9Ps"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="LCm-Ox-FAC" secondAttribute="bottom" constant="5" id="Rn6-tg-TAT"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="LCm-Ox-FAC" secondAttribute="trailing" constant="10" id="hAL-X2-YmG"/>
+                                                                        <constraint firstItem="LCm-Ox-FAC" firstAttribute="leading" secondItem="3fI-yk-bbF" secondAttribute="leading" constant="10" id="hhA-lq-U4d"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
                                                                 <connections>
@@ -750,6 +770,7 @@
                                                                     <outlet property="lblETA" destination="gyq-aA-0Az" id="X9P-XV-LKk"/>
                                                                     <outlet property="lblGender" destination="k7h-5K-fUn" id="5ZU-Ql-1Sj"/>
                                                                     <outlet property="lblName" destination="mRJ-fT-RSI" id="MLs-iY-67m"/>
+                                                                    <outlet property="viewShadow" destination="LCm-Ox-FAC" id="RIL-NY-qbu"/>
                                                                 </connections>
                                                             </tableViewCell>
                                                         </prototypes>
@@ -803,6 +824,9 @@
                         <barButtonItem key="backBarButtonItem" title="Patient Details" id="U9a-Dm-JKt"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="MKJ-ly-HLv">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="btnSearchClicked:" destination="k0y-hO-fuD" id="ACs-ya-Z7H"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -810,6 +834,7 @@
                         <outlet property="btnCompleted" destination="cyN-Ap-MNC" id="y8e-O7-KLT"/>
                         <outlet property="btnIncoming" destination="hbD-vU-6MW" id="5rO-ve-GHv"/>
                         <outlet property="leading_Slider" destination="WJi-Mf-haP" id="qcL-wW-bbL"/>
+                        <outlet property="searchBar" destination="C1Y-sA-GRw" id="hyg-ET-btX"/>
                         <outlet property="tblPatientList" destination="eIS-3B-0xs" id="kQ3-ev-kMK"/>
                         <segue destination="NmA-QT-b8A" kind="show" identifier="ClinicianPatientDetail" id="Urx-T6-p6N"/>
                     </connections>
@@ -1055,6 +1080,9 @@
                                                                                             <color key="titleColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         </state>
                                                                                         <state key="selected" image="ic_checked"/>
+                                                                                        <connections>
+                                                                                            <action selector="btnRegisterTriagedPrimaryClicked:" destination="NmA-QT-b8A" eventType="touchUpInside" id="SsW-6a-BhD"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZm-UV-Oji">
                                                                                         <rect key="frame" x="0.0" y="40" width="300" height="30"/>
@@ -1066,6 +1094,9 @@
                                                                                             <color key="titleColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         </state>
                                                                                         <state key="selected" image="ic_checked"/>
+                                                                                        <connections>
+                                                                                            <action selector="btnRegisterTriagedPrimaryClicked:" destination="NmA-QT-b8A" eventType="touchUpInside" id="Yrs-ay-XwG"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZoO-pz-0dy">
                                                                                         <rect key="frame" x="0.0" y="80" width="300" height="30"/>
@@ -1077,6 +1108,9 @@
                                                                                             <color key="titleColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         </state>
                                                                                         <state key="selected" image="ic_checked"/>
+                                                                                        <connections>
+                                                                                            <action selector="btnRegisterTriagedPrimaryClicked:" destination="NmA-QT-b8A" eventType="touchUpInside" id="NVv-TI-RVZ"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                             </stackView>
@@ -1184,9 +1218,19 @@
                         <outlet property="btnED" destination="pch-dt-Ta8" id="AiH-bP-LSp"/>
                         <outlet property="btnManagement" destination="RyH-8c-SU2" id="eK8-Fy-d46"/>
                         <outlet property="btnPatientDetail" destination="EU2-ky-7ZU" id="BdS-xr-ZUA"/>
+                        <outlet property="btnPrimarySurvey" destination="ZoO-pz-0dy" id="aBW-GY-J8Q"/>
                         <outlet property="btnRadiology" destination="YhU-d0-Mje" id="egn-i6-4my"/>
+                        <outlet property="btnRegistered" destination="7j6-GX-m5c" id="BCW-nl-aQi"/>
                         <outlet property="btnSubmit" destination="yTP-CM-4Hg" id="IJk-uF-qhm"/>
+                        <outlet property="btnTriggered" destination="dZm-UV-Oji" id="d37-0k-TBb"/>
+                        <outlet property="lblAge" destination="Zzj-i0-Dv0" id="z7H-KY-zln"/>
+                        <outlet property="lblCaseType" destination="bbK-Fp-aSP" id="tGm-VX-YDT"/>
+                        <outlet property="lblETA" destination="65f-rv-B50" id="YXO-MU-Oqj"/>
+                        <outlet property="lblGender" destination="FUl-A2-sQh" id="FmD-1b-znA"/>
+                        <outlet property="lblLastSeen" destination="zUY-fB-DQt" id="Wgd-el-UvY"/>
+                        <outlet property="lblName" destination="Gsj-Ex-mFL" id="NOy-EO-9RQ"/>
                         <outlet property="scrlView" destination="a7Y-2V-T12" id="t4T-gt-slZ"/>
+                        <outlet property="txtLocation" destination="QvC-V8-2hF" id="rxY-Pe-5gl"/>
                         <segue destination="Qxk-fz-NFn" kind="show" identifier="ClinicianPatientDetailTwo" id="ZwG-z8-8Pn"/>
                     </connections>
                 </viewController>
@@ -1414,7 +1458,7 @@
                                                                                             </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                         <connections>
-                                                                                            <outlet property="delegate" destination="v3S-3n-AVq" id="Lo2-TS-lmL"/>
+                                                                                            <outlet property="delegate" destination="Qxk-fz-NFn" id="mzU-Bg-UlE"/>
                                                                                         </connections>
                                                                                     </textField>
                                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7K-Jl-Jol">
@@ -1448,6 +1492,7 @@
                                                                                                         </state>
                                                                                                         <connections>
                                                                                                             <action selector="btnAnnticoagulantsClicked:" destination="NCK-RT-6JO" eventType="touchUpInside" id="U44-B2-Q1S"/>
+                                                                                                            <action selector="btnGenderClicked:" destination="Qxk-fz-NFn" eventType="touchUpInside" id="Q4J-o6-JH5"/>
                                                                                                         </connections>
                                                                                                     </button>
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Icz-63-bKo">
@@ -1460,6 +1505,7 @@
                                                                                                         </state>
                                                                                                         <connections>
                                                                                                             <action selector="btnAnnticoagulantsClicked:" destination="NCK-RT-6JO" eventType="touchUpInside" id="LLv-AU-eYr"/>
+                                                                                                            <action selector="btnGenderClicked:" destination="Qxk-fz-NFn" eventType="touchUpInside" id="rhJ-p3-Kon"/>
                                                                                                         </connections>
                                                                                                     </button>
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UF0-Jx-0JO">
@@ -1472,6 +1518,7 @@
                                                                                                         </state>
                                                                                                         <connections>
                                                                                                             <action selector="btnAnnticoagulantsClicked:" destination="NCK-RT-6JO" eventType="touchUpInside" id="HbF-CS-VU5"/>
+                                                                                                            <action selector="btnGenderClicked:" destination="Qxk-fz-NFn" eventType="touchUpInside" id="ws9-gZ-QXp"/>
                                                                                                         </connections>
                                                                                                     </button>
                                                                                                 </subviews>
@@ -1496,6 +1543,9 @@
                                                                                         <nil key="textColor"/>
                                                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                                                        <connections>
+                                                                                            <outlet property="delegate" destination="Qxk-fz-NFn" id="pdf-s1-xuM"/>
+                                                                                        </connections>
                                                                                     </textField>
                                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Next of Kin" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RFU-zH-Fgz">
                                                                                         <rect key="frame" x="0.0" y="308" width="300" height="40"/>
@@ -1625,11 +1675,28 @@
                         <outlet property="btnClinicalAssessment" destination="3fO-bP-mjH" id="CYR-Mc-iFC"/>
                         <outlet property="btnClinicalHistory" destination="nXF-ke-7qD" id="Zdy-by-XZK"/>
                         <outlet property="btnED" destination="ueh-mE-GT2" id="exU-vV-oRu"/>
+                        <outlet property="btnFemale" destination="Icz-63-bKo" id="lp3-bP-TIT"/>
+                        <outlet property="btnMale" destination="vew-SQ-QJY" id="RBT-Wz-qLK"/>
                         <outlet property="btnManagement" destination="UYF-xl-y1R" id="U0c-vF-0yE"/>
                         <outlet property="btnPatientDetail" destination="O0p-p2-TQe" id="gDY-Nc-8Hy"/>
                         <outlet property="btnRadiology" destination="8hT-bJ-5Jo" id="0bD-bg-eKG"/>
                         <outlet property="btnSubmit" destination="jQw-hk-sbA" id="RCo-T6-EFy"/>
+                        <outlet property="btnUnspecifies" destination="UF0-Jx-0JO" id="Epf-Vt-bdp"/>
+                        <outlet property="lblAge" destination="XBv-Jx-16L" id="hIF-65-cLg"/>
+                        <outlet property="lblCaseType" destination="WKK-rM-5vv" id="jlg-hy-tv8"/>
+                        <outlet property="lblETA" destination="6uV-9R-bl1" id="ixx-Ay-XaY"/>
+                        <outlet property="lblGender" destination="NZG-MT-1Ku" id="Kgv-oK-D57"/>
+                        <outlet property="lblLastSeen" destination="Hz2-UI-eIk" id="psW-oj-ehw"/>
+                        <outlet property="lblName" destination="d26-Jy-zWX" id="Hle-zz-9TU"/>
                         <outlet property="scrlView" destination="6Er-gA-ZMo" id="Wq2-D9-3w9"/>
+                        <outlet property="txtAddress" destination="D7K-Jl-Jol" id="GVa-VS-5qd"/>
+                        <outlet property="txtDOB" destination="8xp-St-SNf" id="QHZ-YJ-slI"/>
+                        <outlet property="txtFirstName" destination="5HL-lL-5WF" id="FuF-Wp-rIE"/>
+                        <outlet property="txtLastSeen" destination="sGa-4X-Bqb" id="TFH-5n-1LI"/>
+                        <outlet property="txtMedicare" destination="MCs-Uh-mus" id="Ury-IY-4yx"/>
+                        <outlet property="txtNOKContact" destination="H8o-kW-hJk" id="xEk-Mn-bU1"/>
+                        <outlet property="txtNextKin" destination="RFU-zH-Fgz" id="bIe-SE-Ow1"/>
+                        <outlet property="txtSurname" destination="mH5-F8-xY7" id="cv0-c1-vAz"/>
                         <segue destination="hS6-wJ-A9a" kind="show" identifier="ClinicianPatientDetailThree" id="h8V-85-RD4"/>
                     </connections>
                 </viewController>
@@ -1838,9 +1905,6 @@
                                                                                         <nil key="textColor"/>
                                                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                                                                                        <connections>
-                                                                                            <outlet property="delegate" destination="v3S-3n-AVq" id="7mu-LX-EiJ"/>
-                                                                                        </connections>
                                                                                     </textField>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DHR-CU-Dlw">
                                                                                         <rect key="frame" x="0.0" y="96" width="300" height="50"/>
@@ -1910,7 +1974,7 @@
                                                                                             </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                         <connections>
-                                                                                            <outlet property="delegate" destination="v3S-3n-AVq" id="gRd-Av-1lZ"/>
+                                                                                            <outlet property="delegate" destination="hS6-wJ-A9a" id="ayc-pf-O8a"/>
                                                                                         </connections>
                                                                                     </textField>
                                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Situation (HOPC)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E73-Ra-sMz">
@@ -1918,9 +1982,6 @@
                                                                                         <nil key="textColor"/>
                                                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                                                                                        <connections>
-                                                                                            <outlet property="delegate" destination="v3S-3n-AVq" id="K92-cn-0w7"/>
-                                                                                        </connections>
                                                                                     </textField>
                                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Weight (Kg)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yeD-6f-eAL">
                                                                                         <rect key="frame" x="0.0" y="250" width="300" height="40"/>
@@ -2038,6 +2099,8 @@
                         <barButtonItem key="backBarButtonItem" title="Patient Details" id="Zzc-hJ-sAo"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnAnticoagulantsNo" destination="Y0w-WT-zPm" id="3RP-Xr-9rX"/>
+                        <outlet property="btnAnticoagulantsYes" destination="kdY-49-rbw" id="Lvp-Er-bd0"/>
                         <outlet property="btnClinicalAssessment" destination="LiB-I2-vv1" id="g25-s2-U1J"/>
                         <outlet property="btnClinicalHistory" destination="2Lz-05-aIu" id="RJM-4H-t1z"/>
                         <outlet property="btnED" destination="riu-9m-dpW" id="fbH-Tt-adk"/>
@@ -2045,7 +2108,19 @@
                         <outlet property="btnPatientDetail" destination="FvX-nC-IgD" id="x5J-wY-4cL"/>
                         <outlet property="btnRadiology" destination="bKb-dX-SL9" id="hbs-vY-2FI"/>
                         <outlet property="btnSubmit" destination="WBr-DL-Bqu" id="Q4Q-YB-pvN"/>
+                        <outlet property="lblAge" destination="tgM-7h-s2s" id="qGH-KT-L9U"/>
+                        <outlet property="lblCaseType" destination="BMP-6m-joh" id="fJU-e4-acE"/>
+                        <outlet property="lblETA" destination="xo3-sr-Xwh" id="yQt-AI-Z36"/>
+                        <outlet property="lblGender" destination="s0Q-sD-Nc3" id="TTe-yc-l0i"/>
+                        <outlet property="lblLastSeen" destination="Yp7-Ih-WbS" id="RS0-7b-xnV"/>
+                        <outlet property="lblName" destination="qsj-FN-9HT" id="9bk-CE-Xh1"/>
                         <outlet property="scrlView" destination="hHB-yY-XsI" id="knL-Rw-55j"/>
+                        <outlet property="txtLastDose" destination="U1Z-Qf-2NE" id="8ag-tV-GKL"/>
+                        <outlet property="txtLastMeal" destination="jxu-oA-Jwd" id="hhX-Od-2H8"/>
+                        <outlet property="txtMedication" destination="rTm-Fs-Zce" id="YtQ-OE-qGD"/>
+                        <outlet property="txtPastMedicalHistory" destination="HS0-TY-nw2" id="pIZ-GX-L8x"/>
+                        <outlet property="txtSituation" destination="E73-Ra-sMz" id="U65-7Y-auA"/>
+                        <outlet property="txtWeight" destination="yeD-6f-eAL" id="PRj-sz-EmU"/>
                         <segue destination="Qg3-7o-34Y" kind="show" identifier="ClinicianPatientDetailFour" id="VJT-yD-kNp"/>
                     </connections>
                 </viewController>

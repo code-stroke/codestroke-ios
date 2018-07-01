@@ -12,6 +12,13 @@ class ClinicianPatientDetailVC: UIViewController {
 
     // MARK: - Declarations -
     
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblLastSeen: UILabel!
+    @IBOutlet weak var lblAge: UILabel!
+    @IBOutlet weak var lblCaseType: UILabel!
+    @IBOutlet weak var lblGender: UILabel!
+    @IBOutlet weak var lblETA: UILabel!
+    
     @IBOutlet weak var btnED: UIButton!
     @IBOutlet weak var btnPatientDetail: UIButton!
     @IBOutlet weak var btnClinicalHistory: UIButton!
@@ -22,12 +29,27 @@ class ClinicianPatientDetailVC: UIViewController {
     
     @IBOutlet weak var btnSubmit: UIButton!
     
+    @IBOutlet weak var btnPrimarySurvey: UIButton!
+    @IBOutlet weak var btnRegistered: UIButton!
+    @IBOutlet weak var btnTriggered: UIButton!
+    @IBOutlet weak var txtLocation: UITextField!
+    
+    var cashDetail = CaseList()
+    
     // MARK: - View Controller Life Cycle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.lblName.text = "\(CaseList.savedUser()!.first_name == "unknown" ? "" : CaseList.savedUser()!.first_name) \(CaseList.savedUser()!.last_name == "unknown" ? "" : CaseList.savedUser()!.last_name)"
+        self.lblLastSeen.text = CaseList.savedUser()!.last_well
+        let strDOB = self.calcAge(birthday: CaseList.savedUser()!.dob)
+        self.lblAge.text = "\(strDOB)"
+        self.lblCaseType.text = CaseList.savedUser()!.status
+        self.lblGender.text = CaseList.savedUser()!.gender == "f" ? "Female" : "Male"
+        self.lblETA.text = CaseList.savedUser()!.status_time
         
         self.btnED.layer.cornerRadius = 5
         self.btnPatientDetail.layer.cornerRadius = 5
@@ -40,6 +62,16 @@ class ClinicianPatientDetailVC: UIViewController {
         
         let image1 = self.gradientWithFrametoImage(frame: btnSubmit.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
         self.btnSubmit.backgroundColor = UIColor(patternImage: image1)
+        
+        if Reachability.isConnectedToNetwork() {
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.async {
+                    self.WS_ED_Details(url: AppURL.baseURL + AppURL.ED + "\(CaseList.savedUser()!.case_id)/", parameter: [:], isGet: true)
+                }
+            }
+        } else {
+            showAlert("No internet connection")
+        }
     }
     
     // MARK: - Action Methods -
@@ -48,9 +80,31 @@ class ClinicianPatientDetailVC: UIViewController {
         
     }
     
+    @IBAction func btnRegisterTriagedPrimaryClicked(_ sender: UIButton) {
+        
+        if sender.isSelected {
+            sender.isSelected = false
+        } else {
+            sender.isSelected = true
+        }
+    }
+    
     @IBAction func btnSubmitClicked(_ sender: UIButton) {
         
-        self.performSegue(withIdentifier: "ClinicianPatientDetailTwo", sender: sender)
+        let param = ["location": "",
+                     "registered": self.btnRegistered.isSelected ? 1 : 0,
+                     "triaged": self.btnTriggered.isSelected ? 1 : 0,
+                     "primary_survey": self.btnPrimarySurvey.isSelected ? 1 : 0] as [String : Any]
+        
+        if Reachability.isConnectedToNetwork() {
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.async {
+                    self.WS_ED_Details(url: AppURL.baseURL + AppURL.ED + "\(CaseList.savedUser()!.case_id)/", parameter: param, isGet: false)
+                }
+            }
+        } else {
+            showAlert("No internet connection")
+        }
     }
     
     // MARK: - Custom Methods -
