@@ -22,6 +22,10 @@ class DashboardNavigation: UINavigationController {
         let image = self.gradientWithFrametoImage(frame: newframe, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
         
         self.navigationBar.barTintColor = UIColor(patternImage: image)
+        self.navigationBar.titleTextAttributes =
+            [NSAttributedStringKey.foregroundColor: UIColor.white,
+             NSAttributedStringKey.font: UIFont(name: "SFUIDisplay-Semibold", size: 22)!]
+
     }
 
     // MARK:- Memory Warning -

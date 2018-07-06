@@ -117,14 +117,24 @@ extension AppDelegate {
         self.window?.makeKeyAndVisible()
     }
     
-    func goToDeshBordView() {
+    func goToParamedicDeshBordView() {
+        
+        for obj in self.window!.subviews {
+            obj.removeFromSuperview()
+        }
+        
+        let nav  = dashBoardStoryboard.instantiateViewController(withIdentifier: "ParamedicNavigation") as! DashboardNavigation
+        self.window?.rootViewController = nav
+        self.window?.makeKeyAndVisible()
+    }
+    
+    func goToClinicianDeshBordView() {
         
         for obj in self.window!.subviews {
             obj.removeFromSuperview()
         }
         
         let nav  = dashBoardStoryboard.instantiateViewController(withIdentifier: "ClinicianNavigation") as! DashboardNavigation
-//        let nav  = dashBoardStoryboard.instantiateViewController(withIdentifier: "DashboardNavigation") as! DashboardNavigation
         self.window?.rootViewController = nav
         self.window?.makeKeyAndVisible()
     }

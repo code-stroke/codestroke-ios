@@ -12,6 +12,8 @@ class ClinicianPatientDetailFiveVC: UIViewController {
     
     // MARK: - Declarations -
     
+    @IBOutlet weak var viewShadow: UIView!
+    
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblLastSeen: UILabel!
     @IBOutlet weak var lblAge: UILabel!
@@ -65,6 +67,8 @@ class ClinicianPatientDetailFiveVC: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        self.viewShadow.dropShadow(color: UIColor.init(red: 0.0/255.0, green: 90.0/255.0, blue: 192.0/255.0, alpha: 0.44), viewShadow: self.viewShadow)
         
         self.lblName.text = "\(CaseList.savedUser()!.first_name == "unknown" ? "" : CaseList.savedUser()!.first_name) \(CaseList.savedUser()!.last_name == "unknown" ? "" : CaseList.savedUser()!.last_name)"
         self.lblLastSeen.text = CaseList.savedUser()!.last_well

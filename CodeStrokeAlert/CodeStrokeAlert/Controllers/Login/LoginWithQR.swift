@@ -12,9 +12,10 @@ class LoginWithQR: UIViewController {
 
     // MARK:- Declarations -
     
-    @IBOutlet weak var btnLoginGPlus: UIButton!
-    @IBOutlet weak var btnLoginFB: UIButton!
-    @IBOutlet weak var btnLoginTwitter: UIButton!
+    @IBOutlet weak var txtUsername: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
+    @IBOutlet weak var btnLogin: UIButton!
+    
     
     // MARK:- ViewController LifeCycle -
     
@@ -24,34 +25,29 @@ class LoginWithQR: UIViewController {
         
         self.title = "Login"
         
-        let image1 = self.gradientWithFrametoImage(frame: btnLoginGPlus.frame, colors: [UIColor(red: 250/255, green: 129/255, blue: 105/255, alpha: 1).cgColor, UIColor(red: 243/255, green: 74/255, blue: 56/255, alpha: 1).cgColor])!
-        self.btnLoginGPlus.backgroundColor = UIColor(patternImage: image1)
-        self.btnLoginGPlus.layer.cornerRadius = 5.0
+        let image1 = self.gradientWithFrametoImage(frame: btnLogin.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
+        self.btnLogin.backgroundColor = UIColor(patternImage: image1)
         
-        let image2 = self.gradientWithFrametoImage(frame: btnLoginFB.frame, colors: [UIColor(red: 109/255, green: 146/255, blue: 201/255, alpha: 1).cgColor, UIColor(red: 59/255, green: 89/255, blue: 152/255, alpha: 1).cgColor])!
-        self.btnLoginFB.backgroundColor = UIColor(patternImage: image2)
-        self.btnLoginFB.layer.cornerRadius = 5.0
-        
-        let image3 = self.gradientWithFrametoImage(frame: btnLoginTwitter.frame, colors: [UIColor(red: 7/255, green: 212/255, blue: 250/255, alpha: 1).cgColor, UIColor(red: 3/255, green: 169/255, blue: 244/255, alpha: 1).cgColor])!
-        self.btnLoginTwitter.backgroundColor = UIColor(patternImage: image3)
-        self.btnLoginTwitter.layer.cornerRadius = 5.0
+        self.txtUsername.setLeftPaddingPoints(28)
+        self.txtPassword.setLeftPaddingPoints(28)
     }
     
     // MARK:- Action Methods -
     
-    @IBAction func btnLoginGPlusClicked(_ sender: UIButton) {
-    
-        appDelegate.goToDeshBordView()
-    }
-    
-    @IBAction func btnLoginFBClicked(_ sender: UIButton) {
+    @IBAction func btnLoginClicked(_ sender: UIButton) {
         
-        appDelegate.goToDeshBordView()
-    }
-    
-    @IBAction func btnLoginTwitterClicked(_ sender: UIButton) {
-        
-        appDelegate.goToDeshBordView()
+        if isEmptyString(self.txtUsername.text!) {
+            showAlert("Enter paramedic/clinician to login")
+        } else {
+            
+            if self.txtUsername.text! == "paramedic" {
+                appDelegate.goToParamedicDeshBordView()
+            } else if self.txtUsername.text! == "clinician" {
+                appDelegate.goToClinicianDeshBordView()
+            } else {
+                showAlert("Enter paramedic/clinician to login")
+            }
+        }
     }
     
     // MARK:- Memory Warning -

@@ -1,5 +1,5 @@
 //
-//  ClinicianPatientDetailTwoVC.swift
+//  ClinicianPatientDetailThreeVC.swift
 //  CodeStrokeAlert
 //
 //  Created by Jayesh on 27/06/18.
@@ -8,9 +8,11 @@
 
 import UIKit
 
-class ClinicianPatientDetailTwoVC: UIViewController {
+class ClinicianPatientDetailThreeVC: UIViewController {
     
     // MARK: - Declarations -
+    
+    @IBOutlet weak var viewShadow: UIView!
     
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblLastSeen: UILabel!
@@ -27,24 +29,19 @@ class ClinicianPatientDetailTwoVC: UIViewController {
     @IBOutlet weak var btnManagement: UIButton!
     @IBOutlet weak var scrlView: UIScrollView!
     
+    @IBOutlet weak var txtPastMedicalHistory: UITextField!
+    @IBOutlet weak var txtMedication: UITextField!
+    @IBOutlet weak var txtLastDose: DesignableTextField!
+    @IBOutlet weak var txtSituation: UITextField!
+    @IBOutlet weak var txtWeight: UITextField!
+    @IBOutlet weak var txtLastMeal: UITextField!
+    
+    @IBOutlet weak var btnAnticoagulantsYes: UIButton!
+    @IBOutlet weak var btnAnticoagulantsNo: UIButton!
+    
     @IBOutlet weak var btnSubmit: UIButton!
     
-    @IBOutlet weak var txtFirstName: UITextField!
-    @IBOutlet weak var txtSurname: UITextField!
-    @IBOutlet weak var txtDOB: DesignableTextField!
-    @IBOutlet weak var txtAddress: UITextField!
-    
-    @IBOutlet weak var btnMale: UIButton!
-    @IBOutlet weak var btnFemale: UIButton!
-    @IBOutlet weak var btnUnspecifies: UIButton!
-    
-    @IBOutlet weak var txtLastSeen: UITextField!
-    @IBOutlet weak var txtNextKin: UITextField!
-    @IBOutlet weak var txtNOKContact: UITextField!
-    @IBOutlet weak var txtMedicare: UITextField!
-    
-    var strDOB: String = ""
-    var strLastSeen: String = ""
+    var strLastDoseDate: String = ""
     
     // MARK: - View Controller Life Cycle -
     
@@ -52,6 +49,8 @@ class ClinicianPatientDetailTwoVC: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        self.viewShadow.dropShadow(color: UIColor.init(red: 0.0/255.0, green: 90.0/255.0, blue: 192.0/255.0, alpha: 0.44), viewShadow: self.viewShadow)
         
         self.lblName.text = "\(CaseList.savedUser()!.first_name == "unknown" ? "" : CaseList.savedUser()!.first_name) \(CaseList.savedUser()!.last_name == "unknown" ? "" : CaseList.savedUser()!.last_name)"
         self.lblLastSeen.text = CaseList.savedUser()!.last_well
@@ -74,7 +73,7 @@ class ClinicianPatientDetailTwoVC: UIViewController {
         if Reachability.isConnectedToNetwork() {
             DispatchQueue.global(qos: .background).async {
                 DispatchQueue.main.async {
-                    self.WS_Case_Details(url: AppURL.baseURL + AppURL.CaseList + "\(CaseList.savedUser()!.case_id)/", parameter: [:], isGet: true)
+                    self.WS_Clinician_Details(url: AppURL.baseURL + AppURL.Clinician + "\(CaseList.savedUser()!.case_id)/", parameter: [:], isGet: true)
                 }
             }
         } else {
@@ -84,7 +83,7 @@ class ClinicianPatientDetailTwoVC: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.buttonCenter(scrollView: scrlView, button: self.btnPatientDetail)
+        self.buttonCenter(scrollView: scrlView, button: self.btnClinicalHistory)
     }
     
     // MARK: - Action Methods -
@@ -93,54 +92,35 @@ class ClinicianPatientDetailTwoVC: UIViewController {
         
     }
     
-    @IBAction func btnGenderClicked(_ sender: UIButton) {
-        
-        self.btnFemale.isSelected = false
-        self.btnMale.isSelected = false
-        self.btnUnspecifies.isSelected = false
-        
-        sender.isSelected = true
-    }
-    
     @IBAction func btnSubmitClicked(_ sender: UIButton) {
         
-        if isEmptyString(self.txtFirstName.text!) {
-            showAlert("Please enter firstname")
-        } else if isEmptyString(self.txtSurname.text!) {
-            showAlert("Please enter surname")
-        } else if isEmptyString(self.txtDOB.text!) {
-            showAlert("Please select dob")
-        } else if isEmptyString(self.txtAddress.text!) {
-            showAlert("Please enter address")
-        } else if isEmptyString(self.txtNextKin.text!) {
-            showAlert("Please enter next to KIN")
-        } else if isEmptyString(self.txtNOKContact.text!) {
-            showAlert("Please enter NOK Telephone")
+        var strWeight = "0"
+        
+        if isEmptyString(self.txtWeight.text!) {
+            strWeight = "0"
         } else {
-            
-            let param = ["first_name": self.txtFirstName.text!,
-                         "last_name": self.txtSurname.text!,
-                         "dob": self.strDOB,
-                         "address": self.txtAddress.text!,
-                         "gender": self.btnUnspecifies.isSelected ? "u" : (self.btnMale.isSelected ? "m" : "f"),
-                         "last_well": self.strLastSeen,
-                         "nok": self.txtNextKin.text!,
-                         "nok_phone": self.txtNOKContact.text!,
-                         "medicare_no": self.txtMedicare.text!,
-                         "hospital_id": "1"]
-            
-            if Reachability.isConnectedToNetwork() {
-                DispatchQueue.global(qos: .background).async {
-                    DispatchQueue.main.async {
-                        self.WS_Case_Details(url: AppURL.baseURL + AppURL.CaseList + "\(CaseList.savedUser()!.case_id)/", parameter: param, isGet: false)
-                    }
+            strWeight = self.txtWeight.text!.trim
+        }
+        
+        let param = ["pmhx": self.txtPastMedicalHistory.text!,
+                     "anticoags_last_dose": self.strLastDoseDate,
+                     "meds": self.txtMedication.text!,
+                     "anticoags": self.btnAnticoagulantsYes.isSelected ? true : false,
+                     "hopc": self.txtSituation.text!,
+                     "weight": Float(strWeight)!,
+                     "last_meal": self.txtLastMeal.text!] as [String : Any]
+        
+        if Reachability.isConnectedToNetwork() {
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.async {
+                    self.WS_Clinician_Details(url: AppURL.baseURL + AppURL.Clinician + "\(CaseList.savedUser()!.case_id)/", parameter: param, isGet: false)
                 }
-            } else {
-                showAlert("No internet connection")
             }
+        } else {
+            showAlert("No internet connection")
         }
     }
-
+    
     // MARK: - Custom Methods -
     
     func clearSelection() {
@@ -164,9 +144,9 @@ class ClinicianPatientDetailTwoVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "ClinicianPatientDetailThree" {
+        if segue.identifier == "ClinicianPatientDetailFour" {
             
-            let destination = segue.destination as! ClinicianPatientDetailThreeVC
+            let destination = segue.destination as! ClinicianPatientDetailFourVC
             print(destination)
         }
     }
@@ -174,30 +154,18 @@ class ClinicianPatientDetailTwoVC: UIViewController {
 
 // MARK: - UITextField Delegate -
 
-extension ClinicianPatientDetailTwoVC: UITextFieldDelegate {
+extension ClinicianPatientDetailThreeVC: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
-        if textField == txtDOB {
-            
-            self.txtLastSeen.isSelected = false
-            self.txtDOB.isSelected = true
-            self.openDatePicker()
-            return false
-        } else if textField == txtLastSeen {
-            
-            self.txtLastSeen.isSelected = true
-            self.txtDOB.isSelected = false
-            self.openDatePicker()
-            return false
-        }
-        return true
+        self.openDatePicker()
+        return false
     }
 }
 
 // MARK: - Extension for DatePicker -
 
-extension ClinicianPatientDetailTwoVC {
+extension ClinicianPatientDetailThreeVC {
     
     func openDatePicker() {
         
@@ -214,32 +182,17 @@ extension ClinicianPatientDetailTwoVC {
             if let pickerController = controller as? RMDateSelectionViewController {
                 
                 let f = DateFormatter()
+                f.dateFormat = "dd MMMM yyyy"
+                let formattedDate: String = f.string(from: pickerController.datePicker.date)
+                self.txtLastDose.text = formattedDate
                 
-                if self.txtLastSeen.isSelected == true {
-
-                    f.dateFormat = "yyyy-MM-dd hh:mm:ss"
-                    self.strLastSeen = f.string(from: pickerController.datePicker.date)
-                    self.txtLastSeen.text = self.strLastSeen
-                    
-                } else {
-                    f.dateFormat = "MMM dd, yyyy"
-                    let formattedDate: String = f.string(from: pickerController.datePicker.date)
-                    self.txtDOB.text = formattedDate
-                    
-                    f.dateFormat = "yyyy-MM-dd"
-                    self.strDOB = f.string(from: pickerController.datePicker.date)
-                }
+                f.dateFormat = "yyyy-MM-dd hh:mm:ss"
+                self.strLastDoseDate = f.string(from: pickerController.datePicker.date)
             }
         }
         
         let actionController = RMDateSelectionViewController(style: style, title: "Please select date", message: nil, select: selectAction, andCancel: cancelAction)!
-        
-        if self.txtLastSeen.isSelected == true {
-            actionController.datePicker.datePickerMode = .dateAndTime
-        } else {
-            actionController.datePicker.set18YearValidation()
-            actionController.datePicker.datePickerMode = .date
-        }
+        actionController.datePicker.datePickerMode = .dateAndTime
         
         appDelegate.window?.rootViewController!.present(actionController, animated: true, completion: {
             self.view.endEditing(true)

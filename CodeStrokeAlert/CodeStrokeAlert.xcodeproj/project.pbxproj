@@ -182,6 +182,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1AE1390020EFAE0F00C04F30 /* Clinicians */ = {
+			isa = PBXGroup;
+			children = (
+				44FBE91620E373BA00E9E819 /* PatientListVC.swift */,
+				4480D57020E39B1800049641 /* ClinicianPatientDetailVC.swift */,
+				4480D57220E3BD7F00049641 /* ClinicianPatientDetailTwoVC.swift */,
+				4480D57420E3BD8C00049641 /* ClinicianPatientDetailThreeVC.swift */,
+				4480D57620E3BDA700049641 /* ClinicianPatientDetailFourVC.swift */,
+				4480D57820E3BDB700049641 /* ClinicianPatientDetailFiveVC.swift */,
+				4480D57A20E3BDCC00049641 /* ClinicianPatientDetailSixVC.swift */,
+			);
+			path = Clinicians;
+			sourceTree = "<group>";
+		};
 		44430EAF20D62D890094B2CB = {
 			isa = PBXGroup;
 			children = (
@@ -342,13 +356,7 @@
 			children = (
 				44FBE91420E3738D00E9E819 /* Login */,
 				44FBE91520E373A700E9E819 /* Paramedics */,
-				44FBE91620E373BA00E9E819 /* PatientListVC.swift */,
-				4480D57020E39B1800049641 /* ClinicianPatientDetailVC.swift */,
-				4480D57220E3BD7F00049641 /* ClinicianPatientDetailTwoVC.swift */,
-				4480D57420E3BD8C00049641 /* ClinicianPatientDetailThreeVC.swift */,
-				4480D57620E3BDA700049641 /* ClinicianPatientDetailFourVC.swift */,
-				4480D57820E3BDB700049641 /* ClinicianPatientDetailFiveVC.swift */,
-				4480D57A20E3BDCC00049641 /* ClinicianPatientDetailSixVC.swift */,
+				1AE1390020EFAE0F00C04F30 /* Clinicians */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
