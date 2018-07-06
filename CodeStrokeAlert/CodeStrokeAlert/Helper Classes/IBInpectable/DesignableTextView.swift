@@ -21,6 +21,7 @@ open class DesignableTextView : UITextView {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
+    
     @IBInspectable public var borderColor: UIColor = UIColor.clear {
         didSet {
             layer.borderColor = borderColor.cgColor

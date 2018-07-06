@@ -22,6 +22,12 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     }
 }
 
+public func Log<T>(_ object: T?, filename: String = #file, line: Int = #line, funcname: String = #function) {
+    #if DEBUG
+    guard let object = object else { return }
+    print("***** \(Date()) \(filename.components(separatedBy: "/").last ?? "") (line: \(line)) :: \(funcname) :: \(object)")
+    #endif
+}
 
 extension Data {
     public var hexString: String {
@@ -106,9 +112,34 @@ extension UIView {
         
         self.layer.add(animation, forKey: nil)
     }
-    
 }
 
+extension UIApplication {
+    
+    class func topViewController(_ viewController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = viewController as? UINavigationController {
+            return topViewController(nav.visibleViewController)
+        }
+        if let tab = viewController as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return topViewController(selected)
+            }
+        }
+        if let presented = viewController?.presentedViewController {
+            return topViewController(presented)
+        }
+        
+        return viewController
+    }
+}
+
+extension UIViewController {
+    
+    var alertController: UIAlertController? {
+        guard let alert = UIApplication.topViewController() as? UIAlertController else { return nil }
+        return alert
+    }
+}
 
 extension UIViewController {
     

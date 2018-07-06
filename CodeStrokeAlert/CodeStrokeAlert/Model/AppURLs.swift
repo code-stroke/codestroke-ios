@@ -18,4 +18,7 @@ struct AppURL {
     static let CaseAssessment                   = "case_assessments/"
     static let ED                               = "case_eds/"
     static let Clinician                        = "case_histories/"
+    static let Clinician_Assessment             = "case_assessments/"
+    static let Clinician_Radiology              = "case_radiologies/"
+    static let Clinician_Management             = "case_managements/"
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A3CE4FF20ECB81D00715C55 /* UISearchBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3CE4FE20ECB81D00715C55 /* UISearchBar+Extensions.swift */; };
 		44430EBC20D62D890094B2CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44430EBB20D62D890094B2CB /* AppDelegate.swift */; };
 		44430EC120D62D890094B2CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44430EBF20D62D890094B2CB /* Main.storyboard */; };
 		44430EC420D62D890094B2CB /* CodeStrokeAlert.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44430EC220D62D890094B2CB /* CodeStrokeAlert.xcdatamodeld */; };
@@ -80,6 +81,8 @@
 
 /* Begin PBXFileReference section */
 		17E5E9FC369859667F512BBA /* Pods_CodeStrokeAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeStrokeAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A3CE4FE20ECB81D00715C55 /* UISearchBar+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extensions.swift"; sourceTree = "<group>"; };
+		1A798FAC20EA692A003C98E1 /* CodeStrokeAlert.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodeStrokeAlert.entitlements; sourceTree = "<group>"; };
 		44430EB820D62D890094B2CB /* CodeStrokeAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeStrokeAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44430EBB20D62D890094B2CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44430EC020D62D890094B2CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -201,6 +204,7 @@
 		44430EBA20D62D890094B2CB /* CodeStrokeAlert */ = {
 			isa = PBXGroup;
 			children = (
+				1A798FAC20EA692A003C98E1 /* CodeStrokeAlert.entitlements */,
 				44C348C820D8ADAC0078F6F3 /* Helper Classes */,
 				44C348BC20D7ADE70078F6F3 /* Fonts */,
 				44C348C520D8AC250078F6F3 /* Navigation */,
@@ -400,6 +404,7 @@
 				44C348D220D8ADAC0078F6F3 /* String+Extension.swift */,
 				44C348D320D8ADAC0078F6F3 /* ValidationFile.swift */,
 				44C348D420D8ADAC0078F6F3 /* NSDate+Extension.swift */,
+				1A3CE4FE20ECB81D00715C55 /* UISearchBar+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -483,7 +488,6 @@
 				44430EB520D62D890094B2CB /* Frameworks */,
 				44430EB620D62D890094B2CB /* Resources */,
 				CF6E29C45BBCD133E2CBAC46 /* [CP] Embed Pods Frameworks */,
-				9292F220768598D9C3B94495 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -506,6 +510,11 @@
 				TargetAttributes = {
 					44430EB720D62D890094B2CB = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -570,21 +579,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9292F220768598D9C3B94495 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CodeStrokeAlert/Pods-CodeStrokeAlert-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		CF6E29C45BBCD133E2CBAC46 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -620,6 +614,7 @@
 			files = (
 				4464EEFE20DA8ECE00BCF58D /* RMScrollableGroupedAction.m in Sources */,
 				44C348BE20D7B5400078F6F3 /* LoginWithQR.swift in Sources */,
+				1A3CE4FF20ECB81D00715C55 /* UISearchBar+Extensions.swift in Sources */,
 				4464EF0020DA8ECE00BCF58D /* RMImageAction.m in Sources */,
 				4464EF0420DA8ECE00BCF58D /* RMDateSelectionViewController.m in Sources */,
 				4480D57120E39B1800049641 /* ClinicianPatientDetailVC.swift in Sources */,
@@ -816,18 +811,19 @@
 			baseConfigurationReference = DA8B0F4C4B93A4EFC415889F /* Pods-CodeStrokeAlert.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CodeStrokeAlert/CodeStrokeAlert.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 5ZBB4A842J;
+				DEVELOPMENT_TEAM = 84Z6DW82W6;
 				INFOPLIST_FILE = CodeStrokeAlert/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.afg.afgapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codestroke.codestrokealert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d1d8ea39-70c9-44d1-ad6a-776c5377a880";
-				PROVISIONING_PROFILE_SPECIFIER = iOS_AFG_WildCard;
+				PROVISIONING_PROFILE = "1fb7ca0b-01bb-4892-aa8b-a20569028abe";
+				PROVISIONING_PROFILE_SPECIFIER = "Code Stroke Dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "CodeStrokeAlert-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -839,18 +835,19 @@
 			baseConfigurationReference = 7548FE44F8A80D91F9401B97 /* Pods-CodeStrokeAlert.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CodeStrokeAlert/CodeStrokeAlert.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 5ZBB4A842J;
+				DEVELOPMENT_TEAM = 84Z6DW82W6;
 				INFOPLIST_FILE = CodeStrokeAlert/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.afg.afgapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codestroke.codestrokealert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d1d8ea39-70c9-44d1-ad6a-776c5377a880";
-				PROVISIONING_PROFILE_SPECIFIER = iOS_AFG_WildCard;
+				PROVISIONING_PROFILE = "1fb7ca0b-01bb-4892-aa8b-a20569028abe";
+				PROVISIONING_PROFILE_SPECIFIER = "Code Stroke Dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "CodeStrokeAlert-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

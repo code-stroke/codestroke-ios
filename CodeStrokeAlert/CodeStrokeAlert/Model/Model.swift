@@ -159,3 +159,106 @@ class CaseHistoryData: EVObject {
     var pmhx: String                    = ""
     var weight: Float                   = 0.0
 }
+
+class ClinicianAssessmentModel: EVObject {
+    
+    var result: [ClinicianAssessmentData]?
+    var message: String                 = ""
+    var success: Bool                   = false
+}
+
+class ClinicianAssessmentData: EVObject {
+    
+    var facial_droop: String            = ""
+    var arm_drift: String               = ""
+    var weak_grip: String               = ""
+    var speech_difficulty: String       = ""
+    var bp_systolic: Int                = 0
+    var bp_diastolic: Int               = 0
+    var heart_rate: Int                 = 0
+    var heart_rhythm: String            = ""
+    var rr: Int                         = 0
+    var o2sats: Int                     = 0
+    var temp: Int                       = 0
+    var gcs: Int                        = 0
+    var blood_glucose: Int              = 0
+    var facial_palsy_race: Int          = 0
+    var arm_motor_impair: Int           = 0
+    var leg_motor_impair: Int           = 0
+    var head_gaze_deviate: Int          = 0
+    var hemiparesis: String             = ""
+    var cannula: Bool                   = false
+    var conscious_level: Int            = 0
+    var month_age: Int                  = 0
+    var blink_squeeze: Int              = 0
+    var horizontal_gaze: Int            = 0
+    var visual_fields: Int              = 0
+    var facial_palsy_nihss: Int         = 0
+    var left_arm_drift: Int             = 0
+    var right_arm_drift: Int            = 0
+    var left_leg_drift: Int             = 0
+    var right_leg_drift: Int            = 0
+    var limb_ataxia: Int                = 0
+    var sensation: Int                  = 0
+    var aphasia: Int                    = 0
+    var dysarthria: Int                 = 0
+    var neglect: Int                    = 0
+    var rankin_conscious: Int           = 0
+    var likely_lvo: Bool                = false
+    var case_id: Int                    = 0
+}
+
+class RadiologyModel: EVObject {
+    
+    var result: [RadiologyData]?
+    var message: String                 = ""
+    var success: Bool                   = false
+}
+
+class RadiologyData: EVObject {
+    
+    var case_id: Int                    = 0
+    var arrived_to_ct: Bool             = false
+    var ct1: Bool                       = false
+    var ct2: Bool                       = false
+    var ct3: Bool                       = false
+    var ct4: Bool                       = false
+    var ct_complete: Bool               = false
+    var cta_ctp_complete: Bool          = false
+    var do_cta_ctp: Bool                = false
+    var ich_found: Bool                 = false
+    var large_vessel_occlusion: Bool    = false
+}
+
+class ManagementModel: EVObject {
+    
+    var result: [ManagementData]?
+    var message: String                 = ""
+    var success: Bool                   = false
+}
+
+class ManagementData: EVObject {
+    
+    var case_id: Int                    = 0
+    var thrombolysis: Bool              = false
+    var new_trauma_haemorrhage: Bool    = false
+    var uncontrolled_htn: Bool          = false
+    var history_ich: Bool               = false
+    var known_intracranial: Bool        = false
+    var active_bleed: Bool              = false
+    var endocarditis: Bool              = false
+    var bleeding_diathesis: Bool        = false
+    var abnormal_blood_glucose: Bool    = false
+    var rapidly_improving: Bool         = false
+    var recent_trauma_surgery: Bool     = false
+    var recent_active_bleed: Bool       = false
+    var seizure_onset: Bool             = false
+    var recent_arterial_puncture: Bool  = false
+    var recent_lumbar_puncture: Bool    = false
+    var post_acs_pericarditis: Bool     = false
+    var pregnant: Bool                  = false
+    var ecr: Bool                       = false
+    var surgical_rx: Bool               = false
+    var conservative_rx: Bool           = false
+    var thrombolysis_time_given: Date   = Date()
+}

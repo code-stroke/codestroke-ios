@@ -14,6 +14,14 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - KRProgressHUD
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - EVReflection
+    - IQKeyboardManagerSwift
+    - KRActivityIndicatorView
+    - KRProgressHUD
+
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   EVReflection: d05ebbafc851b7a4cd3d625182662463a5819ab8
@@ -23,4 +31,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 17155bb19dd523f45654c4d6db7ce0e2c22fd737
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3
