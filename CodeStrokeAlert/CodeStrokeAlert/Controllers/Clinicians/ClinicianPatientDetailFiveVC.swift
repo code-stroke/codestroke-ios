@@ -12,23 +12,6 @@ class ClinicianPatientDetailFiveVC: UIViewController {
     
     // MARK: - Declarations -
     
-    @IBOutlet weak var viewShadow: UIView!
-    
-    @IBOutlet weak var lblName: UILabel!
-    @IBOutlet weak var lblLastSeen: UILabel!
-    @IBOutlet weak var lblAge: UILabel!
-    @IBOutlet weak var lblCaseType: UILabel!
-    @IBOutlet weak var lblGender: UILabel!
-    @IBOutlet weak var lblETA: UILabel!
-    
-    @IBOutlet weak var btnED: UIButton!
-    @IBOutlet weak var btnPatientDetail: UIButton!
-    @IBOutlet weak var btnClinicalHistory: UIButton!
-    @IBOutlet weak var btnClinicalAssessment: UIButton!
-    @IBOutlet weak var btnRadiology: UIButton!
-    @IBOutlet weak var btnManagement: UIButton!
-    @IBOutlet weak var scrlView: UIScrollView!
-    
     @IBOutlet weak var btnSubmit: UIButton!
     
     @IBOutlet weak var btnCT1Yes: UIButton!
@@ -39,9 +22,6 @@ class ClinicianPatientDetailFiveVC: UIViewController {
     
     @IBOutlet weak var btnCT3Yes: UIButton!
     @IBOutlet weak var btnCT3No: UIButton!
-    
-    @IBOutlet weak var btnCT4Yes: UIButton!
-    @IBOutlet weak var btnCT4No: UIButton!
     
     @IBOutlet weak var btnPtArriveInCTYes: UIButton!
     @IBOutlet weak var btnPtArriveInCT2No: UIButton!
@@ -68,23 +48,6 @@ class ClinicianPatientDetailFiveVC: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        self.viewShadow.dropShadow(color: UIColor.init(red: 0.0/255.0, green: 90.0/255.0, blue: 192.0/255.0, alpha: 0.44), viewShadow: self.viewShadow)
-        
-        self.lblName.text = "\(CaseList.savedUser()!.first_name == "unknown" ? "" : CaseList.savedUser()!.first_name) \(CaseList.savedUser()!.last_name == "unknown" ? "" : CaseList.savedUser()!.last_name)"
-        self.lblLastSeen.text = CaseList.savedUser()!.last_well
-        let strDOB = self.calcAge(birthday: CaseList.savedUser()!.dob)
-        self.lblAge.text = "\(strDOB)"
-        self.lblCaseType.text = CaseList.savedUser()!.status
-        self.lblGender.text = CaseList.savedUser()!.gender == "f" ? "Female" : "Male"
-        self.lblETA.text = CaseList.savedUser()!.status_time
-        
-        self.btnED.layer.cornerRadius = 5
-        self.btnPatientDetail.layer.cornerRadius = 5
-        self.btnClinicalHistory.layer.cornerRadius = 5
-        self.btnClinicalAssessment.layer.cornerRadius = 5
-        self.btnRadiology.layer.cornerRadius = 5
-        self.btnManagement.layer.cornerRadius = 5
-        
         let image1 = self.gradientWithFrametoImage(frame: btnSubmit.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
         self.btnSubmit.backgroundColor = UIColor(patternImage: image1)
         
@@ -101,7 +64,6 @@ class ClinicianPatientDetailFiveVC: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.buttonCenter(scrollView: scrlView, button: self.btnRadiology)
     }
     
     // MARK: - Action Methods -
@@ -125,12 +87,6 @@ class ClinicianPatientDetailFiveVC: UIViewController {
     @IBAction func btnCT3Clicked(_ sender: UIButton) {
         
         self.clearSelection(btn1: btnCT3Yes, btn2: btnCT3No)
-        sender.isSelected = true
-    }
-    
-    @IBAction func btnCT4Clicked(_ sender: UIButton) {
-        
-        self.clearSelection(btn1: btnCT4Yes, btn2: btnCT4No)
         sender.isSelected = true
     }
     
@@ -175,7 +131,6 @@ class ClinicianPatientDetailFiveVC: UIViewController {
         let param = ["ct1": self.btnCT1Yes.isSelected ? true : self.btnCT1No.isSelected ? false : 0,
                      "ct2": self.btnCT2Yes.isSelected ? true : self.btnCT2No.isSelected ? false : 0,
                      "ct3": self.btnCT3Yes.isSelected ? true : self.btnCT3No.isSelected ? false : 0,
-                     "ct4": self.btnCT4Yes.isSelected ? true : self.btnCT4No.isSelected ? false : 0,
                      "arrived_to_ct": self.btnPtArriveInCTYes.isSelected ? true : self.btnPtArriveInCT2No.isSelected ? false : 0,
                      "ct_complete": self.btnCTCompleteYes.isSelected ? true : self.btnCTCompleteNo.isSelected ? false : 0,
                      "ich_found": self.btnICHCTYes.isSelected ? true : self.btnICHCTNo.isSelected ? false : 0,
@@ -201,16 +156,6 @@ class ClinicianPatientDetailFiveVC: UIViewController {
         
         btn1.isSelected = false
         btn2.isSelected = false
-    }
-    
-    func clearSelection() {
-        
-        self.btnED.backgroundColor = UIColor.init(red: 212.0/255.0, green: 215.0/255.0, blue: 220.0/255.0, alpha: 1.0)
-        self.btnPatientDetail.backgroundColor = UIColor.init(red: 212.0/255.0, green: 215.0/255.0, blue: 220.0/255.0, alpha: 1.0)
-        self.btnClinicalHistory.backgroundColor = UIColor.init(red: 212.0/255.0, green: 215.0/255.0, blue: 220.0/255.0, alpha: 1.0)
-        self.btnClinicalAssessment.backgroundColor = UIColor.init(red: 212.0/255.0, green: 215.0/255.0, blue: 220.0/255.0, alpha: 1.0)
-        self.btnRadiology.backgroundColor = UIColor.init(red: 212.0/255.0, green: 215.0/255.0, blue: 220.0/255.0, alpha: 1.0)
-        self.btnManagement.backgroundColor = UIColor.init(red: 212.0/255.0, green: 215.0/255.0, blue: 220.0/255.0, alpha: 1.0)
     }
     
     // MARK: - Memory Warning -

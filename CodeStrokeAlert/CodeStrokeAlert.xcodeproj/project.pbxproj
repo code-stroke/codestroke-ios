@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A3CE4FF20ECB81D00715C55 /* UISearchBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3CE4FE20ECB81D00715C55 /* UISearchBar+Extensions.swift */; };
+		1A4DE5E020F22B7700F06354 /* MainContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DE5DF20F22B7700F06354 /* MainContainerVC.swift */; };
 		44430EBC20D62D890094B2CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44430EBB20D62D890094B2CB /* AppDelegate.swift */; };
 		44430EC120D62D890094B2CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44430EBF20D62D890094B2CB /* Main.storyboard */; };
 		44430EC420D62D890094B2CB /* CodeStrokeAlert.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44430EC220D62D890094B2CB /* CodeStrokeAlert.xcdatamodeld */; };
@@ -82,6 +83,7 @@
 /* Begin PBXFileReference section */
 		17E5E9FC369859667F512BBA /* Pods_CodeStrokeAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeStrokeAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A3CE4FE20ECB81D00715C55 /* UISearchBar+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extensions.swift"; sourceTree = "<group>"; };
+		1A4DE5DF20F22B7700F06354 /* MainContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerVC.swift; sourceTree = "<group>"; };
 		1A798FAC20EA692A003C98E1 /* CodeStrokeAlert.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodeStrokeAlert.entitlements; sourceTree = "<group>"; };
 		44430EB820D62D890094B2CB /* CodeStrokeAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeStrokeAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44430EBB20D62D890094B2CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				44FBE91620E373BA00E9E819 /* PatientListVC.swift */,
+				1A4DE5DF20F22B7700F06354 /* MainContainerVC.swift */,
 				4480D57020E39B1800049641 /* ClinicianPatientDetailVC.swift */,
 				4480D57220E3BD7F00049641 /* ClinicianPatientDetailTwoVC.swift */,
 				4480D57420E3BD8C00049641 /* ClinicianPatientDetailThreeVC.swift */,
@@ -653,6 +656,7 @@
 				44C348EC20D8AE8C0078F6F3 /* ViewDesign.swift in Sources */,
 				44C348F220D8BB1E0078F6F3 /* PatientDetailVC.swift in Sources */,
 				44C348D720D8ADAC0078F6F3 /* DesignableButton.swift in Sources */,
+				1A4DE5E020F22B7700F06354 /* MainContainerVC.swift in Sources */,
 				44C348EF20D8AE8C0078F6F3 /* DesignableLabel.swift in Sources */,
 				4480D57720E3BDA700049641 /* ClinicianPatientDetailFourVC.swift in Sources */,
 				44C348E920D8AE8C0078F6F3 /* ImageViewDesign.swift in Sources */,

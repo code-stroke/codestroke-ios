@@ -154,7 +154,65 @@ extension ClinicianPatientDetailVC {
                 
                 if isGet == false {
                     if response.result.value!.success == true {
-                        self.performSegue(withIdentifier: "ClinicianPatientDetailTwo", sender: nil)
+//                        self.performSegue(withIdentifier: "ClinicianPatientDetailTwo", sender: nil)
+                        showAlert("Data submitted successfully")
+                    } else {
+                        showAlert("Something went wrong")
+                    }
+                } else {
+                    
+                    if response.result.value!.result![0].primary_survey == 1 {
+                        
+                        self.btnPrimarySurvey.isSelected = true
+                    }
+                    
+                    if response.result.value!.result![0].registered == 1 {
+                        
+                        self.btnRegistered.isSelected = true
+                    }
+                    
+                    if response.result.value!.result![0].triaged == 1 {
+                        
+                        self.btnTriggered.isSelected = true
+                    }
+                }
+                
+            } else {
+                showAlert("Database return nil value")
+            }
+        }
+    }
+}
+
+extension MainContainerVC {
+    
+    func WS_ED_Details(url: String, parameter: [String: Any], isGet: Bool) {
+        
+        print("\(url)?\(parameter)")
+        self.view.isUserInteractionEnabled = false
+        self.showHud("")
+        
+        let headers = ["content-type": "application/json"]
+        
+        var method = HTTPMethod.get
+        
+        if isGet == true {
+            method = HTTPMethod.get
+        } else {
+            method = HTTPMethod.put
+        }
+        
+        Alamofire.request(url, method: method, parameters: isGet ? nil : parameter, encoding: JSONEncoding.default, headers: headers).responseObject { (response : DataResponse<EDModel>) in
+            self.view.isUserInteractionEnabled = true
+            self.hideHUD()
+            
+            if (response.result.value != nil) {
+                print(response.result.value!)
+                
+                if isGet == false {
+                    if response.result.value!.success == true {
+//                        self.performSegue(withIdentifier: "ClinicianPatientDetailTwo", sender: nil)
+                        showAlert("Data submitted successfully")
                     } else {
                         showAlert("Something went wrong")
                     }
@@ -210,7 +268,8 @@ extension ClinicianPatientDetailTwoVC {
                 
                 if isGet == false {
                     if response.result.value!.success == true {
-                        self.performSegue(withIdentifier: "ClinicianPatientDetailThree", sender: nil)
+//                        self.performSegue(withIdentifier: "ClinicianPatientDetailThree", sender: nil)
+                        showAlert("Data submitted successfully")
                     } else {
                         showAlert("Something went wrong")
                     }
@@ -272,7 +331,8 @@ extension ClinicianPatientDetailThreeVC {
                 
                 if isGet == false {
                     if response.result.value!.success == true {
-                        self.performSegue(withIdentifier: "ClinicianPatientDetailFour", sender: nil)
+//                        self.performSegue(withIdentifier: "ClinicianPatientDetailFour", sender: nil)
+                        showAlert("Data submitted successfully")
                     } else {
                         showAlert("Something went wrong")
                     }
@@ -328,7 +388,8 @@ extension ClinicianPatientDetailFourVC {
                 
                 if isGet == false {
                     if response.result.value!.success == true {
-                        self.performSegue(withIdentifier: "ClinicianPatientDetailFive", sender: nil)
+//                        self.performSegue(withIdentifier: "ClinicianPatientDetailFive", sender: nil)
+                        showAlert("Data submitted successfully")
                     } else {
                         showAlert("Something went wrong")
                     }
@@ -588,7 +649,8 @@ extension ClinicianPatientDetailFiveVC {
                 
                 if isGet == false {
                     if response.result.value!.success == true {
-                        self.performSegue(withIdentifier: "ClinicianPatientDetailSix", sender: nil)
+//                        self.performSegue(withIdentifier: "ClinicianPatientDetailSix", sender: nil)
+                        showAlert("Data submitted successfully")
                     } else {
                         showAlert("Something went wrong")
                     }
@@ -616,14 +678,6 @@ extension ClinicianPatientDetailFiveVC {
                         self.btnCT3No.isSelected = true
                     } else {
                         self.clearSelection(btn1: self.btnCT3Yes, btn2: self.btnCT3No)
-                    }
-                    
-                    if response.result.value!.result![0].ct4 == true {
-                        self.btnCT4Yes.isSelected = true
-                    } else if response.result.value!.result![0].ct4 == false {
-                        self.btnCT4No.isSelected = true
-                    } else {
-                        self.clearSelection(btn1: self.btnCT4Yes, btn2: self.btnCT4No)
                     }
                     
                     if response.result.value!.result![0].arrived_to_ct == true {
@@ -708,7 +762,8 @@ extension ClinicianPatientDetailSixVC {
                 
                 if isGet == false {
                     if response.result.value!.success == true {
-                        self.performSegue(withIdentifier: "ClinicianPatientDetailSix", sender: nil)
+//                        self.performSegue(withIdentifier: "ClinicianPatientDetailSix", sender: nil)
+                        showAlert("Data submitted successfully")
                     } else {
                         showAlert("Something went wrong")
                     }

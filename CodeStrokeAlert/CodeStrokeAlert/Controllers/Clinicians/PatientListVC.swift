@@ -119,7 +119,7 @@ class PatientListVC: UIViewController {
 
         if segue.identifier == "ClinicianPatientDetail" {
             
-            let destination = segue.destination as! ClinicianPatientDetailVC
+            let destination = segue.destination as! MainContainerVC
             print(destination)
         }
     }

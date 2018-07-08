@@ -12,23 +12,6 @@ class ClinicianPatientDetailSixVC: UIViewController {
     
     // MARK: - Declarations -
     
-    @IBOutlet weak var viewShadow: UIView!
-    
-    @IBOutlet weak var lblName: UILabel!
-    @IBOutlet weak var lblLastSeen: UILabel!
-    @IBOutlet weak var lblAge: UILabel!
-    @IBOutlet weak var lblCaseType: UILabel!
-    @IBOutlet weak var lblGender: UILabel!
-    @IBOutlet weak var lblETA: UILabel!
-    
-    @IBOutlet weak var btnED: UIButton!
-    @IBOutlet weak var btnPatientDetail: UIButton!
-    @IBOutlet weak var btnClinicalHistory: UIButton!
-    @IBOutlet weak var btnClinicalAssessment: UIButton!
-    @IBOutlet weak var btnRadiology: UIButton!
-    @IBOutlet weak var btnManagement: UIButton!
-    @IBOutlet weak var scrlView: UIScrollView!
-    
     @IBOutlet weak var lblThrombolysis1: UILabel!
     @IBOutlet weak var lblThrombolysis2: UILabel!
     @IBOutlet weak var lblThrombolysis3: UILabel!
@@ -103,23 +86,6 @@ class ClinicianPatientDetailSixVC: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        self.viewShadow.dropShadow(color: UIColor.init(red: 0.0/255.0, green: 90.0/255.0, blue: 192.0/255.0, alpha: 0.44), viewShadow: self.viewShadow)
-        
-        self.lblName.text = "\(CaseList.savedUser()!.first_name == "unknown" ? "" : CaseList.savedUser()!.first_name) \(CaseList.savedUser()!.last_name == "unknown" ? "" : CaseList.savedUser()!.last_name)"
-        self.lblLastSeen.text = CaseList.savedUser()!.last_well
-        let strDOB = self.calcAge(birthday: CaseList.savedUser()!.dob)
-        self.lblAge.text = "\(strDOB)"
-        self.lblCaseType.text = CaseList.savedUser()!.status
-        self.lblGender.text = CaseList.savedUser()!.gender == "f" ? "Female" : "Male"
-        self.lblETA.text = CaseList.savedUser()!.status_time
-        
-        self.btnED.layer.cornerRadius = 5
-        self.btnPatientDetail.layer.cornerRadius = 5
-        self.btnClinicalHistory.layer.cornerRadius = 5
-        self.btnClinicalAssessment.layer.cornerRadius = 5
-        self.btnRadiology.layer.cornerRadius = 5
-        self.btnManagement.layer.cornerRadius = 5
-        
         let image1 = self.gradientWithFrametoImage(frame: btnSubmit.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
         self.btnSubmit.backgroundColor = UIColor(patternImage: image1)
         
@@ -136,14 +102,9 @@ class ClinicianPatientDetailSixVC: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.buttonCenter(scrollView: scrlView, button: self.btnManagement)
     }
     
     // MARK: - Action Methods -
-    
-    @IBAction func btnTypeClicked(_ sender: UIButton) {
-        
-    }
     
     @IBAction func btnSubmitClicked(_ sender: UIButton) {
         
@@ -181,19 +142,130 @@ class ClinicianPatientDetailSixVC: UIViewController {
     }
     
     @IBAction func btnCaseCompletedClicked(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func btnNueHeadTraumaClickek(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: btnNueHeadNo, btn2: btnNueHeadYes)
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnUnControlledHTNClickek(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: btnUnControlledHTNNo, btn2: btnUnControlledHTNYes)
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnHistoryOfICHClickek(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: btnHistoryOfICHNo, btn2: btnHistoryOfICHYes)
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnKnownIntracranialClickek(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: btnKnownIntracraniaNo, btn2: btnKnownIntracranialYes)
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnActiveBleedingClicked(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: btnActiveBleedingNo, btn2: btnActiveBleedingYes)
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnEndocarditisClicked(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: btnEndocarditisYes, btn2: btnEndocarditisNo)
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnKnownBleedingDiathesisClicked(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: btnKnownBleedingDiathesisNo, btn2: btnKnownBleedingDiathesisYes)
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnAbnormalBloodGlucoseClicked(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: btnAbnormalBloodGlucoseNo, btn2: btnAbnormalBloodGlucoseYes)
+        sender.isSelected = true
+    }
+
+    @IBAction func btnRapidlyImprovingClicked(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: btnRapidlyImprovingNo, btn2: btnRapidlyImprovingYes)
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnRecentTraumaOrSurgeryClicked(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: btnRecentTraumaSurgeryNo, btn2: btnRecentTraumaSurgeryYes)
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnRecentActiveBleedingClicked(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: btnRecentActiveBleedingNo, btn2: btnRecentActiveBleedingYes)
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnSeizureAtOnsetClicked(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: btnSeizureAtOnsetNo, btn2: btnSeizureAtOnsetYes)
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnRecentArterialPunctureClicked(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: btnRecenntArterialPunctureNo, btn2: btnRecenntArterialPunctureYes)
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnRecentLumbarPuntureClicked(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: bntRecentLumbarPunctureYes, btn2: bntRecentLumbarPunctureNo)
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnPostACSPericarditisClicked(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: btnPostACSPericarditisNo, btn2: btnPostACSPericarditisYes)
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnPregnantClicked(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: btnPregnantNo, btn2: btnPregnantYes)
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnTimeWhenThrombolysisGivenClicked(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: btnTimeWhenThrombolysisNNo, btn2: btnTimeWhenThrombolysisYes)
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnECSClicked(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: btnECRNo, btn2: btnECRYes)
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnSurgicalManagementClicked(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: btnSurgicalManagementNo, btn2: btnSurgicalManagementYes)
+        sender.isSelected = true
+    }
+    
+    @IBAction func btnConservativeManagementClicked(_ sender: UIButton) {
+        
+        self.clearSelectionButtons(btn1: btnConservativeManagementNo, btn2: btnConservativeManagementYes)
+        sender.isSelected = true
     }
     
     // MARK: - Custom Methods -
-    
-    func clearSelection() {
-        
-        self.btnED.backgroundColor = UIColor.init(red: 212.0/255.0, green: 215.0/255.0, blue: 220.0/255.0, alpha: 1.0)
-        self.btnPatientDetail.backgroundColor = UIColor.init(red: 212.0/255.0, green: 215.0/255.0, blue: 220.0/255.0, alpha: 1.0)
-        self.btnClinicalHistory.backgroundColor = UIColor.init(red: 212.0/255.0, green: 215.0/255.0, blue: 220.0/255.0, alpha: 1.0)
-        self.btnClinicalAssessment.backgroundColor = UIColor.init(red: 212.0/255.0, green: 215.0/255.0, blue: 220.0/255.0, alpha: 1.0)
-        self.btnRadiology.backgroundColor = UIColor.init(red: 212.0/255.0, green: 215.0/255.0, blue: 220.0/255.0, alpha: 1.0)
-        self.btnManagement.backgroundColor = UIColor.init(red: 212.0/255.0, green: 215.0/255.0, blue: 220.0/255.0, alpha: 1.0)
-    }
     
     func clearSelectionButtons(btn1: UIButton, btn2: UIButton) {
         
