@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import IQKeyboardManagerSwift
+import OneSignal
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 let loginStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -18,9 +19,75 @@ let dashBoardStoryboard = UIStoryboard(name: "Dashboard", bundle: nil)
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    private let appID = "f1a4e9f9-b79b-4325-96cc-88ca03523630"
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let notificationOpenedBlock: OSHandleNotificationActionBlock = { result in
+            // This block gets called when the user reacts to a notification received
+            let payload: OSNotificationPayload? = result?.notification.payload
+            
+            print("Message: \(payload!.body)")
+            print("badge number:", payload?.badge ?? "nil")
+            print("notification sound:", payload?.sound ?? "nil")
+            
+            if let additionalData = result!.notification.payload!.additionalData {
+                print("additionalData = \(additionalData)")
+                
+                // DEEP LINK and open url in RedViewController
+                // Send notification with Additional Data > example key: "OpenURL" example value: "https://google.com"
+                /*
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let instantiateRedViewController : WebView = mainStoryboard.instantiateViewController(withIdentifier: "WebViewID") as! WebView
+                instantiateRedViewController.receivedURL = additionalData["OpenURL"] as! String!
+                self.window = UIWindow(frame: UIScreen.main.bounds)
+                self.window?.rootViewController = instantiateRedViewController
+                self.window?.makeKeyAndVisible()
+                */
+                
+                if let actionSelected = payload?.actionButtons {
+                    print("actionSelected = \(actionSelected)")
+                }
+                
+                // DEEP LINK from action buttons
+                if let actionID = result?.action.actionID {
+                    
+                    // For presenting a ViewController from push notification action button
+                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let actionWebView : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "WebViewID") as UIViewController
+                    let actionSecond: UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "SecondID") as UIViewController
+                    self.window = UIWindow(frame: UIScreen.main.bounds)
+                    
+                    print("actionID = \(actionID)")
+                    
+                    if actionID == "id2" {
+                        print("id2")
+                        self.window?.rootViewController = actionWebView
+                        self.window?.makeKeyAndVisible()
+                        
+                        
+                    } else if actionID == "id1" {
+                        print("id1")
+                        self.window?.rootViewController = actionSecond
+                        self.window?.makeKeyAndVisible()
+                    }
+                }
+            }
+        }
+        
+        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false, kOSSettingsKeyInAppLaunchURL: true, ]
+        
+        OneSignal.initWithLaunchOptions(launchOptions, appId: appID, handleNotificationAction: notificationOpenedBlock, settings: onesignalInitSettings)
+        
+        
+        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
+        
+        // Recommend moving the below line to prompt for push after informing the user about
+        //   how your app will use them.
+        OneSignal.promptForPushNotifications(userResponse: { accepted in
+            print("User accepted notifications: \(accepted)")
+        })
         
         UIApplication.shared.statusBarStyle = .lightContent
         IQKeyboardManager.shared.enable = true

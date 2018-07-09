@@ -9,4 +9,5 @@ target 'CodeStrokeAlert' do
     pod 'IQKeyboardManagerSwift'
     pod 'EVReflection/Alamofire'
     pod 'KRProgressHUD'
+    pod 'OneSignal'
 end

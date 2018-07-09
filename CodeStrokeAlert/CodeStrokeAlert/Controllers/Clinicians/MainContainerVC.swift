@@ -50,8 +50,14 @@ class MainContainerVC: UIViewController {
         
         self.lblName.text = "\(CaseList.savedUser()!.first_name == "unknown" ? "" : CaseList.savedUser()!.first_name) \(CaseList.savedUser()!.last_name == "unknown" ? "" : CaseList.savedUser()!.last_name)"
         self.lblLastSeen.text = CaseList.savedUser()!.last_well
-        let strDOB = self.calcAge(birthday: CaseList.savedUser()!.dob)
-        self.lblAge.text = "\(strDOB)"
+        
+        if CaseList.savedUser()!.dob != "" {
+            let strDOB = self.calcAge(birthday: CaseList.savedUser()!.dob)
+            self.lblAge.text = "\(strDOB)"
+        } else {
+            self.lblAge.text = "-"
+        }
+        
         self.lblCaseType.text = CaseList.savedUser()!.status
         self.lblGender.text = CaseList.savedUser()!.gender == "f" ? "Female" : "Male"
         self.lblETA.text = CaseList.savedUser()!.status_time
