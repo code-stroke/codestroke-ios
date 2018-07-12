@@ -8,6 +8,7 @@
 
 import UIKit
 import EVReflection
+import MicroBlink
 
 let kPatientDetailData = "PatientDetailData"
 
@@ -58,6 +59,8 @@ class PatientDetailVC: UIViewController {
 
     // MARK:- Declarations -
     
+    var ausdlFrontRecognizer: MBAustraliaDlFrontRecognizer?
+    
     @IBOutlet weak var txtFirstName: UITextField!
     @IBOutlet weak var btnFirstNameUnknown: DesignableButton!
     @IBOutlet weak var txtSurname: UITextField!
@@ -83,6 +86,7 @@ class PatientDetailVC: UIViewController {
     @IBOutlet weak var txtNOKTelephone: UITextField!
     @IBOutlet weak var btnNOKTelephoneUnknown: DesignableButton!
     
+    @IBOutlet weak var btnScanLicense: UIButton!
     @IBOutlet weak var btnNext: DesignableButton!
     
     var strDOB: String = ""
@@ -96,8 +100,13 @@ class PatientDetailVC: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        MBMicroblinkSDK.sharedInstance().setLicenseKey("sRwAAAEeY29tLmNvZGVzdHJva2UuY29kZXN0cm9rZWFsZXJ04ls3fvQTb0rDajvWXuiwHdFN+l0yLoO9E3CDVxQReb3DNLnnx4FkZSiyz+PGy/O+9juLBV6YAEeiLTKPuTQj3OJ/EBmc9tSTLAkoNuqN0ZEyyN+24Ofs38vEmLsfMZPyp9v0Mv9fx8iYEppDdYxgG605xGd5eL7K7UAGf8xhPnv/xqHLzEeV2duPYNYNR1bo/ZIFogHArS+ShOecZ6qa4/ONWOYQfzmo74CsJwnED7k81BWooUC7")
+        
         let image1 = self.gradientWithFrametoImage(frame: btnNext.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
         self.btnNext.backgroundColor = UIColor(patternImage: image1)
+        
+        let image2 = self.gradientWithFrametoImage(frame: btnScanLicense.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
+        self.btnScanLicense.backgroundColor = UIColor(patternImage: image2)
         
         let f = DateFormatter()
         f.dateFormat = "EEEE MMM dd hh:mm a"
@@ -115,6 +124,31 @@ class PatientDetailVC: UIViewController {
     }
 
     // MARK:- Action Methods -
+    
+    @IBAction func btnScanLicenseClicked(_ sender: UIButton) {
+        
+        // To specify we want to perform MRTD (machine readable travel document) recognition, initialize the MRTD recognizer settings
+        /** Create ausdl recognizer */
+        
+        self.ausdlFrontRecognizer = MBAustraliaDlFrontRecognizer()
+        self.ausdlFrontRecognizer?.returnFullDocumentImage = true
+        
+        /** Create ausdl recognizer */
+        let settings : MBDocumentOverlaySettings = MBDocumentOverlaySettings()
+        
+        /** Crate recognizer collection */
+        let recognizerList = [self.ausdlFrontRecognizer!]
+        let recognizerCollection : MBRecognizerCollection = MBRecognizerCollection(recognizers: recognizerList)
+        
+        /** Create your overlay view controller */
+        let barcodeOverlayViewController : MBDocumentOverlayViewController = MBDocumentOverlayViewController(settings: settings, recognizerCollection: recognizerCollection, delegate: self)
+        
+        /** Create recognizer view controller with wanted overlay view controller */
+        let recognizerRunneViewController : UIViewController = MBViewControllerFactory.recognizerRunnerViewController(withOverlayViewController: barcodeOverlayViewController)
+        
+        /** Present the recognizer runner view controller. You can use other presentation methods as well (instead of presentViewController) */
+        self.present(recognizerRunneViewController, animated: true, completion: nil)
+    }
     
     @IBAction func btnNextClicked(_ sender: DesignableButton) {
         
@@ -247,6 +281,50 @@ class PatientDetailVC: UIViewController {
             let destination = segue.destination as! DestinationVC
             print(destination)
         }
+    }
+}
+
+// MARK: - MBDocumentOverlayViewControllerDelegate Delegate -
+
+extension PatientDetailVC: MBDocumentOverlayViewControllerDelegate {
+    
+    func documentOverlayViewControllerDidFinishScanning(_ documentOverlayViewController: MBDocumentOverlayViewController, state: MBRecognizerResultState) {
+        /** This is done on background thread */
+        documentOverlayViewController.recognizerRunnerViewController?.pauseScanning()
+        
+        if let result = self.ausdlFrontRecognizer?.result {
+         
+            print(result)
+            
+            DispatchQueue.main.async {
+                // present the alert view with scanned results
+                
+                if let firstName = result.name {
+                    let name = firstName.components(separatedBy: " ")
+                    self.txtFirstName.text = name[0]
+                    self.txtSurname.text = name[1]
+                }
+                
+                if let address = result.address {
+                    
+                    self.txtAddress.text = address
+                }
+                
+                if let dob = result.dateOfBirth {
+                    
+                    let f = DateFormatter()
+                    f.dateFormat = "MMM dd, yyyy"
+                    let formattedDate: String = f.string(from: dob)
+                    self.txtDOB.text = formattedDate
+                }
+            }
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func documentOverlayViewControllerDidTapClose(_ documentOverlayViewController: MBDocumentOverlayViewController) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

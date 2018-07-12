@@ -9,12 +9,14 @@ PODS:
   - KRProgressHUD (3.2.2):
     - KRActivityIndicatorView (= 2.1.2)
   - OneSignal (2.8.5)
+  - PPBlinkID (4.0.0)
 
 DEPENDENCIES:
   - EVReflection/Alamofire
   - IQKeyboardManagerSwift
   - KRProgressHUD
   - OneSignal
+  - PPBlinkID (~> 4.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -24,6 +26,7 @@ SPEC REPOS:
     - KRActivityIndicatorView
     - KRProgressHUD
     - OneSignal
+    - PPBlinkID
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
@@ -32,7 +35,8 @@ SPEC CHECKSUMS:
   KRActivityIndicatorView: 27e7a7e3da7fbc8e5405fbc4088b51cc2095a410
   KRProgressHUD: 8872da74b1c462e15c82a8fff250a2d34ee82ea2
   OneSignal: 42dae269c7eca517aee34963820e1eb922390031
+  PPBlinkID: c3a348d8e3e60b96afd332062e9c3c353c521ebc
 
-PODFILE CHECKSUM: 5edbd1f4642d6fd5a757377846f23f5b8aa91a29
+PODFILE CHECKSUM: b9e34765fbc0be54c1bd344be0491ba6d636dc8a
 
 COCOAPODS: 1.5.3

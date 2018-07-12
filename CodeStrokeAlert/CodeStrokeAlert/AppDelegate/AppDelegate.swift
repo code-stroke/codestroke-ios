@@ -11,8 +11,8 @@ import CoreData
 import IQKeyboardManagerSwift
 import OneSignal
 
-let appDelegate = UIApplication.shared.delegate as! AppDelegate
-let loginStoryboard = UIStoryboard(name: "Main", bundle: nil)
+let appDelegate         = UIApplication.shared.delegate as! AppDelegate
+let loginStoryboard     = UIStoryboard(name: "Main", bundle: nil)
 let dashBoardStoryboard = UIStoryboard(name: "Dashboard", bundle: nil)
 
 @UIApplicationMain

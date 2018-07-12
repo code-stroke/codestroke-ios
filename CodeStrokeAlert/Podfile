@@ -10,4 +10,5 @@ target 'CodeStrokeAlert' do
     pod 'EVReflection/Alamofire'
     pod 'KRProgressHUD'
     pod 'OneSignal'
+    pod 'PPBlinkID', '~> 4.0.0'
 end

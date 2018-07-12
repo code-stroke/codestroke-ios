@@ -61,7 +61,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mTz-oD-pPu">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="645"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIF-EH-OLz" customClass="DesignableLabel" customModule="CodeStrokeAlert" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="5" width="305" height="40"/>
@@ -445,8 +445,26 @@
                                                             </stackView>
                                                         </subviews>
                                                     </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Vq-WR-mal">
+                                                        <rect key="frame" x="53" y="515" width="213" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="pge-n4-OpN"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="18"/>
+                                                        <state key="normal" title="Scan License">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="3"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="btnScanLicenseClicked:" destination="v3S-3n-AVq" eventType="touchUpInside" id="Unf-1h-pqO"/>
+                                                        </connections>
+                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgm-Dl-ugb" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
-                                                        <rect key="frame" x="53.5" y="535" width="213" height="45"/>
+                                                        <rect key="frame" x="53.5" y="580" width="213" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="27U-hK-DXG"/>
                                                         </constraints>
@@ -475,20 +493,23 @@
                                                     <constraint firstItem="3Pg-eI-0yN" firstAttribute="leading" secondItem="mTz-oD-pPu" secondAttribute="leading" constant="15" id="KTn-h9-8rz"/>
                                                     <constraint firstItem="yGp-MO-XzE" firstAttribute="width" secondItem="Sj3-FW-aFa" secondAttribute="width" id="LsQ-nK-0dQ"/>
                                                     <constraint firstItem="yGp-MO-XzE" firstAttribute="height" secondItem="Sj3-FW-aFa" secondAttribute="height" id="OoN-ie-ID9"/>
-                                                    <constraint firstItem="dgm-Dl-ugb" firstAttribute="top" secondItem="vtS-EP-mjR" secondAttribute="bottom" constant="40" id="OtL-jf-C1A"/>
                                                     <constraint firstItem="zZe-dU-dI7" firstAttribute="leading" secondItem="mTz-oD-pPu" secondAttribute="leading" constant="12" id="RpZ-ne-OK6"/>
                                                     <constraint firstAttribute="trailing" secondItem="eyV-6r-2rq" secondAttribute="trailing" constant="12" id="Rzy-eP-JhJ"/>
                                                     <constraint firstItem="eyV-6r-2rq" firstAttribute="centerY" secondItem="Sj3-FW-aFa" secondAttribute="centerY" id="TEe-Gb-PXW"/>
                                                     <constraint firstItem="Sj3-FW-aFa" firstAttribute="top" secondItem="3Pg-eI-0yN" secondAttribute="bottom" constant="10" id="UE8-Oz-1TZ"/>
                                                     <constraint firstItem="Sj3-FW-aFa" firstAttribute="leading" secondItem="mTz-oD-pPu" secondAttribute="leading" constant="15" id="USU-3P-oOc"/>
                                                     <constraint firstItem="dgm-Dl-ugb" firstAttribute="width" secondItem="mTz-oD-pPu" secondAttribute="width" multiplier="1/1.5" id="V0K-5i-lHX"/>
+                                                    <constraint firstItem="dgm-Dl-ugb" firstAttribute="top" secondItem="7Vq-WR-mal" secondAttribute="bottom" constant="20" id="WED-Bi-jyy"/>
                                                     <constraint firstAttribute="trailing" secondItem="zZe-dU-dI7" secondAttribute="trailing" constant="12" id="bhU-RV-0xB"/>
                                                     <constraint firstItem="dgm-Dl-ugb" firstAttribute="centerX" secondItem="mTz-oD-pPu" secondAttribute="centerX" id="cj9-hd-wc0"/>
+                                                    <constraint firstItem="7Vq-WR-mal" firstAttribute="centerX" secondItem="mTz-oD-pPu" secondAttribute="centerX" id="dpU-QA-dnq"/>
                                                     <constraint firstAttribute="bottom" secondItem="dgm-Dl-ugb" secondAttribute="bottom" constant="20" id="eRQ-Ox-G3W"/>
                                                     <constraint firstAttribute="trailing" secondItem="3Pg-eI-0yN" secondAttribute="trailing" id="fvt-iE-8KR"/>
+                                                    <constraint firstItem="7Vq-WR-mal" firstAttribute="width" secondItem="dgm-Dl-ugb" secondAttribute="width" id="iQZ-1v-8e6"/>
                                                     <constraint firstItem="TIF-EH-OLz" firstAttribute="top" secondItem="mTz-oD-pPu" secondAttribute="top" constant="5" id="jts-rK-rAf"/>
                                                     <constraint firstItem="vtS-EP-mjR" firstAttribute="top" secondItem="Sj3-FW-aFa" secondAttribute="bottom" constant="10" id="lDp-2e-7XD"/>
                                                     <constraint firstAttribute="trailing" secondItem="vtS-EP-mjR" secondAttribute="trailing" constant="12" id="oZj-Id-OaB"/>
+                                                    <constraint firstItem="7Vq-WR-mal" firstAttribute="top" secondItem="vtS-EP-mjR" secondAttribute="bottom" constant="20" id="qc7-Ql-mmy"/>
                                                     <constraint firstItem="yGp-MO-XzE" firstAttribute="centerX" secondItem="Sj3-FW-aFa" secondAttribute="centerX" id="wiw-s2-l4l"/>
                                                     <constraint firstItem="3Pg-eI-0yN" firstAttribute="top" secondItem="zZe-dU-dI7" secondAttribute="bottom" constant="10" id="zEc-GE-p90"/>
                                                 </constraints>
@@ -532,6 +553,7 @@
                         <outlet property="btnNOKTelephoneUnknown" destination="7OF-DH-H4T" id="vMX-ba-VRe"/>
                         <outlet property="btnNext" destination="dgm-Dl-ugb" id="Vxg-8r-IN0"/>
                         <outlet property="btnNextToKINUnknown" destination="iZu-kT-VOJ" id="oSr-F9-qg5"/>
+                        <outlet property="btnScanLicense" destination="7Vq-WR-mal" id="igY-ox-cfi"/>
                         <outlet property="btnSurnameUnknown" destination="r6f-su-CcN" id="JVk-Fo-rHy"/>
                         <outlet property="lblAMPM" destination="gal-pm-ZYj" id="sq9-qY-RH1"/>
                         <outlet property="lblDate" destination="sgW-lA-YUd" id="jBd-s0-Mpk"/>
