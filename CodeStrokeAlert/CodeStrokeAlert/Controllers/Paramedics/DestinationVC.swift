@@ -41,7 +41,7 @@ class DestinationVC: UIViewController {
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var viewTop: UIView!
 
-    var prodotti = ["Royal Melbourne", "Austin", "St. Vincent’s Hospital"]
+    var arrHospitalList = [HospitalData]()
     
     // MARK: - ViewController LifeCycle -
     
@@ -63,6 +63,16 @@ class DestinationVC: UIViewController {
         
         let image1 = self.gradientWithFrametoImage(frame: btnNext.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
         self.btnNext.backgroundColor = UIColor(patternImage: image1)
+        
+        if Reachability.isConnectedToNetwork() {
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.async {
+                    self.WS_HospitalList(url: "https://codestroke-hospitals-codestroke-hospitals.193b.starter-ca-central-1.openshiftapps.com/hospital_list.json")
+                }
+            }
+        } else {
+            showAlert("No internet connection")
+        }
     }
 
     // MARK: - Action Methods -
@@ -100,10 +110,10 @@ extension DestinationVC: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return prodotti.count
+        return arrHospitalList.count - 1
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return prodotti[row]
+        return arrHospitalList[row+1].hospital_name
     }
 }

@@ -10,9 +10,14 @@ extension PatientDetailVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
+        let username = "adfa"
+        let password = "changethislater"
+        let loginString = String(format: "%@:%@", username, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        
         let headers = ["content-type": "application/json",
-                       "username": "adfa",
-                       "password": "changethislater"]
+                       "Authorization": "Basic \(base64LoginString)"]
         
         Alamofire.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: headers).responseObject { (response : DataResponse<CaseModel>) in
             self.view.isUserInteractionEnabled = true
@@ -26,6 +31,30 @@ extension PatientDetailVC {
                 } else {
                     showAlert("Error in adding data")
                 }
+            } else {
+                showAlert("Database return nil value")
+            }
+        }
+    }
+}
+
+extension DestinationVC {
+    
+    func WS_HospitalList(url: String) {
+        
+        print("\(url)")
+        self.view.isUserInteractionEnabled = false
+        self.showHud("")
+        
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseArray { (response: DataResponse<[HospitalData]>) in
+            
+            self.view.isUserInteractionEnabled = true
+            self.hideHUD()
+            
+            if (response.result.value != nil) {
+                print(response.result.value!)
+                self.arrHospitalList = response.result.value!
+                self.pickerView.reloadAllComponents()
             } else {
                 showAlert("Database return nil value")
             }

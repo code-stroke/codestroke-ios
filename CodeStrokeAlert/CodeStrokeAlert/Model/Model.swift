@@ -146,6 +146,17 @@ class EDData: EVObject {
     var triaged: Int                    = 0
 }
 
+class HospitalData: EVObject {
+    
+    var hospital_name: String           = ""
+    var hospital_city: String           = ""
+    var hospital_state: String          = ""
+    var hospital_coords: String         = ""
+    var hospital_url: String            = ""
+    var hospital_id: Int                = 0
+    var highest_assigned_id: Int        = 0
+}
+
 class CaseHistoryModel: EVObject {
     
     var result: [CaseHistoryData]?
