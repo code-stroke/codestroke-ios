@@ -128,7 +128,10 @@ class ClinicianPatientDetailSixVC: UIViewController {
                      "thrombolysis_time_given": self.btnTimeWhenThrombolysisYes.isSelected ? true : self.btnTimeWhenThrombolysisNNo.isSelected ? false : 0,
                      "ecr": self.btnECRYes.isSelected ? true : self.btnECRNo.isSelected ? false : 0,
                      "surgical_rx": self.btnSurgicalManagementYes.isSelected ? true : self.btnSurgicalManagementNo.isSelected ? false : 0,
-                     "conservative_rx": self.btnConservativeManagementYes.isSelected ? true : self.btnConservativeManagementNo.isSelected ? false : 0] as [String : Any]
+                     "conservative_rx": self.btnConservativeManagementYes.isSelected ? true : self.btnConservativeManagementNo.isSelected ? false : 0,
+                     "signoff_first_name": "",
+                     "signoff_last_name": "",
+                     "signoff_role": ""] as [String : Any]
         
         if Reachability.isConnectedToNetwork() {
             DispatchQueue.global(qos: .background).async {

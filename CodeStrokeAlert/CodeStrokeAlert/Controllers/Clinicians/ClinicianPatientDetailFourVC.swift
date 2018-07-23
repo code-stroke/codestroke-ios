@@ -228,7 +228,10 @@ class ClinicianPatientDetailFourVC: UIViewController {
                      "dysarthria": isEmptyString(self.txtDysarthria.text!) ? "" : self.arrDysarthria[selected_Dysarthria]["value"]!,
                      "neglect": isEmptyString(self.txtExtinction.text!) ? "" : self.arrExtinction[selected_Extinction]["value"]!,
                      "rankin_conscious": isEmptyString(self.txtLevelOfConsciousness_Rankin.text!) ? "" : self.arrLevelCons_Rankin[selected_LevelCons_Rankin]["value"]!,
-                     "likely_lvo": false] as [String : Any]
+                     "likely_lvo": false,
+                     "signoff_first_name": "",
+                     "signoff_last_name": "",
+                     "signoff_role": ""] as [String : Any]
         
         if Reachability.isConnectedToNetwork() {
             DispatchQueue.global(qos: .background).async {

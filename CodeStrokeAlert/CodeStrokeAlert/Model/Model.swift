@@ -91,6 +91,11 @@ class CaseList: EVObject {
     var nok_phone: String               = ""
     var status: String                  = ""
     var status_time: String             = ""
+    var eta: String                     = ""
+    var initial_location_lat: String    = ""
+    var incoming_timestamp: String      = ""
+    var initial_location_long: String   = ""
+    var active_timestamp: String        = ""
     
     func save() {
         
@@ -228,6 +233,8 @@ class RadiologyData: EVObject {
     var do_cta_ctp: Bool                = false
     var ich_found: Bool                 = false
     var large_vessel_occlusion: Bool    = false
+    var ct_available: Bool              = false
+    var ct_available_loc: String        = ""
 }
 
 class ManagementModel: EVObject {
@@ -261,4 +268,8 @@ class ManagementData: EVObject {
     var surgical_rx: Bool               = false
     var conservative_rx: Bool           = false
     var thrombolysis_time_given: Date   = Date()
+    var dob: String                     = ""
+    var last_well: String               = ""
+    var ich_found: Bool                 = false
+    var large_vessel_occlusion: Bool    = false
 }

@@ -56,7 +56,10 @@ class ClinicianPatientDetailVC: UIViewController {
         let param = ["location": "",
                      "registered": self.btnRegistered.isSelected ? 1 : 0,
                      "triaged": self.btnTriggered.isSelected ? 1 : 0,
-                     "primary_survey": self.btnPrimarySurvey.isSelected ? 1 : 0] as [String : Any]
+                     "primary_survey": self.btnPrimarySurvey.isSelected ? 1 : 0,
+                     "signoff_first_name": "",
+                     "signoff_last_name": "",
+                     "signoff_role": ""] as [String : Any]
         
         if Reachability.isConnectedToNetwork() {
             DispatchQueue.global(qos: .background).async {

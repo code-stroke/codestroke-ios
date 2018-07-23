@@ -93,7 +93,10 @@ class ClinicianPatientDetailTwoVC: UIViewController {
                          "nok": self.txtNextKin.text!,
                          "nok_phone": self.txtNOKContact.text!,
                          "medicare_no": self.txtMedicare.text!,
-                         "hospital_id": "1"]
+                         "hospital_id": "1",
+                         "signoff_first_name": "",
+                         "signoff_last_name": "",
+                         "signoff_role": ""]
             
             if Reachability.isConnectedToNetwork() {
                 DispatchQueue.global(qos: .background).async {

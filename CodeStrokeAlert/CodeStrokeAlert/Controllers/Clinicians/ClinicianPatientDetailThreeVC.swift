@@ -69,7 +69,10 @@ class ClinicianPatientDetailThreeVC: UIViewController {
                      "anticoags": self.btnAnticoagulantsYes.isSelected ? true : false,
                      "hopc": self.txtSituation.text!,
                      "weight": Float(strWeight)!,
-                     "last_meal": self.txtLastMeal.text!] as [String : Any]
+                     "last_meal": self.txtLastMeal.text!,
+                     "signoff_first_name": "",
+                     "signoff_last_name": "",
+                     "signoff_role": ""] as [String : Any]
         
         if Reachability.isConnectedToNetwork() {
             DispatchQueue.global(qos: .background).async {

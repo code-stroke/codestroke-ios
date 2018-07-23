@@ -10,7 +10,9 @@ extension PatientDetailVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let headers = ["content-type": "application/json"]
+        let headers = ["content-type": "application/json",
+                       "username": "adfa",
+                       "password": "changethislater"]
         
         Alamofire.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: headers).responseObject { (response : DataResponse<CaseModel>) in
             self.view.isUserInteractionEnabled = true
@@ -39,7 +41,14 @@ extension ClinicalHistoryVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let headers = ["content-type": "application/json"]
+        let username = "adfa"
+        let password = "changethislater"
+        let loginString = String(format: "%@:%@", username, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        
+        let headers = ["content-type": "application/json",
+                       "Authorization": "Basic \(base64LoginString)"]
         
         Alamofire.request(url, method: .put, parameters: parameter, encoding: JSONEncoding.default, headers: headers).responseObject { (response : DataResponse<DefaultModel>) in
             self.view.isUserInteractionEnabled = true
@@ -67,7 +76,14 @@ extension ClinicalAssessmentFourVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let headers = ["content-type": "application/json"]
+        let username = "adfa"
+        let password = "changethislater"
+        let loginString = String(format: "%@:%@", username, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        
+        let headers = ["content-type": "application/json",
+                       "Authorization": "Basic \(base64LoginString)"]
         
         Alamofire.request(url, method: .put, parameters: parameter, encoding: JSONEncoding.default, headers: headers).responseObject { (response : DataResponse<DefaultModel>) in
             self.view.isUserInteractionEnabled = true
@@ -94,7 +110,14 @@ extension PatientListVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let headers = ["content-type": "application/json"]
+        let username = "adfa"
+        let password = "changethislater"
+        let loginString = String(format: "%@:%@", username, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        
+        let headers = ["content-type": "application/json",
+                       "Authorization": "Basic \(base64LoginString)"]
         
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseObject { (response : DataResponse<CaseListModel>) in
             self.view.isUserInteractionEnabled = true
@@ -135,7 +158,14 @@ extension ClinicianPatientDetailVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let headers = ["content-type": "application/json"]
+        let username = "adfa"
+        let password = "changethislater"
+        let loginString = String(format: "%@:%@", username, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        
+        let headers = ["content-type": "application/json",
+                       "Authorization": "Basic \(base64LoginString)"]
         
         var method = HTTPMethod.get
         
@@ -192,7 +222,14 @@ extension MainContainerVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let headers = ["content-type": "application/json"]
+        let username = "adfa"
+        let password = "changethislater"
+        let loginString = String(format: "%@:%@", username, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        
+        let headers = ["content-type": "application/json",
+                       "Authorization": "Basic \(base64LoginString)"]
         
         var method = HTTPMethod.get
         
@@ -249,7 +286,14 @@ extension ClinicianPatientDetailTwoVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let headers = ["content-type": "application/json"]
+        let username = "adfa"
+        let password = "changethislater"
+        let loginString = String(format: "%@:%@", username, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        
+        let headers = ["content-type": "application/json",
+                       "Authorization": "Basic \(base64LoginString)"]
         
         var method = HTTPMethod.get
         
@@ -312,7 +356,14 @@ extension ClinicianPatientDetailThreeVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let headers = ["content-type": "application/json"]
+        let username = "adfa"
+        let password = "changethislater"
+        let loginString = String(format: "%@:%@", username, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        
+        let headers = ["content-type": "application/json",
+                       "Authorization": "Basic \(base64LoginString)"]
         
         var method = HTTPMethod.get
         
@@ -369,7 +420,14 @@ extension ClinicianPatientDetailFourVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let headers = ["content-type": "application/json"]
+        let username = "adfa"
+        let password = "changethislater"
+        let loginString = String(format: "%@:%@", username, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        
+        let headers = ["content-type": "application/json",
+                       "Authorization": "Basic \(base64LoginString)"]
         
         var method = HTTPMethod.get
         
@@ -630,7 +688,14 @@ extension ClinicianPatientDetailFiveVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let headers = ["content-type": "application/json"]
+        let username = "adfa"
+        let password = "changethislater"
+        let loginString = String(format: "%@:%@", username, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        
+        let headers = ["content-type": "application/json",
+                       "Authorization": "Basic \(base64LoginString)"]
         
         var method = HTTPMethod.get
         
@@ -743,7 +808,14 @@ extension ClinicianPatientDetailSixVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let headers = ["content-type": "application/json"]
+        let username = "adfa"
+        let password = "changethislater"
+        let loginString = String(format: "%@:%@", username, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        
+        let headers = ["content-type": "application/json",
+                       "Authorization": "Basic \(base64LoginString)"]
         
         var method = HTTPMethod.get
         
