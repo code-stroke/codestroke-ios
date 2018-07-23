@@ -57,9 +57,9 @@ class ClinicianPatientDetailVC: UIViewController {
                      "registered": self.btnRegistered.isSelected ? 1 : 0,
                      "triaged": self.btnTriggered.isSelected ? 1 : 0,
                      "primary_survey": self.btnPrimarySurvey.isSelected ? 1 : 0,
-                     "signoff_first_name": "",
-                     "signoff_last_name": "",
-                     "signoff_role": ""] as [String : Any]
+                     "signoff_first_name": LoginUserData.savedUser()!.strFirstName,
+                     "signoff_last_name": LoginUserData.savedUser()!.strLastName,
+                     "signoff_role": LoginUserData.savedUser()!.strUserRole] as [String : Any]
         
         if Reachability.isConnectedToNetwork() {
             DispatchQueue.global(qos: .background).async {

@@ -137,9 +137,9 @@ class ClinicianPatientDetailFiveVC: UIViewController {
                      "do_cta_ctp": self.btnProceedCTAorCTPYes.isSelected ? true : self.btnProceedCTAorCTPNo.isSelected ? false : 0,
                      "cta_ctp_complete": self.btnCTAorCTPCompleteYes.isSelected ? true : self.btnCTAorCTPCompleteNo.isSelected ? false : 0,
                      "large_vessel_occlusion": self.btnLargeVesselOcclusionYes.isSelected ? true : self.btnLargeVesselOcclusionNo.isSelected ? false : 0,
-                     "signoff_first_name": "",
-                     "signoff_last_name": "",
-                     "signoff_role": ""] as [String : Any]
+                     "signoff_first_name": LoginUserData.savedUser()!.strFirstName,
+                     "signoff_last_name": LoginUserData.savedUser()!.strLastName,
+                     "signoff_role": LoginUserData.savedUser()!.strUserRole] as [String : Any]
         
         if Reachability.isConnectedToNetwork() {
             DispatchQueue.global(qos: .background).async {

@@ -341,7 +341,6 @@ extension ClinicianPatientDetailTwoVC {
                 
                 if isGet == false {
                     if response.result.value!.success == true {
-//                        self.performSegue(withIdentifier: "ClinicianPatientDetailThree", sender: nil)
                         showAlert("Data submitted successfully")
                     } else {
                         showAlert("Something went wrong")

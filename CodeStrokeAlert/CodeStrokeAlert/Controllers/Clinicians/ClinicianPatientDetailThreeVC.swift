@@ -70,9 +70,9 @@ class ClinicianPatientDetailThreeVC: UIViewController {
                      "hopc": self.txtSituation.text!,
                      "weight": Float(strWeight)!,
                      "last_meal": self.txtLastMeal.text!,
-                     "signoff_first_name": "",
-                     "signoff_last_name": "",
-                     "signoff_role": ""] as [String : Any]
+                     "signoff_first_name": LoginUserData.savedUser()!.strFirstName,
+                     "signoff_last_name": LoginUserData.savedUser()!.strLastName,
+                     "signoff_role": LoginUserData.savedUser()!.strUserRole] as [String : Any]
         
         if Reachability.isConnectedToNetwork() {
             DispatchQueue.global(qos: .background).async {
