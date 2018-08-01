@@ -50,6 +50,10 @@ class PatientListVC: UIViewController {
         // Do any additional setup after loading the view.
         
         searchBar.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         
         if Reachability.isConnectedToNetwork() {
             DispatchQueue.global(qos: .background).async {
@@ -157,7 +161,12 @@ extension PatientListVC: UITableViewDelegate, UITableViewDataSource {
                 cell.lblAge.text = "\(strDOB)"
             }
             
-            cell.lblETA.text = self.filtered[indexPath.row].status_time
+            cell.lblETA.text = ""
+            
+            if let date = self.filtered[indexPath.row].eta.toDate("yyyy-MM-dd HH:mm") {
+            
+                cell.lblETA.text = date.toString("dd, MMM yyyy hh:mm a")
+            }
             
         } else {
             
@@ -172,7 +181,12 @@ extension PatientListVC: UITableViewDelegate, UITableViewDataSource {
                     cell.lblAge.text = "\(strDOB)"
                 }
                 
-                cell.lblETA.text = self.arrCaseListActive[indexPath.row].status_time
+                cell.lblETA.text = ""
+                
+                if let date = self.arrCaseListActive[indexPath.row].eta.toDate("yyyy-MM-dd HH:mm") {
+                    
+                    cell.lblETA.text = date.toString("dd, MMM yyyy hh:mm a")
+                }
                 
             } else if self.btnIncoming.isSelected {
                 
@@ -183,8 +197,13 @@ extension PatientListVC: UITableViewDelegate, UITableViewDataSource {
                     let strDOB = self.calcAge(birthday: self.arrCaseListInComing[indexPath.row].dob)
                     cell.lblAge.text = "\(strDOB)"
                 }
+
+                cell.lblETA.text = ""
                 
-                cell.lblETA.text = self.arrCaseListInComing[indexPath.row].status_time
+                if let date = self.arrCaseListInComing[indexPath.row].eta.toDate("yyyy-MM-dd HH:mm") {
+                    
+                    cell.lblETA.text = date.toString("dd, MMM yyyy hh:mm a")
+                }
                 
             } else if self.btnCompleted.isSelected {
                 
@@ -196,7 +215,12 @@ extension PatientListVC: UITableViewDelegate, UITableViewDataSource {
                     cell.lblAge.text = "\(strDOB)"
                 }
                 
-                cell.lblETA.text = self.arrCaseListCompleted[indexPath.row].status_time
+                cell.lblETA.text = ""
+                
+                if let date = self.arrCaseListCompleted[indexPath.row].eta.toDate("yyyy-MM-dd HH:mm") {
+                    
+                    cell.lblETA.text = date.toString("dd, MMM yyyy hh:mm a")
+                }
             }
         }
         

@@ -190,36 +190,6 @@ func showSpecialAlert(_ message: String) {
     }
 }
 
-func setDeviceToken(_ token : String) {
-    
-    let defaults: UserDefaults = UserDefaults.standard
-    let data: Data = NSKeyedArchiver.archivedData(withRootObject: token)
-    defaults.set(data, forKey: "deviceToken")
-    defaults.synchronize()
-}
-
-func removeDeviceToken() {
-    
-    let defaults: UserDefaults = UserDefaults.standard
-    defaults.removeObject(forKey: "deviceToken")
-    defaults.synchronize()
-}
-
-func getDeviceToken() -> String {
-    
-    let defaults: UserDefaults = UserDefaults.standard
-    let data = defaults.object(forKey: "deviceToken") as? Data
-    if data != nil {
-        if let str = NSKeyedUnarchiver.unarchiveObject(with: data!) as? String {
-            return str
-        }
-        else {
-            return "11"
-        }
-    }
-    return "11"
-}
-
 func topMostController() -> UIViewController {
     
     var top = UIApplication.shared.keyWindow?.rootViewController

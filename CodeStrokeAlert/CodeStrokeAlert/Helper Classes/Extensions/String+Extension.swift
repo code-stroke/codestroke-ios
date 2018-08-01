@@ -84,6 +84,7 @@ public extension String {
     }
     
     public func toDate( _ format:String) -> Date? {
+        
         let formatter:DateFormatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.timeZone =  TimeZone.ReferenceType.local
@@ -96,7 +97,7 @@ public extension String {
     }
     
     public var length : Int {
-        return self.characters.count
+        return self.count
     }
     
     public var ns: NSString {

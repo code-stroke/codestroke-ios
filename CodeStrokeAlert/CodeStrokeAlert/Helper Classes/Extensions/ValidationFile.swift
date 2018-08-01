@@ -22,6 +22,39 @@ public func checkInternet() ->Bool {
 
 //MARK: Validation Function
 
+//MARK: Device Token Methods
+
+func setDeviceToken(_ token : String) {
+    
+    let defaults: UserDefaults = UserDefaults.standard
+    let data: Data = NSKeyedArchiver.archivedData(withRootObject: token)
+    defaults.set(data, forKey: "deviceToken")
+    defaults.synchronize()
+}
+
+func getDeviceToken() -> String {
+    
+    let defaults: UserDefaults = UserDefaults.standard
+    let data = defaults.object(forKey: "deviceToken") as? Data
+    if data != nil {
+    
+        if let str = NSKeyedUnarchiver.unarchiveObject(with: data!) as? String {
+            return str
+        }
+        else {
+            return "Simulator"
+        }
+    }
+    return "Simulator"
+}
+
+func removeDeviceToken() {
+    
+    let defaults: UserDefaults = UserDefaults.standard
+    defaults.removeObject(forKey: "deviceToken")
+    defaults.synchronize()
+}
+
 public func isEmptyString(_ text : String) -> Bool {
     
     if text.trim == "" || text.trim.isEmpty {

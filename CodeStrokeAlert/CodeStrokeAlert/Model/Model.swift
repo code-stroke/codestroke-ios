@@ -5,6 +5,7 @@ import Alamofire
 
 let kUserInfo = "SavedUserInfo"
 let kCases = "SavedCaseInfo"
+let kUserIds = "UserIDs"
 
 class UserInfo: EVObject {
     
@@ -58,6 +59,51 @@ class UserInfo: EVObject {
     }
 }
 
+class UserData: EVObject {
+    
+    var status: Int                     = 0
+    var message: String                 = ""
+    var user_id: Int                    = 0
+    var data: [AllUserIds]?
+    
+    func save() {
+        
+        let defaults: UserDefaults = UserDefaults.standard
+        let data: NSData = NSKeyedArchiver.archivedData(withRootObject: self) as NSData
+        defaults.set(data, forKey: kUserIds)
+        defaults.synchronize()
+    }
+    
+    class func savedUser() -> UserData? {
+        
+        let defaults: UserDefaults = UserDefaults.standard
+        let data = defaults.object(forKey: kUserIds) as? NSData
+        
+        if data != nil {
+            
+            if let userinfo = NSKeyedUnarchiver.unarchiveObject(with: data! as Data) as? UserData {
+                return userinfo
+            }
+            else {
+                return nil
+            }
+        }
+        return nil
+    }
+    
+    class func clearUser() {
+        
+        let defaults: UserDefaults = UserDefaults.standard
+        defaults.removeObject(forKey: kUserIds)
+        defaults.synchronize()
+    }
+}
+
+class AllUserIds: EVObject {
+    
+    var user_id: Int                    = 0
+}
+
 class CaseModel: EVObject {
     
     var case_id: Int                    = 0
@@ -96,6 +142,7 @@ class CaseList: EVObject {
     var incoming_timestamp: String      = ""
     var initial_location_long: String   = ""
     var active_timestamp: String        = ""
+    var completed_timestamp: String     = ""
     
     func save() {
         

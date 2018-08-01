@@ -129,20 +129,20 @@ class PatientDetailVC: UIViewController {
         
         // To specify we want to perform MRTD (machine readable travel document) recognition, initialize the MRTD recognizer settings
         /** Create ausdl recognizer */
-        
+
         self.ausdlFrontRecognizer = MBAustraliaDlFrontRecognizer()
         self.ausdlFrontRecognizer?.returnFullDocumentImage = true
-        
+
         /** Create ausdl recognizer */
         let settings : MBDocumentOverlaySettings = MBDocumentOverlaySettings()
-        
+
         /** Crate recognizer collection */
         let recognizerList = [self.ausdlFrontRecognizer!]
         let recognizerCollection : MBRecognizerCollection = MBRecognizerCollection(recognizers: recognizerList)
-        
+
         /** Create your overlay view controller */
         let barcodeOverlayViewController : MBDocumentOverlayViewController = MBDocumentOverlayViewController(settings: settings, recognizerCollection: recognizerCollection, delegate: self)
-        
+
         /** Create recognizer view controller with wanted overlay view controller */
         let recognizerRunneViewController : UIViewController = MBViewControllerFactory.recognizerRunnerViewController(withOverlayViewController: barcodeOverlayViewController)
         

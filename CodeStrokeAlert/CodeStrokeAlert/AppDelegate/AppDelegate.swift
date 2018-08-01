@@ -10,19 +10,37 @@ import UIKit
 import CoreData
 import IQKeyboardManagerSwift
 import OneSignal
+import Firebase
+import UserNotifications
 
 let appDelegate         = UIApplication.shared.delegate as! AppDelegate
 let loginStoryboard     = UIStoryboard(name: "Main", bundle: nil)
 let dashBoardStoryboard = UIStoryboard(name: "Dashboard", bundle: nil)
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
-    private let appID = "f1a4e9f9-b79b-4325-96cc-88ca03523630"
+    private let appID = "a704a88e-9e37-41f6-99b8-6ded41926c03"
+    var deviceTokenString = "123"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //Firebase
+        FirebaseApp.configure()
+        FirebaseClass.shared.setupFirebase()
+        CoreDataClass.shared.setupCoreDate()
+        
+        registerForPushNotifications()
+        
+        if let launchOptions = launchOptions {
+            
+            if let userInfo = launchOptions[UIApplicationLaunchOptionsKey.remoteNotification] as? [AnyHashable : Any] {
+                
+                print(userInfo)
+            }
+        }
         
         let notificationOpenedBlock: OSHandleNotificationActionBlock = { result in
             // This block gets called when the user reacts to a notification received
@@ -34,17 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if let additionalData = result!.notification.payload!.additionalData {
                 print("additionalData = \(additionalData)")
-                
-                // DEEP LINK and open url in RedViewController
-                // Send notification with Additional Data > example key: "OpenURL" example value: "https://google.com"
-                /*
-                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let instantiateRedViewController : WebView = mainStoryboard.instantiateViewController(withIdentifier: "WebViewID") as! WebView
-                instantiateRedViewController.receivedURL = additionalData["OpenURL"] as! String!
-                self.window = UIWindow(frame: UIScreen.main.bounds)
-                self.window?.rootViewController = instantiateRedViewController
-                self.window?.makeKeyAndVisible()
-                */
                 
                 if let actionSelected = payload?.actionButtons {
                     print("actionSelected = \(actionSelected)")
@@ -204,5 +211,61 @@ extension AppDelegate {
         let nav  = dashBoardStoryboard.instantiateViewController(withIdentifier: "ClinicianNavigation") as! DashboardNavigation
         self.window?.rootViewController = nav
         self.window?.makeKeyAndVisible()
+    }
+}
+
+extension AppDelegate {
+    
+    func registerForPushNotifications() {
+        
+        if #available(iOS 10.0, *) {
+            
+            UNUserNotificationCenter.current().delegate = self
+            UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert], completionHandler: {(granted, error) in
+                if (granted) {
+                    DispatchQueue.main.async {
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
+                } else {
+                    
+                }
+            })
+        } else {
+            let type: UIUserNotificationType = [.badge, .alert, .sound]
+            let setting = UIUserNotificationSettings(types: type, categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(setting)
+            UIApplication.shared.registerForRemoteNotifications()
+        }
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        deviceTokenString = deviceToken.hexString
+        NSLog("LNDeviceToken: %@", deviceTokenString)
+        
+        if deviceTokenString.length > 0 {
+            setDeviceToken(deviceTokenString)
+        }
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        
+        let message = "didFailToRegisterForRemoteNotificationsWithError: " + error.localizedDescription
+        print(message)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        print("didReceiveRemoteNotification fetchCompletionHandler", userInfo)
+        updateDetail(with: userInfo, completionHandler)
+    }
+    
+    func updateDetail(with userInfo: [AnyHashable : Any], _ completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        if let data = userInfo["alert"] as? [AnyHashable : Any], let value = data["url"] as? String {
+            print(data, value)
+        } else {
+            completionHandler(UIBackgroundFetchResult.noData)
+        }
     }
 }

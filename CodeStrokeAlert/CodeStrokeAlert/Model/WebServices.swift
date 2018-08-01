@@ -2,6 +2,66 @@ import Foundation
 import KRProgressHUD
 import Alamofire
 
+extension LoginWithQR {
+    
+    func WS_Login(url: String, parameter: [String: String]) {
+        
+        print("\(url)?\(parameter)")
+        self.view.isUserInteractionEnabled = false
+        self.showHud("")
+
+        let headers = ["content-type": "application/json"]
+        
+        Alamofire.upload(multipartFormData: {
+            multipartFormData in
+            for (key, value) in parameter {
+                multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+            }
+        },usingThreshold: 0 ,to: url, headers: headers, encodingCompletion: {
+            encodingResult in switch encodingResult {
+                
+            case .success(let upload, _, _):
+                upload.responseObject(completionHandler: { (response : DataResponse<UserData>) in
+                    
+                    self.view.isUserInteractionEnabled = true
+                    self.hideHUD()
+                    
+                    if response.result.value != nil {
+                        
+                        print(response.result.value!)
+                        
+                        if let status = response.result.value?.status {
+                            
+                            if status == 200 {
+                                
+                                self.loginUserData.userID = response.result.value!.user_id
+                                self.loginUserData.save()
+                                
+                                if let userInfo = response.result.value {
+                                    userInfo.save()
+                                }
+                                
+                                appDelegate.goToClinicianDeshBordView()
+                            }
+                            else {
+                                showAlert(response.result.value!.message)
+                            }
+                        }
+                    } else {
+                        showAlert("Database return nil value")
+                    }
+                })
+                
+                break
+                
+            case .failure(let encodingError):
+                print(encodingError)
+                break
+            }
+        })
+    }
+}
+
 extension PatientDetailVC {
     
     func WS_PatientInfo(url: String, parameter: [String: String]) {
@@ -153,7 +213,7 @@ extension PatientListVC {
             self.hideHUD()
             
             if (response.result.value != nil) {
-                
+                print(response.result.value!.result!)
                 if response.result.value!.result!.count > 0 {
                     self.arrCaseList = response.result.value!.result!
                     

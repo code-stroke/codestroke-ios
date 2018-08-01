@@ -178,6 +178,15 @@ class MainContainerVC: UIViewController {
         }
     }
     
+    @IBAction func btnChatClicked(_ sender: UIBarButtonItem) {
+        
+//        let objChatVC = ChatVC.instance()
+//        objChatVC.CaseID = "\(CaseList.savedUser()!.case_id)"
+//        objChatVC.arrayGroupMember = ["1","2","3"]
+//        objChatVC.userID = "1"
+        self.performSegue(withIdentifier: "ChatVC", sender: sender)
+    }
+    
     @IBAction func btnSubmitClicked(_ sender: UIButton) {
         
         let param = ["location": "",
@@ -253,6 +262,17 @@ class MainContainerVC: UIViewController {
         if segue.identifier == "ClinicianPatientDetailTwo" {
             
             let destination = segue.destination as! ClinicianPatientDetailTwoVC
+            print(destination)
+            
+        } else if segue.identifier == "ChatVC" {
+            let destination = segue.destination as! ChatVC
+            destination.CaseID = "\(CaseList.savedUser()!.case_id)"
+            destination.arrayGroupMember = []
+            for (_, value) in UserData.savedUser()!.data!.enumerated() {
+                destination.arrayGroupMember.append("\(value.user_id)")
+            }
+            
+            destination.userID = "\(String(describing: LoginUserData.savedUser()?.userID))"
             print(destination)
         }
     }

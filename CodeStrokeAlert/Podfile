@@ -11,4 +11,12 @@ target 'CodeStrokeAlert' do
     pod 'KRProgressHUD'
     pod 'OneSignal'
     pod 'PPBlinkID', '~> 4.0.0'
+    pod 'Firebase/Core'
+    pod 'Firebase/Database'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Storage'
+    pod 'Toaster', '~> 2.0'
+    pod 'SDWebImage', '~> 4.1’
+    pod 'ASBPlayerScrubbing'
+    pod 'AKMediaViewer'
 end

@@ -17,6 +17,7 @@ class LoginUserData: EVObject {
     var strLastName: String             = ""
     var strUserRole: String             = ""
     var strUserType: String             = ""
+    var userID: Int                     = 0
     
     func save() {
         
@@ -60,9 +61,11 @@ class LoginWithQR: UIViewController {
     @IBOutlet weak var txtRole: UITextField!
     @IBOutlet weak var txtUserType: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet weak var stackUserRole: UIStackView!
     
     var arrUsreType = ["Paramedic", "Clinician"]
     var strSelectedUserType: String = ""
+    var strSelectedUserRole: String = ""
     var loginUserData = LoginUserData()
     
     // MARK:- ViewController LifeCycle -
@@ -75,6 +78,20 @@ class LoginWithQR: UIViewController {
         
         let image1 = self.gradientWithFrametoImage(frame: btnLogin.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
         self.btnLogin.backgroundColor = UIColor(patternImage: image1)
+        
+        if LoginUserData.savedUser() != nil {
+            self.txtFirstName.text = LoginUserData.savedUser()!.strFirstName
+            self.txtLastName.text = LoginUserData.savedUser()!.strLastName
+            self.txtUserType.text = LoginUserData.savedUser()!.strUserType
+            self.txtRole.text = LoginUserData.savedUser()!.strUserRole
+            
+            self.strSelectedUserType = self.txtUserType.text!
+            
+            if LoginUserData.savedUser()!.strUserType == "Clinician" {
+                self.stackUserRole.isHidden = false
+                self.strSelectedUserRole = self.txtRole.text!
+            }
+        }
     }
     
     // MARK:- Action Methods -
@@ -86,13 +103,72 @@ class LoginWithQR: UIViewController {
         actionsheet.addAction(UIAlertAction(title: "Paramedic", style: UIAlertActionStyle.default, handler: { (action) -> Void in
             self.txtUserType.text = "Paramedic"
             self.strSelectedUserType = "Paramedic"
-            self.txtRole.isHidden = true
+            self.stackUserRole.isHidden = true
         }))
         
         actionsheet.addAction(UIAlertAction(title: "Clinician", style: UIAlertActionStyle.default, handler: { (action) -> Void in
             self.txtUserType.text = "Clinician"
             self.strSelectedUserType = "Clinician"
-            self.txtRole.isHidden = false
+            self.txtRole.text = ""
+            self.strSelectedUserRole = ""
+            self.stackUserRole.isHidden = false
+        }))
+        
+        self.present(actionsheet, animated: true, completion: nil)
+    }
+    
+    @IBAction func btnUserRoleClicked(_ sender: UIButton) {
+        
+        let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        actionsheet.addAction(UIAlertAction(title: "Admin", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+            self.txtRole.text = "Admin"
+            self.strSelectedUserRole = "Admin"
+        }))
+        
+        actionsheet.addAction(UIAlertAction(title: "Anaesthetist", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+            self.txtRole.text = "Anaesthetist"
+            self.strSelectedUserRole = "Anaesthetist"
+        }))
+        
+        actionsheet.addAction(UIAlertAction(title: "Angiography Nurse", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+            self.txtRole.text = "Angiography Nurse"
+            self.strSelectedUserRole = "Angiography Nurse"
+        }))
+        
+        actionsheet.addAction(UIAlertAction(title: "ED Clinician", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+            self.txtRole.text = "ED Clinician"
+            self.strSelectedUserRole = "ED Clinician"
+        }))
+        
+        actionsheet.addAction(UIAlertAction(title: "Neurointerventionalist", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+            self.txtRole.text = "Neurointerventionalist"
+            self.strSelectedUserRole = "Neurointerventionalist"
+        }))
+        
+        actionsheet.addAction(UIAlertAction(title: "Paramedic", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+            self.txtRole.text = "Paramedic"
+            self.strSelectedUserRole = "Paramedic"
+        }))
+        
+        actionsheet.addAction(UIAlertAction(title: "Radiographer", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+            self.txtRole.text = "Radiographer"
+            self.strSelectedUserRole = "Radiographer"
+        }))
+        
+        actionsheet.addAction(UIAlertAction(title: "Radiologist", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+            self.txtRole.text = "Radiologist"
+            self.strSelectedUserRole = "Radiologist"
+        }))
+        
+        actionsheet.addAction(UIAlertAction(title: "Stroke Team", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+            self.txtRole.text = "Stroke Team"
+            self.strSelectedUserRole = "Stroke Team"
+        }))
+        
+        actionsheet.addAction(UIAlertAction(title: "Stroke Ward", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+            self.txtRole.text = "Stroke Ward"
+            self.strSelectedUserRole = "Stroke Ward"
         }))
         
         self.present(actionsheet, animated: true, completion: nil)
@@ -115,8 +191,23 @@ class LoginWithQR: UIViewController {
                     loginUserData.strLastName = self.txtLastName.text!
                     loginUserData.strUserRole = self.txtRole.text!
                     loginUserData.strUserType = self.txtUserType.text!
-                    loginUserData.save()
-                    appDelegate.goToClinicianDeshBordView()
+                    loginUserData.userID = 0
+                    
+                    let param = ["first_name": self.txtFirstName.text!,
+                                 "last_name": self.txtLastName.text!,
+                                 "user_role": self.txtRole.text!,
+                                 "user_type": self.txtUserType.text!,
+                                 "user_token": getDeviceToken()]
+                    
+                    if Reachability.isConnectedToNetwork() {
+                        DispatchQueue.global(qos: .background).async {
+                            DispatchQueue.main.async {
+                                self.WS_Login(url: "http://52.15.42.249/user/create.php", parameter: param)
+                            }
+                        }
+                    } else {
+                        showAlert("No internet connection")
+                    }
                 }
             } else {
                 loginUserData.strFirstName = self.txtFirstName.text!
