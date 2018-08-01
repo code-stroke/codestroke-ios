@@ -167,31 +167,31 @@ extension UIViewController: UINavigationControllerDelegate, UIImagePickerControl
         picker.dismiss(animated: true, completion: {() -> Void in
             self.onPickImageComplition!(false, nil, nil, nil, nil)
         })
-               
+        
     }
-//    func showDatePicker(origin: Any, minimumDate: Date?, maximumDate: Date?, completionHandler: @escaping (_ success: Bool, _ picker: ActionSheetDatePicker, _ value: Any?, _ target: Any?) -> Void) {
-//        let actionSheetDatePicker: ActionSheetDatePicker = ActionSheetDatePicker(title: "Select Date", datePickerMode: .date, selectedDate: Date(), doneBlock: { (picker, value, target) in
-//            completionHandler(true, picker!, value, target)
-//        }, cancel: { (picker) in
-//            completionHandler(false, picker!, nil, nil)
-//        }, origin: origin as! UIView)
-//        
-//        actionSheetDatePicker.toolbarBackgroundColor = utility.RGBColor(r: 230, g: 230, b: 230)
-//        if minimumDate != nil {
-//            actionSheetDatePicker.minimumDate = minimumDate
-//        }
-//        if maximumDate != nil {
-//            actionSheetDatePicker.maximumDate = maximumDate
-//        }
-//        actionSheetDatePicker.show()
-//    }
+    //    func showDatePicker(origin: Any, minimumDate: Date?, maximumDate: Date?, completionHandler: @escaping (_ success: Bool, _ picker: ActionSheetDatePicker, _ value: Any?, _ target: Any?) -> Void) {
+    //        let actionSheetDatePicker: ActionSheetDatePicker = ActionSheetDatePicker(title: "Select Date", datePickerMode: .date, selectedDate: Date(), doneBlock: { (picker, value, target) in
+    //            completionHandler(true, picker!, value, target)
+    //        }, cancel: { (picker) in
+    //            completionHandler(false, picker!, nil, nil)
+    //        }, origin: origin as! UIView)
+    //        
+    //        actionSheetDatePicker.toolbarBackgroundColor = utility.RGBColor(r: 230, g: 230, b: 230)
+    //        if minimumDate != nil {
+    //            actionSheetDatePicker.minimumDate = minimumDate
+    //        }
+    //        if maximumDate != nil {
+    //            actionSheetDatePicker.maximumDate = maximumDate
+    //        }
+    //        actionSheetDatePicker.show()
+    //    }
     
-//    func showStringPicker(title: String, origin: Any, rows: [Any], completionHandler: @escaping (_ success: Bool, _ picker: ActionSheetStringPicker, _ value: Any?, _ target: Any?) -> Void) {
-//        
-//        ActionSheetStringPicker.show(withTitle: title, rows: rows, initialSelection: 0, doneBlock: { (picker, index, value) in
-//            completionHandler(true, picker!, value, origin)
-//        }, cancel: { (picker) in
-//            completionHandler(false, picker!, nil, nil)
-//        }, origin: origin as! UIView)
-//    }
+    //    func showStringPicker(title: String, origin: Any, rows: [Any], completionHandler: @escaping (_ success: Bool, _ picker: ActionSheetStringPicker, _ value: Any?, _ target: Any?) -> Void) {
+    //        
+    //        ActionSheetStringPicker.show(withTitle: title, rows: rows, initialSelection: 0, doneBlock: { (picker, index, value) in
+    //            completionHandler(true, picker!, value, origin)
+    //        }, cancel: { (picker) in
+    //            completionHandler(false, picker!, nil, nil)
+    //        }, origin: origin as! UIView)
+    //    }
 }

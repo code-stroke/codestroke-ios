@@ -53,7 +53,7 @@ class LoginUserData: EVObject {
 }
 
 class LoginWithQR: UIViewController {
-
+    
     // MARK:- Declarations -
     
     @IBOutlet weak var txtFirstName: UITextField!
@@ -228,7 +228,7 @@ class LoginWithQR: UIViewController {
     }
     
     // MARK: - Navigation -
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

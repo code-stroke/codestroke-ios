@@ -101,7 +101,7 @@ class ClinicianPatientDetailFiveVC: UIViewController {
         self.clearSelection(btn1: btnCTCompleteYes, btn2: btnCTCompleteNo)
         sender.isSelected = true
     }
-
+    
     @IBAction func btnICHClicked(_ sender: UIButton) {
         
         self.clearSelection(btn1: btnICHCTYes, btn2: btnICHCTNo)

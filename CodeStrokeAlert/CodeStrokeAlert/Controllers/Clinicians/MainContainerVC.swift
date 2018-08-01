@@ -180,10 +180,10 @@ class MainContainerVC: UIViewController {
     
     @IBAction func btnChatClicked(_ sender: UIBarButtonItem) {
         
-//        let objChatVC = ChatVC.instance()
-//        objChatVC.CaseID = "\(CaseList.savedUser()!.case_id)"
-//        objChatVC.arrayGroupMember = ["1","2","3"]
-//        objChatVC.userID = "1"
+        //        let objChatVC = ChatVC.instance()
+        //        objChatVC.CaseID = "\(CaseList.savedUser()!.case_id)"
+        //        objChatVC.arrayGroupMember = ["1","2","3"]
+        //        objChatVC.userID = "1"
         self.performSegue(withIdentifier: "ChatVC", sender: sender)
     }
     

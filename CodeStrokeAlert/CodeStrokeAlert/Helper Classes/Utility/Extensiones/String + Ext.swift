@@ -12,12 +12,12 @@ extension String {
     
     var localized: String {
         //return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
-         return LanguageManager.sharedInstance.getTranslationForKey(self, value: self)
+        return LanguageManager.sharedInstance.getTranslationForKey(self, value: self)
     }
-//    func localized() -> String {
-//        return LanguageManager.sharedInstance.getTranslationForKey(self, value: self)
-//    }
-
+    //    func localized() -> String {
+    //        return LanguageManager.sharedInstance.getTranslationForKey(self, value: self)
+    //    }
+    
     subscript (i: Int) -> Character {
         return self[self.index(self.startIndex, offsetBy: i)]
     }

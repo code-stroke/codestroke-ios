@@ -52,7 +52,7 @@ class ClinicalAssessmentData: EVObject {
 }
 
 class ClinicalAssessmentVC: UIViewController {
-
+    
     // MARK:- Declarations -
     
     @IBOutlet weak var btnNext: DesignableButton!
@@ -68,7 +68,7 @@ class ClinicalAssessmentVC: UIViewController {
     
     @IBOutlet weak var btnSpeechDifficultyYes: UIButton!
     @IBOutlet weak var btnSpeechDifficultyNo: UIButton!
-
+    
     @IBOutlet weak var btnFacialDroopUnknown: DesignableButton!
     @IBOutlet weak var btnnArmDriftUnknown: DesignableButton!
     @IBOutlet weak var btnWeakGripUnknown: DesignableButton!
@@ -80,7 +80,7 @@ class ClinicalAssessmentVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         self.title = "Clinical Assessment"
@@ -88,7 +88,7 @@ class ClinicalAssessmentVC: UIViewController {
         let image1 = self.gradientWithFrametoImage(frame: btnNext.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
         self.btnNext.backgroundColor = UIColor(patternImage: image1)
     }
-
+    
     // MARK: - Action Methods -
     
     @IBAction func btnNextClicked(_ sender: DesignableButton) {
@@ -172,7 +172,7 @@ class ClinicalAssessmentVC: UIViewController {
     }
     
     // MARK: - Navigation -
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "ClinicalAssessmentTwo" {

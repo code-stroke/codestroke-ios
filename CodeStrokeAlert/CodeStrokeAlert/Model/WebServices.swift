@@ -9,7 +9,7 @@ extension LoginWithQR {
         print("\(url)?\(parameter)")
         self.view.isUserInteractionEnabled = false
         self.showHud("")
-
+        
         let headers = ["content-type": "application/json"]
         
         Alamofire.upload(multipartFormData: {
@@ -273,7 +273,7 @@ extension ClinicianPatientDetailVC {
                 
                 if isGet == false {
                     if response.result.value!.success == true {
-//                        self.performSegue(withIdentifier: "ClinicianPatientDetailTwo", sender: nil)
+                        //                        self.performSegue(withIdentifier: "ClinicianPatientDetailTwo", sender: nil)
                         showAlert("Data submitted successfully")
                     } else {
                         showAlert("Something went wrong")
@@ -337,7 +337,7 @@ extension MainContainerVC {
                 
                 if isGet == false {
                     if response.result.value!.success == true {
-//                        self.performSegue(withIdentifier: "ClinicianPatientDetailTwo", sender: nil)
+                        //                        self.performSegue(withIdentifier: "ClinicianPatientDetailTwo", sender: nil)
                         showAlert("Data submitted successfully")
                     } else {
                         showAlert("Something went wrong")
@@ -470,7 +470,7 @@ extension ClinicianPatientDetailThreeVC {
                 
                 if isGet == false {
                     if response.result.value!.success == true {
-//                        self.performSegue(withIdentifier: "ClinicianPatientDetailFour", sender: nil)
+                        //                        self.performSegue(withIdentifier: "ClinicianPatientDetailFour", sender: nil)
                         showAlert("Data submitted successfully")
                     } else {
                         showAlert("Something went wrong")
@@ -534,7 +534,7 @@ extension ClinicianPatientDetailFourVC {
                 
                 if isGet == false {
                     if response.result.value!.success == true {
-//                        self.performSegue(withIdentifier: "ClinicianPatientDetailFive", sender: nil)
+                        //                        self.performSegue(withIdentifier: "ClinicianPatientDetailFive", sender: nil)
                         showAlert("Data submitted successfully")
                     } else {
                         showAlert("Something went wrong")
@@ -802,7 +802,7 @@ extension ClinicianPatientDetailFiveVC {
                 
                 if isGet == false {
                     if response.result.value!.success == true {
-//                        self.performSegue(withIdentifier: "ClinicianPatientDetailSix", sender: nil)
+                        //                        self.performSegue(withIdentifier: "ClinicianPatientDetailSix", sender: nil)
                         showAlert("Data submitted successfully")
                     } else {
                         showAlert("Something went wrong")
@@ -922,7 +922,7 @@ extension ClinicianPatientDetailSixVC {
                 
                 if isGet == false {
                     if response.result.value!.success == true {
-//                        self.performSegue(withIdentifier: "ClinicianPatientDetailSix", sender: nil)
+                        //                        self.performSegue(withIdentifier: "ClinicianPatientDetailSix", sender: nil)
                         showAlert("Data submitted successfully")
                     } else {
                         showAlert("Something went wrong")

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		18EB9444210DF16400E105F8 /* ChatListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB9441210DF16300E105F8 /* ChatListVC.swift */; };
-		18EB9445210DF16400E105F8 /* UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB9442210DF16400E105F8 /* UserList.swift */; };
 		18EB9446210DF16400E105F8 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB9443210DF16400E105F8 /* ChatVC.swift */; };
 		18EB944A210DF19600E105F8 /* CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB9448210DF19500E105F8 /* CoreDataClass.swift */; };
 		18EB944B210DF19600E105F8 /* FirebaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB9449210DF19500E105F8 /* FirebaseClass.swift */; };
@@ -106,7 +105,6 @@
 /* Begin PBXFileReference section */
 		17E5E9FC369859667F512BBA /* Pods_CodeStrokeAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeStrokeAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EB9441210DF16300E105F8 /* ChatListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListVC.swift; sourceTree = "<group>"; };
-		18EB9442210DF16400E105F8 /* UserList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserList.swift; sourceTree = "<group>"; };
 		18EB9443210DF16400E105F8 /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		18EB9448210DF19500E105F8 /* CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataClass.swift; sourceTree = "<group>"; };
 		18EB9449210DF19500E105F8 /* FirebaseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseClass.swift; sourceTree = "<group>"; };
@@ -236,7 +234,6 @@
 			children = (
 				18EB9441210DF16300E105F8 /* ChatListVC.swift */,
 				18EB9443210DF16400E105F8 /* ChatVC.swift */,
-				18EB9442210DF16400E105F8 /* UserList.swift */,
 			);
 			name = Chat;
 			path = "New Group";
@@ -516,9 +513,9 @@
 		44C348C820D8ADAC0078F6F3 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
-				18EB9447210DF17900E105F8 /* Firebase */,
 				4464EEDA20DA8ECE00BCF58D /* CountryList.json */,
 				4464EEDB20DA8ECE00BCF58D /* CountrySelection.swift */,
+				18EB9447210DF17900E105F8 /* Firebase */,
 				1A083187210852570005AD0C /* Model */,
 				1A850F42210848EC00AB4C5E /* Third Partiy */,
 				1A850F2E210848EC00AB4C5E /* Utility */,
@@ -850,7 +847,6 @@
 				44C348DB20D8ADAC0078F6F3 /* String+Extension.swift in Sources */,
 				4464EF0320DA8ECE00BCF58D /* RMActionControllerTransition.m in Sources */,
 				4480D57520E3BD8C00049641 /* ClinicianPatientDetailThreeVC.swift in Sources */,
-				18EB9445210DF16400E105F8 /* UserList.swift in Sources */,
 				44430EC420D62D890094B2CB /* CodeStrokeAlert.xcdatamodeld in Sources */,
 				1A083190210852580005AD0C /* SendMessage.swift in Sources */,
 				4464EEFB20DA8ECE00BCF58D /* CountrySelection.swift in Sources */,

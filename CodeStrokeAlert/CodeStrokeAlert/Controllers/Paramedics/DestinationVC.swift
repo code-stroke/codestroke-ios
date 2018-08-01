@@ -34,20 +34,20 @@ extension UIPickerView {
 }
 
 class DestinationVC: UIViewController {
-
+    
     // MARK: - Declarations -
     
     @IBOutlet weak var btnNext: DesignableButton!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var viewTop: UIView!
-
+    
     var arrHospitalList = [HospitalData]()
     
     // MARK: - ViewController LifeCycle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         self.title = "Destination"
@@ -74,7 +74,7 @@ class DestinationVC: UIViewController {
             showAlert("No internet connection")
         }
     }
-
+    
     // MARK: - Action Methods -
     
     @IBAction func btnNextClicked(_ sender: DesignableButton) {
@@ -88,9 +88,9 @@ class DestinationVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Navigation -
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "ClinicalHistory" {

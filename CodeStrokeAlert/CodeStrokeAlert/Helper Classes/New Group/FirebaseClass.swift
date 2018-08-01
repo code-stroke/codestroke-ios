@@ -60,7 +60,7 @@ class FirebaseClass: NSObject {
     @objc static var shared = FirebaseClass()
     var objMultimedia:Multimedia?
     @objc var userID: String?
-       
+    
     @objc var ref: DatabaseReference!
     @objc var storageRef: StorageReference!
     var messageHandle: DatabaseHandle!
@@ -68,17 +68,17 @@ class FirebaseClass: NSObject {
     // MARK:- init Function
     @objc func setupFirebase() {
         //if isLogin() {
-            //init DatabaseReference
-            self.userID = "1"
-            ref = Database.database().reference()
-            let storage = Storage.storage()
-            storageRef = storage.reference()
-             
-            //Firbase Login
-            self.firebaseLogin()
-            
-            //Add Observe
-            self.observeOnChat()
+        //init DatabaseReference
+        self.userID = "1"
+        ref = Database.database().reference()
+        let storage = Storage.storage()
+        storageRef = storage.reference()
+        
+        //Firbase Login
+        self.firebaseLogin()
+        
+        //Add Observe
+        self.observeOnChat()
         //}
     }
     
@@ -197,12 +197,12 @@ class FirebaseClass: NSObject {
     
     // MARK:- isTyping Function
     @objc func isTyping(objSendMessage: SendMessage) -> Void {
-       
+        
         var objMessageDis  =  [String:Any]()
         objMessageDis[MessageKey.typingText]    = objSendMessage.typingText
         objMessageDis[MessageKey.isTyping]      = objSendMessage.isTyping
         objMessageDis[MessageKey.messageType]      = objSendMessage.messageType
-
+        
         //Add or update isTyping
         for i in 0..<objSendMessage.groupMember.count {
             if objSendMessage.groupMember[i] != self.userID! {
@@ -216,7 +216,7 @@ class FirebaseClass: NSObject {
         
         var objMessageDis  =  [String:Any]()
         objMessageDis[MessageKey.isRead]    = true
-
+        
         //Add or update isTyping
         self.ref.child(MESSAGES_DIRECTORY).child("CD0001").child(objSendMessage.messageId!).updateChildValues(objMessageDis)
         
@@ -269,9 +269,9 @@ class FirebaseClass: NSObject {
     @objc func RemoveobserveOnMessages(opponent:String!, isGroup:Bool) -> Void {
         //remove observe on Messages
         if isGroup {
-             ref.child(MESSAGES_DIRECTORY).child(opponent).queryLimited(toLast: 20).removeObserver(withHandle: messageHandle)
+            ref.child(MESSAGES_DIRECTORY).child(opponent).queryLimited(toLast: 20).removeObserver(withHandle: messageHandle)
         }else{
-             ref.child(MESSAGES_DIRECTORY).child(self.conversationId(forUser: self.userID!, andOtherUser:opponent)).queryLimited(toLast: 20).removeObserver(withHandle: messageHandle)
+            ref.child(MESSAGES_DIRECTORY).child(self.conversationId(forUser: self.userID!, andOtherUser:opponent)).queryLimited(toLast: 20).removeObserver(withHandle: messageHandle)
         }
         messageHandle = nil
     }
@@ -284,7 +284,7 @@ class FirebaseClass: NSObject {
             return TransactionResult.success(withValue: MutableData)
         }
     }
-
+    
     @objc func AddOrUpdateUnreadCount(opponent:String!, userID:String) -> Void {
         //Add Messahe in Queue
         let referenceNode:DatabaseReference = self.ref.child(RECENT_CHAT_DIRECTORY).child(userID).child(opponent).child(MessageKey.badgeCount)
@@ -308,7 +308,7 @@ class FirebaseClass: NSObject {
             return TransactionResult.success(withValue: MutableData)
         }
     }
-   
+    
     @objc func updateDownloadStates(opponent:String!, messageId:String) -> Void {
         //Update Message node
         let referenceNode:DatabaseReference = self.ref.child(MESSAGES_DIRECTORY).child(opponent!).child(messageId).child(MessageKey.isDownload)
@@ -326,7 +326,7 @@ class FirebaseClass: NSObject {
             return TransactionResult.success(withValue: MutableData)
         }
     }
-
+    
     // MARK:- send messages Function
     @objc func SendMessage(objSendMessage: SendMessage) -> Void {
         
@@ -337,7 +337,7 @@ class FirebaseClass: NSObject {
         objMessageDis[MessageKey.messageType]    = objSendMessage.messageType
         objMessageDis[MessageKey.timeStamp]      = kFirebaseServerValueTimestamp
         objMessageDis[MessageKey.isRead]         = false
-     
+        
         let addMessageHandle: DatabaseReference! = ref.child(MESSAGES_DIRECTORY).child(objSendMessage.caseID!).childByAutoId()
         objMessageDis[MessageKey.messageId] = addMessageHandle.key
         
@@ -380,7 +380,7 @@ class FirebaseClass: NSObject {
         self.notificationQueue(disMsg: objMessageDis)
     }
     
-     // MARK:- send Image Function
+    // MARK:- send Image Function
     @objc func SendImage(objSendMessage: SendMessage) -> Void {
         var objMessageDis  =  [String:Any]()
         objMessageDis[MessageKey.messageText]    = objSendMessage.messageText
@@ -534,7 +534,7 @@ class FirebaseClass: NSObject {
                             }
                         }
                     })
-
+                    
                 })
             }
         }
@@ -549,11 +549,11 @@ class FirebaseClass: NSObject {
             
             print(percentComplete)
         }
-
+        
         uploadTask.observe(.success) { snapshot in
             self.objMultimedia?.uploadComplit(indexPath:indexPath)
         }
-
+        
         uploadTask.observe(.failure) { snapshot in
             if let error = snapshot.error as NSError? {
                 switch (StorageErrorCode(rawValue: error.code)!) {
@@ -593,7 +593,7 @@ class FirebaseClass: NSObject {
             return UIImage.init(named: "crown-logo")
         }
     }
-
+    
     @objc func uploadVideo(localPath:String, videoName:String, indexPath: IndexPath, completion:@escaping (_ url: String?, _ thumUrl: String?) -> Void) {
         
         // Local file you want to upload
@@ -641,7 +641,7 @@ class FirebaseClass: NSObject {
             let percentComplete = 360 * Double(snapshot.progress!.completedUnitCount)
                 / Double(snapshot.progress!.totalUnitCount)
             if percentComplete > 0 {
-               self.objMultimedia?.uploadProgress(progress: percentComplete, indexPath: indexPath)
+                self.objMultimedia?.uploadProgress(progress: percentComplete, indexPath: indexPath)
             }
             
             print(percentComplete)

@@ -24,7 +24,7 @@ class PatientListCell: UITableViewCell {
 }
 
 class PatientListVC: UIViewController {
-
+    
     // MARK: - Declarations -
     
     @IBOutlet weak var tblPatientList: UITableView!
@@ -65,7 +65,7 @@ class PatientListVC: UIViewController {
             showAlert("No internet connection")
         }
     }
-
+    
     // MARK: - Action Methods -
     
     @IBAction func btnSearchClicked(_ sender: UIBarButtonItem) {
@@ -116,11 +116,11 @@ class PatientListVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Navigation -
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        
         if segue.identifier == "ClinicianPatientDetail" {
             
             let destination = segue.destination as! MainContainerVC
@@ -164,7 +164,7 @@ extension PatientListVC: UITableViewDelegate, UITableViewDataSource {
             cell.lblETA.text = ""
             
             if let date = self.filtered[indexPath.row].eta.toDate("yyyy-MM-dd HH:mm") {
-            
+                
                 cell.lblETA.text = date.toString("dd, MMM yyyy hh:mm a")
             }
             
@@ -197,7 +197,7 @@ extension PatientListVC: UITableViewDelegate, UITableViewDataSource {
                     let strDOB = self.calcAge(birthday: self.arrCaseListInComing[indexPath.row].dob)
                     cell.lblAge.text = "\(strDOB)"
                 }
-
+                
                 cell.lblETA.text = ""
                 
                 if let date = self.arrCaseListInComing[indexPath.row].eta.toDate("yyyy-MM-dd HH:mm") {

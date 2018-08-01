@@ -15,7 +15,7 @@ protocol TypeingDelegate {
 }
 
 class CoreDataClass: NSObject {
-
+    
     @objc static var shared = CoreDataClass()
     var objTypeingDelegate:TypeingDelegate?
     
@@ -37,7 +37,7 @@ class CoreDataClass: NSObject {
     
     // MARK: - Other
     @objc func setupCoreDate() {
-                
+        
         persistentContainer.loadPersistentStores(completionHandler: { (storeDescription, error) in
             
             let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.applicationSupportDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
@@ -79,7 +79,7 @@ class CoreDataClass: NSObject {
         } catch {
             print("An error occurred")
         }
-
+        
         return fetchedResultsController 
     }
     
@@ -109,10 +109,10 @@ class CoreDataClass: NSObject {
         } catch {
             print("An error occurred")
         }
-
+        
         return fetchedResultsController
     }
-
+    
     //image Cach Managment
     @objc func downLoadThum(array: [[String : AnyObject]], imgUrl: String) -> Void {
         //DownLoad image
@@ -125,7 +125,7 @@ class CoreDataClass: NSObject {
             Messages.InsertImageMessag(messages: array, context: self.persistentContainer.viewContext)
         })
     }
-
+    
     @objc func downloadThumForMessage(array: [[String : AnyObject]], imgUrl: String) -> Void {
         //DownLoad image
         SDWebImageManager.shared().imageDownloader?.downloadImage(with: URL.init(string: imgUrl), options: SDWebImageDownloaderOptions.ignoreCachedResponse, progress: { (receivedSize, expectedSize, imageURL) in
@@ -144,7 +144,7 @@ class CoreDataClass: NSObject {
         context.performAndWait {
             let tempDis = array[0]
             if tempDis[MessageKey.messageType] as! String == IMAGE {
-               self.downLoadThum(array: array, imgUrl: tempDis[MessageKey.imageThumbURL] as! String)
+                self.downLoadThum(array: array, imgUrl: tempDis[MessageKey.imageThumbURL] as! String)
             }else if tempDis[MessageKey.messageType] as! String == VIDEO {
                 RecentChat.InsertMessag(recentChat: array, context: self.persistentContainer.viewContext)
                 Messages.InsertVideoMessag(messages: array, context: self.persistentContainer.viewContext)
@@ -181,7 +181,7 @@ class CoreDataClass: NSObject {
             Messages.InsertImageMessag(messages: array, context: self.persistentContainer.viewContext)
         }
     }
-
+    
     @objc func insertIntoVideoMessage(array: [[String : AnyObject]]) -> Void {
         let context:NSManagedObjectContext = NSManagedObjectContext.init(concurrencyType: .privateQueueConcurrencyType)
         context.parent = self.persistentContainer.viewContext
@@ -189,7 +189,7 @@ class CoreDataClass: NSObject {
             Messages.InsertVideoMessag(messages: array, context: self.persistentContainer.viewContext)
         }
     }
-
+    
     @objc func UpdateMediaMessag(messageId:String, localUrl:String?, isDownload:Bool) -> Void {
         let context:NSManagedObjectContext = NSManagedObjectContext.init(concurrencyType: .privateQueueConcurrencyType)
         context.parent = self.persistentContainer.viewContext
@@ -197,14 +197,14 @@ class CoreDataClass: NSObject {
             Messages.UpdateMediaMessag(messageUniqueId:messageId, localUrl: localUrl, isDownload: isDownload, context: self.persistentContainer.viewContext)
         }
     }
-
+    
     // MARK: - other Funcation
     
     @objc func getLastMessageID(opponentID:String) -> Messages? {
         
         let request = NSFetchRequest<Messages>(entityName: NSStringFromClass(Messages.self))
         request.predicate = NSPredicate(format: "groupID == %@", opponentID)
-
+        
         request.sortDescriptors = [NSSortDescriptor(key: "timeStamp", ascending: false)]
         request.fetchLimit = 1
         
@@ -216,7 +216,7 @@ class CoreDataClass: NSObject {
         }
         return nil
     }
-
+    
     
     func GetTotalUnreadCount() -> Int? {
         

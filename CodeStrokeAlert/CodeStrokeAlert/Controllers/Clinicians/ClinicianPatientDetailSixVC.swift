@@ -195,7 +195,7 @@ class ClinicianPatientDetailSixVC: UIViewController {
         self.clearSelectionButtons(btn1: btnAbnormalBloodGlucoseNo, btn2: btnAbnormalBloodGlucoseYes)
         sender.isSelected = true
     }
-
+    
     @IBAction func btnRapidlyImprovingClicked(_ sender: UIButton) {
         
         self.clearSelectionButtons(btn1: btnRapidlyImprovingNo, btn2: btnRapidlyImprovingYes)

@@ -54,7 +54,7 @@ class ClinicalHistoryData: EVObject {
 }
 
 class ClinicalHistoryVC: UIViewController {
-
+    
     @IBOutlet weak var btnNext: DesignableButton!
     @IBOutlet weak var txtPostMedicalHistory: UITextField!
     @IBOutlet weak var txtMedications: UITextField!
@@ -65,7 +65,7 @@ class ClinicalHistoryVC: UIViewController {
     @IBOutlet weak var btnEpilepsy: UIButton!
     @IBOutlet weak var btnAF: UIButton!
     @IBOutlet weak var btnOther: UIButton!
-
+    
     @IBOutlet weak var btnAnticoagulantsYes: UIButton!
     @IBOutlet weak var btnAnticoagulantsNo: UIButton!
     
@@ -84,14 +84,14 @@ class ClinicalHistoryVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         self.title = "Clinical History"
         
         let image1 = self.gradientWithFrametoImage(frame: btnNext.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
         self.btnNext.backgroundColor = UIColor(patternImage: image1)
     }
-
+    
     // MARK: - Action Methods -
     
     @IBAction func btnNextClicked(_ sender: DesignableButton) {
@@ -206,7 +206,7 @@ class ClinicalHistoryVC: UIViewController {
     }
     
     // MARK: - Navigation -
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "ClinicalAssessment" {

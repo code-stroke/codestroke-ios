@@ -109,7 +109,7 @@ class ClinicianPatientDetailTwoVC: UIViewController {
             }
         }
     }
-
+    
     // MARK: - Memory Warning -
     
     override func didReceiveMemoryWarning() {
@@ -173,7 +173,7 @@ extension ClinicianPatientDetailTwoVC {
                 let f = DateFormatter()
                 
                 if self.txtLastSeen.isSelected == true {
-
+                    
                     f.dateFormat = "yyyy-MM-dd hh:mm:ss"
                     self.strLastSeen = f.string(from: pickerController.datePicker.date)
                     self.txtLastSeen.text = self.strLastSeen

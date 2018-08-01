@@ -9,12 +9,12 @@
 import UIKit
 
 class DashboardNavigation: UINavigationController {
-
+    
     // MARK:- ViewController LifeCycle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         let navFrames = self.navigationBar.frame
@@ -25,9 +25,9 @@ class DashboardNavigation: UINavigationController {
         self.navigationBar.titleTextAttributes =
             [NSAttributedStringKey.foregroundColor: UIColor.white,
              NSAttributedStringKey.font: UIFont(name: "SFUIDisplay-Semibold", size: 22)!]
-
+        
     }
-
+    
     // MARK:- Memory Warning -
     
     override func didReceiveMemoryWarning() {
@@ -35,10 +35,10 @@ class DashboardNavigation: UINavigationController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     // MARK: - Navigation -
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        
     }
 }

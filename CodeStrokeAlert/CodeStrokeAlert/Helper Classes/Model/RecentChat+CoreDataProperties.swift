@@ -12,11 +12,11 @@ import CoreData
 
 
 extension RecentChat {
-
+    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<RecentChat> {
         return NSFetchRequest<RecentChat>(entityName: "RecentChat")
     }
-
+    
     @NSManaged public var caseID: String?
     @NSManaged public var groupID: String?
     @NSManaged public var groupMember: String?
@@ -32,5 +32,5 @@ extension RecentChat {
     @NSManaged public var timeStamp: NSDate?
     @NSManaged public var typingText: String?
     @NSManaged public var unreadCount: Int16
-
+    
 }

@@ -32,7 +32,7 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
             return value * .pi / 180.0
         }
     }
-
+    
     private enum Utility {
         static func inverseLerp(value: CGFloat, minMax: (CGFloat, CGFloat)) -> CGFloat {
             return (value - minMax.0) / (minMax.1 - minMax.0)
@@ -83,7 +83,7 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
     @objc public var progress: Double = 0 {
         didSet {
             let clampedProgress = progress.clamped(toMinimum: 0, maximum: 1)
-                angle = 360 * clampedProgress
+            angle = 360 * clampedProgress
         }
     }
     
@@ -497,10 +497,10 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
                         }
                     }
                 }
-
+                
                 color.map { fillRectWith(context: ctx, color: $0) }
             }
-
+            
             ctx.restoreGState()
             UIGraphicsPopContext()
         }

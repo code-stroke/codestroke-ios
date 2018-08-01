@@ -9,7 +9,7 @@
 import UIKit
 
 class LanguageManager: NSObject {
-
+    
     static let sharedInstance = LanguageManager()
     
     func getTranslationForKey(_ key: String, value:String) -> String {

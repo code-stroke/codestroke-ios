@@ -9,7 +9,7 @@
 import UIKit
 
 class ClinicianPatientDetailVC: UIViewController {
-
+    
     // MARK: - Declarations -
     
     @IBOutlet weak var btnSubmit: UIButton!
@@ -39,9 +39,9 @@ class ClinicianPatientDetailVC: UIViewController {
             showAlert("No internet connection")
         }
     }
-   
+    
     // MARK: - Action Methods -
-
+    
     @IBAction func btnRegisterTriagedPrimaryClicked(_ sender: UIButton) {
         
         if sender.isSelected {
@@ -80,7 +80,7 @@ class ClinicianPatientDetailVC: UIViewController {
     }
     
     // MARK: - Navigation -
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "ClinicianPatientDetailTwo" {

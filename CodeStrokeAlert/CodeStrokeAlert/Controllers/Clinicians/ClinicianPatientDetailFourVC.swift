@@ -260,7 +260,7 @@ class ClinicianPatientDetailFourVC: UIViewController {
     }
     
     func clearSelectedItems() {
-    
+        
         self.txtFacialPalsy.isSelected = false
         self.txtArmMotorImpairment.isSelected = false
         self.txtLegMotorImpairment.isSelected = false

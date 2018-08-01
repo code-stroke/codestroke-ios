@@ -94,7 +94,7 @@ class ClinicalAssessmentTwoVC: UIViewController {
     @IBOutlet weak var btnMoterOption4: UIButton!
     @IBOutlet weak var btnMoterOption5: UIButton!
     @IBOutlet weak var btnMoterOption6: UIButton!
-
+    
     var clinicalAssessmentTwoData = ClinicalAssessmentTwoData()
     
     // MARK: - View Controller LifeCycle -

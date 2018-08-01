@@ -9,7 +9,7 @@
 import UIKit
 
 class ProfileSummaryVC: UIViewController {
-
+    
     @IBOutlet weak var height_Detail: NSLayoutConstraint!
     @IBOutlet weak var height_History: NSLayoutConstraint!
     @IBOutlet weak var height_Mass: NSLayoutConstraint!
@@ -53,7 +53,7 @@ class ProfileSummaryVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         self.title = "Profile Summary"
@@ -95,7 +95,7 @@ class ProfileSummaryVC: UIViewController {
         
         self.btn18GIV.setTitle(strCannula, for: .normal)
     }
-
+    
     // MARK:- Action Methods -
     
     @IBAction func btnProfileItemClicked(_ sender: DesignableButton) {
@@ -172,7 +172,7 @@ class ProfileSummaryVC: UIViewController {
     }
     
     // MARK: - Navigation -
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

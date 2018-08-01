@@ -12,11 +12,11 @@ import CoreData
 
 
 extension Messages {
-
+    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Messages> {
         return NSFetchRequest<Messages>(entityName: "Messages")
     }
-
+    
     @NSManaged public var caseID: String?
     @NSManaged public var groupID: String?
     @NSManaged public var groupMember: String?
@@ -37,5 +37,5 @@ extension Messages {
     @NSManaged public var senderName: String?
     @NSManaged public var timeStamp: NSDate?
     @NSManaged public var videoUrl: String?
-
+    
 }

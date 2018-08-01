@@ -56,7 +56,7 @@ class PatientDetailData: EVObject {
 }
 
 class PatientDetailVC: UIViewController {
-
+    
     // MARK:- Declarations -
     
     var ausdlFrontRecognizer: MBAustraliaDlFrontRecognizer?
@@ -97,7 +97,7 @@ class PatientDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         MBMicroblinkSDK.sharedInstance().setLicenseKey("sRwAAAEeY29tLmNvZGVzdHJva2UuY29kZXN0cm9rZWFsZXJ04ls3fvQTb0rDajvWXuiwHdFN+l0yLoO9E3CDVxQReb3DNLnnx4FkZSiyz+PGy/O+9juLBV6YAEeiLTKPuTQj3OJ/EBmc9tSTLAkoNuqN0ZEyyN+24Ofs38vEmLsfMZPyp9v0Mv9fx8iYEppDdYxgG605xGd5eL7K7UAGf8xhPnv/xqHLzEeV2duPYNYNR1bo/ZIFogHArS+ShOecZ6qa4/ONWOYQfzmo74CsJwnED7k81BWooUC7")
@@ -122,27 +122,27 @@ class PatientDetailVC: UIViewController {
         f.dateFormat = "yyyy-MM-dd hh:mm:ss"
         self.strLastSeen = f.string(from: Date())
     }
-
+    
     // MARK:- Action Methods -
     
     @IBAction func btnScanLicenseClicked(_ sender: UIButton) {
         
         // To specify we want to perform MRTD (machine readable travel document) recognition, initialize the MRTD recognizer settings
         /** Create ausdl recognizer */
-
+        
         self.ausdlFrontRecognizer = MBAustraliaDlFrontRecognizer()
         self.ausdlFrontRecognizer?.returnFullDocumentImage = true
-
+        
         /** Create ausdl recognizer */
         let settings : MBDocumentOverlaySettings = MBDocumentOverlaySettings()
-
+        
         /** Crate recognizer collection */
         let recognizerList = [self.ausdlFrontRecognizer!]
         let recognizerCollection : MBRecognizerCollection = MBRecognizerCollection(recognizers: recognizerList)
-
+        
         /** Create your overlay view controller */
         let barcodeOverlayViewController : MBDocumentOverlayViewController = MBDocumentOverlayViewController(settings: settings, recognizerCollection: recognizerCollection, delegate: self)
-
+        
         /** Create recognizer view controller with wanted overlay view controller */
         let recognizerRunneViewController : UIViewController = MBViewControllerFactory.recognizerRunnerViewController(withOverlayViewController: barcodeOverlayViewController)
         
@@ -268,9 +268,9 @@ class PatientDetailVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Navigation -
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -293,7 +293,7 @@ extension PatientDetailVC: MBDocumentOverlayViewControllerDelegate {
         documentOverlayViewController.recognizerRunnerViewController?.pauseScanning()
         
         if let result = self.ausdlFrontRecognizer?.result {
-         
+            
             print(result)
             
             DispatchQueue.main.async {
@@ -331,7 +331,7 @@ extension PatientDetailVC: MBDocumentOverlayViewControllerDelegate {
 // MARK: - UITextField Delegate -
 
 extension PatientDetailVC: UITextFieldDelegate {
-
+    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
         if textField == txtDOB {

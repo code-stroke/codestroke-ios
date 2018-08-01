@@ -212,7 +212,7 @@ extension UIViewController {
     }
     
     func localToUTC(date:String) -> String {
-
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a"
         dateFormatter.calendar = NSCalendar.current
