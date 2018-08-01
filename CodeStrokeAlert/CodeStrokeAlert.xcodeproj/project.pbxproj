@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18EB9444210DF16400E105F8 /* ChatListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB9441210DF16300E105F8 /* ChatListVC.swift */; };
-		18EB9446210DF16400E105F8 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB9443210DF16400E105F8 /* ChatVC.swift */; };
 		18EB944A210DF19600E105F8 /* CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB9448210DF19500E105F8 /* CoreDataClass.swift */; };
 		18EB944B210DF19600E105F8 /* FirebaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB9449210DF19500E105F8 /* FirebaseClass.swift */; };
 		18EB9466210E016200E105F8 /* RecentChat+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB9462210E016200E105F8 /* RecentChat+CoreDataClass.swift */; };
@@ -31,6 +29,8 @@
 		1A850F5D210848ED00AB4C5E /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A850F45210848EC00AB4C5E /* KDCircularProgress.swift */; };
 		1A850F5E210848ED00AB4C5E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A850F46210848EC00AB4C5E /* Info.plist */; };
 		1A850F672108493B00AB4C5E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A850F662108493B00AB4C5E /* GoogleService-Info.plist */; };
+		1A95010B2111DA7100D9D722 /* ChatListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9501092111DA7100D9D722 /* ChatListVC.swift */; };
+		1A95010C2111DA7100D9D722 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A95010A2111DA7100D9D722 /* ChatVC.swift */; };
 		44430EBC20D62D890094B2CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44430EBB20D62D890094B2CB /* AppDelegate.swift */; };
 		44430EC120D62D890094B2CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44430EBF20D62D890094B2CB /* Main.storyboard */; };
 		44430EC420D62D890094B2CB /* CodeStrokeAlert.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44430EC220D62D890094B2CB /* CodeStrokeAlert.xcdatamodeld */; };
@@ -104,8 +104,6 @@
 
 /* Begin PBXFileReference section */
 		17E5E9FC369859667F512BBA /* Pods_CodeStrokeAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeStrokeAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		18EB9441210DF16300E105F8 /* ChatListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListVC.swift; sourceTree = "<group>"; };
-		18EB9443210DF16400E105F8 /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		18EB9448210DF19500E105F8 /* CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataClass.swift; sourceTree = "<group>"; };
 		18EB9449210DF19500E105F8 /* FirebaseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseClass.swift; sourceTree = "<group>"; };
 		18EB9462210E016200E105F8 /* RecentChat+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentChat+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -130,6 +128,8 @@
 		1A850F46210848EC00AB4C5E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A850F47210848EC00AB4C5E /* KDCircularProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDCircularProgress.h; sourceTree = "<group>"; };
 		1A850F662108493B00AB4C5E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1A9501092111DA7100D9D722 /* ChatListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListVC.swift; sourceTree = "<group>"; };
+		1A95010A2111DA7100D9D722 /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		44430EB820D62D890094B2CB /* CodeStrokeAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeStrokeAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44430EBB20D62D890094B2CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44430EC020D62D890094B2CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -229,16 +229,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		18EB943C210DF0C400E105F8 /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-				18EB9441210DF16300E105F8 /* ChatListVC.swift */,
-				18EB9443210DF16400E105F8 /* ChatVC.swift */,
-			);
-			name = Chat;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		18EB9447210DF17900E105F8 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,6 +316,15 @@
 				1A850F47210848EC00AB4C5E /* KDCircularProgress.h */,
 			);
 			path = KDCircularProgress;
+			sourceTree = "<group>";
+		};
+		1A9501082111DA5800D9D722 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				1A9501092111DA7100D9D722 /* ChatListVC.swift */,
+				1A95010A2111DA7100D9D722 /* ChatVC.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		1AE1390020EFAE0F00C04F30 /* Clinicians */ = {
@@ -502,7 +501,7 @@
 		44C348C720D8AC470078F6F3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				18EB943C210DF0C400E105F8 /* Chat */,
+				1A9501082111DA5800D9D722 /* Chat */,
 				44FBE91420E3738D00E9E819 /* Login */,
 				44FBE91520E373A700E9E819 /* Paramedics */,
 				1AE1390020EFAE0F00C04F30 /* Clinicians */,
@@ -832,7 +831,6 @@
 				44C348F620D8CFCE0078F6F3 /* DestinationVC.swift in Sources */,
 				4464EF0220DA8ECE00BCF58D /* NSProcessInfo+RMActionController.m in Sources */,
 				18EB9469210E016200E105F8 /* Messages+CoreDataProperties.swift in Sources */,
-				18EB9446210DF16400E105F8 /* ChatVC.swift in Sources */,
 				18EB944A210DF19600E105F8 /* CoreDataClass.swift in Sources */,
 				1A850F5D210848ED00AB4C5E /* KDCircularProgress.swift in Sources */,
 				1A850F5B210848ED00AB4C5E /* Utility.swift in Sources */,
@@ -853,9 +851,10 @@
 				44C348DD20D8ADAC0078F6F3 /* NSDate+Extension.swift in Sources */,
 				44C348FE20D8FFCA0078F6F3 /* ClinicalAssessmentTwoVC.swift in Sources */,
 				44C3490020D92F980078F6F3 /* ClinicalAssessmentFour.swift in Sources */,
+				1A95010B2111DA7100D9D722 /* ChatListVC.swift in Sources */,
 				44D7FA6020DF9DDE00D66EF1 /* Extension.swift in Sources */,
-				18EB9444210DF16400E105F8 /* ChatListVC.swift in Sources */,
 				18EB9467210E016200E105F8 /* RecentChat+CoreDataProperties.swift in Sources */,
+				1A95010C2111DA7100D9D722 /* ChatVC.swift in Sources */,
 				4464EEFD20DA8ECE00BCF58D /* RMGroupedAction.m in Sources */,
 				44C348EC20D8AE8C0078F6F3 /* ViewDesign.swift in Sources */,
 				44C348F220D8BB1E0078F6F3 /* PatientDetailVC.swift in Sources */,
