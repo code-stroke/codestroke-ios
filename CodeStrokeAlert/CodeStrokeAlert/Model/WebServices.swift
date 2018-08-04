@@ -34,12 +34,15 @@ extension LoginWithQR {
                             
                             if status == 200 {
                                 
-                                self.loginUserData.userID = response.result.value!.user_id
+                                self.loginUserData.userID = response.result.value!.login_user_id
                                 self.loginUserData.save()
                                 
                                 if let userInfo = response.result.value {
                                     userInfo.save()
                                 }
+                                
+                                FirebaseClass.shared.setupFirebase()
+                                CoreDataClass.shared.setupCoreDate()
                                 
                                 appDelegate.goToClinicianDeshBordView()
                             }

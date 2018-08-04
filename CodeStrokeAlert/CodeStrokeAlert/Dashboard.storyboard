@@ -55,10 +55,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pn4-Oo-dDd">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOe-1m-HBX">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mTz-oD-pPu">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="645"/>
@@ -536,9 +536,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Pn4-Oo-dDd" firstAttribute="leading" secondItem="3kj-FS-Z4f" secondAttribute="leading" id="1lk-LB-I7Y"/>
-                            <constraint firstItem="Pn4-Oo-dDd" firstAttribute="top" secondItem="3kj-FS-Z4f" secondAttribute="top" id="365-fv-mna"/>
                             <constraint firstItem="Pn4-Oo-dDd" firstAttribute="trailing" secondItem="3kj-FS-Z4f" secondAttribute="trailing" id="5V6-Vo-kwr"/>
-                            <constraint firstItem="Pn4-Oo-dDd" firstAttribute="bottom" secondItem="3kj-FS-Z4f" secondAttribute="bottom" id="aUG-09-Ihj"/>
+                            <constraint firstAttribute="bottom" secondItem="Pn4-Oo-dDd" secondAttribute="bottom" id="aCL-tc-hzT"/>
+                            <constraint firstItem="Pn4-Oo-dDd" firstAttribute="top" secondItem="ySC-5D-tGf" secondAttribute="top" id="sj7-w8-ImU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3kj-FS-Z4f"/>
                     </view>
@@ -572,7 +572,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="for-PV-YfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-354" y="-15"/>
+            <point key="canvasLocation" x="-354.375" y="-15.845070422535212"/>
         </scene>
         <!--Dashboard Navigation-->
         <scene sceneID="xCR-cJ-1wK">
@@ -603,13 +603,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grZ-cj-dn7">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgr-xt-RAY">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Kt-Zz-XV0">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RE5-Rf-dnd">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
@@ -684,7 +684,7 @@
                                                         </constraints>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="eIS-3B-0xs">
-                                                        <rect key="frame" x="0.0" y="60" width="320" height="444"/>
+                                                        <rect key="frame" x="0.0" y="60" width="320" height="508"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <searchBar key="tableHeaderView" contentMode="redraw" id="C1Y-sA-GRw">
                                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -838,9 +838,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="j72-BM-Jn0" firstAttribute="trailing" secondItem="grZ-cj-dn7" secondAttribute="trailing" id="A4A-DO-Eax"/>
-                            <constraint firstItem="grZ-cj-dn7" firstAttribute="top" secondItem="j72-BM-Jn0" secondAttribute="top" id="FXh-Yx-n1i"/>
                             <constraint firstItem="j72-BM-Jn0" firstAttribute="bottom" secondItem="grZ-cj-dn7" secondAttribute="bottom" id="fbB-jT-7Zr"/>
                             <constraint firstItem="grZ-cj-dn7" firstAttribute="leading" secondItem="j72-BM-Jn0" secondAttribute="leading" id="lfj-5x-agt"/>
+                            <constraint firstItem="grZ-cj-dn7" firstAttribute="top" secondItem="aFf-x6-ePY" secondAttribute="top" id="xMx-H1-rko"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="j72-BM-Jn0"/>
                     </view>
@@ -876,13 +876,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JfU-Kw-FRY">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijs-JW-idO">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fc9-nL-u8c">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Xh-qf-T63">
                                                         <rect key="frame" x="14.5" y="15" width="290" height="70"/>
@@ -1062,40 +1062,40 @@
                                                         </constraints>
                                                     </scrollView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vg0-jI-Knl">
-                                                        <rect key="frame" x="0.0" y="170" width="320" height="334"/>
+                                                        <rect key="frame" x="0.0" y="170" width="320" height="398"/>
                                                         <subviews>
                                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anv-hC-y04">
-                                                                <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                                                                 <connections>
                                                                     <segue destination="ImC-NI-96U" kind="embed" id="MHg-uv-3Gy"/>
                                                                 </connections>
                                                             </containerView>
                                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OaA-ey-Jty">
-                                                                <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                                                                 <connections>
                                                                     <segue destination="ROO-JL-tEm" kind="embed" id="6UU-Ry-qrQ"/>
                                                                 </connections>
                                                             </containerView>
                                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QoQ-rr-WGw">
-                                                                <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                                                                 <connections>
                                                                     <segue destination="3K8-5I-GwM" kind="embed" id="EZI-C7-tWl"/>
                                                                 </connections>
                                                             </containerView>
                                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nha-VK-uUW">
-                                                                <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                                                                 <connections>
                                                                     <segue destination="jRv-Kh-hkr" kind="embed" id="ouS-u8-ohB"/>
                                                                 </connections>
                                                             </containerView>
                                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="by9-k3-uTY">
-                                                                <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                                                                 <connections>
                                                                     <segue destination="4RU-jX-1er" kind="embed" id="xWJ-PV-yze"/>
                                                                 </connections>
                                                             </containerView>
                                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oA5-Z4-mZU">
-                                                                <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                                                                 <connections>
                                                                     <segue destination="pIT-Yh-9b0" kind="embed" id="zfF-wH-Lwt"/>
                                                                 </connections>
@@ -1166,10 +1166,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="JfU-Kw-FRY" firstAttribute="top" secondItem="QuA-Lh-xxV" secondAttribute="top" id="1eH-tJ-pyn"/>
                             <constraint firstItem="JfU-Kw-FRY" firstAttribute="leading" secondItem="QuA-Lh-xxV" secondAttribute="leading" id="BuU-nv-J9I"/>
                             <constraint firstItem="QuA-Lh-xxV" firstAttribute="trailing" secondItem="JfU-Kw-FRY" secondAttribute="trailing" id="Ct8-4t-06I"/>
                             <constraint firstItem="QuA-Lh-xxV" firstAttribute="bottom" secondItem="JfU-Kw-FRY" secondAttribute="bottom" id="JTr-cI-gS4"/>
+                            <constraint firstItem="JfU-Kw-FRY" firstAttribute="top" secondItem="Oxz-d6-bDf" secondAttribute="top" id="yeA-wZ-OcQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QuA-Lh-xxV"/>
                     </view>
@@ -2089,10 +2089,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMk-Vh-Tuj">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GRW-7J-XWt">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTp-9j-xUc">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="582"/>
@@ -2367,7 +2367,7 @@
                                                                         <rect key="frame" x="187" y="0.0" width="113" height="30"/>
                                                                         <subviews>
                                                                             <button hidden="YES" opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKB-yF-5TG" userLabel="Heparin">
-                                                                                <rect key="frame" x="-197" y="-340" width="0.0" height="20"/>
+                                                                                <rect key="frame" x="-197" y="-276" width="0.0" height="20"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                                                 <state key="normal" image="ic_unchecked">
                                                                                     <color key="titleColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -2500,10 +2500,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="iMk-Vh-Tuj" firstAttribute="top" secondItem="iep-UU-Zdg" secondAttribute="top" id="Idv-Hi-gJa"/>
                             <constraint firstItem="lU1-zZ-6fy" firstAttribute="bottom" secondItem="iMk-Vh-Tuj" secondAttribute="bottom" id="hrl-gK-pKP"/>
                             <constraint firstItem="lU1-zZ-6fy" firstAttribute="trailing" secondItem="iMk-Vh-Tuj" secondAttribute="trailing" id="noo-l3-PoF"/>
                             <constraint firstItem="iMk-Vh-Tuj" firstAttribute="leading" secondItem="lU1-zZ-6fy" secondAttribute="leading" id="qR6-Dg-cuB"/>
-                            <constraint firstItem="iMk-Vh-Tuj" firstAttribute="top" secondItem="lU1-zZ-6fy" secondAttribute="top" id="xO5-hE-e8W"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lU1-zZ-6fy"/>
                     </view>
@@ -2928,10 +2928,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="an6-Hj-kjS">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fg-Sv-ivk">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Vj-Rb-Ogg">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="723"/>
@@ -3020,7 +3020,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GCS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDX-T7-GP3">
-                                                        <rect key="frame" x="141.5" y="358" width="37" height="30"/>
+                                                        <rect key="frame" x="142" y="358" width="37" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="ZP2-5g-fI0"/>
                                                         </constraints>
@@ -3462,7 +3462,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="an6-Hj-kjS" firstAttribute="top" secondItem="Cry-Yc-9NN" secondAttribute="top" id="Ldx-W3-lNm"/>
+                            <constraint firstItem="an6-Hj-kjS" firstAttribute="top" secondItem="Vmm-v1-6Us" secondAttribute="top" id="6kI-Gn-nwc"/>
                             <constraint firstItem="an6-Hj-kjS" firstAttribute="leading" secondItem="Cry-Yc-9NN" secondAttribute="leading" id="cG6-23-Glb"/>
                             <constraint firstItem="Cry-Yc-9NN" firstAttribute="bottom" secondItem="an6-Hj-kjS" secondAttribute="bottom" id="evo-0q-Wdo"/>
                             <constraint firstItem="Cry-Yc-9NN" firstAttribute="trailing" secondItem="an6-Hj-kjS" secondAttribute="trailing" id="zKy-j2-hOI"/>
@@ -3515,10 +3515,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MwB-ey-L8a">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Seu-Ei-ios">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Pv-I7-hg6">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="765"/>
@@ -3843,9 +3843,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="MwB-ey-L8a" firstAttribute="leading" secondItem="AMY-tU-dBF" secondAttribute="leading" id="HX8-xS-g1P"/>
-                            <constraint firstItem="MwB-ey-L8a" firstAttribute="top" secondItem="AMY-tU-dBF" secondAttribute="top" id="LEf-Ib-21A"/>
                             <constraint firstItem="AMY-tU-dBF" firstAttribute="trailing" secondItem="MwB-ey-L8a" secondAttribute="trailing" id="TZr-gE-qA2"/>
                             <constraint firstItem="AMY-tU-dBF" firstAttribute="bottom" secondItem="MwB-ey-L8a" secondAttribute="bottom" id="Tqv-lg-HOd"/>
+                            <constraint firstItem="MwB-ey-L8a" firstAttribute="top" secondItem="ZLe-pP-HBN" secondAttribute="top" id="y7Q-FO-eDZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AMY-tU-dBF"/>
                     </view>
@@ -3995,10 +3995,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BXs-AR-zZD">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GTg-v7-FmS">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9hK-jv-pqZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="355"/>
@@ -4887,7 +4887,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="BXs-AR-zZD" firstAttribute="trailing" secondItem="YDG-tL-ru6" secondAttribute="trailing" id="Kfn-pj-GVD"/>
-                            <constraint firstItem="BXs-AR-zZD" firstAttribute="top" secondItem="YDG-tL-ru6" secondAttribute="top" id="LMM-vM-Og5"/>
+                            <constraint firstItem="BXs-AR-zZD" firstAttribute="top" secondItem="o6R-Km-1We" secondAttribute="top" id="SVi-cg-7Y9"/>
                             <constraint firstItem="YDG-tL-ru6" firstAttribute="bottom" secondItem="BXs-AR-zZD" secondAttribute="bottom" id="XWA-qa-sZC"/>
                             <constraint firstItem="BXs-AR-zZD" firstAttribute="leading" secondItem="YDG-tL-ru6" secondAttribute="leading" id="s6k-yB-jUZ"/>
                         </constraints>
@@ -4938,14 +4938,14 @@
             <objects>
                 <viewController storyboardIdentifier="ClinicianPatientDetailVC" id="ImC-NI-96U" customClass="ClinicianPatientDetailVC" customModule="CodeStrokeAlert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Suh-ey-rnJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCp-h5-Ojn">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DrT-dk-hJd">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Location : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iuy-2k-dsH">
                                                 <rect key="frame" x="10" y="10" width="130" height="19.5"/>
@@ -5017,7 +5017,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="inq-Tu-OJs">
-                                                <rect key="frame" x="60" y="269" width="200" height="45"/>
+                                                <rect key="frame" x="60" y="333" width="200" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="CZq-zZ-wLW"/>
                                                     <constraint firstAttribute="height" constant="45" id="rYx-UG-Yu3"/>
@@ -5085,11 +5085,11 @@
             <objects>
                 <viewController storyboardIdentifier="ClinicianPatientDetailTwoVC" id="ROO-JL-tEm" customClass="ClinicianPatientDetailTwoVC" customModule="CodeStrokeAlert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4e1-zF-1UA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="phV-HJ-Esb">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVQ-dX-syR">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="539"/>
@@ -5322,11 +5322,11 @@
             <objects>
                 <viewController storyboardIdentifier="ClinicianPatientDetailThreeVC" id="3K8-5I-GwM" customClass="ClinicianPatientDetailThreeVC" customModule="CodeStrokeAlert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s8E-ga-Bkf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Per-ee-brK">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNH-3p-bid">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="433"/>
@@ -5515,11 +5515,11 @@
             <objects>
                 <viewController storyboardIdentifier="ClinicianPatientDetailFourVC" id="jRv-Kh-hkr" customClass="ClinicianPatientDetailFourVC" customModule="CodeStrokeAlert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Z1-fR-4Qo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0kl-PY-QFN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VAI-La-GOg">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="2373"/>
@@ -6804,11 +6804,11 @@
             <objects>
                 <viewController storyboardIdentifier="ClinicianPatientDetailFiveVC" id="4RU-jX-1er" customClass="ClinicianPatientDetailFiveVC" customModule="CodeStrokeAlert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L9e-aB-pNx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dvn-gY-ZiY">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wvb-CV-r7J">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="499"/>
@@ -7315,11 +7315,11 @@
             <objects>
                 <viewController storyboardIdentifier="ClinicianPatientDetailSixVC" id="pIT-Yh-9b0" customClass="ClinicianPatientDetailSixVC" customModule="CodeStrokeAlert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bPo-bf-6kU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vfP-uE-8Wz">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xa6-Bc-lnJ">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1252"/>

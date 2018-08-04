@@ -145,10 +145,10 @@ class CoreDataClass: NSObject {
             let tempDis = array[0]
             if tempDis[MessageKey.messageType] as! String == IMAGE {
                 self.downLoadThum(array: array, imgUrl: tempDis[MessageKey.imageThumbURL] as! String)
-            }else if tempDis[MessageKey.messageType] as! String == VIDEO {
+            } else if tempDis[MessageKey.messageType] as! String == VIDEO {
                 RecentChat.InsertMessag(recentChat: array, context: self.persistentContainer.viewContext)
                 Messages.InsertVideoMessag(messages: array, context: self.persistentContainer.viewContext)
-            }else {
+            } else {
                 if tempDis[MessageKey.messageType] as! String == TYPING {
                     RecentChat.InsertIsTyping(recentChat: array, context: self.persistentContainer.viewContext)
                     self.objTypeingDelegate?.isTypeing(typeingText: tempDis[MessageKey.typingText] as! String)
@@ -166,9 +166,9 @@ class CoreDataClass: NSObject {
             let tempDis = array[0]
             if tempDis[MessageKey.messageType] as! String == IMAGE {
                 self.downloadThumForMessage(array: array, imgUrl: tempDis[MessageKey.imageThumbURL] as! String)
-            }else if tempDis[MessageKey.messageType] as! String == VIDEO {
+            } else if tempDis[MessageKey.messageType] as! String == VIDEO {
                 Messages.InsertVideoMessag(messages: array, context: self.persistentContainer.viewContext)
-            }else {
+            } else {
                 Messages.InsertMessag(messages: array, context: self.persistentContainer.viewContext)
             }
         }

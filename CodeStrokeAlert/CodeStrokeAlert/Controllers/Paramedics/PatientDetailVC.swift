@@ -126,26 +126,26 @@ class PatientDetailVC: UIViewController {
     // MARK:- Action Methods -
     
     @IBAction func btnScanLicenseClicked(_ sender: UIButton) {
-        
+
         // To specify we want to perform MRTD (machine readable travel document) recognition, initialize the MRTD recognizer settings
         /** Create ausdl recognizer */
-        
+
         self.ausdlFrontRecognizer = MBAustraliaDlFrontRecognizer()
         self.ausdlFrontRecognizer?.returnFullDocumentImage = true
-        
+
         /** Create ausdl recognizer */
         let settings : MBDocumentOverlaySettings = MBDocumentOverlaySettings()
-        
+
         /** Crate recognizer collection */
         let recognizerList = [self.ausdlFrontRecognizer!]
         let recognizerCollection : MBRecognizerCollection = MBRecognizerCollection(recognizers: recognizerList)
-        
+
         /** Create your overlay view controller */
         let barcodeOverlayViewController : MBDocumentOverlayViewController = MBDocumentOverlayViewController(settings: settings, recognizerCollection: recognizerCollection, delegate: self)
-        
+
         /** Create recognizer view controller with wanted overlay view controller */
         let recognizerRunneViewController : UIViewController = MBViewControllerFactory.recognizerRunnerViewController(withOverlayViewController: barcodeOverlayViewController)
-        
+
         /** Present the recognizer runner view controller. You can use other presentation methods as well (instead of presentViewController) */
         self.present(recognizerRunneViewController, animated: true, completion: nil)
     }
@@ -287,31 +287,31 @@ class PatientDetailVC: UIViewController {
 // MARK: - MBDocumentOverlayViewControllerDelegate Delegate -
 
 extension PatientDetailVC: MBDocumentOverlayViewControllerDelegate {
-    
+
     func documentOverlayViewControllerDidFinishScanning(_ documentOverlayViewController: MBDocumentOverlayViewController, state: MBRecognizerResultState) {
         /** This is done on background thread */
         documentOverlayViewController.recognizerRunnerViewController?.pauseScanning()
-        
+
         if let result = self.ausdlFrontRecognizer?.result {
-            
+
             print(result)
-            
+
             DispatchQueue.main.async {
                 // present the alert view with scanned results
-                
+
                 if let firstName = result.name {
                     let name = firstName.components(separatedBy: " ")
                     self.txtFirstName.text = name[0]
                     self.txtSurname.text = name[1]
                 }
-                
+
                 if let address = result.address {
-                    
+
                     self.txtAddress.text = address
                 }
-                
+
                 if let dob = result.dateOfBirth {
-                    
+
                     let f = DateFormatter()
                     f.dateFormat = "MMM dd, yyyy"
                     let formattedDate: String = f.string(from: dob)
@@ -319,10 +319,10 @@ extension PatientDetailVC: MBDocumentOverlayViewControllerDelegate {
                 }
             }
         }
-        
+
         self.dismiss(animated: true, completion: nil)
     }
-    
+
     func documentOverlayViewControllerDidTapClose(_ documentOverlayViewController: MBDocumentOverlayViewController) {
         self.dismiss(animated: true, completion: nil)
     }

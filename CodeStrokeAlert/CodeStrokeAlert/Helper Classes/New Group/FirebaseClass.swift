@@ -15,6 +15,7 @@ var MESSAGES_DIRECTORY      = "MESSAGE"
 var RECENT_CHAT_DIRECTORY   = "RECENTCHAT/"
 var USER_DIRECTORY          = "USERS/"
 var NOTIFICATION_QUEUE      = "queue/tasks"
+var MEMBERS                 = "MEMBERS"
 
 let kFirebaseServerValueTimestamp = ServerValue.timestamp() as! [String: Any]
 
@@ -64,22 +65,24 @@ class FirebaseClass: NSObject {
     @objc var ref: DatabaseReference!
     @objc var storageRef: StorageReference!
     var messageHandle: DatabaseHandle!
+    var memberHandle: DatabaseHandle!
     
     // MARK:- init Function
     @objc func setupFirebase() {
-        //if isLogin() {
-        //init DatabaseReference
-        self.userID = "1"
-        ref = Database.database().reference()
-        let storage = Storage.storage()
-        storageRef = storage.reference()
+//        if isLogin() {
+            //init DatabaseReference
+            self.userID = "\(UserData.savedUser()!.login_user_id)"
+            ref = Database.database().reference()
+            let storage = Storage.storage()
+            storageRef = storage.reference()
+            
+            //Firbase Login
+            self.firebaseLogin()
+            
+            //Add Observe
+            self.observeOnChat()
         
-        //Firbase Login
-        self.firebaseLogin()
-        
-        //Add Observe
-        self.observeOnChat()
-        //}
+//        }
     }
     
     // MARK:- Other Function
@@ -87,12 +90,12 @@ class FirebaseClass: NSObject {
         if let username = utility.getUserDefault(kUserName) {
             if (username as! String) != "" {
                 //Assign User ID
-                self.userID = String(describing: "1")
+                self.userID = "\(UserData.savedUser()!.login_user_id)"
                 return true
-            }else{
+            } else {
                 return false
             }
-        }else{
+        } else {
             return false
         }
     }
@@ -114,13 +117,13 @@ class FirebaseClass: NSObject {
     @objc func addUserData() {
         
         var objUserDis              =  [String:String]()
-        objUserDis["First Name"]    = "Jayesh"
-        objUserDis["Last Name"]     = "Mardiya"
-        objUserDis["UserID"]        = "1"
+        objUserDis["First Name"]    = LoginUserData.savedUser()!.strFirstName
+        objUserDis["Last Name"]     = LoginUserData.savedUser()!.strLastName
+        objUserDis["UserID"]        = self.userID
         objUserDis["Image thumb"]   = ""
         objUserDis["Image"]         = ""
-        objUserDis["role"]          = "Patient"
-        ref.child(USER_DIRECTORY).child("1").setValue(objUserDis)
+        objUserDis["role"]          = LoginUserData.savedUser()!.strUserRole
+        ref.child(USER_DIRECTORY).child("\(LoginUserData.savedUser()!.userID)").setValue(objUserDis)
         utility.setUserDefault(objUserDis["UserID"]!, kUserID)
         utility.setUserDefault("\(objUserDis["First Name"]!) \(objUserDis["Last Name"]!)", kUserName)
     }
@@ -211,17 +214,6 @@ class FirebaseClass: NSObject {
         }
     }
     
-    // MARK:- isTyping Function
-    @objc func isRead(objSendMessage: Messages) -> Void {
-        
-        var objMessageDis  =  [String:Any]()
-        objMessageDis[MessageKey.isRead]    = true
-        
-        //Add or update isTyping
-        self.ref.child(MESSAGES_DIRECTORY).child("CD0001").child(objSendMessage.messageId!).updateChildValues(objMessageDis)
-        
-    }
-    
     // MARK:- Add observe Function
     @objc func observeOnChat() -> Void {
         
@@ -250,7 +242,7 @@ class FirebaseClass: NSObject {
             
         }
     }
-    
+
     @objc func observeOnMessages(otherUserID:String!, isGroup:Bool) -> Void {
         
         //Get List of Last 20 Messages with add observer
@@ -263,6 +255,17 @@ class FirebaseClass: NSObject {
             messageHandle =  ref.child(MESSAGES_DIRECTORY).child(self.conversationId(forUser: self.userID!, andOtherUser:otherUserID)).queryLimited(toLast: 20).observe(DataEventType.childAdded, with: { (objDataSnapshot) in
             })
         }
+    }
+    
+    @objc func observeOnMember(casID:String!) -> Void {
+        memberHandle =  ref.child(MEMBERS).child(casID).observe(DataEventType.childAdded, with: { (objDataSnapshot) in
+            print(objDataSnapshot)
+            appDelegate.arrForGroupMembers.append(objDataSnapshot.value as! String)
+        })
+    }
+    
+    @objc func addMembers(caseID:String!, userID:String!) -> Void {
+        ref.child(MEMBERS).child(caseID).child(userID).setValue(userID)
     }
     
     // MARK:- remove observe Function

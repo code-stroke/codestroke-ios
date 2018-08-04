@@ -35,7 +35,7 @@ extension Messages {
     @NSManaged public var sectionIdentifier: String?
     @NSManaged public var senderId: String?
     @NSManaged public var senderName: String?
-    @NSManaged public var timeStamp: NSDate?
+    @NSManaged public var timeStamp: Date?
     @NSManaged public var videoUrl: String?
     
 }

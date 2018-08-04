@@ -20,6 +20,7 @@ let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
 class ChatVC: UIViewController {
     
     //MARK: - IBOutlet
+    
     @IBOutlet weak var tblChat: UITableView!
     @IBOutlet weak var inputToolBar: UIView!
     @IBOutlet weak var lblTitle: UILabel!
@@ -57,6 +58,9 @@ class ChatVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
+        //Add Observe
+        FirebaseClass.shared.observeOnMember(casID: self.CaseID)
+        
         //Get Last MessageID
         let objMessages: Messages? = CoreDataClass.shared.getLastMessageID(opponentID: self.CaseID!)
         if let messageId = objMessages?.messageId {
@@ -68,12 +72,15 @@ class ChatVC: UIViewController {
         super.viewWillAppear(animated)
         //self.lblTitle.text = CaseID
         
+        //Add Member
+        FirebaseClass.shared.addMembers(caseID: self.CaseID, userID: self.userID)
+        
         self.tblChat.reloadData()
         self.doScrollTableToBottom()
         
         if (self.messageFetch.sections?.count)! > 0 {
             //Reset Unread count
-            FirebaseClass.shared.reSetUnreadCount(opponent: self.CaseID)
+            //FirebaseClass.shared.reSetUnreadCount(opponent: self.CaseID)
         }
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -128,6 +135,7 @@ class ChatVC: UIViewController {
     }
     
     @objc func keyboardShow(_ notification: Notification) {
+        
         let endFrame = ((notification as NSNotification).userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         ctBottomInputToolBar.constant = UIScreen.main.bounds.height - endFrame.origin.y
         self.view.layoutIfNeeded()
@@ -285,6 +293,7 @@ class ChatVC: UIViewController {
     }
     
     @IBAction func btnTapOnAttechment(_ sender: Any) {
+        
         self.showActionSheetPhotoPicker { (success, image, mediaUrl, isImage, picker) in
             if success {
                 self.objMessageDis[MessageKey.messageUniqueId] = self.generateUUID() as AnyObject
@@ -293,7 +302,7 @@ class ChatVC: UIViewController {
                 self.objMessageDis[MessageKey.messageType] = IMAGE as AnyObject
                 self.objMessageDis[MessageKey.groupID] = self.CaseID as AnyObject
                 self.objMessageDis[MessageKey.groupName] = self.CaseID as AnyObject
-                self.objMessageDis[MessageKey.senderID] = LoginUserData.savedUser()!.userID as AnyObject
+                self.objMessageDis[MessageKey.senderID] = self.userID as AnyObject
                 self.objMessageDis[MessageKey.senderName] = LoginUserData.savedUser()!.strFirstName as AnyObject
                 self.objMessageDis[MessageKey.memberID] = (self.arrayGroupMember.map{String($0)}).joined(separator: ",") as AnyObject
                 self.objMessageDis[MessageKey.receiverID] = self.CaseID as AnyObject
@@ -307,7 +316,7 @@ class ChatVC: UIViewController {
                     
                     //Add Message
                     CoreDataClass.shared.insertIntoVideoMessage(array: [self.objMessageDis as Dictionary<String, AnyObject>])
-                }else {
+                } else {
                     let fileManager = FileManager.default
                     let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
                     let filePathToWrite = "\(paths)/\(self.generateUUID()).jpg"
@@ -325,6 +334,15 @@ class ChatVC: UIViewController {
     
     @IBAction func sendMessag(_ sender: Any) {
         //self.stopTyeping()
+     
+        for obj in appDelegate.arrForGroupMembers {
+            if self.arrayGroupMember.contains(obj) {
+                //Already in array
+            }else{
+                self.arrayGroupMember.append(obj)
+            }
+        }
+        
         self.textViewMsg.text = self.textViewMsg.text.trimmingCharacters(in: .whitespacesAndNewlines)
         if self.textViewMsg.text.count > 0 {
             let objSendMessage = SendMessage()
@@ -334,7 +352,7 @@ class ChatVC: UIViewController {
             objSendMessage.caseID       = self.CaseID
             objSendMessage.groupName    = self.CaseID
             objSendMessage.senderName   = LoginUserData.savedUser()!.strFirstName
-            objSendMessage.senderID     = "\(LoginUserData.savedUser()!.userID)"
+            objSendMessage.senderID     = "\(UserData.savedUser()!.login_user_id)"
             objSendMessage.groupMember  = self.arrayGroupMember 
             objSendMessage.receiverID   = self.CaseID
             objSendMessage.groupID      = self.CaseID
@@ -344,6 +362,7 @@ class ChatVC: UIViewController {
     }
     
     @objc func btnDownloadImageTap(sender : UIButton) {
+        
         let center: CGPoint = sender.center
         let rootViewPoint: CGPoint = sender.superview!.convert(center, to: tblChat)
         let indexPath: IndexPath? = tblChat.indexPathForRow(at: rootViewPoint)
@@ -389,7 +408,7 @@ class ChatVC: UIViewController {
                 objCustomMediaViewer = CustomMediaViewer.init(controller: self, pathURL: URL.init(string:(messages?.localPath!)!)!, isForVideo: false)
                 objCustomMediaViewer?.showMediaOnTheView(theView: cell.imageReceived)
             }
-        }else {
+        } else {
             if let cell = tblChat.cellForRow(at: indexPath!) as? SentImageCell {
                 if messages?.localPath == nil || messages?.localPath == "" {
                     objCustomMediaViewer = CustomMediaViewer.init(controller: self, pathURL: URL.init(string:(messages?.imageURL!)!)!, isForVideo: false)
@@ -412,7 +431,7 @@ class ChatVC: UIViewController {
             if messages?.localPath == nil || messages?.localPath == "" {
                 objCustomMediaViewer = CustomMediaViewer.init(controller: self, pathURL: URL.init(string:(messages?.videoUrl!)!)!, isForVideo: true)
                 objCustomMediaViewer?.showMediaOnTheView(theView: cell.imageReceived)
-            }else {
+            } else {
                 if cell.imageReceived != nil {
                     objCustomMediaViewer = CustomMediaViewer.init(controller: self, pathURL: URL.init(string:(messages?.localPath!)!)!, isForVideo: true)
                     objCustomMediaViewer?.showMediaOnTheView(theView: cell.imageReceived)
@@ -420,7 +439,7 @@ class ChatVC: UIViewController {
                     print("Image Nil")
                 }
             }
-        }else {
+        } else {
             if let cell = tblChat.cellForRow(at: indexPath!) as? SentVideoCell {
                 if messages?.localPath == nil || messages?.localPath == "" {
                     objCustomMediaViewer = CustomMediaViewer.init(controller: self, pathURL: URL.init(string:(messages?.videoUrl!)!)!, isForVideo: true)
@@ -567,37 +586,31 @@ extension ChatVC: UITableViewDelegate, UITableViewDataSource {
                 let cell:SentMessageCell = tableView.dequeueReusableCell(withIdentifier: "SentMessageCell", for: indexPath) as! SentMessageCell
                 let strMessage = messages?.message
                 cell.lblMessage.text = strMessage
-                //cell.lblTime.text = messages?.timeStamp?.toString(format: DateFormatType.isHoursMin)
+                cell.lblTime.text = messages?.timeStamp?.toString(format: DateFormatType.isHoursMin)
                 cell.imgBg.image = UIImage(named: "chat-sender-bg")?.stretchableImage(withLeftCapWidth: 15, topCapHeight: 15)
                 if let isRead = messages?.isRead {
                     if isRead {
                         cell.imgViewReadStatus.image = UIImage.init(named: "double-check-read")
-                    }else{
+                    } else {
                         cell.imgViewReadStatus.image = UIImage.init(named: "Double_check")
                     }
                 }
                 
                 returnCell = cell
-            }else {
+            } else {
                 let cell:ReceivedMessageCell = tableView.dequeueReusableCell(withIdentifier: "ReceivedMessageCell", for: indexPath) as! ReceivedMessageCell
                 let strMessage = messages?.message
                 cell.lblMessage.text = strMessage
                 cell.lblName.text = messages?.senderName
-                //cell.lblTime.text =  messages?.timeStamp?.toString(format: DateFormatType.isHoursMin)
+                cell.lblTime.text =  messages?.timeStamp?.toString(format: DateFormatType.isHoursMin)
                 cell.imgBg.image = UIImage(named: "chat-receiver-bg")?.stretchableImage(withLeftCapWidth: 30, topCapHeight: 20)
-                
-                if let isRead = messages?.isRead {
-                    if !isRead {
-                        FirebaseClass.shared.isRead(objSendMessage: messages!)
-                    }
-                }
                 
                 returnCell = cell
             }
-        }else if messages?.messageType == IMAGE {
+        } else if messages?.messageType == IMAGE {
             if !isOutgoing! {
                 let cell:SentImageCell = tableView.dequeueReusableCell(withIdentifier: "SentImageCell", for: indexPath) as! SentImageCell
-                //cell.lblTime.text = messages?.timeStamp?.toString(format: DateFormatType.isHoursMin)
+                cell.lblTime.text = messages?.timeStamp?.toString(format: DateFormatType.isHoursMin)
                 cell.imgBg.image = UIImage(named: "imageChatSend")?.stretchableImage(withLeftCapWidth: 15, topCapHeight: 15)
                 cell.btnRetry.addTarget(self, action: #selector(self.btnRetryTap), for: .touchUpInside)
                 cell.btnRetry.isHidden = true
@@ -610,20 +623,20 @@ extension ChatVC: UITableViewDelegate, UITableViewDataSource {
                     cell.btnOpenImage.isHidden = false
                     if messages?.localPath == nil || messages?.localPath == ""{
                         cell.imagSent.sd_setImage(with: URL(string:(messages?.imageURL)!), placeholderImage: UIImage.init(named: "crown-logo"))
-                    }else{
+                    } else {
                         cell.imagSent.sd_setImage(with: URL(string:(messages?.localPath)!), placeholderImage: UIImage.init(named: "crown-logo"))
                     }
                     
-                }else{
+                } else {
                     cell.progress.isHidden = false
                     cell.imagSent.sd_setImage(with: URL(string:(messages?.localPath)!), placeholderImage: UIImage.init(named: "crown-logo"))
                     self.UploadImage(objMessages: messages!, indexPath: indexPath)
                 }
                 returnCell = cell
-            }else {
+            } else {
                 let cell:ReceivedImageCell = tableView.dequeueReusableCell(withIdentifier: "ReceivedImageCell", for: indexPath) as! ReceivedImageCell
                 cell.lblName.text = messages?.senderName
-                //cell.lblTime.text =  messages?.timeStamp?.toString(format: DateFormatType.isHoursMin)
+                cell.lblTime.text =  messages?.timeStamp?.toString(format: DateFormatType.isHoursMin)
                 cell.imgBg.image = UIImage(named: "imageChatRecive")?.stretchableImage(withLeftCapWidth: 30, topCapHeight: 20)
                 cell.progress.isHidden = true
                 cell.btnDownload.addTarget(self, action: #selector(self.btnDownloadImageTap), for: .touchUpInside)
@@ -638,21 +651,21 @@ extension ChatVC: UITableViewDelegate, UITableViewDataSource {
                     cell.imageReceived.image = nil
                     if let image = img {
                         cell.imageReceived.image = image
-                    }else {
+                    } else {
                         cell.imageReceived.sd_setImage(with: URL(string:(messages?.imageThumbURL)!), placeholderImage:img)
                     }
                     
-                }else{
+                } else {
                     cell.imageReceived.sd_setImage(with: URL(string:(messages?.imageThumbURL)!), placeholderImage: UIImage.init(named: "crown-logo"))
                     cell.btnDownload.isHidden = false
                 }
                 
                 returnCell = cell
             }
-        }else if messages?.messageType == VIDEO {
+        } else if messages?.messageType == VIDEO {
             if !isOutgoing! {
                 let cell:SentVideoCell = tableView.dequeueReusableCell(withIdentifier: "SentVideoCell", for: indexPath) as! SentVideoCell
-                //cell.lblTime.text = messages?.timeStamp?.toString(format: DateFormatType.isHoursMin)
+                cell.lblTime.text = messages?.timeStamp?.toString(format: DateFormatType.isHoursMin)
                 cell.imgBg.image = UIImage(named: "imageChatSend")?.stretchableImage(withLeftCapWidth: 15, topCapHeight: 15)
                 cell.btnRetry.addTarget(self, action: #selector(self.btnRetryTap), for: .touchUpInside)
                 cell.btnRetry.isHidden = true
@@ -681,7 +694,7 @@ extension ChatVC: UITableViewDelegate, UITableViewDataSource {
             }else {
                 let cell:ReceivedVideoCell = tableView.dequeueReusableCell(withIdentifier: "ReceivedVideoCell", for: indexPath) as! ReceivedVideoCell
                 cell.lblName.text = messages?.senderName
-                //cell.lblTime.text =  messages?.timeStamp?.toString(format: DateFormatType.isHoursMin)
+                cell.lblTime.text =  messages?.timeStamp?.toString(format: DateFormatType.isHoursMin)
                 cell.imgBg.image = UIImage(named: "imageChatRecive")?.stretchableImage(withLeftCapWidth: 30, topCapHeight: 20)
                 cell.progress.isHidden = true
                 cell.btnPlay.isHidden = true

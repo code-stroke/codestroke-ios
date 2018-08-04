@@ -63,7 +63,7 @@ class UserData: EVObject {
     
     var status: Int                     = 0
     var message: String                 = ""
-    var user_id: Int                    = 0
+    var login_user_id: Int              = 0
     var data: [AllUserIds]?
     
     func save() {

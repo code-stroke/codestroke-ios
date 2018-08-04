@@ -15,35 +15,8 @@ public class Messages: NSManagedObject {
     @objc class func InsertMessag(messages:[[String:AnyObject]], context:NSManagedObjectContext) {
         for discMessages in messages {
             if Messages.isExitMessage(messageId: discMessages[MessageKey.messageId]! as! String, context: context) {
-                let objMessages: Messages = Messages.MessageObject(messageId: discMessages[MessageKey.messageId]! as! String, context: context)
-                objMessages.caseID              = discMessages[MessageKey.groupID] as? String
-                objMessages.groupID             = discMessages[MessageKey.groupID] as? String
-                objMessages.groupMember         = discMessages[MessageKey.memberID] as? String
-                objMessages.imageURL            = ""
-                objMessages.imageThumbURL       = ""
-                objMessages.videoUrl            = ""
-                objMessages.isGroup             = true
-                objMessages.isUpload            = true
-                objMessages.isRead              = discMessages[MessageKey.isRead] as! Bool
-                objMessages.localPath           = ""
-                objMessages.messageUniqueId     = ""
-                objMessages.message             = discMessages[MessageKey.messageText] as? String
-                objMessages.messageId           = discMessages[MessageKey.messageId] as? String
-                objMessages.messageType         = discMessages[MessageKey.messageType] as? String
-                objMessages.receiverId          = ""
-                objMessages.senderId            = discMessages[MessageKey.senderID] as? String
-                objMessages.senderName          = discMessages[MessageKey.senderName] as? String
-                let date = Date(timeIntervalSince1970: (discMessages[MessageKey.timeStamp] as? TimeInterval)!/1000)
-                objMessages.timeStamp           = date as Date as NSDate
                 
-                let dateStringSection           =  date.toString(format: DateFormatType.serverDate)
-                let dateFormater : DateFormatter = DateFormatter()
-                dateFormater.dateFormat         = DateFormatType.serverDate.stringFormat
-                let newdate                     = dateFormater.date(from: dateStringSection)
-                objMessages.sectionIdentifier   = "\(String(describing: newdate!.timeIntervalSince1970))"
-                
-                
-            }else {
+            } else {
                 let objMessages: Messages! = NSEntityDescription.insertNewObject(forEntityName: "Messages", into: context) as! Messages
                 objMessages.caseID              = discMessages[MessageKey.groupID] as? String
                 objMessages.groupID             = discMessages[MessageKey.groupID] as? String
@@ -63,7 +36,7 @@ public class Messages: NSManagedObject {
                 objMessages.senderId            = discMessages[MessageKey.senderID] as? String
                 objMessages.senderName          = discMessages[MessageKey.senderName] as? String
                 let date = Date(timeIntervalSince1970: (discMessages[MessageKey.timeStamp] as? TimeInterval)!/1000)
-                objMessages.timeStamp           = date as Date as NSDate
+                objMessages.timeStamp           = date as Date
                 
                 let dateStringSection           =  date.toString(format: DateFormatType.serverDate)
                 let dateFormater : DateFormatter = DateFormatter()
@@ -92,7 +65,7 @@ public class Messages: NSManagedObject {
                 objMessages.message             = discMessages[MessageKey.messageText] as? String
                 objMessages.messageId           = discMessages[MessageKey.messageId] as? String
                 let date = Date(timeIntervalSince1970: (discMessages[MessageKey.timeStamp] as? TimeInterval)!/1000)
-                objMessages.timeStamp           = date as Date as NSDate
+                objMessages.timeStamp           = date as Date
                 
                 let dateStringSection =  date.toString(format: DateFormatType.serverDate)
                 let dateFormater : DateFormatter = DateFormatter()
@@ -100,7 +73,7 @@ public class Messages: NSManagedObject {
                 let newdate = dateFormater.date(from: dateStringSection)
                 objMessages.sectionIdentifier = "\(String(describing: newdate!.timeIntervalSince1970))"
                 
-            }else {
+            } else {
                 let objMessages: Messages! = NSEntityDescription.insertNewObject(forEntityName: "Messages", into: context) as! Messages
                 objMessages.caseID    = discMessages[MessageKey.groupID] as? String
                 objMessages.groupID   = discMessages[MessageKey.groupID] as? String
@@ -130,7 +103,7 @@ public class Messages: NSManagedObject {
                 }
                 
                 let date = Date(timeIntervalSince1970: (discMessages[MessageKey.timeStamp] as? TimeInterval)!/1000)
-                objMessages.timeStamp  = date as Date as NSDate
+                objMessages.timeStamp  = date as Date
                 
                 let dateStringSection =  date.toString(format: DateFormatType.serverDate)
                 let dateFormater : DateFormatter = DateFormatter()
@@ -159,7 +132,7 @@ public class Messages: NSManagedObject {
                 objMessages.message  = discMessages[MessageKey.messageText] as? String
                 objMessages.messageId  = discMessages[MessageKey.messageId] as? String
                 let date = Date(timeIntervalSince1970: (discMessages[MessageKey.timeStamp] as? TimeInterval)!/1000)
-                objMessages.timeStamp  = date as Date as NSDate
+                objMessages.timeStamp  = date as Date
                 
                 let dateStringSection =  date.toString(format: DateFormatType.serverDate)
                 let dateFormater : DateFormatter = DateFormatter()
@@ -168,7 +141,7 @@ public class Messages: NSManagedObject {
                 objMessages.sectionIdentifier = "\(String(describing: newdate!.timeIntervalSince1970))"
                 
                 
-            }else {
+            } else {
                 let objMessages: Messages! = NSEntityDescription.insertNewObject(forEntityName: "Messages", into: context) as! Messages
                 objMessages.caseID    = discMessages[MessageKey.groupID] as? String
                 objMessages.groupID   = discMessages[MessageKey.groupID] as? String
@@ -190,14 +163,14 @@ public class Messages: NSManagedObject {
                     objMessages.imageThumbURL  = discMessages[MessageKey.imageThumbURL] as? String
                     objMessages.videoUrl  = discMessages[MessageKey.videoUrl] as? String
                     objMessages.isUpload  = true
-                }else {
+                } else {
                     objMessages.messageId  = ""
                     objMessages.imageThumbURL  = ""
                     objMessages.videoUrl  = ""
                 }
                 
                 let date = Date(timeIntervalSince1970: (discMessages[MessageKey.timeStamp] as? TimeInterval)!/1000)
-                objMessages.timeStamp  = date as Date as NSDate
+                objMessages.timeStamp  = date as Date
                 
                 let dateStringSection =  date.toString(format: DateFormatType.serverDate)
                 let dateFormater : DateFormatter = DateFormatter()

@@ -23,14 +23,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var window: UIWindow?
     private let appID = "a704a88e-9e37-41f6-99b8-6ded41926c03"
     var deviceTokenString = "123"
+    var arrForGroupMembers = [String]()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         //Firebase
         FirebaseApp.configure()
-        FirebaseClass.shared.setupFirebase()
-        CoreDataClass.shared.setupCoreDate()
+        
+        if UserData.savedUser() != nil {
+            //FirebaseClass.shared.setupFirebase()
+            //CoreDataClass.shared.setupCoreDate()
+        }
         
         registerForPushNotifications()
         

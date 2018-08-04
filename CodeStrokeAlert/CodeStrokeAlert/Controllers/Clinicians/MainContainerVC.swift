@@ -267,12 +267,12 @@ class MainContainerVC: UIViewController {
         } else if segue.identifier == "ChatVC" {
             let destination = segue.destination as! ChatVC
             destination.CaseID = "\(CaseList.savedUser()!.case_id)"
+            destination.userID = "\(UserData.savedUser()!.login_user_id)"
             destination.arrayGroupMember = []
             for (_, value) in UserData.savedUser()!.data!.enumerated() {
                 destination.arrayGroupMember.append("\(value.user_id)")
             }
-            
-            destination.userID = "\(String(describing: LoginUserData.savedUser()?.userID))"
+            destination.arrayGroupMember.append("\(UserData.savedUser()!.login_user_id)")
             print(destination)
         }
     }

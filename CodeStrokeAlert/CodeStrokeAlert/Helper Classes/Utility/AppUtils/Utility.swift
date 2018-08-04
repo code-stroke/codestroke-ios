@@ -35,6 +35,7 @@ class Utility: NSObject {
     }
     
     @objc func convertDateToString (date: Date, originalFormat: String, convertFormat: String) -> String {
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = convertFormat
         let dateObj = dateFormatter.string(from: date)
@@ -65,6 +66,7 @@ class Utility: NSObject {
     }
     
     @objc func setAttributedString(withCaption: String, captionFontSize: CGFloat, withTitle: String, titleFontSize: CGFloat) -> NSMutableAttributedString {
+        
         let strReturn = NSMutableAttributedString()
         strReturn.append(withCaption.withAttributes([NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): Constants.kAppGreyColor, NSAttributedStringKey(rawValue: NSAttributedStringKey.font.rawValue): UIFont(name: Constants.kFontRegular, size: 11.0)!]))
         let color = Constants.kAppBlueColor
@@ -73,13 +75,16 @@ class Utility: NSObject {
     }
     
     @objc func setUserDefault(_ obj: Any, _ key: String) {
+        
         let userDefaults = UserDefaults.standard
         userDefaults.set(obj, forKey: key)
         userDefaults.synchronize()
     }
     
     @objc func getUserDefault(_ key: String) -> Any? {
+        
         let userDefaults = UserDefaults.standard
+        
         if let tmpValue = userDefaults.object(forKey: key) {
             return tmpValue
         } else {
@@ -88,7 +93,9 @@ class Utility: NSObject {
     }
     
     @objc func getUserDefaultBool(_ key: String) -> Bool {
+        
         let userDefaults = UserDefaults.standard
+        
         if let flag = userDefaults.object(forKey: key) {
             return flag as! Bool
         }
@@ -96,5 +103,6 @@ class Utility: NSObject {
     }
     
     func logFirebaseAnalyticScreenEvent(name: FirebaseEvent) {
+        
     }
 }
