@@ -1,6 +1,7 @@
 import Foundation
 import KRProgressHUD
 import Alamofire
+import OneSignal
 
 extension LoginWithQR {
     
@@ -40,6 +41,8 @@ extension LoginWithQR {
                                 if let userInfo = response.result.value {
                                     userInfo.save()
                                 }
+                                
+                                OneSignal.sendTags(["role": self.strSelectedWSUserRole])
                                 
                                 FirebaseClass.shared.setupFirebase()
                                 CoreDataClass.shared.setupCoreDate()
@@ -220,21 +223,36 @@ extension PatientListVC {
                 if response.result.value!.result!.count > 0 {
                     self.arrCaseList = response.result.value!.result!
                     
-                    for (index, value) in self.arrCaseList.enumerated() {
+                    if appDelegate.Case_ID != 0 {
                         
-                        if self.arrCaseList[index].status == "active" {
-                            self.arrCaseListActive.append(value)
-                        } else if self.arrCaseList[index].status == "incoming" {
-                            self.arrCaseListInComing.append(value)
-                        } else if self.arrCaseList[index].status == "completed" {
-                            self.arrCaseListCompleted.append(value)
+                        self.arrCaseList.forEach { (objRoutien) in
+                            
+                            if objRoutien.case_id == appDelegate.Case_ID {
+                                appDelegate.Case_ID = 0
+                                objRoutien.save()
+                                self.performSegue(withIdentifier: "ClinicianPatientDetail", sender: nil)
+                                return
+                            }
                         }
+                        
+                    } else {
+                        for (index, value) in self.arrCaseList.enumerated() {
+                            
+                            if self.arrCaseList[index].status == "active" {
+                                self.arrCaseListActive.append(value)
+                            } else if self.arrCaseList[index].status == "incoming" {
+                                self.arrCaseListInComing.append(value)
+                            } else if self.arrCaseList[index].status == "completed" {
+                                self.arrCaseListCompleted.append(value)
+                            }
+                        }
+                        self.tblPatientList.reloadData()
                     }
                     
                 } else {
                     self.arrCaseList = []
+                    self.tblPatientList.reloadData()
                 }
-                self.tblPatientList.reloadData()
             } else {
                 showAlert("Database return nil value")
             }

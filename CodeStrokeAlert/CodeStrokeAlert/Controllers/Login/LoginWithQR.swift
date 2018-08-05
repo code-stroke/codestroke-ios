@@ -66,6 +66,7 @@ class LoginWithQR: UIViewController {
     var arrUsreType = ["Paramedic", "Clinician"]
     var strSelectedUserType: String = ""
     var strSelectedUserRole: String = ""
+    var strSelectedWSUserRole: String = ""
     var loginUserData = LoginUserData()
     
     // MARK:- ViewController LifeCycle -
@@ -75,7 +76,7 @@ class LoginWithQR: UIViewController {
         // Do any additional setup after loading the view.
         
         self.title = "Login"
-        
+
         let image1 = self.gradientWithFrametoImage(frame: btnLogin.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
         self.btnLogin.backgroundColor = UIColor(patternImage: image1)
         
@@ -90,6 +91,28 @@ class LoginWithQR: UIViewController {
             if LoginUserData.savedUser()!.strUserType == "Clinician" {
                 self.stackUserRole.isHidden = false
                 self.strSelectedUserRole = self.txtRole.text!
+                
+                if self.strSelectedUserRole == "Admin" {
+                    self.strSelectedWSUserRole = "admin"
+                } else if self.strSelectedUserRole == "Anaesthetist" {
+                    self.strSelectedWSUserRole = "anaesthetist"
+                } else if self.strSelectedUserRole == "Angiography Nurse" {
+                    self.strSelectedWSUserRole = "angio_nurse"
+                } else if self.strSelectedUserRole == "ED Clinician" {
+                    self.strSelectedWSUserRole = "ed_clinician"
+                } else if self.strSelectedUserRole == "Neurointerventionalist" {
+                    self.strSelectedWSUserRole = "neuroint"
+                } else if self.strSelectedUserRole == "Paramedic" {
+                    self.strSelectedWSUserRole = "paramedic"
+                } else if self.strSelectedUserRole == "Radiographer" {
+                    self.strSelectedWSUserRole = "radiographer"
+                } else if self.strSelectedUserRole == "Radiologist" {
+                    self.strSelectedWSUserRole = "radiologist"
+                } else if self.strSelectedUserRole == "Stroke Team" {
+                    self.strSelectedWSUserRole = "stroke_team"
+                } else if self.strSelectedUserRole == "Stroke Ward" {
+                    self.strSelectedWSUserRole = "stroke_ward"
+                }
             }
         }
     }
@@ -111,6 +134,7 @@ class LoginWithQR: UIViewController {
             self.strSelectedUserType = "Clinician"
             self.txtRole.text = ""
             self.strSelectedUserRole = ""
+            self.strSelectedWSUserRole = ""
             self.stackUserRole.isHidden = false
         }))
         
@@ -124,51 +148,61 @@ class LoginWithQR: UIViewController {
         actionsheet.addAction(UIAlertAction(title: "Admin", style: UIAlertActionStyle.default, handler: { (action) -> Void in
             self.txtRole.text = "Admin"
             self.strSelectedUserRole = "Admin"
+            self.strSelectedWSUserRole = "admin"
         }))
         
         actionsheet.addAction(UIAlertAction(title: "Anaesthetist", style: UIAlertActionStyle.default, handler: { (action) -> Void in
             self.txtRole.text = "Anaesthetist"
             self.strSelectedUserRole = "Anaesthetist"
+            self.strSelectedWSUserRole = "anaesthetist"
         }))
         
         actionsheet.addAction(UIAlertAction(title: "Angiography Nurse", style: UIAlertActionStyle.default, handler: { (action) -> Void in
             self.txtRole.text = "Angiography Nurse"
             self.strSelectedUserRole = "Angiography Nurse"
+            self.strSelectedWSUserRole = "angio_nurse"
         }))
         
         actionsheet.addAction(UIAlertAction(title: "ED Clinician", style: UIAlertActionStyle.default, handler: { (action) -> Void in
             self.txtRole.text = "ED Clinician"
             self.strSelectedUserRole = "ED Clinician"
+            self.strSelectedWSUserRole = "ed_clinician"
         }))
         
         actionsheet.addAction(UIAlertAction(title: "Neurointerventionalist", style: UIAlertActionStyle.default, handler: { (action) -> Void in
             self.txtRole.text = "Neurointerventionalist"
             self.strSelectedUserRole = "Neurointerventionalist"
+            self.strSelectedWSUserRole = "neuroint"
         }))
         
         actionsheet.addAction(UIAlertAction(title: "Paramedic", style: UIAlertActionStyle.default, handler: { (action) -> Void in
             self.txtRole.text = "Paramedic"
             self.strSelectedUserRole = "Paramedic"
+            self.strSelectedWSUserRole = "paramedic"
         }))
         
         actionsheet.addAction(UIAlertAction(title: "Radiographer", style: UIAlertActionStyle.default, handler: { (action) -> Void in
             self.txtRole.text = "Radiographer"
             self.strSelectedUserRole = "Radiographer"
+            self.strSelectedWSUserRole = "radiographer"
         }))
         
         actionsheet.addAction(UIAlertAction(title: "Radiologist", style: UIAlertActionStyle.default, handler: { (action) -> Void in
             self.txtRole.text = "Radiologist"
             self.strSelectedUserRole = "Radiologist"
+            self.strSelectedWSUserRole = "radiologist"
         }))
         
         actionsheet.addAction(UIAlertAction(title: "Stroke Team", style: UIAlertActionStyle.default, handler: { (action) -> Void in
             self.txtRole.text = "Stroke Team"
             self.strSelectedUserRole = "Stroke Team"
+            self.strSelectedWSUserRole = "stroke_team"
         }))
         
         actionsheet.addAction(UIAlertAction(title: "Stroke Ward", style: UIAlertActionStyle.default, handler: { (action) -> Void in
             self.txtRole.text = "Stroke Ward"
             self.strSelectedUserRole = "Stroke Ward"
+            self.strSelectedWSUserRole = "stroke_ward"
         }))
         
         self.present(actionsheet, animated: true, completion: nil)

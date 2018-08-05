@@ -103,6 +103,19 @@ class PatientListVC: UIViewController {
     
     // MARK: - Custom Methods -
     
+    @objc func callAnimationWhileNotification() {
+        
+        if Reachability.isConnectedToNetwork() {
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.async {
+                    self.WS_PatientInfo(url: AppURL.baseURL + AppURL.CaseList)
+                }
+            }
+        } else {
+            showAlert("No internet connection")
+        }
+    }
+    
     func clearSelection() {
         
         self.btnActive.isSelected = false

@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var window: UIWindow?
     private let appID = "a704a88e-9e37-41f6-99b8-6ded41926c03"
     var deviceTokenString = "123"
+    var Case_ID = 0
     var arrForGroupMembers = [String]()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -31,66 +32,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         //Firebase
         FirebaseApp.configure()
         
-        if UserData.savedUser() != nil {
-            //FirebaseClass.shared.setupFirebase()
-            //CoreDataClass.shared.setupCoreDate()
-        }
-        
         registerForPushNotifications()
         
         if let launchOptions = launchOptions {
             
             if let userInfo = launchOptions[UIApplicationLaunchOptionsKey.remoteNotification] as? [AnyHashable : Any] {
                 
-                print(userInfo)
+                let (title, body) = self.getAlert(notification: userInfo as [NSObject : AnyObject])
+                print("\(title),\(body)")
+                self.Case_ID = title
+                self.goToClinicianDeshBordView()
             }
         }
-        
-        let notificationOpenedBlock: OSHandleNotificationActionBlock = { result in
-            // This block gets called when the user reacts to a notification received
-            let payload: OSNotificationPayload? = result?.notification.payload
-            
-            print("Message: \(payload!.body)")
-            print("badge number:", payload?.badge ?? "nil")
-            print("notification sound:", payload?.sound ?? "nil")
-            
-            if let additionalData = result!.notification.payload!.additionalData {
-                print("additionalData = \(additionalData)")
-                
-                if let actionSelected = payload?.actionButtons {
-                    print("actionSelected = \(actionSelected)")
-                }
-                
-                // DEEP LINK from action buttons
-                if let actionID = result?.action.actionID {
-                    
-                    // For presenting a ViewController from push notification action button
-                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                    let actionWebView : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "WebViewID") as UIViewController
-                    let actionSecond: UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "SecondID") as UIViewController
-                    self.window = UIWindow(frame: UIScreen.main.bounds)
-                    
-                    print("actionID = \(actionID)")
-                    
-                    if actionID == "id2" {
-                        print("id2")
-                        self.window?.rootViewController = actionWebView
-                        self.window?.makeKeyAndVisible()
-                        
-                        
-                    } else if actionID == "id1" {
-                        print("id1")
-                        self.window?.rootViewController = actionSecond
-                        self.window?.makeKeyAndVisible()
-                    }
-                }
-            }
-        }
-        
-        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false, kOSSettingsKeyInAppLaunchURL: true, ]
-        
-        OneSignal.initWithLaunchOptions(launchOptions, appId: appID, handleNotificationAction: notificationOpenedBlock, settings: onesignalInitSettings)
-        
         
         OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
         
@@ -260,16 +213,24 @@ extension AppDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
-        print("didReceiveRemoteNotification fetchCompletionHandler", userInfo)
         updateDetail(with: userInfo, completionHandler)
     }
     
     func updateDetail(with userInfo: [AnyHashable : Any], _ completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
-        if let data = userInfo["alert"] as? [AnyHashable : Any], let value = data["url"] as? String {
-            print(data, value)
-        } else {
-            completionHandler(UIBackgroundFetchResult.noData)
-        }
+        let (title, body) = self.getAlert(notification: userInfo as [NSObject: AnyObject])
+        print("\(title),\(body)")
+        self.Case_ID = title
+        self.goToClinicianDeshBordView()
+    }
+    
+    private func getAlert(notification: [NSObject:AnyObject]) -> (Int, Int) {
+        
+        let aps = notification["custom" as NSString] as? [String:AnyObject]
+        print(aps!)
+        let alert = aps?["a"] as? [String:AnyObject]
+        print(alert!)
+        let title = alert?["case_id"] as! Int
+        return (title, title)
     }
 }
