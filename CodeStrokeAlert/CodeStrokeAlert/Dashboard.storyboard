@@ -1371,10 +1371,10 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eg5-rr-0PW">
                                                     <rect key="frame" x="170" y="0.0" width="150" height="150"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageChatSend" translatesAutoresizingMaskIntoConstraints="NO" id="lnL-Ow-bCL">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageChatSend" translatesAutoresizingMaskIntoConstraints="NO" id="lnL-Ow-bCL">
                                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crown-logo" translatesAutoresizingMaskIntoConstraints="NO" id="gn6-hz-S2J">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crown-logo" translatesAutoresizingMaskIntoConstraints="NO" id="gn6-hz-S2J">
                                                             <rect key="frame" x="5" y="5" width="128" height="140"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1515,7 +1515,7 @@
                                                             <color key="textColor" red="0.8903970122" green="0.3013183177" blue="0.30368196959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crown-logo" translatesAutoresizingMaskIntoConstraints="NO" id="66k-hq-Bf8">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crown-logo" translatesAutoresizingMaskIntoConstraints="NO" id="66k-hq-Bf8">
                                                             <rect key="frame" x="17" y="24" width="128" height="140"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="140" id="HAd-HB-Gd4"/>
@@ -1641,7 +1641,7 @@
                                         <rect key="frame" x="0.0" y="542" width="320" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Izo-HI-xYZ" id="pyL-pP-nC8">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="169.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PTB-eA-3G5">
@@ -1650,7 +1650,7 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageChatSend" translatesAutoresizingMaskIntoConstraints="NO" id="0dg-H9-WoK">
                                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crown-logo" translatesAutoresizingMaskIntoConstraints="NO" id="0B0-RB-x1s">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crown-logo" translatesAutoresizingMaskIntoConstraints="NO" id="0B0-RB-x1s">
                                                             <rect key="frame" x="5" y="5" width="128" height="140"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1747,7 +1747,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2min" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwl-CL-ptv">
-                                                    <rect key="frame" x="281.5" y="155" width="24.5" height="12"/>
+                                                    <rect key="frame" x="281.5" y="155" width="24.5" height="12.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                                     <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1776,7 +1776,7 @@
                                         <rect key="frame" x="0.0" y="712" width="320" height="189"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bsy-AR-wMk" id="QKl-Ku-hU6">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="188.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="189"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iri-9I-nrQ">
@@ -1794,7 +1794,7 @@
                                                             <color key="textColor" red="0.8903970122" green="0.3013183177" blue="0.30368196959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crown-logo" translatesAutoresizingMaskIntoConstraints="NO" id="d2y-m7-DCl">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crown-logo" translatesAutoresizingMaskIntoConstraints="NO" id="d2y-m7-DCl">
                                                             <rect key="frame" x="17" y="24" width="128" height="140"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="140" id="IWH-IA-Doj"/>
@@ -1898,7 +1898,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2min" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iJ-Kr-WYh">
-                                                    <rect key="frame" x="10" y="175" width="24.5" height="12.5"/>
+                                                    <rect key="frame" x="10" y="175" width="24.5" height="12"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                                     <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -7412,7 +7412,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbj-lq-e24">
-                                                                <rect key="frame" x="274.5" y="0.0" width="25.5" height="30"/>
+                                                                <rect key="frame" x="275.5" y="0.0" width="24.5" height="30"/>
                                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Medium" family="SF UI Display" pointSize="16"/>
                                                                 <color key="textColor" red="0.3294117647" green="0.43529411759999997" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -8344,7 +8344,7 @@ last 3 weeks</string>
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18B-yu-868">
-                                                <rect key="frame" x="60" y="1127" width="200" height="40"/>
+                                                <rect key="frame" x="59" y="1127" width="200" height="40"/>
                                                 <color key="backgroundColor" red="0.90980392160000001" green="0.050980392159999999" blue="0.019607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="8Tf-9U-Wq0"/>
@@ -8359,7 +8359,7 @@ last 3 weeks</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bo3-0V-t9g">
-                                                <rect key="frame" x="60" y="1187" width="200" height="45"/>
+                                                <rect key="frame" x="59" y="1187" width="200" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="XSM-22-Pjs"/>
                                                     <constraint firstAttribute="height" constant="45" id="kod-cm-50s"/>
