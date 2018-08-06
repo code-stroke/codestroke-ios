@@ -68,6 +68,7 @@ class ClinicianPatientDetailFourVC: UIViewController {
     @IBOutlet weak var txtLevelOfConsciousness_Rankin: DesignableTextField!
     
     @IBOutlet weak var btnSubmit: UIButton!
+    @IBOutlet weak var btnLikelyLVO: UIButton!
     
     var selected_FacialPalsy = 0
     var selected_ArmMotorImp = 0
@@ -89,6 +90,7 @@ class ClinicianPatientDetailFourVC: UIViewController {
     var selected_Dysarthria = 0
     var selected_Extinction = 0
     var selected_LevelCons_Rankin = 0
+    var isLikelyLVO: Bool = false
     
     let arrFacialPalsy          = [["title": "Absent", "value": "0"],["title": "Mild", "value": "1"],["title": "Mod-Severe", "value": "2"]]
     let arrArmMoterImp          = [["title": "Normal-Mild", "value": "0"],["title": "Mod", "value": "1"],["title": "Severe", "value": "2"]]
@@ -122,6 +124,9 @@ class ClinicianPatientDetailFourVC: UIViewController {
         
         let image1 = self.gradientWithFrametoImage(frame: btnSubmit.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
         self.btnSubmit.backgroundColor = UIColor(patternImage: image1)
+        
+        let image2 = self.gradientWithFrametoImage(frame: btnLikelyLVO.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
+        self.btnLikelyLVO.backgroundColor = UIColor(patternImage: image2)
         
         if Reachability.isConnectedToNetwork() {
             DispatchQueue.global(qos: .background).async {
@@ -192,6 +197,21 @@ class ClinicianPatientDetailFourVC: UIViewController {
         sender.isSelected = true
     }
     
+    @IBAction func btnLikelyLVOClicked(_ sender: UIButton) {
+        
+        let actionsheet = UIAlertController(title: "Warning", message: "Are you sure you want to notify staff about a potential LVO?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        actionsheet.addAction(UIAlertAction(title: "YES", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+            self.isLikelyLVO = true
+        }))
+        
+        actionsheet.addAction(UIAlertAction(title: "NO", style: UIAlertActionStyle.cancel, handler: { (action) -> Void in
+            self.isLikelyLVO = false
+        }))
+        
+        self.present(actionsheet, animated: true, completion: nil)
+    }
+    
     @IBAction func btnSubmitClicked(_ sender: UIButton) {
         
         let param = ["facial_droop": self.btnFacialDropUnknown.isSelected ? "unknown" : (self.btnFacialDropYes.isSelected ? "yes" : self.btnFacialDropNo.isSelected ? "no" : ""),
@@ -228,7 +248,7 @@ class ClinicianPatientDetailFourVC: UIViewController {
                      "dysarthria": isEmptyString(self.txtDysarthria.text!) ? "" : self.arrDysarthria[selected_Dysarthria]["value"]!,
                      "neglect": isEmptyString(self.txtExtinction.text!) ? "" : self.arrExtinction[selected_Extinction]["value"]!,
                      "rankin_conscious": isEmptyString(self.txtLevelOfConsciousness_Rankin.text!) ? "" : self.arrLevelCons_Rankin[selected_LevelCons_Rankin]["value"]!,
-                     "likely_lvo": false,
+                     "likely_lvo": self.isLikelyLVO,
                      "signoff_first_name": LoginUserData.savedUser()!.strFirstName,
                      "signoff_last_name": LoginUserData.savedUser()!.strLastName,
                      "signoff_role": LoginUserData.savedUser()!.strUserRole] as [String : Any]

@@ -780,6 +780,12 @@ extension ClinicianPatientDetailFourVC {
                     } else {
                         self.segmentHemiparesis.selectedSegmentIndex = 1
                     }
+                    
+                    if response.result.value!.result![0].likely_lvo == false {
+                        self.isLikelyLVO = false
+                    } else {
+                        self.isLikelyLVO = true
+                    }
                 }
                 
             } else {
