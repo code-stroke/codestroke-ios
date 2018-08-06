@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import SDWebImage
+import IQKeyboardManagerSwift
 
 var TEXT      = "text"
 var IMAGE     = "image"
@@ -44,6 +45,8 @@ class ChatVC: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IQKeyboardManager.shared.enable = false
         
         //Call user defind metheds
         self.setLayout()
@@ -85,6 +88,8 @@ class ChatVC: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
+        
+        IQKeyboardManager.shared.enable = true
     }
     
     @objc class func instance() -> ChatVC {

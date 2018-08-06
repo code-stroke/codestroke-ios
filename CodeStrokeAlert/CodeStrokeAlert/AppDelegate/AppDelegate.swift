@@ -45,13 +45,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
         
-        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
+        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
+        
+        OneSignal.initWithLaunchOptions(launchOptions,
+                                        appId: appID,
+                                        handleNotificationAction: nil,
+                                        settings: onesignalInitSettings)
+        
+        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
         
         // Recommend moving the below line to prompt for push after informing the user about
         //   how your app will use them.
         OneSignal.promptForPushNotifications(userResponse: { accepted in
             print("User accepted notifications: \(accepted)")
         })
+        
         
         UIApplication.shared.statusBarStyle = .lightContent
         IQKeyboardManager.shared.enable = true
