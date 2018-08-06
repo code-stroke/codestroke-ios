@@ -49,6 +49,8 @@ class ProfileSummaryVC: UIViewController {
     @IBOutlet weak var btnRace: UIButton!
     @IBOutlet weak var btn18GIV: UIButton!
     
+    @IBOutlet weak var btnDropOff: UIButton!
+    
     // MARK:- ViewController LifeCycle -
     
     override func viewDidLoad() {
@@ -94,9 +96,27 @@ class ProfileSummaryVC: UIViewController {
         let strCannula = UserDefaults.standard.value(forKey: "cannula") as! String
         
         self.btn18GIV.setTitle(strCannula, for: .normal)
+        
+        let image1 = self.gradientWithFrametoImage(frame: btnDropOff.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
+        self.btnDropOff.backgroundColor = UIColor(patternImage: image1)
     }
     
     // MARK:- Action Methods -
+    
+    @IBAction func btnDropOffClicked(_ sender: UIButton) {
+        
+        let param = ["status": "active"]
+        
+        if Reachability.isConnectedToNetwork() {
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.async {
+                    self.WS_DropOff(url: AppURL.baseURL + AppURL.AddNewCase + "\(UserDefaults.standard.integer(forKey: "case_id"))/", parameter: param)
+                }
+            }
+        } else {
+            showAlert("No internet connection")
+        }
+    }
     
     @IBAction func btnProfileItemClicked(_ sender: DesignableButton) {
         

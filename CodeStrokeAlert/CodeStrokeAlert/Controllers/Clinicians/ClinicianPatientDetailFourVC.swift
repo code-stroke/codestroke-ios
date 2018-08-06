@@ -203,6 +203,21 @@ class ClinicianPatientDetailFourVC: UIViewController {
         
         actionsheet.addAction(UIAlertAction(title: "YES", style: UIAlertActionStyle.default, handler: { (action) -> Void in
             self.isLikelyLVO = true
+            
+            let param = ["likely_lvo": self.isLikelyLVO,
+                         "signoff_first_name": LoginUserData.savedUser()!.strFirstName,
+                         "signoff_last_name": LoginUserData.savedUser()!.strLastName,
+                         "signoff_role": LoginUserData.savedUser()!.strUserRole] as [String : Any]
+            
+            if Reachability.isConnectedToNetwork() {
+                DispatchQueue.global(qos: .background).async {
+                    DispatchQueue.main.async {
+                        self.WS_Clinician_Assessment(url: AppURL.baseURL + AppURL.Clinician_Assessment + "\(CaseList.savedUser()!.case_id)/", parameter: param, isGet: false)
+                    }
+                }
+            } else {
+                showAlert("No internet connection")
+            }
         }))
         
         actionsheet.addAction(UIAlertAction(title: "NO", style: UIAlertActionStyle.cancel, handler: { (action) -> Void in

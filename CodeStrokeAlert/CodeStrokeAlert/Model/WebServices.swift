@@ -198,6 +198,41 @@ extension ClinicalAssessmentFourVC {
     }
 }
 
+extension ProfileSummaryVC {
+    
+    func WS_DropOff(url: String, parameter: [String: String]) {
+        
+        print("\(url)?\(parameter)")
+        self.view.isUserInteractionEnabled = false
+        self.showHud("")
+        
+        let username = "adfa"
+        let password = "changethislater"
+        let loginString = String(format: "%@:%@", username, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        
+        let headers = ["content-type": "application/json",
+                       "Authorization": "Basic \(base64LoginString)"]
+        
+        Alamofire.request(url, method: .put, parameters: parameter, encoding: JSONEncoding.default, headers: headers).responseObject { (response : DataResponse<DefaultModel>) in
+            self.view.isUserInteractionEnabled = true
+            self.hideHUD()
+            
+            if (response.result.value != nil) {
+                
+                if response.result.value?.success == true {
+                    appDelegate.gotToSigninView()
+                } else {
+                    showAlert("Error in adding data")
+                }
+            } else {
+                showAlert("Database return nil value")
+            }
+        }
+    }
+}
+
 extension PatientListVC {
     
     func WS_PatientInfo(url: String) {
@@ -555,7 +590,6 @@ extension ClinicianPatientDetailFourVC {
                 
                 if isGet == false {
                     if response.result.value!.success == true {
-                        //                        self.performSegue(withIdentifier: "ClinicianPatientDetailFive", sender: nil)
                         showAlert("Data submitted successfully")
                     } else {
                         showAlert("Something went wrong")

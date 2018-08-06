@@ -63,6 +63,10 @@ class DestinationVC: UIViewController {
         
         let image1 = self.gradientWithFrametoImage(frame: btnNext.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
         self.btnNext.backgroundColor = UIColor(patternImage: image1)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
         if Reachability.isConnectedToNetwork() {
             DispatchQueue.global(qos: .background).async {

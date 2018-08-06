@@ -2038,7 +2038,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Gdr-0F-wUG"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <state key="normal" title="NEXT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -2839,7 +2839,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="rpi-36-Qu7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <state key="normal" title="NEXT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -3411,7 +3411,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="UiY-DR-z1w"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                                         <state key="normal" title="NEXT">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -3767,7 +3767,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="ATy-Ei-sfL"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                                         <state key="normal" title="NEXT">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -3945,7 +3945,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="a5s-Yb-7Ag"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <state key="normal" title="NEXT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -4001,17 +4001,30 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9hK-jv-pqZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="355"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="421"/>
                                                 <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAK-Vj-JXD">
+                                                        <rect key="frame" x="53.5" y="20" width="213" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="KAt-xW-bmO"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
+                                                        <state key="normal" title="Drop Off">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnDropOffClicked:" destination="eHv-M5-4YJ" eventType="touchUpInside" id="NmV-M2-vRA"/>
+                                                        </connections>
+                                                    </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1pQ-SV-nJW">
-                                                        <rect key="frame" x="0.0" y="19" width="320" height="1"/>
+                                                        <rect key="frame" x="0.0" y="85" width="320" height="1"/>
                                                         <color key="backgroundColor" red="0.7725490196" green="0.82352941180000006" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="gNR-Zv-ndT"/>
                                                         </constraints>
                                                     </imageView>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Br6-A3-k1t" customClass="DesignableView" customModule="CodeStrokeAlert" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                                                        <rect key="frame" x="0.0" y="86" width="320" height="50"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDF-r9-LTz" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
                                                                 <rect key="frame" x="10" y="5" width="300" height="40"/>
@@ -4201,7 +4214,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cnz-kf-xJK" customClass="DesignableView" customModule="CodeStrokeAlert" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="75" width="320" height="50"/>
+                                                        <rect key="frame" x="0.0" y="141" width="320" height="50"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjs-OH-F55" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
                                                                 <rect key="frame" x="10" y="0.0" width="300" height="40"/>
@@ -4377,7 +4390,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Jy-qt-rUn" customClass="DesignableView" customModule="CodeStrokeAlert" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="130" width="320" height="50"/>
+                                                        <rect key="frame" x="0.0" y="196" width="320" height="50"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XD4-io-wQs" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
                                                                 <rect key="frame" x="10" y="0.0" width="300" height="40"/>
@@ -4513,7 +4526,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GmX-F2-Ehp" customClass="DesignableView" customModule="CodeStrokeAlert" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="185" width="320" height="50"/>
+                                                        <rect key="frame" x="0.0" y="251" width="320" height="50"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7a-HT-hsJ" customClass="DesignableButton" customModule="CodeStrokeAlert" customModuleProvider="target">
                                                                 <rect key="frame" x="10" y="0.0" width="300" height="40"/>
@@ -4729,7 +4742,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LlP-0F-OtS" customClass="DesignableView" customModule="CodeStrokeAlert" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="240" width="320" height="50"/>
+                                                        <rect key="frame" x="0.0" y="306" width="320" height="50"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="SEI-xl-m4y">
                                                                 <rect key="frame" x="20" y="0.0" width="290" height="50"/>
@@ -4781,7 +4794,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rrb-rH-2vt" customClass="DesignableView" customModule="CodeStrokeAlert" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="295" width="320" height="50"/>
+                                                        <rect key="frame" x="0.0" y="361" width="320" height="50"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="88M-AD-E4f">
                                                                 <rect key="frame" x="20" y="0.0" width="290" height="50"/>
@@ -4838,13 +4851,16 @@
                                                     <constraint firstItem="0Jy-qt-rUn" firstAttribute="leading" secondItem="9hK-jv-pqZ" secondAttribute="leading" id="0hE-4D-NNo"/>
                                                     <constraint firstItem="Rrb-rH-2vt" firstAttribute="top" secondItem="LlP-0F-OtS" secondAttribute="bottom" constant="5" id="2MY-Ei-6rg"/>
                                                     <constraint firstItem="Rrb-rH-2vt" firstAttribute="top" secondItem="LlP-0F-OtS" secondAttribute="bottom" constant="5" id="BDj-lH-7bI"/>
+                                                    <constraint firstItem="1pQ-SV-nJW" firstAttribute="top" secondItem="UAK-Vj-JXD" secondAttribute="bottom" constant="20" id="BKx-HA-D4y"/>
                                                     <constraint firstItem="0Jy-qt-rUn" firstAttribute="top" secondItem="Cnz-kf-xJK" secondAttribute="bottom" constant="5" id="Bu6-8x-2za"/>
-                                                    <constraint firstItem="1pQ-SV-nJW" firstAttribute="top" secondItem="9hK-jv-pqZ" secondAttribute="top" constant="19" id="CN9-E6-jwz"/>
                                                     <constraint firstItem="Cnz-kf-xJK" firstAttribute="top" secondItem="Br6-A3-k1t" secondAttribute="bottom" constant="5" id="Coq-ew-n0g"/>
                                                     <constraint firstAttribute="trailing" secondItem="1pQ-SV-nJW" secondAttribute="trailing" id="D9T-NF-NZy"/>
                                                     <constraint firstItem="Br6-A3-k1t" firstAttribute="top" secondItem="1pQ-SV-nJW" secondAttribute="bottom" id="Fr1-7F-rU0"/>
+                                                    <constraint firstItem="UAK-Vj-JXD" firstAttribute="width" secondItem="9hK-jv-pqZ" secondAttribute="width" multiplier="1/1.5" id="Goy-jK-1hL"/>
                                                     <constraint firstAttribute="trailing" secondItem="LlP-0F-OtS" secondAttribute="trailing" id="KZV-wy-7FY"/>
+                                                    <constraint firstItem="UAK-Vj-JXD" firstAttribute="top" secondItem="9hK-jv-pqZ" secondAttribute="top" constant="20" id="LqY-zi-ooi"/>
                                                     <constraint firstItem="Cnz-kf-xJK" firstAttribute="top" secondItem="Br6-A3-k1t" secondAttribute="bottom" constant="5" id="MoR-sh-y69"/>
+                                                    <constraint firstItem="UAK-Vj-JXD" firstAttribute="centerX" secondItem="9hK-jv-pqZ" secondAttribute="centerX" id="NYX-VQ-9pU"/>
                                                     <constraint firstItem="LlP-0F-OtS" firstAttribute="leading" secondItem="9hK-jv-pqZ" secondAttribute="leading" id="PkT-Rh-Fb6"/>
                                                     <constraint firstItem="Cnz-kf-xJK" firstAttribute="top" secondItem="Br6-A3-k1t" secondAttribute="bottom" constant="5" id="RBK-oX-3Q4"/>
                                                     <constraint firstAttribute="trailing" secondItem="Br6-A3-k1t" secondAttribute="trailing" id="S10-4h-JYJ"/>
@@ -4895,6 +4911,7 @@
                     </view>
                     <connections>
                         <outlet property="btn18GIV" destination="Joo-C9-6s9" id="lU7-Tu-NeO"/>
+                        <outlet property="btnDropOff" destination="UAK-Vj-JXD" id="4HF-3p-a0t"/>
                         <outlet property="btnRace" destination="9GR-ZJ-qI8" id="YCO-wa-CaF"/>
                         <outlet property="height_18GIV" destination="FIj-aY-gG3" id="Bdo-GU-E4f"/>
                         <outlet property="height_Detail" destination="mbC-Qj-3Ar" id="Hfe-W1-e9j"/>
