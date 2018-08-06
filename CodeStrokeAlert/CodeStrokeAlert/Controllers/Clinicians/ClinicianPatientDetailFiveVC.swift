@@ -14,14 +14,10 @@ class ClinicianPatientDetailFiveVC: UIViewController {
     
     @IBOutlet weak var btnSubmit: UIButton!
     
-    @IBOutlet weak var btnCT1Yes: UIButton!
-    @IBOutlet weak var btnCT1No: UIButton!
+    @IBOutlet weak var btnCTAvailableYes: UIButton!
+    @IBOutlet weak var btnCTAvailableNo: UIButton!
     
-    @IBOutlet weak var btnCT2Yes: UIButton!
-    @IBOutlet weak var btnCT2No: UIButton!
-    
-    @IBOutlet weak var btnCT3Yes: UIButton!
-    @IBOutlet weak var btnCT3No: UIButton!
+    @IBOutlet weak var txtLocation: UITextField!
     
     @IBOutlet weak var btnPtArriveInCTYes: UIButton!
     @IBOutlet weak var btnPtArriveInCT2No: UIButton!
@@ -72,21 +68,9 @@ class ClinicianPatientDetailFiveVC: UIViewController {
         
     }
     
-    @IBAction func btnCT1Clicked(_ sender: UIButton) {
-        
-        self.clearSelection(btn1: btnCT1Yes, btn2: btnCT1No)
-        sender.isSelected = true
-    }
+    @IBAction func btnCTAvailableClicked(_ sender: UIButton) {
     
-    @IBAction func btnCT2Clicked(_ sender: UIButton) {
-        
-        self.clearSelection(btn1: btnCT2Yes, btn2: btnCT2No)
-        sender.isSelected = true
-    }
-    
-    @IBAction func btnCT3Clicked(_ sender: UIButton) {
-        
-        self.clearSelection(btn1: btnCT3Yes, btn2: btnCT3No)
+        self.clearSelection(btn1: btnCTAvailableYes, btn2: btnCTAvailableNo)
         sender.isSelected = true
     }
     
@@ -128,9 +112,8 @@ class ClinicianPatientDetailFiveVC: UIViewController {
     
     @IBAction func btnSubmitClicked(_ sender: UIButton) {
         
-        let param = ["ct1": self.btnCT1Yes.isSelected ? true : self.btnCT1No.isSelected ? false : 0,
-                     "ct2": self.btnCT2Yes.isSelected ? true : self.btnCT2No.isSelected ? false : 0,
-                     "ct3": self.btnCT3Yes.isSelected ? true : self.btnCT3No.isSelected ? false : 0,
+        let param = ["ct_available": self.btnCTAvailableYes.isSelected ? true : self.btnCTAvailableNo.isSelected ? false : 0,
+                     "ct_available_loc": isEmptyString(self.txtLocation.text!) ? "" : self.txtLocation.text!,
                      "arrived_to_ct": self.btnPtArriveInCTYes.isSelected ? true : self.btnPtArriveInCT2No.isSelected ? false : 0,
                      "ct_complete": self.btnCTCompleteYes.isSelected ? true : self.btnCTCompleteNo.isSelected ? false : 0,
                      "ich_found": self.btnICHCTYes.isSelected ? true : self.btnICHCTNo.isSelected ? false : 0,

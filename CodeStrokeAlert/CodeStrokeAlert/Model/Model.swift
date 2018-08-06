@@ -282,10 +282,6 @@ class RadiologyData: EVObject {
     
     var case_id: Int                    = 0
     var arrived_to_ct: Bool             = false
-    var ct1: Bool                       = false
-    var ct2: Bool                       = false
-    var ct3: Bool                       = false
-    var ct4: Bool                       = false
     var ct_complete: Bool               = false
     var cta_ctp_complete: Bool          = false
     var do_cta_ctp: Bool                = false

@@ -329,7 +329,6 @@ extension ClinicianPatientDetailVC {
                 
                 if isGet == false {
                     if response.result.value!.success == true {
-                        //                        self.performSegue(withIdentifier: "ClinicianPatientDetailTwo", sender: nil)
                         showAlert("Data submitted successfully")
                     } else {
                         showAlert("Something went wrong")
@@ -393,7 +392,6 @@ extension MainContainerVC {
                 
                 if isGet == false {
                     if response.result.value!.success == true {
-                        //                        self.performSegue(withIdentifier: "ClinicianPatientDetailTwo", sender: nil)
                         showAlert("Data submitted successfully")
                     } else {
                         showAlert("Something went wrong")
@@ -526,7 +524,6 @@ extension ClinicianPatientDetailThreeVC {
                 
                 if isGet == false {
                     if response.result.value!.success == true {
-                        //                        self.performSegue(withIdentifier: "ClinicianPatientDetailFour", sender: nil)
                         showAlert("Data submitted successfully")
                     } else {
                         showAlert("Something went wrong")
@@ -863,35 +860,20 @@ extension ClinicianPatientDetailFiveVC {
                 
                 if isGet == false {
                     if response.result.value!.success == true {
-                        //                        self.performSegue(withIdentifier: "ClinicianPatientDetailSix", sender: nil)
                         showAlert("Data submitted successfully")
                     } else {
                         showAlert("Something went wrong")
                     }
                 } else {
                     
-                    if response.result.value!.result![0].ct1 == true {
-                        self.btnCT1Yes.isSelected = true
-                    } else if response.result.value!.result![0].ct1 == false {
-                        self.btnCT1No.isSelected = true
-                    } else {
-                        self.clearSelection(btn1: self.btnCT1Yes, btn2: self.btnCT1No)
-                    }
+                    self.txtLocation.text = response.result.value!.result![0].ct_available_loc
                     
-                    if response.result.value!.result![0].ct2 == true {
-                        self.btnCT2Yes.isSelected = true
-                    } else if response.result.value!.result![0].ct2 == false {
-                        self.btnCT2No.isSelected = true
+                    if response.result.value!.result![0].ct_available == true {
+                        self.btnCTAvailableYes.isSelected = true
+                    } else if response.result.value!.result![0].ct_available == false {
+                        self.btnCTAvailableNo.isSelected = true
                     } else {
-                        self.clearSelection(btn1: self.btnCT2Yes, btn2: self.btnCT2No)
-                    }
-                    
-                    if response.result.value!.result![0].ct3 == true {
-                        self.btnCT3Yes.isSelected = true
-                    } else if response.result.value!.result![0].ct3 == false {
-                        self.btnCT3No.isSelected = true
-                    } else {
-                        self.clearSelection(btn1: self.btnCT3Yes, btn2: self.btnCT3No)
+                        self.clearSelection(btn1: self.btnCTAvailableYes, btn2: self.btnCTAvailableNo)
                     }
                     
                     if response.result.value!.result![0].arrived_to_ct == true {
@@ -983,7 +965,6 @@ extension ClinicianPatientDetailSixVC {
                 
                 if isGet == false {
                     if response.result.value!.success == true {
-                        //                        self.performSegue(withIdentifier: "ClinicianPatientDetailSix", sender: nil)
                         showAlert("Data submitted successfully")
                     } else {
                         showAlert("Something went wrong")
