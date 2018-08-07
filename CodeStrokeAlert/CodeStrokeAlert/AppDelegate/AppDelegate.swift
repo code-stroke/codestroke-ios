@@ -290,7 +290,11 @@ extension AppDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
-        updateDetail(with: userInfo, completionHandler)
+        if LoginUserData.savedUser()!.strUserType == "Paramedic" {
+            
+        } else {
+            updateDetail(with: userInfo, completionHandler)
+        }
     }
     
     func updateDetail(with userInfo: [AnyHashable : Any], _ completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
