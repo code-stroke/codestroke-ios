@@ -236,7 +236,6 @@ class PatientDetailVC: UIViewController {
             
             if sender.tag == 5 {
                 segmentGender.selectedSegmentIndex = 0
-                segmentGender.isUserInteractionEnabled = true
             }
             
         } else {
@@ -245,7 +244,6 @@ class PatientDetailVC: UIViewController {
             
             if sender.tag == 5 {
                 segmentGender.selectedSegmentIndex = UISegmentedControlNoSegment
-                segmentGender.isUserInteractionEnabled = false
             }
         }
     }
@@ -259,7 +257,8 @@ class PatientDetailVC: UIViewController {
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         
-        
+        self.btnGenderUnspecified.isSelected = false
+        self.btnGenderUnspecified.backgroundColor = UIColor.init(red: 197.0/255.0, green: 210.0/255.0, blue: 216.0/255.0, alpha: 1.0)
     }
     
     // MARK:- Memory Warning -
