@@ -6903,7 +6903,7 @@
                                                                     <color key="titleColor" red="0.20000000000000001" green="0.41176470590000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="btnTypeClicked:" destination="4RU-jX-1er" eventType="touchUpInside" id="ODD-yl-Hjt"/>
+                                                                    <action selector="btnCTAvailableClicked:" destination="4RU-jX-1er" eventType="touchUpInside" id="Z8F-tq-rNy"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -7358,7 +7358,7 @@
                                                         <rect key="frame" x="0.0" y="70" width="300" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time of onset &lt; 4.5 hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvT-ie-tV1">
-                                                                <rect key="frame" x="0.0" y="0.0" width="182" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="180" height="30"/>
                                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Medium" family="SF UI Display" pointSize="16"/>
                                                                 <color key="textColor" red="0.3294117647" green="0.43529411759999997" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
