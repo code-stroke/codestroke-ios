@@ -70,18 +70,18 @@ extension LoginWithQR {
 
 extension PatientDetailVC {
     
-    func WS_PatientInfo(url: String, parameter: [String: String]) {
+    func WS_PatientInfo(url: String, parameter: [String: Any]) {
         
         print("\(url)?\(parameter)")
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let username = "adfa"
+        let username = "Jayesh"
         let password = "changethislater"
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
-        
+        print("Basic \(base64LoginString)")
         let headers = ["content-type": "application/json",
                        "Authorization": "Basic \(base64LoginString)"]
         
@@ -90,10 +90,10 @@ extension PatientDetailVC {
             self.hideHUD()
             
             if (response.result.value != nil) {
-                
+                print(response.result.value!)
                 if response.result.value?.success == true {
-                    self.performSegue(withIdentifier: "Destination", sender: self)
                     UserDefaults.standard.set(response.result.value!.case_id, forKey: "case_id")
+                    self.performSegue(withIdentifier: "Destination", sender: self)
                 } else {
                     showAlert("Error in adding data")
                 }
@@ -136,7 +136,7 @@ extension ClinicalHistoryVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let username = "adfa"
+        let username = "Jayesh"
         let password = "changethislater"
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
@@ -171,7 +171,7 @@ extension ClinicalAssessmentFourVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let username = "adfa"
+        let username = "Jayesh"
         let password = "changethislater"
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
@@ -206,7 +206,7 @@ extension ProfileSummaryVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let username = "adfa"
+        let username = "Jayesh"
         let password = "changethislater"
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
@@ -240,7 +240,7 @@ extension PatientListVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let username = "adfa"
+        let username = "Jayesh"
         let password = "changethislater"
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
@@ -303,7 +303,7 @@ extension ClinicianPatientDetailVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let username = "adfa"
+        let username = "Jayesh"
         let password = "changethislater"
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
@@ -366,7 +366,7 @@ extension MainContainerVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let username = "adfa"
+        let username = "Jayesh"
         let password = "changethislater"
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
@@ -429,7 +429,7 @@ extension ClinicianPatientDetailTwoVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let username = "adfa"
+        let username = "Jayesh"
         let password = "changethislater"
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
@@ -498,7 +498,7 @@ extension ClinicianPatientDetailThreeVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let username = "adfa"
+        let username = "Jayesh"
         let password = "changethislater"
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
@@ -561,7 +561,7 @@ extension ClinicianPatientDetailFourVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let username = "adfa"
+        let username = "Jayesh"
         let password = "changethislater"
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
@@ -834,7 +834,7 @@ extension ClinicianPatientDetailFiveVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let username = "adfa"
+        let username = "Jayesh"
         let password = "changethislater"
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
@@ -939,7 +939,7 @@ extension ClinicianPatientDetailSixVC {
         self.view.isUserInteractionEnabled = false
         self.showHud("")
         
-        let username = "adfa"
+        let username = "Jayesh"
         let password = "changethislater"
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!

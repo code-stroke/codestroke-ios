@@ -9,6 +9,7 @@
 import UIKit
 import EVReflection
 import MicroBlink
+import CoreLocation
 
 let kPatientDetailData = "PatientDetailData"
 
@@ -55,7 +56,7 @@ class PatientDetailData: EVObject {
     }
 }
 
-class PatientDetailVC: UIViewController {
+class PatientDetailVC: BaseVC {
     
     // MARK:- Declarations -
     
@@ -93,6 +94,8 @@ class PatientDetailVC: UIViewController {
     var strLastSeen: String = ""
     var patientDetailData = PatientDetailData()
     
+    var userCurrentLocation: CLLocation?
+    
     // MARK:- ViewController LifeCycle -
     
     override func viewDidLoad() {
@@ -100,6 +103,8 @@ class PatientDetailVC: UIViewController {
         
         // Do any additional setup after loading the view.
         
+        self.updateUserCurrentLocation()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notificationObject:)), name: NSNotification.Name(rawValue: BaseVC.notificationIdentifier), object: nil)
         MBMicroblinkSDK.sharedInstance().setLicenseKey("sRwAAAEeY29tLmNvZGVzdHJva2UuY29kZXN0cm9rZWFsZXJ04ls3fvQTb0rDajvWXuiwHdFN+l0yLoO9E3CDVxQReb3DNLnnx4FkZSiyz+PGy/O+9juLBV6YAEeiLTKPuTQj3OJ/EBmc9tSTLAkoNuqN0ZEyyN+24Ofs38vEmLsfMZPyp9v0Mv9fx8iYEppDdYxgG605xGd5eL7K7UAGf8xhPnv/xqHLzEeV2duPYNYNR1bo/ZIFogHArS+ShOecZ6qa4/ONWOYQfzmo74CsJwnED7k81BWooUC7")
         
         let image1 = self.gradientWithFrametoImage(frame: btnNext.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
@@ -123,29 +128,35 @@ class PatientDetailVC: UIViewController {
         self.strLastSeen = f.string(from: Date())
     }
     
+    @objc func methodOfReceivedNotification(notificationObject: Notification){
+        
+        print(notificationObject.userInfo ?? "not found location")
+        userCurrentLocation = notificationObject.userInfo?["location"] as? CLLocation
+    }
+    
     // MARK:- Action Methods -
     
     @IBAction func btnScanLicenseClicked(_ sender: UIButton) {
-
+        
         // To specify we want to perform MRTD (machine readable travel document) recognition, initialize the MRTD recognizer settings
         /** Create ausdl recognizer */
-
+        
         self.ausdlFrontRecognizer = MBAustraliaDlFrontRecognizer()
         self.ausdlFrontRecognizer?.returnFullDocumentImage = true
-
+        
         /** Create ausdl recognizer */
         let settings : MBDocumentOverlaySettings = MBDocumentOverlaySettings()
-
+        
         /** Crate recognizer collection */
         let recognizerList = [self.ausdlFrontRecognizer!]
         let recognizerCollection : MBRecognizerCollection = MBRecognizerCollection(recognizers: recognizerList)
-
+        
         /** Create your overlay view controller */
         let barcodeOverlayViewController : MBDocumentOverlayViewController = MBDocumentOverlayViewController(settings: settings, recognizerCollection: recognizerCollection, delegate: self)
-
+        
         /** Create recognizer view controller with wanted overlay view controller */
         let recognizerRunneViewController : UIViewController = MBViewControllerFactory.recognizerRunnerViewController(withOverlayViewController: barcodeOverlayViewController)
-
+        
         /** Present the recognizer runner view controller. You can use other presentation methods as well (instead of presentViewController) */
         self.present(recognizerRunneViewController, animated: true, completion: nil)
     }
@@ -206,24 +217,54 @@ class PatientDetailVC: UIViewController {
             patientDetailData.save()
             print(PatientDetailData.savedUser()!)
             
-            let param = ["first_name": self.btnFirstNameUnknown.isSelected ? "unknown" : self.txtFirstName.text!,
-                         "last_name": self.btnSurnameUnknown.isSelected ? "unknown" : self.txtSurname.text!,
-                         "dob": self.btnDOBUnknown.isSelected ? "unknown" : self.strDOB,
-                         "address": self.btnAddressUnknown.isSelected ? "unknown" : self.txtAddress.text!,
-                         "gender": self.btnGenderUnspecified.isSelected ? "u" : (segmentGender.selectedSegmentIndex == 0 ? "m" : "f"),
-                         "last_well": self.btnDateUnknown.isSelected ? "unknown" : self.strLastSeen,
-                         "nok": self.btnNextToKINUnknown.isSelected ? "unknown" : self.txtNextToKIN.text!,
-                         "nok_phone": self.btnNOKTelephoneUnknown.isSelected ? "unknown" : self.txtNOKTelephone.text!,
-                         "hospital_id": "1"]
-            
-            if Reachability.isConnectedToNetwork() {
-                DispatchQueue.global(qos: .background).async {
-                    DispatchQueue.main.async {
-                        self.WS_PatientInfo(url: AppURL.baseURL + AppURL.AddNewCase, parameter: param)
+            if let userLatitude = self.userCurrentLocation?.coordinate.latitude, let userLongitude = self.userCurrentLocation?.coordinate.longitude {
+                
+                let param = ["first_name": self.btnFirstNameUnknown.isSelected ? "unknown" : self.txtFirstName.text!,
+                             "last_name": self.btnSurnameUnknown.isSelected ? "unknown" : self.txtSurname.text!,
+                             "dob": self.btnDOBUnknown.isSelected ? "unknown" : self.strDOB,
+                             "address": self.btnAddressUnknown.isSelected ? "unknown" : self.txtAddress.text!,
+                             "gender": self.btnGenderUnspecified.isSelected ? "u" : (segmentGender.selectedSegmentIndex == 0 ? "m" : "f"),
+                             "last_well": self.btnDateUnknown.isSelected ? "unknown" : self.strLastSeen,
+                             "nok": self.btnNextToKINUnknown.isSelected ? "unknown" : self.txtNextToKIN.text!,
+                             "nok_phone": self.btnNOKTelephoneUnknown.isSelected ? "unknown" : self.txtNOKTelephone.text!,
+                             "hospital_id": "1",
+//                             "initial_location_lat": "\(userLatitude)",
+//                             "initial_location_long": "\(userLongitude)",
+                             "initial_location_lat": "-37.9150",
+                             "initial_location_long": "145.1300"] as [String : Any]
+                
+                if Reachability.isConnectedToNetwork() {
+                    DispatchQueue.global(qos: .background).async {
+                        DispatchQueue.main.async {
+                            self.WS_PatientInfo(url: AppURL.baseURL + AppURL.AddNewCase, parameter: param)
+                        }
                     }
+                } else {
+                    showAlert("No internet connection")
                 }
             } else {
-                showAlert("No internet connection")
+                
+                let param = ["first_name": self.btnFirstNameUnknown.isSelected ? "unknown" : self.txtFirstName.text!,
+                             "last_name": self.btnSurnameUnknown.isSelected ? "unknown" : self.txtSurname.text!,
+                             "dob": self.btnDOBUnknown.isSelected ? "unknown" : self.strDOB,
+                             "address": self.btnAddressUnknown.isSelected ? "unknown" : self.txtAddress.text!,
+                             "gender": self.btnGenderUnspecified.isSelected ? "u" : (segmentGender.selectedSegmentIndex == 0 ? "m" : "f"),
+                             "last_well": self.btnDateUnknown.isSelected ? "unknown" : self.strLastSeen,
+                             "nok": self.btnNextToKINUnknown.isSelected ? "unknown" : self.txtNextToKIN.text!,
+                             "nok_phone": self.btnNOKTelephoneUnknown.isSelected ? "unknown" : self.txtNOKTelephone.text!,
+                             "hospital_id": "1",
+                             "initial_location_lat": NSNull(),
+                             "initial_location_long": NSNull()] as [String : Any]
+                
+                if Reachability.isConnectedToNetwork() {
+                    DispatchQueue.global(qos: .background).async {
+                        DispatchQueue.main.async {
+                            self.WS_PatientInfo(url: AppURL.baseURL + AppURL.AddNewCase, parameter: param)
+                        }
+                    }
+                } else {
+                    showAlert("No internet connection")
+                }
             }
         }
     }
@@ -286,31 +327,31 @@ class PatientDetailVC: UIViewController {
 // MARK: - MBDocumentOverlayViewControllerDelegate Delegate -
 
 extension PatientDetailVC: MBDocumentOverlayViewControllerDelegate {
-
+    
     func documentOverlayViewControllerDidFinishScanning(_ documentOverlayViewController: MBDocumentOverlayViewController, state: MBRecognizerResultState) {
         /** This is done on background thread */
         documentOverlayViewController.recognizerRunnerViewController?.pauseScanning()
-
+        
         if let result = self.ausdlFrontRecognizer?.result {
-
+            
             print(result)
-
+            
             DispatchQueue.main.async {
                 // present the alert view with scanned results
-
+                
                 if let firstName = result.name {
                     let name = firstName.components(separatedBy: " ")
                     self.txtFirstName.text = name[0]
                     self.txtSurname.text = name[1]
                 }
-
+                
                 if let address = result.address {
-
+                    
                     self.txtAddress.text = address
                 }
-
+                
                 if let dob = result.dateOfBirth {
-
+                    
                     let f = DateFormatter()
                     f.dateFormat = "MMM dd, yyyy"
                     let formattedDate: String = f.string(from: dob)
@@ -318,10 +359,10 @@ extension PatientDetailVC: MBDocumentOverlayViewControllerDelegate {
                 }
             }
         }
-
+        
         self.dismiss(animated: true, completion: nil)
     }
-
+    
     func documentOverlayViewControllerDidTapClose(_ documentOverlayViewController: MBDocumentOverlayViewController) {
         self.dismiss(animated: true, completion: nil)
     }

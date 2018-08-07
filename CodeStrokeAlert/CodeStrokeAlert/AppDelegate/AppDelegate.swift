@@ -12,6 +12,7 @@ import IQKeyboardManagerSwift
 import OneSignal
 import Firebase
 import UserNotifications
+import CoreLocation
 
 let appDelegate         = UIApplication.shared.delegate as! AppDelegate
 let loginStoryboard     = UIStoryboard(name: "Main", bundle: nil)
@@ -25,9 +26,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var deviceTokenString = "123"
     var Case_ID = 0
     var arrForGroupMembers = [String]()
+    var locationManager: CLLocationManager?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        self.locationManager = CLLocationManager()
+        
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+            
+            self.locationManager?.requestWhenInUseAuthorization()
+        }
+        
+        self.locationManager?.desiredAccuracy = kCLLocationAccuracyBest // The accuracy of the location data
+        self.locationManager?.distanceFilter = 200 // The minimum distance (measured in meters) a device must move horizontally before an update event is generated.
+        self.locationManager?.delegate = self
         
         //Firebase
         FirebaseApp.configure()
@@ -137,9 +150,65 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
 }
 
+extension AppDelegate: CLLocationManagerDelegate {
+    
+    // MARK:- LocationManager Delegate -
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        guard let location = locations.last else {
+            return
+        }
+        print(location)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
+        switch status {
+            
+        case .notDetermined:
+            print("not determined")
+        case .authorizedWhenInUse:
+            self.locationManager?.startUpdatingLocation()
+            print("authorizedWhenInUse")
+        case .denied:
+            self.showAlertWithMessageAndActions(message: "Your device's positioning system is disabled. It is essential to determine your position.")
+            print("denied")
+        case .restricted:
+            print("restricted")
+        case .authorizedAlways:
+            print("authorizedAlways")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        // do on error
+        print(error)
+    }
+}
+
 // MARK:- AppDelegate Extension -
 
 extension AppDelegate {
+    
+    func showAlertWithMessageAndActions(message title: String) {
+        
+        let alertController = UIAlertController(title: AppConstants.appName, message: title, preferredStyle:UIAlertControllerStyle.alert)
+        
+        alertController.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default)
+        { action -> Void in
+            UIApplication.shared.open(URL(string:UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+        })
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel)
+        { action -> Void in
+            // Put your code here
+        })
+        
+        DispatchQueue.main.async {
+            self.window?.rootViewController!.present(alertController, animated: true, completion: nil) // present the alert
+        }
+    }
     
     func isKeyPresentInUserDefaults(key: String) -> Bool {
         return UserDefaults.standard.object(forKey: key) != nil

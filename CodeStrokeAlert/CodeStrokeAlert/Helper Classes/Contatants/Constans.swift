@@ -164,7 +164,7 @@ public enum Model : String {
 struct AppConstants {
     
     static var userDeviceToken: String?
-    static let appName = "Code Stroke Alert"
+    static let appName = "CodeStrokeAlert"
     static let normalFormat = "yyyy-MM-dd"
     static let appDelegate = UIApplication.shared.delegate as? AppDelegate
     typealias appDict = Dictionary<String,Any>

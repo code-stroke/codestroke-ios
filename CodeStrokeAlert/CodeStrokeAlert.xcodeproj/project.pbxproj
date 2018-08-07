@@ -18,6 +18,7 @@
 		1A083193210872520005AD0C /* ViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A083192210872520005AD0C /* ViewController + Ext.swift */; };
 		1A3CE4FF20ECB81D00715C55 /* UISearchBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3CE4FE20ECB81D00715C55 /* UISearchBar+Extensions.swift */; };
 		1A4DE5E020F22B7700F06354 /* MainContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DE5DF20F22B7700F06354 /* MainContainerVC.swift */; };
+		1A5231D82119595D003EC056 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5231D72119595D003EC056 /* BaseVC.swift */; };
 		1A850F4E210848ED00AB4C5E /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A850F31210848EC00AB4C5E /* String + Ext.swift */; };
 		1A850F52210848ED00AB4C5E /* UIColor + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A850F35210848EC00AB4C5E /* UIColor + Ext.swift */; };
 		1A850F56210848ED00AB4C5E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A850F3A210848EC00AB4C5E /* Constants.swift */; };
@@ -115,6 +116,7 @@
 		1A083192210872520005AD0C /* ViewController + Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController + Ext.swift"; sourceTree = "<group>"; };
 		1A3CE4FE20ECB81D00715C55 /* UISearchBar+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extensions.swift"; sourceTree = "<group>"; };
 		1A4DE5DF20F22B7700F06354 /* MainContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerVC.swift; sourceTree = "<group>"; };
+		1A5231D72119595D003EC056 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		1A798FAC20EA692A003C98E1 /* CodeStrokeAlert.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodeStrokeAlert.entitlements; sourceTree = "<group>"; };
 		1A850F31210848EC00AB4C5E /* String + Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
 		1A850F35210848EC00AB4C5E /* UIColor + Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor + Ext.swift"; sourceTree = "<group>"; };
@@ -608,6 +610,7 @@
 			isa = PBXGroup;
 			children = (
 				44C348F120D8BB1E0078F6F3 /* PatientDetailVC.swift */,
+				1A5231D72119595D003EC056 /* BaseVC.swift */,
 				44C348F520D8CFCE0078F6F3 /* DestinationVC.swift */,
 				44C348F720D8E2620078F6F3 /* ClinicalHistoryVC.swift */,
 				44C348F920D8F0330078F6F3 /* ClinicalAssessmentVC.swift */,
@@ -826,6 +829,7 @@
 				4480D57120E39B1800049641 /* ClinicianPatientDetailVC.swift in Sources */,
 				4480D57320E3BD7F00049641 /* ClinicianPatientDetailTwoVC.swift in Sources */,
 				44C348D520D8ADAC0078F6F3 /* DesignableTextField.swift in Sources */,
+				1A5231D82119595D003EC056 /* BaseVC.swift in Sources */,
 				44C348FA20D8F0330078F6F3 /* ClinicalAssessmentVC.swift in Sources */,
 				44C348DA20D8ADAC0078F6F3 /* LetsReach.swift in Sources */,
 				44C348F620D8CFCE0078F6F3 /* DestinationVC.swift in Sources */,
