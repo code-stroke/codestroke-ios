@@ -14,12 +14,12 @@ class PatientListCell: UITableViewCell {
     @IBOutlet weak var lblGender: UILabel!
     @IBOutlet weak var lblAge: UILabel!
     @IBOutlet weak var lblETA: UILabel!
-    @IBOutlet weak var viewShadow: UIView!
+//    @IBOutlet weak var viewShadow: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.viewShadow.dropShadow(color: UIColor.init(red: 0.0/255.0, green: 90.0/255.0, blue: 192.0/255.0, alpha: 0.44), viewShadow: self.viewShadow)
+//        self.viewShadow.dropShadow(color: UIColor.init(red: 0.0/255.0, green: 90.0/255.0, blue: 192.0/255.0, alpha: 0.44), viewShadow: self.viewShadow)
     }
 }
 
