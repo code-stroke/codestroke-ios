@@ -44,9 +44,6 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - GTMSessionFetcher/Core (1.1.15)
   - IQKeyboardManagerSwift (6.0.2)
-  - KRActivityIndicatorView (2.1.2)
-  - KRProgressHUD (3.2.2):
-    - KRActivityIndicatorView (= 2.1.2)
   - leveldb-library (1.20)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -58,6 +55,7 @@ PODS:
   - SDWebImage (4.4.1):
     - SDWebImage/Core (= 4.4.1)
   - SDWebImage/Core (4.4.1)
+  - SVProgressHUD (2.2.5)
   - Toaster (2.1.1)
 
 DEPENDENCIES:
@@ -69,10 +67,10 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - IQKeyboardManagerSwift
-  - KRProgressHUD
   - OneSignal
   - PPBlinkID (~> 4.0.0)
   - SDWebImage (~> 4.1)
+  - SVProgressHUD
   - Toaster (~> 2.0)
 
 SPEC REPOS:
@@ -91,13 +89,12 @@ SPEC REPOS:
     - GoogleToolboxForMac
     - GTMSessionFetcher
     - IQKeyboardManagerSwift
-    - KRActivityIndicatorView
-    - KRProgressHUD
     - leveldb-library
     - nanopb
     - OneSignal
     - PPBlinkID
     - SDWebImage
+    - SVProgressHUD
     - Toaster
 
 SPEC CHECKSUMS:
@@ -115,15 +112,14 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   IQKeyboardManagerSwift: 59d4b0e140bc546c3c76ae5bb35b3dafd10b8172
-  KRActivityIndicatorView: 27e7a7e3da7fbc8e5405fbc4088b51cc2095a410
-  KRProgressHUD: 8872da74b1c462e15c82a8fff250a2d34ee82ea2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   OneSignal: 42dae269c7eca517aee34963820e1eb922390031
   PPBlinkID: c3a348d8e3e60b96afd332062e9c3c353c521ebc
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
 
-PODFILE CHECKSUM: ce64d3d6aa2aa70b11159c746d67977f4d64afe0
+PODFILE CHECKSUM: 56468b54b5e41e1386cbb12b723a00fcde7d1eb3
 
 COCOAPODS: 1.5.3

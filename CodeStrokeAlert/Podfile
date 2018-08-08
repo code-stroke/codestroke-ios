@@ -8,7 +8,7 @@ target 'CodeStrokeAlert' do
     # Pods for CodeStrokeAlert
     pod 'IQKeyboardManagerSwift'
     pod 'EVReflection/Alamofire'
-    pod 'KRProgressHUD'
+    pod 'SVProgressHUD'
     pod 'OneSignal'
     pod 'PPBlinkID', '~> 4.0.0'
     pod 'Firebase/Core'

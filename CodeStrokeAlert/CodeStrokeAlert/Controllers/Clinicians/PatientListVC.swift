@@ -262,7 +262,16 @@ extension PatientListVC: UITableViewDelegate, UITableViewDataSource {
 extension PatientListVC: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
         searchActive = true
+        
+        if self.btnActive.isSelected {
+            self.filtered = self.arrCaseListActive
+        } else if self.btnIncoming.isSelected {
+            self.filtered = self.arrCaseListInComing
+        } else {
+            self.filtered = self.arrCaseListCompleted
+        }
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {

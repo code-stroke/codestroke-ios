@@ -1,5 +1,5 @@
 import Foundation
-import KRProgressHUD
+import SVProgressHUD
 import Alamofire
 import OneSignal
 

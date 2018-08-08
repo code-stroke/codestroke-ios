@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import KRProgressHUD
+import SVProgressHUD
 import Alamofire
 
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
@@ -82,12 +82,12 @@ extension UIColor {
 extension UIView {
     
     func showHud(_ message: String) {
-        KRProgressHUD.show()
+        SVProgressHUD.show()
         self.isUserInteractionEnabled = false
     }
     
     func hideHUD() {
-        KRProgressHUD.dismiss()
+        SVProgressHUD.dismiss()
         self.isUserInteractionEnabled = true
     }
     
@@ -159,11 +159,11 @@ extension UITextField {
 extension UIViewController {
     
     func showHud(_ message: String) {
-        KRProgressHUD.show()
+        SVProgressHUD.show()
     }
     
     func hideHUD() {
-        KRProgressHUD.dismiss()
+        SVProgressHUD.dismiss()
     }
     
     func isPasswordValid(_ password : String) -> Bool {
