@@ -46,8 +46,6 @@ class ChatVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        IQKeyboardManager.shared.enable = false
-        
         //Call user defind metheds
         self.setLayout()
         self.initObject()
@@ -73,6 +71,9 @@ class ChatVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        IQKeyboardManager.shared.enable = false
+        
         //self.lblTitle.text = CaseID
         
         //Add Member
@@ -142,7 +143,12 @@ class ChatVC: UIViewController {
     @objc func keyboardShow(_ notification: Notification) {
         
         let endFrame = ((notification as NSNotification).userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        ctBottomInputToolBar.constant = UIScreen.main.bounds.height - endFrame.origin.y
+        if IS_IPHONE_X {
+            ctBottomInputToolBar.constant = UIScreen.main.bounds.height - endFrame.origin.y - 35
+        } else {
+            ctBottomInputToolBar.constant = UIScreen.main.bounds.height - endFrame.origin.y
+        }
+        
         self.view.layoutIfNeeded()
         self.doScrollTableToBottom()
     }

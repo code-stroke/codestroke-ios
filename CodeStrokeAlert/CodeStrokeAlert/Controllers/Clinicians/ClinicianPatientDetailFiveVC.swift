@@ -46,16 +46,6 @@ class ClinicianPatientDetailFiveVC: UIViewController {
         
         let image1 = self.gradientWithFrametoImage(frame: btnSubmit.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
         self.btnSubmit.backgroundColor = UIColor(patternImage: image1)
-        
-        if Reachability.isConnectedToNetwork() {
-            DispatchQueue.global(qos: .background).async {
-                DispatchQueue.main.async {
-                    self.WS_Radiology(url: AppURL.baseURL + AppURL.Clinician_Radiology + "\(CaseList.savedUser()!.case_id)/", parameter: [:], isGet: true)
-                }
-            }
-        } else {
-            showAlert("No internet connection")
-        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -137,6 +127,18 @@ class ClinicianPatientDetailFiveVC: UIViewController {
     
     // MARK: - Custom Methods -
     
+    func WS_Radiology_Call() {
+        
+        if Reachability.isConnectedToNetwork() {
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.async {
+                    self.WS_Radiology(url: AppURL.baseURL + AppURL.Clinician_Radiology + "\(CaseList.savedUser()!.case_id)/", parameter: [:], isGet: true)
+                }
+            }
+        } else {
+            showAlert("No internet connection")
+        }
+    }
     
     func clearSelection(btn1: UIButton, btn2: UIButton) {
         

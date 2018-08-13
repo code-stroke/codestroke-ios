@@ -35,16 +35,6 @@ class ClinicianPatientDetailThreeVC: UIViewController {
         
         let image1 = self.gradientWithFrametoImage(frame: btnSubmit.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
         self.btnSubmit.backgroundColor = UIColor(patternImage: image1)
-        
-        if Reachability.isConnectedToNetwork() {
-            DispatchQueue.global(qos: .background).async {
-                DispatchQueue.main.async {
-                    self.WS_Clinician_Details(url: AppURL.baseURL + AppURL.Clinician + "\(CaseList.savedUser()!.case_id)/", parameter: [:], isGet: true)
-                }
-            }
-        } else {
-            showAlert("No internet connection")
-        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -78,6 +68,21 @@ class ClinicianPatientDetailThreeVC: UIViewController {
             DispatchQueue.global(qos: .background).async {
                 DispatchQueue.main.async {
                     self.WS_Clinician_Details(url: AppURL.baseURL + AppURL.Clinician + "\(CaseList.savedUser()!.case_id)/", parameter: param, isGet: false)
+                }
+            }
+        } else {
+            showAlert("No internet connection")
+        }
+    }
+    
+    // MARK: - Custom Methods -
+    
+    func WS_Clinician_Details_Call() {
+        
+        if Reachability.isConnectedToNetwork() {
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.async {
+                    self.WS_Clinician_Details(url: AppURL.baseURL + AppURL.Clinician + "\(CaseList.savedUser()!.case_id)/", parameter: [:], isGet: true)
                 }
             }
         } else {

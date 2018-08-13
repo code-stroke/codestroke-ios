@@ -127,16 +127,6 @@ class ClinicianPatientDetailFourVC: UIViewController {
         
         let image2 = self.gradientWithFrametoImage(frame: btnLikelyLVO.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
         self.btnLikelyLVO.backgroundColor = UIColor(patternImage: image2)
-        
-        if Reachability.isConnectedToNetwork() {
-            DispatchQueue.global(qos: .background).async {
-                DispatchQueue.main.async {
-                    self.WS_Clinician_Assessment(url: AppURL.baseURL + AppURL.Clinician_Assessment + "\(CaseList.savedUser()!.case_id)/", parameter: [:], isGet: true)
-                }
-            }
-        } else {
-            showAlert("No internet connection")
-        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -280,6 +270,19 @@ class ClinicianPatientDetailFourVC: UIViewController {
     }
     
     // MARK: - Custom Methods -
+    
+    func WS_Clinician_Assessment_Call() {
+        
+        if Reachability.isConnectedToNetwork() {
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.async {
+                    self.WS_Clinician_Assessment(url: AppURL.baseURL + AppURL.Clinician_Assessment + "\(CaseList.savedUser()!.case_id)/", parameter: [:], isGet: true)
+                }
+            }
+        } else {
+            showAlert("No internet connection")
+        }
+    }
     
     func clearAllSelectionAndSelectedItem(btn1: UIButton, btn1Selected: Bool, btn2: UIButton, btn2Selected: Bool, btn3: UIButton, btn3Selected: Bool) {
         

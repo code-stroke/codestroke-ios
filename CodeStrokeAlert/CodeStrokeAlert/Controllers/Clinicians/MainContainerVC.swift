@@ -45,6 +45,7 @@ class MainContainerVC: UIViewController {
         // Do any additional setup after loading the view.
         
         add(asChildViewController: clinicianPatientDetail)
+        clinicianPatientDetail.WS_ED_Details_Call()
         
         self.viewShadow.dropShadow(color: UIColor.init(red: 0.0/255.0, green: 90.0/255.0, blue: 192.0/255.0, alpha: 0.44), viewShadow: self.viewShadow)
         
@@ -156,16 +157,22 @@ class MainContainerVC: UIViewController {
         
         if sender.tag == 1 {
             add(asChildViewController: clinicianPatientDetail)
+            clinicianPatientDetail.WS_ED_Details_Call()
         } else if sender.tag == 2 {
             add(asChildViewController: clinicianPatientDetailTwo)
+            clinicianPatientDetailTwo.WS_Case_Details_Call()
         } else if sender.tag == 3 {
             add(asChildViewController: clinicianPatientDetailThree)
+            clinicianPatientDetailThree.WS_Clinician_Details_Call()
         } else if sender.tag == 4 {
             add(asChildViewController: clinicianPatientDetailFour)
+            clinicianPatientDetailFour.WS_Clinician_Assessment_Call()
         } else if sender.tag == 5 {
             add(asChildViewController: clinicianPatientDetailFive)
+            clinicianPatientDetailFive.WS_Radiology_Call()
         } else if sender.tag == 6 {
             add(asChildViewController: clinicianPatientDetailSix)
+            clinicianPatientDetailSix.WS_Management_Call()
         }
     }
     

@@ -41,16 +41,6 @@ class ClinicianPatientDetailTwoVC: UIViewController {
         
         let image1 = self.gradientWithFrametoImage(frame: btnSubmit.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
         self.btnSubmit.backgroundColor = UIColor(patternImage: image1)
-        
-        if Reachability.isConnectedToNetwork() {
-            DispatchQueue.global(qos: .background).async {
-                DispatchQueue.main.async {
-                    self.WS_Case_Details(url: AppURL.baseURL + AppURL.CaseList + "\(CaseList.savedUser()!.case_id)/", parameter: [:], isGet: true)
-                }
-            }
-        } else {
-            showAlert("No internet connection")
-        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -70,43 +60,43 @@ class ClinicianPatientDetailTwoVC: UIViewController {
     
     @IBAction func btnSubmitClicked(_ sender: UIButton) {
         
-        if isEmptyString(self.txtFirstName.text!) {
-            showAlert("Please enter firstname")
-        } else if isEmptyString(self.txtSurname.text!) {
-            showAlert("Please enter surname")
-        } else if isEmptyString(self.txtDOB.text!) {
-            showAlert("Please select dob")
-        } else if isEmptyString(self.txtAddress.text!) {
-            showAlert("Please enter address")
-        } else if isEmptyString(self.txtNextKin.text!) {
-            showAlert("Please enter next to KIN")
-        } else if isEmptyString(self.txtNOKContact.text!) {
-            showAlert("Please enter NOK Telephone")
-        } else {
-            
-            let param = ["first_name": self.txtFirstName.text!,
-                         "last_name": self.txtSurname.text!,
-                         "dob": self.strDOB,
-                         "address": self.txtAddress.text!,
-                         "gender": self.btnUnspecifies.isSelected ? "u" : (self.btnMale.isSelected ? "m" : "f"),
-                         "last_well": self.strLastSeen,
-                         "nok": self.txtNextKin.text!,
-                         "nok_phone": self.txtNOKContact.text!,
-                         "medicare_no": self.txtMedicare.text!,
-                         "hospital_id": "1",
-                         "signoff_first_name": LoginUserData.savedUser()!.strFirstName,
-                         "signoff_last_name": LoginUserData.savedUser()!.strLastName,
-                         "signoff_role": LoginUserData.savedUser()!.strUserRole]
-            
-            if Reachability.isConnectedToNetwork() {
-                DispatchQueue.global(qos: .background).async {
-                    DispatchQueue.main.async {
-                        self.WS_Case_Details(url: AppURL.baseURL + AppURL.CaseList + "\(CaseList.savedUser()!.case_id)/", parameter: param, isGet: false)
-                    }
+        let param = ["first_name": self.txtFirstName.text!,
+                     "last_name": self.txtSurname.text!,
+                     "dob": self.strDOB,
+                     "address": self.txtAddress.text!,
+                     "gender": self.btnUnspecifies.isSelected ? "u" : (self.btnMale.isSelected ? "m" : "f"),
+                     "last_well": self.strLastSeen,
+                     "nok": self.txtNextKin.text!,
+                     "nok_phone": self.txtNOKContact.text!,
+                     "medicare_no": self.txtMedicare.text!,
+                     "hospital_id": "1",
+                     "signoff_first_name": LoginUserData.savedUser()!.strFirstName,
+                     "signoff_last_name": LoginUserData.savedUser()!.strLastName,
+                     "signoff_role": LoginUserData.savedUser()!.strUserRole]
+        
+        if Reachability.isConnectedToNetwork() {
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.async {
+                    self.WS_Case_Details(url: AppURL.baseURL + AppURL.CaseList + "\(CaseList.savedUser()!.case_id)/", parameter: param, isGet: false)
                 }
-            } else {
-                showAlert("No internet connection")
             }
+        } else {
+            showAlert("No internet connection")
+        }
+    }
+    
+    // MARK: - Custom Methods -
+    
+    func WS_Case_Details_Call() {
+        
+        if Reachability.isConnectedToNetwork() {
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.async {
+                    self.WS_Case_Details(url: AppURL.baseURL + AppURL.CaseList + "\(CaseList.savedUser()!.case_id)/", parameter: [:], isGet: true)
+                }
+            }
+        } else {
+            showAlert("No internet connection")
         }
     }
     
