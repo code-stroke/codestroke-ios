@@ -143,7 +143,7 @@ extension ClinicianPatientDetailThreeVC {
                 let formattedDate: String = f.string(from: pickerController.datePicker.date)
                 self.txtLastDose.text = formattedDate
                 
-                f.dateFormat = "yyyy-MM-dd hh:mm:ss"
+                f.setLocal()
                 self.strLastDoseDate = f.string(from: pickerController.datePicker.date)
             }
         }

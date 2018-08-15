@@ -10,16 +10,19 @@ import UIKit
 import CoreData
 import IQKeyboardManagerSwift
 import OneSignal
-import Firebase
 import UserNotifications
+import Firebase
+import FirebaseInstanceID
 import CoreLocation
+import FirebaseMessaging
 
 let appDelegate         = UIApplication.shared.delegate as! AppDelegate
 let loginStoryboard     = UIStoryboard(name: "Main", bundle: nil)
 let dashBoardStoryboard = UIStoryboard(name: "Dashboard", bundle: nil)
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
     
     var window: UIWindow?
     private let appID = "a704a88e-9e37-41f6-99b8-6ded41926c03"
@@ -43,9 +46,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         self.locationManager?.delegate = self
         
         //Firebase
-        FirebaseApp.configure()
+        
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+            // For iOS 10 data message (sent via FCM
+            Messaging.messaging().delegate = self
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
         
         registerForPushNotifications()
+        FirebaseApp.configure()
+        
+        
         
         if let launchOptions = launchOptions {
             
@@ -148,6 +168,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    // The callback to handle data message received via FCM for devices running iOS 10 or above.
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print("Firebase registration token: \(fcmToken)")
+        
+        let dataDict:[String: String] = ["token": fcmToken]
+        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+        // TODO: If necessary send token to application server.
+        // Note: This callback is fired at each app startup and whenever a new token is generated.
+    }
+
+    func applicationReceivedRemoteMessage(_ remoteMessage: MessagingRemoteMessage) {
+        print(remoteMessage.appData)
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void)
+    {
+        completionHandler([UNNotificationPresentationOptions.alert,UNNotificationPresentationOptions.sound,UNNotificationPresentationOptions.badge])
     }
 }
 
@@ -277,10 +317,13 @@ extension AppDelegate {
         
         deviceTokenString = deviceToken.hexString
         NSLog("LNDeviceToken: %@", deviceTokenString)
+        print(deviceTokenString)
         
         if deviceTokenString.length > 0 {
             setDeviceToken(deviceTokenString)
         }
+        
+        Messaging.messaging().apnsToken = deviceToken as Data
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -316,3 +359,4 @@ extension AppDelegate {
         return (title, title)
     }
 }
+

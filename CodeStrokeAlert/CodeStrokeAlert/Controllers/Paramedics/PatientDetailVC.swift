@@ -105,7 +105,7 @@ class PatientDetailVC: BaseVC {
         
         self.updateUserCurrentLocation()
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notificationObject:)), name: NSNotification.Name(rawValue: BaseVC.notificationIdentifier), object: nil)
-        MBMicroblinkSDK.sharedInstance().setLicenseKey("sRwAAAEeY29tLmNvZGVzdHJva2UuY29kZXN0cm9rZWFsZXJ04ls3fvQTb0rDajvWXuiwHdFN+l0yLoO9E3CDVxQReb3DNLnnx4FkZSiyz+PGy/O+9juLBV6YAEeiLTKPuTQj3OJ/EBmc9tSTLAkoNuqN0ZEyyN+24Ofs38vEmLsfMZPyp9v0Mv9fx8iYEppDdYxgG605xGd5eL7K7UAGf8xhPnv/xqHLzEeV2duPYNYNR1bo/ZIFogHArS+ShOecZ6qa4/ONWOYQfzmo74CsJwnED7k81BWooUC7")
+        MBMicroblinkSDK.sharedInstance().setLicenseKey("sRwAAAEeY29tLmNvZGVzdHJva2UuY29kZXN0cm9rZWFsZXJ04ls3fvQTb0rDajvWWki1HYr//w0ekeyuw/Q3o2/Ga5wKxaOZR9pWDO/UWgbw04LhFTfgMMTLY9L0rUrFOlh7tzhGzJBUHMCPqe5Hiu/dNjoZwuyuX3VuMR81B84sTJ4jWhAD+jsmhTcTprCCZeVApEYOMMPhz6r7fBAZnlHrlYo2bWPVzkAxZ2aFzTSM0h9KFyIEwArYYneWpzdyhJd/TjvylTMHYQxKqbq01U1KrgAj6mQdvabhmw==")
         
         let image1 = self.gradientWithFrametoImage(frame: btnNext.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
         self.btnNext.backgroundColor = UIColor(patternImage: image1)
@@ -124,7 +124,7 @@ class PatientDetailVC: BaseVC {
         self.lblMins.text = arrayTime[1]
         self.lblAMPM.text = arrayDate[4]
         
-        f.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        f.setLocal()
         self.strLastSeen = f.string(from: Date())
     }
     
@@ -419,14 +419,14 @@ extension PatientDetailVC {
                     self.lblMins.text = arrayTime[1]
                     self.lblAMPM.text = arrayDate[4]
                     
-                    f.dateFormat = "yyyy-MM-dd hh:mm:ss"
+                    f.setLocal()
                     self.strLastSeen = f.string(from: pickerController.datePicker.date)
                 } else {
                     f.dateFormat = "MMM dd, yyyy"
                     let formattedDate: String = f.string(from: pickerController.datePicker.date)
                     self.txtDOB.text = formattedDate
                     
-                    f.dateFormat = "yyyy-MM-dd"
+                    f.setLocal()
                     self.strDOB = f.string(from: pickerController.datePicker.date)
                 }
             }

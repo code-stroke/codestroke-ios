@@ -121,6 +121,8 @@ class LoginWithQR: UIViewController {
     
     @IBAction func btnUserTypeClicked(_ sender: UIButton) {
         
+        self.view.endEditing(true)
+        
         let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         
         actionsheet.addAction(UIAlertAction(title: "Paramedic", style: UIAlertActionStyle.default, handler: { (action) -> Void in
@@ -142,6 +144,8 @@ class LoginWithQR: UIViewController {
     }
     
     @IBAction func btnUserRoleClicked(_ sender: UIButton) {
+        
+        self.view.endEditing(true)
         
         let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         

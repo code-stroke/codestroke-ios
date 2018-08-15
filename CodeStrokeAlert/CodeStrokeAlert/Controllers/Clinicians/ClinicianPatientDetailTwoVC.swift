@@ -165,6 +165,7 @@ extension ClinicianPatientDetailTwoVC {
                 if self.txtLastSeen.isSelected == true {
                     
                     f.dateFormat = "yyyy-MM-dd hh:mm:ss"
+                    f.setLocal()
                     self.strLastSeen = f.string(from: pickerController.datePicker.date)
                     self.txtLastSeen.text = self.strLastSeen
                     
@@ -173,7 +174,7 @@ extension ClinicianPatientDetailTwoVC {
                     let formattedDate: String = f.string(from: pickerController.datePicker.date)
                     self.txtDOB.text = formattedDate
                     
-                    f.dateFormat = "yyyy-MM-dd"
+                    f.setLocal()
                     self.strDOB = f.string(from: pickerController.datePicker.date)
                 }
             }

@@ -288,8 +288,8 @@ extension UIViewController {
 extension DateFormatter {
     
     func setLocal() {
+        self.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
         self.locale = Locale.init(identifier: "en_US_POSIX")
-        self.timeZone = TimeZone(abbreviation: "UTC")!
     }
 }
 

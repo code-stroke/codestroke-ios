@@ -251,7 +251,7 @@ extension ClinicalHistoryVC {
                 let formattedDate: String = f.string(from: pickerController.datePicker.date)
                 self.txtLastDate.text = formattedDate
                 
-                f.dateFormat = "yyyy-MM-dd hh:mm:ss"
+                f.setLocal()
                 self.strLastMealDate = f.string(from: pickerController.datePicker.date)
             }
         }
