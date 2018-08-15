@@ -68,7 +68,28 @@ extension LoginWithQR {
     }
 }
 
-extension PatientDetailVC {
+extension DestinationVC {
+    
+    func WS_HospitalList(url: String) {
+        
+        print("\(url)")
+        self.view.isUserInteractionEnabled = false
+        self.showHud("")
+        
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseArray { (response: DataResponse<[HospitalData]>) in
+            
+            self.view.isUserInteractionEnabled = true
+            self.hideHUD()
+            
+            if (response.result.value != nil) {
+                print(response.result.value!)
+                self.arrHospitalList = response.result.value!
+                self.pickerView.reloadAllComponents()
+            } else {
+                showAlert("Database return nil value")
+            }
+        }
+    }
     
     func WS_PatientInfo(url: String, parameter: [String: Any]) {
         
@@ -93,34 +114,10 @@ extension PatientDetailVC {
                 print(response.result.value!)
                 if response.result.value?.success == true {
                     UserDefaults.standard.set(response.result.value!.case_id, forKey: "case_id")
-                    self.performSegue(withIdentifier: "Destination", sender: self)
+                    self.performSegue(withIdentifier: "ClinicalHistory", sender: self)
                 } else {
                     showAlert("Error in adding data")
                 }
-            } else {
-                showAlert("Database return nil value")
-            }
-        }
-    }
-}
-
-extension DestinationVC {
-    
-    func WS_HospitalList(url: String) {
-        
-        print("\(url)")
-        self.view.isUserInteractionEnabled = false
-        self.showHud("")
-        
-        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseArray { (response: DataResponse<[HospitalData]>) in
-            
-            self.view.isUserInteractionEnabled = true
-            self.hideHUD()
-            
-            if (response.result.value != nil) {
-                print(response.result.value!)
-                self.arrHospitalList = response.result.value!
-                self.pickerView.reloadAllComponents()
             } else {
                 showAlert("Database return nil value")
             }

@@ -9,12 +9,13 @@
 import UIKit
 import EVReflection
 import MicroBlink
-import CoreLocation
 
 let kPatientDetailData = "PatientDetailData"
 
 class PatientDetailData: EVObject {
     
+    var strFirstName: String            = ""
+    var strLastName: String             = ""
     var strName: String                 = ""
     var strAge: String                  = ""
     var strGender: String               = ""
@@ -56,7 +57,7 @@ class PatientDetailData: EVObject {
     }
 }
 
-class PatientDetailVC: BaseVC {
+class PatientDetailVC: UIViewController {
     
     // MARK:- Declarations -
     
@@ -94,17 +95,12 @@ class PatientDetailVC: BaseVC {
     var strLastSeen: String = ""
     var patientDetailData = PatientDetailData()
     
-    var userCurrentLocation: CLLocation?
-    
     // MARK:- ViewController LifeCycle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
-        self.updateUserCurrentLocation()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notificationObject:)), name: NSNotification.Name(rawValue: BaseVC.notificationIdentifier), object: nil)
         MBMicroblinkSDK.sharedInstance().setLicenseKey("sRwAAAEeY29tLmNvZGVzdHJva2UuY29kZXN0cm9rZWFsZXJ04ls3fvQTb0rDajvWWki1HYr//w0ekeyuw/Q3o2/Ga5wKxaOZR9pWDO/UWgbw04LhFTfgMMTLY9L0rUrFOlh7tzhGzJBUHMCPqe5Hiu/dNjoZwuyuX3VuMR81B84sTJ4jWhAD+jsmhTcTprCCZeVApEYOMMPhz6r7fBAZnlHrlYo2bWPVzkAxZ2aFzTSM0h9KFyIEwArYYneWpzdyhJd/TjvylTMHYQxKqbq01U1KrgAj6mQdvabhmw==")
         
         let image1 = self.gradientWithFrametoImage(frame: btnNext.frame, colors: [UIColor(red: 255/255, green: 105/255, blue: 97/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 141/255, blue: 41/255, alpha: 1).cgColor])!
@@ -126,12 +122,6 @@ class PatientDetailVC: BaseVC {
         
         f.setLocal()
         self.strLastSeen = f.string(from: Date())
-    }
-    
-    @objc func methodOfReceivedNotification(notificationObject: Notification){
-        
-        print(notificationObject.userInfo ?? "not found location")
-        userCurrentLocation = notificationObject.userInfo?["location"] as? CLLocation
     }
     
     // MARK:- Action Methods -
@@ -181,10 +171,14 @@ class PatientDetailVC: BaseVC {
                 patientDetailData.strName = "unknown"
             } else if !isEmptyString(self.txtFirstName.text!) && self.btnSurnameUnknown.isSelected == true {
                 patientDetailData.strName = self.txtFirstName.text!
+                patientDetailData.strFirstName = self.txtFirstName.text!
             } else if !isEmptyString(self.txtSurname.text!) && self.btnFirstNameUnknown.isSelected == true {
                 patientDetailData.strName = self.txtSurname.text!
+                patientDetailData.strLastName = self.txtSurname.text!
             } else {
                 patientDetailData.strName = "\(self.txtFirstName.text!) \(self.txtSurname.text!)"
+                patientDetailData.strFirstName = self.txtFirstName.text!
+                patientDetailData.strLastName = self.txtSurname.text!
             }
             
             if self.btnDOBUnknown.isSelected {
@@ -216,56 +210,7 @@ class PatientDetailVC: BaseVC {
             
             patientDetailData.save()
             print(PatientDetailData.savedUser()!)
-            
-            if let userLatitude = self.userCurrentLocation?.coordinate.latitude, let userLongitude = self.userCurrentLocation?.coordinate.longitude {
-                
-                let param = ["first_name": self.btnFirstNameUnknown.isSelected ? "unknown" : self.txtFirstName.text!,
-                             "last_name": self.btnSurnameUnknown.isSelected ? "unknown" : self.txtSurname.text!,
-                             "dob": self.btnDOBUnknown.isSelected ? "unknown" : self.strDOB,
-                             "address": self.btnAddressUnknown.isSelected ? "unknown" : self.txtAddress.text!,
-                             "gender": self.btnGenderUnspecified.isSelected ? "u" : (segmentGender.selectedSegmentIndex == 0 ? "m" : "f"),
-                             "last_well": self.btnDateUnknown.isSelected ? "unknown" : self.strLastSeen,
-                             "nok": self.btnNextToKINUnknown.isSelected ? "unknown" : self.txtNextToKIN.text!,
-                             "nok_phone": self.btnNOKTelephoneUnknown.isSelected ? "unknown" : self.txtNOKTelephone.text!,
-                             "hospital_id": "1",
-//                             "initial_location_lat": "\(userLatitude)",
-//                             "initial_location_long": "\(userLongitude)",
-                             "initial_location_lat": "-37.9150",
-                             "initial_location_long": "145.1300"] as [String : Any]
-                
-                if Reachability.isConnectedToNetwork() {
-                    DispatchQueue.global(qos: .background).async {
-                        DispatchQueue.main.async {
-                            self.WS_PatientInfo(url: AppURL.baseURL + AppURL.AddNewCase, parameter: param)
-                        }
-                    }
-                } else {
-                    showAlert("No internet connection")
-                }
-            } else {
-                
-                let param = ["first_name": self.btnFirstNameUnknown.isSelected ? "unknown" : self.txtFirstName.text!,
-                             "last_name": self.btnSurnameUnknown.isSelected ? "unknown" : self.txtSurname.text!,
-                             "dob": self.btnDOBUnknown.isSelected ? "unknown" : self.strDOB,
-                             "address": self.btnAddressUnknown.isSelected ? "unknown" : self.txtAddress.text!,
-                             "gender": self.btnGenderUnspecified.isSelected ? "u" : (segmentGender.selectedSegmentIndex == 0 ? "m" : "f"),
-                             "last_well": self.btnDateUnknown.isSelected ? "unknown" : self.strLastSeen,
-                             "nok": self.btnNextToKINUnknown.isSelected ? "unknown" : self.txtNextToKIN.text!,
-                             "nok_phone": self.btnNOKTelephoneUnknown.isSelected ? "unknown" : self.txtNOKTelephone.text!,
-                             "hospital_id": "1",
-                             "initial_location_lat": NSNull(),
-                             "initial_location_long": NSNull()] as [String : Any]
-                
-                if Reachability.isConnectedToNetwork() {
-                    DispatchQueue.global(qos: .background).async {
-                        DispatchQueue.main.async {
-                            self.WS_PatientInfo(url: AppURL.baseURL + AppURL.AddNewCase, parameter: param)
-                        }
-                    }
-                } else {
-                    showAlert("No internet connection")
-                }
-            }
+            self.performSegue(withIdentifier: "Destination", sender: self)
         }
     }
     

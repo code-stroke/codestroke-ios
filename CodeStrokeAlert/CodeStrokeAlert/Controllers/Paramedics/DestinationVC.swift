@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 private var selectorColorAssociationKey: UInt8 = 0
 
@@ -33,7 +34,7 @@ extension UIPickerView {
     }
 }
 
-class DestinationVC: UIViewController {
+class DestinationVC: BaseVC {
     
     // MARK: - Declarations -
     
@@ -42,6 +43,9 @@ class DestinationVC: UIViewController {
     @IBOutlet weak var viewTop: UIView!
     
     var arrHospitalList = [HospitalData]()
+    var selectedHospital: Int = 0
+    
+    var userCurrentLocation: CLLocation?
     
     // MARK: - ViewController LifeCycle -
     
@@ -49,6 +53,9 @@ class DestinationVC: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        self.updateUserCurrentLocation()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notificationObject:)), name: NSNotification.Name(rawValue: BaseVC.notificationIdentifier), object: nil)
         
         self.title = "Destination"
         
@@ -79,11 +86,65 @@ class DestinationVC: UIViewController {
         }
     }
     
+    @objc func methodOfReceivedNotification(notificationObject: Notification){
+        
+        print(notificationObject.userInfo ?? "not found location")
+        userCurrentLocation = notificationObject.userInfo?["location"] as? CLLocation
+    }
+    
     // MARK: - Action Methods -
     
     @IBAction func btnNextClicked(_ sender: DesignableButton) {
         
-        self.performSegue(withIdentifier: "ClinicalHistory", sender: self)
+        if let userLatitude = self.userCurrentLocation?.coordinate.latitude, let userLongitude = self.userCurrentLocation?.coordinate.longitude {
+            
+            let param = ["first_name": PatientDetailData.savedUser()!.strFirstName,
+                         "last_name": PatientDetailData.savedUser()!.strLastName,
+                         "dob": PatientDetailData.savedUser()!.strAge,
+                         "address": PatientDetailData.savedUser()!.strAddress,
+                         "gender": PatientDetailData.savedUser()!.strGender == "unspecified" ? "u" : PatientDetailData.savedUser()!.strGender == "male" ? "m" : "f",
+                         "last_well": PatientDetailData.savedUser()!.strLastSeen,
+                         "nok": PatientDetailData.savedUser()!.strNok,
+                         "nok_phone": PatientDetailData.savedUser()!.strNOKContact,
+                         "hospital_id": self.arrHospitalList[selectedHospital+1].hospital_id,
+                         //                             "initial_location_lat": "\(userLatitude)",
+                //                             "initial_location_long": "\(userLongitude)",
+                "initial_location_lat": "-37.9150",
+                "initial_location_long": "145.1300"] as [String : Any]
+            
+            if Reachability.isConnectedToNetwork() {
+                DispatchQueue.global(qos: .background).async {
+                    DispatchQueue.main.async {
+                        self.WS_PatientInfo(url: AppURL.baseURL + AppURL.AddNewCase, parameter: param)
+                    }
+                }
+            } else {
+                showAlert("No internet connection")
+            }
+        } else {
+            
+            let param = ["first_name": PatientDetailData.savedUser()!.strFirstName,
+                         "last_name": PatientDetailData.savedUser()!.strLastName,
+                         "dob": PatientDetailData.savedUser()!.strAge,
+                         "address": PatientDetailData.savedUser()!.strAddress,
+                         "gender": PatientDetailData.savedUser()!.strGender == "unspecified" ? "u" : PatientDetailData.savedUser()!.strGender == "male" ? "m" : "f",
+                         "last_well": PatientDetailData.savedUser()!.strLastSeen,
+                         "nok": PatientDetailData.savedUser()!.strNok,
+                         "nok_phone": PatientDetailData.savedUser()!.strNOKContact,
+                         "hospital_id": self.arrHospitalList[selectedHospital+1].hospital_id,
+                         "initial_location_lat": NSNull(),
+                         "initial_location_long": NSNull()] as [String : Any]
+            
+            if Reachability.isConnectedToNetwork() {
+                DispatchQueue.global(qos: .background).async {
+                    DispatchQueue.main.async {
+                        self.WS_PatientInfo(url: AppURL.baseURL + AppURL.AddNewCase, parameter: param)
+                    }
+                }
+            } else {
+                showAlert("No internet connection")
+            }
+        }
     }
     
     // MARK: - Memory Warning -
@@ -119,5 +180,10 @@ extension DestinationVC: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return arrHospitalList[row+1].hospital_name
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        selectedHospital = row
     }
 }
