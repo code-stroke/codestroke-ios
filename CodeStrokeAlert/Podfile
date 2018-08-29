@@ -10,7 +10,6 @@ target 'CodeStrokeAlert' do
     pod 'EVReflection/Alamofire'
     pod 'SVProgressHUD'
     pod 'OneSignal'
-    pod 'PPBlinkID', '~> 4.0.0'
     pod 'Firebase/Core'
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
