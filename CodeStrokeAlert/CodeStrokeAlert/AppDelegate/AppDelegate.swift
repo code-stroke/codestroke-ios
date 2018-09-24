@@ -15,6 +15,7 @@ import Firebase
 import FirebaseInstanceID
 import CoreLocation
 import FirebaseMessaging
+import Buglife
 
 let appDelegate         = UIApplication.shared.delegate as! AppDelegate
 let loginStoryboard     = UIStoryboard(name: "Main", bundle: nil)
@@ -34,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        Buglife.shared().start(withEmail: "apps.jaypatel@gmail.com")
         self.locationManager = CLLocationManager()
         
         if CLLocationManager.authorizationStatus() == .notDetermined {

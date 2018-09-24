@@ -3,6 +3,7 @@ PODS:
     - ASBPlayerScrubbing (~> 0.1)
   - Alamofire (4.7.2)
   - ASBPlayerScrubbing (0.1)
+  - Buglife (2.8.0)
   - EVReflection/Alamofire (5.6.1):
     - Alamofire
     - EVReflection/Core
@@ -74,7 +75,6 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - OneSignal (2.8.5)
-  - PPBlinkID (4.0.0)
   - Protobuf (3.6.0)
   - SDWebImage (4.4.1):
     - SDWebImage/Core (= 4.4.1)
@@ -85,6 +85,7 @@ PODS:
 DEPENDENCIES:
   - AKMediaViewer
   - ASBPlayerScrubbing
+  - Buglife
   - EVReflection/Alamofire
   - Firebase/Auth
   - Firebase/Core
@@ -94,7 +95,6 @@ DEPENDENCIES:
   - Firebase/Storage
   - IQKeyboardManagerSwift
   - OneSignal
-  - PPBlinkID (~> 4.0.0)
   - SDWebImage (~> 4.1)
   - SVProgressHUD
   - Toaster (~> 2.0)
@@ -104,6 +104,7 @@ SPEC REPOS:
     - AKMediaViewer
     - Alamofire
     - ASBPlayerScrubbing
+    - Buglife
     - EVReflection
     - Firebase
     - FirebaseABTesting
@@ -121,7 +122,6 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - OneSignal
-    - PPBlinkID
     - Protobuf
     - SDWebImage
     - SVProgressHUD
@@ -131,6 +131,7 @@ SPEC CHECKSUMS:
   AKMediaViewer: 356d179edf335efcfb72eaf4efd67095c56548d7
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   ASBPlayerScrubbing: 0fc5e76aad6fdbcf14380734fb7f2c127cd28b66
+  Buglife: fed8594db4b440bc85d44629b90f2575713e8825
   EVReflection: d05ebbafc851b7a4cd3d625182662463a5819ab8
   Firebase: d66f4f29c23f22d96808d9abc174d81d8eee968f
   FirebaseABTesting: 1f50b8d50f5e3469eea54e7463a7b7fe221d1f5e
@@ -148,12 +149,11 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   OneSignal: 42dae269c7eca517aee34963820e1eb922390031
-  PPBlinkID: c3a348d8e3e60b96afd332062e9c3c353c521ebc
   Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
 
-PODFILE CHECKSUM: b740001ef4bc4f33a978fefd03e9db4bf8464203
+PODFILE CHECKSUM: 2aedd4d9bc72aee123fccc1c825a9f2ed95f6527
 
 COCOAPODS: 1.5.3

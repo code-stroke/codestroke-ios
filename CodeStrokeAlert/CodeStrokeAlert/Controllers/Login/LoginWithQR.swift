@@ -18,6 +18,7 @@ class LoginUserData: EVObject {
     var strUserRole: String             = ""
     var strUserType: String             = ""
     var userID: Int                     = 0
+    var strTitle: String?
     
     func save() {
         
