@@ -7,6 +7,12 @@ let kUserInfo = "SavedUserInfo"
 let kCases = "SavedCaseInfo"
 let kUserIds = "UserIDs"
 
+class VersionInfo: EVObject {
+    
+    var success: Bool                               = false
+    var version: String                             = ""
+}
+
 class UserInfo: EVObject {
     
     var shift_id: Int                               = 0

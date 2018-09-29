@@ -29,6 +29,57 @@ public func Log<T>(_ object: T?, filename: String = #file, line: Int = #line, fu
     #endif
 }
 
+public func WS_GetVersion() {
+    
+    let url = "http://codestrokezero.pythonanywhere.com/version/"
+    print("\(url)")
+
+    Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseObject { (response: DataResponse<VersionInfo>) in
+
+        if (response.result.value != nil) {
+            print(response.result.value!)
+            
+            if response.result.value!.success {
+                
+                if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                    
+                    if version != response.result.value!.version {
+                        
+                        let alertController = UIAlertController(title: AppConstants.appName, message: "Your version of Code Stroke Alert is out of date. Please upgrade to the latest version to continue.", preferredStyle:UIAlertControllerStyle.alert)
+                        
+                        alertController.addAction(UIAlertAction(title: "Update", style: UIAlertActionStyle.default)
+                        { action -> Void in
+                            openAppStore()
+                        })
+                        
+                        DispatchQueue.main.async {
+                            appDelegate.window?.rootViewController!.present(alertController, animated: true, completion: nil) // present the alert
+                        }
+                    }
+                }
+            }
+        } else {
+            
+        }
+    }
+}
+
+func openAppStore() {
+    
+    if let url = URL(string: "itms-apps://itunes.apple.com/app/id1434636135"),
+
+        UIApplication.shared.canOpenURL(url) {
+        UIApplication.shared.open(url, options: [:]) { (opened) in
+            
+            if(opened) {
+                print("App Store Opened")
+            }
+        }
+    } else {
+        print("Can't Open URL on Simulator")
+    }
+}
+
 extension Data {
     public var hexString: String {
         return map { String(format: "%02.2hhx", arguments: [$0]) }.joined()

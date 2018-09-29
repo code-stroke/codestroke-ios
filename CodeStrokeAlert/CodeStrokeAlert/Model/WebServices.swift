@@ -98,7 +98,7 @@ extension DestinationVC {
         self.showHud("")
         
         let username = "Jayesh"
-        let password = "changethislater"
+        let password = ""
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
@@ -134,7 +134,7 @@ extension ClinicalHistoryVC {
         self.showHud("")
         
         let username = "Jayesh"
-        let password = "changethislater"
+        let password = ""
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
@@ -169,7 +169,7 @@ extension ClinicalAssessmentFourVC {
         self.showHud("")
         
         let username = "Jayesh"
-        let password = "changethislater"
+        let password = ""
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
@@ -204,7 +204,7 @@ extension ProfileSummaryVC {
         self.showHud("")
         
         let username = "Jayesh"
-        let password = "changethislater"
+        let password = ""
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
@@ -238,13 +238,12 @@ extension PatientListVC {
         self.showHud("")
         
         let username = "Jayesh"
-        let password = "changethislater"
+        let password = ""
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
         
-        let headers = ["content-type": "application/json",
-                       "Authorization": "Basic \(base64LoginString)"]
+        let headers = ["Authorization": "Basic \(base64LoginString)"]
         
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseObject { (response : DataResponse<CaseListModel>) in
             self.view.isUserInteractionEnabled = true
@@ -301,20 +300,22 @@ extension ClinicianPatientDetailVC {
         self.showHud("")
         
         let username = "Jayesh"
-        let password = "changethislater"
+        let password = ""
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
         
-        let headers = ["content-type": "application/json",
-                       "Authorization": "Basic \(base64LoginString)"]
+        var headers: [String: String] = [:]
         
         var method = HTTPMethod.get
         
         if isGet == true {
             method = HTTPMethod.get
+            headers = ["Authorization": "Basic \(base64LoginString)"]
         } else {
             method = HTTPMethod.put
+            headers = ["content-type": "application/json",
+                       "Authorization": "Basic \(base64LoginString)"]
         }
         
         Alamofire.request(url, method: method, parameters: isGet ? nil : parameter, encoding: JSONEncoding.default, headers: headers).responseObject { (response : DataResponse<EDModel>) in
@@ -364,20 +365,22 @@ extension MainContainerVC {
         self.showHud("")
         
         let username = "Jayesh"
-        let password = "changethislater"
+        let password = ""
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
         
-        let headers = ["content-type": "application/json",
-                       "Authorization": "Basic \(base64LoginString)"]
+        var headers: [String: String] = [:]
         
         var method = HTTPMethod.get
         
         if isGet == true {
             method = HTTPMethod.get
+            headers = ["Authorization": "Basic \(base64LoginString)"]
         } else {
             method = HTTPMethod.put
+            headers = ["content-type": "application/json",
+                       "Authorization": "Basic \(base64LoginString)"]
         }
         
         Alamofire.request(url, method: method, parameters: isGet ? nil : parameter, encoding: JSONEncoding.default, headers: headers).responseObject { (response : DataResponse<EDModel>) in
@@ -427,20 +430,22 @@ extension ClinicianPatientDetailTwoVC {
         self.showHud("")
         
         let username = "Jayesh"
-        let password = "changethislater"
+        let password = ""
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
         
-        let headers = ["content-type": "application/json",
-                       "Authorization": "Basic \(base64LoginString)"]
+        var headers: [String: String] = [:]
         
         var method = HTTPMethod.get
         
         if isGet == true {
             method = HTTPMethod.get
+            headers = ["Authorization": "Basic \(base64LoginString)"]
         } else {
             method = HTTPMethod.put
+            headers = ["content-type": "application/json",
+                       "Authorization": "Basic \(base64LoginString)"]
         }
         
         Alamofire.request(url, method: method, parameters: isGet ? nil : parameter, encoding: JSONEncoding.default, headers: headers).responseObject { (response : DataResponse<CaseListModel>) in
@@ -496,20 +501,22 @@ extension ClinicianPatientDetailThreeVC {
         self.showHud("")
         
         let username = "Jayesh"
-        let password = "changethislater"
+        let password = ""
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
         
-        let headers = ["content-type": "application/json",
-                       "Authorization": "Basic \(base64LoginString)"]
+        var headers: [String: String] = [:]
         
         var method = HTTPMethod.get
         
         if isGet == true {
             method = HTTPMethod.get
+            headers = ["Authorization": "Basic \(base64LoginString)"]
         } else {
             method = HTTPMethod.put
+            headers = ["content-type": "application/json",
+                       "Authorization": "Basic \(base64LoginString)"]
         }
         
         Alamofire.request(url, method: method, parameters: isGet ? nil : parameter, encoding: JSONEncoding.default, headers: headers).responseObject { (response : DataResponse<CaseHistoryModel>) in
@@ -559,20 +566,22 @@ extension ClinicianPatientDetailFourVC {
         self.showHud("")
         
         let username = "Jayesh"
-        let password = "changethislater"
+        let password = ""
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
         
-        let headers = ["content-type": "application/json",
-                       "Authorization": "Basic \(base64LoginString)"]
+        var headers: [String: String] = [:]
         
         var method = HTTPMethod.get
         
         if isGet == true {
             method = HTTPMethod.get
+            headers = ["Authorization": "Basic \(base64LoginString)"]
         } else {
             method = HTTPMethod.put
+            headers = ["content-type": "application/json",
+                       "Authorization": "Basic \(base64LoginString)"]
         }
         
         Alamofire.request(url, method: method, parameters: isGet ? nil : parameter, encoding: JSONEncoding.default, headers: headers).responseObject { (response : DataResponse<ClinicianAssessmentModel>) in
@@ -832,20 +841,22 @@ extension ClinicianPatientDetailFiveVC {
         self.showHud("")
         
         let username = "Jayesh"
-        let password = "changethislater"
+        let password = ""
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
         
-        let headers = ["content-type": "application/json",
-                       "Authorization": "Basic \(base64LoginString)"]
+        var headers: [String: String] = [:]
         
         var method = HTTPMethod.get
         
         if isGet == true {
             method = HTTPMethod.get
+            headers = ["Authorization": "Basic \(base64LoginString)"]
         } else {
             method = HTTPMethod.put
+            headers = ["content-type": "application/json",
+                       "Authorization": "Basic \(base64LoginString)"]
         }
         
         Alamofire.request(url, method: method, parameters: isGet ? nil : parameter, encoding: JSONEncoding.default, headers: headers).responseObject { (response : DataResponse<RadiologyModel>) in
@@ -937,20 +948,22 @@ extension ClinicianPatientDetailSixVC {
         self.showHud("")
         
         let username = "Jayesh"
-        let password = "changethislater"
+        let password = ""
         let loginString = String(format: "%@:%@", username, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
         
-        let headers = ["content-type": "application/json",
-                       "Authorization": "Basic \(base64LoginString)"]
+        var headers: [String: String] = [:]
         
         var method = HTTPMethod.get
         
         if isGet == true {
             method = HTTPMethod.get
+            headers = ["Authorization": "Basic \(base64LoginString)"]
         } else {
             method = HTTPMethod.put
+            headers = ["content-type": "application/json",
+                       "Authorization": "Basic \(base64LoginString)"]
         }
         
         Alamofire.request(url, method: method, parameters: isGet ? nil : parameter, encoding: JSONEncoding.default, headers: headers).responseObject { (response : DataResponse<ManagementModel>) in

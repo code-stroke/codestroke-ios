@@ -10,7 +10,8 @@ import Foundation
 
 struct AppURL {
     
-    static let baseURL = "https://codestroke.pythonanywhere.com/"   // Live
+//    static let baseURL = "https://codestroke.pythonanywhere.com/"   // Live
+    static let baseURL = "https://codestrokezero.pythonanywhere.com/"   // Live
     
     static let AddNewCase                       = "cases/"
     static let CaseList                         = "cases/"
